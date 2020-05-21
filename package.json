@@ -1,0 +1,28 @@
+{
+  "name": "calculator",
+  "version": "1.0.0",
+  "description": "It is an offline calculator that can help you do the math even when losing internet connection.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ii887522/calculator.git"
+  },
+  "author": "ii887522",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ii887522/calculator/issues"
+  },
+  "homepage": "https://github.com/ii887522/calculator#readme",
+  "type": "module",
+  "dependencies": {
+    "jszip": "^3.4.0"
+  },
+  "devDependencies": {
+    "@types/jszip": "^3.4.1",
+    "@types/node": "^14.0.4",
+    "typescript": "^3.9.3"
+  }
+}

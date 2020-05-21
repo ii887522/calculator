@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{81503593-e3f5-434e-8980-b9b4868e9684}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{898380b5-5539-48fe-b376-667b64aae7b9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{ac78dc83-fb10-45bc-8f52-e7debbea47fa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Test Header Files">
+      <UniqueIdentifier>{a9587721-2024-4bd1-87b1-9d9dea71cdea}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Test Source Files">
+      <UniqueIdentifier>{13320f6e-0403-47e5-b52e-ff3b44aef6b8}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\main\calculator.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\test\test.cpp">
+      <Filter>Test Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>
