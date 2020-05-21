@@ -4,6 +4,7 @@ import https from "https";
 import fs from "fs";
 import JSZip from "jszip";
 import child_process from "child_process";
+import { getFileName } from "./synthetic_fs.js";
 
 export const libsPath = "libs/";
 let solutionConfigPaths: string[];
@@ -30,6 +31,13 @@ function makeSureSolutionConfigDirsExist(): void {
     for (const solutionConfigPath of solutionConfigPaths) makeSureDirExists(solutionConfigPath);
 }
 
+function makeSureNoDllsExist(path: string): void {
+    for (const file of fs.readdirSync(path)) {
+        if (!file.endsWith(".dll")) continue;
+        fs.unlinkSync(`${path}${file}`);
+    }
+}
+
 /**
  * @param run it must only contains calls to zip or dll functions
  * 
@@ -39,6 +47,8 @@ export function dependencies(run: () => void): void {
     if (process.argv.length === 2) {
         makeSureCleanDirExists(libsPath);
         makeSureSolutionConfigDirsExist();
+    } else if (process.argv.length === 3 && process.argv[2] === "--dll") {
+        for (const solutionConfigPath of solutionConfigPaths) makeSureNoDllsExist(solutionConfigPath);
     }
     run();
 }
@@ -81,7 +91,9 @@ process.on("exit", code => {
 
 export function dll(path: string): void {
     if (process.argv.length !== 3 || process.argv[2] !== "--dll") return;
-    // for (const solutionConfigPath of solutionConfigPaths) {
-    //     fs.copyFile(path, `${solutionConfigPath}`);
-    // }
+    for (const solutionConfigPath of solutionConfigPaths) {
+        fs.copyFile(path, `${solutionConfigPath}${getFileName(path)}`, err => {
+            if (err) throw err;
+        });
+    }
 }
