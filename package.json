@@ -2,7 +2,7 @@
   "name": "calculator",
   "version": "1.0.0",
   "description": "It is an offline calculator that can help you do the math even when losing internet connection.",
-  "main": "index.js",
+  "main": "init.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
