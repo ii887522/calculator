@@ -7,7 +7,7 @@
 
 namespace ii887522::Calculator
 {
-	// 
+	// Not Thread Safe: it must only be used in main thread
 	class App final
 	{
 		// remove copy semantics
@@ -18,12 +18,10 @@ namespace ii887522::Calculator
 		App(App&&) = delete;
 		App& operator=(App&&) = delete;
 
-		SDL_Window* window;
+		SDL_Window*const window;
 
 	public:
-		// 
 		explicit App();
-
 		~App();
 	};
 }

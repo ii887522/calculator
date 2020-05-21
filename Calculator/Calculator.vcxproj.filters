@@ -27,10 +27,21 @@
     <ClCompile Include="src\main\App.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="src\main\Subsystems.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\main\App.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="src\main\Subsystems.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="res\main\calculator.png">
+      <Filter>Resource Files</Filter>
+    </Image>
   </ItemGroup>
 </Project>

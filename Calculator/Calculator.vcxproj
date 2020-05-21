@@ -229,10 +229,15 @@
   <ItemGroup>
     <ClCompile Include="src\main\App.cpp" />
     <ClCompile Include="src\main\calculator.cpp" />
+    <ClCompile Include="src\main\Subsystems.cpp" />
     <ClCompile Include="src\test\test.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\main\App.h" />
+    <ClInclude Include="src\main\Subsystems.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="res\main\calculator.png" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
