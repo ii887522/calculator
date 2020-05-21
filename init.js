@@ -1,6 +1,6 @@
 "use strict";
 
-import { setSolutionConfigPaths, dependencies, zip, dll, libsPath } from "./scripts/out/init_system.js";
+import { setSolutionConfigPaths, dependencies, zip, dll, libsPath } from "./scripts/out/main/init_system.js";
 
 setSolutionConfigPaths("Calculator/Debug/", "Calculator/Release/");
 

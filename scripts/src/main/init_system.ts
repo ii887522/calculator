@@ -4,6 +4,7 @@ import https from "https";
 import fs from "fs";
 import JSZip from "jszip";
 import child_process from "child_process";
+import { getFileName } from "./synthetic_fs.js";
 
 export const libsPath = "libs/";
 let solutionConfigPaths: string[];
@@ -94,7 +95,9 @@ process.on("exit", code => {
 
 export function dll(path: string): void {
     if (process.argv.length !== 3 || process.argv[2] !== "--dll") return;
-    // for (const solutionConfigPath of solutionConfigPaths) {
-    //     fs.copyFile(path, `${solutionConfigPath}`);
-    // }
+    for (const solutionConfigPath of solutionConfigPaths) {
+        fs.copyFile(path, `${solutionConfigPath}${getFileName(path)}`, err => {
+            if (err) throw err;
+        });
+    }
 }
