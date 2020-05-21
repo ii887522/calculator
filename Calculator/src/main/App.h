@@ -19,6 +19,7 @@ namespace ii887522::Calculator
 		App& operator=(App&&) = delete;
 
 		SDL_Window*const window;
+		SDL_Surface*const ico;
 
 	public:
 		explicit App();
