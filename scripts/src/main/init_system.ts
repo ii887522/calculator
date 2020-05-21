@@ -38,6 +38,10 @@ function makeSureNoDllsExist(path: string): void {
     }
 }
 
+function makeSureNoDllsExistInSolutionConfigDirs(): void {
+    for (const solutionConfigPath of solutionConfigPaths) makeSureNoDllsExist(solutionConfigPath);
+}
+
 /**
  * @param run it must only contains calls to zip or dll functions
  * 
@@ -48,7 +52,7 @@ export function dependencies(run: () => void): void {
         makeSureCleanDirExists(libsPath);
         makeSureSolutionConfigDirsExist();
     } else if (process.argv.length === 3 && process.argv[2] === "--dll") {
-        for (const solutionConfigPath of solutionConfigPaths) makeSureNoDllsExist(solutionConfigPath);
+        makeSureNoDllsExistInSolutionConfigDirs();
     }
     run();
 }
