@@ -4,18 +4,13 @@ import https from "https";
 import fs from "fs";
 import JSZip from "jszip";
 import child_process from "child_process";
-import { getFileName } from "./synthetic_fs.js";
+import { makeSureCleanDirExists, getFileName } from "./fs_ext.js";
 
 export const libsPath = "libs/";
 let solutionConfigPaths: string[];
 
 export function setSolutionConfigPaths(...value: string[]): void {
     solutionConfigPaths = value;
-}
-
-function makeSureCleanDirExists(path: string): void {
-    fs.rmdirSync(path, { recursive: true });
-    fs.mkdirSync(path);
 }
 
 function makeSureDirExists(path: string): void {
