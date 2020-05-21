@@ -20,9 +20,13 @@ namespace ii887522::Calculator
 
 		SDL_Window*const window;
 		SDL_Surface*const ico;
+		SDL_Renderer*const renderer;
+
+		void render();
 
 	public:
 		explicit App();
+		void show();
 		~App();
 	};
 }
