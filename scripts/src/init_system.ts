@@ -6,8 +6,9 @@ import JSZip from "jszip";
 
 const libsPath = "libs/";
 
-function makeSureDirExists(path: string): void {
-    if (!fs.existsSync(path)) fs.mkdirSync(path);
+function makeSureCleanDirExists(path: string): void {
+    fs.rmdirSync(path, { recursive: true });
+    fs.mkdirSync(path);
 }
 
 /**
@@ -16,7 +17,7 @@ function makeSureDirExists(path: string): void {
  * Must Call Time(s): 1
  */
 export function dependencies(run: () => void): void {
-    makeSureDirExists(libsPath);
+    makeSureCleanDirExists(libsPath);
     run();
 }
 
@@ -31,7 +32,7 @@ export function zip(url: string): void {
             JSZip.loadAsync(file).then(value => {
                 for (const relativePath in value.files) {
                     if (value.files[relativePath].dir) {
-                        makeSureDirExists(`${libsPath}${relativePath}`);
+                        fs.mkdirSync(`${libsPath}${relativePath}`);
                     } else {
                         value.files[relativePath].async("uint8array").then(value => {
                             fs.writeFile(`${libsPath}${relativePath}`, value, err => {
