@@ -26,6 +26,10 @@ function makeSureDirExists(path: string): void {
     });
 }
 
+function makeSureSolutionConfigDirsExist(): void {
+    for (const solutionConfigPath of solutionConfigPaths) makeSureDirExists(solutionConfigPath);
+}
+
 /**
  * @param run it must only contains calls to zip or dll functions
  * 
@@ -34,7 +38,7 @@ function makeSureDirExists(path: string): void {
 export function dependencies(run: () => void): void {
     if (process.argv.length === 2) {
         makeSureCleanDirExists(libsPath);
-        for (const solutionConfigPath of solutionConfigPaths) makeSureDirExists(solutionConfigPath);
+        makeSureSolutionConfigDirsExist();
     }
     run();
 }
