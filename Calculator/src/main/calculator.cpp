@@ -1,12 +1,13 @@
 #ifndef TEST
 
 #include <SDL.h>
+#include "App.h"
 
 namespace ii887522::Calculator
 {
 	static int main(int, char**)
 	{
-
+		const App app;
 		return 0;
 	}
 }
