@@ -11,16 +11,15 @@ function makeSureDirExists(path: string): void {
 }
 
 /**
+ * @param run it must only contains calls to zip function
  * 
+ * Must Call Time(s): 1
  */
 export function dependencies(run: () => void): void {
     makeSureDirExists(libsPath);
-    run;
+    run();
 }
 
-/**
- * 
- */
 export function zip(url: string): void {
     https.get(url, res => {
         const file = new Uint8Array(Number(res.headers["content-length"]));
@@ -32,9 +31,15 @@ export function zip(url: string): void {
             JSZip.loadAsync(file).then(value => {
                 for (const relativePath in value.files) {
                     if (value.files[relativePath].dir) {
-
+                        makeSureDirExists(`${libsPath}${relativePath}`);
                     } else {
-
+                        value.files[relativePath].async("uint8array").then(value => {
+                            fs.writeFile(`${libsPath}${relativePath}`, value, err => {
+                                if (err) throw err;
+                            });
+                        }, reason => {
+                            throw new Error(reason);
+                        });
                     }
                 }
             }, reason => {
