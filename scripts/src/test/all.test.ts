@@ -1,3 +1,4 @@
 "use strict";
 
-import "./fs_ext.test.js";
+import "./synthetic_fs.test.js";
+import "./string_ext.test.js";
