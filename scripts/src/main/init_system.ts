@@ -77,10 +77,14 @@ export function zip(url: string): void {
                             });
                         }, reason => {
                             throw new Error(reason);
+                        }).catch(reason => {
+                            throw new Error(reason);
                         });
                     }
                 }
             }, reason => {
+                throw new Error(reason);
+            }).catch(reason => {
                 throw new Error(reason);
             });
         }).on("error", err => {
