@@ -10,7 +10,7 @@ function testGetFileName() {
 
 function testGetFileNameWithoutExt() {
     console.assert(getFileNameWithoutExt("SDL2.dll") === "SDL2");
-    console.assert(getFileNameWithoutExt("libpng16-16.dll") === "libpng16-16");
+    console.assert(getFileNameWithoutExt("App.h") !== "SDL2");
     console.assert(getFileNameWithoutExt("App.h") === "App");
 }
 
