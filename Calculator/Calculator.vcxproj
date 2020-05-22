@@ -239,6 +239,7 @@
     <ClInclude Include="src\main\Button.h" />
     <ClInclude Include="src\main\ButtonModel.h" />
     <ClInclude Include="src\main\Point.h" />
+    <ClInclude Include="src\main\Rect.h" />
     <ClInclude Include="src\main\Size.h" />
     <ClInclude Include="src\main\Subsystems.h" />
     <ClInclude Include="src\test\ButtonModel.test.h" />

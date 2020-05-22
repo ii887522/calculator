@@ -5,8 +5,7 @@ namespace ii887522::Calculator
 {
 	struct Size final
 	{
-		// remove copy semantics
-		Size(const Size&) = delete;
+		// remove operator= copy semantics
 		Size& operator=(const Size&) = delete;
 
 		// remove move semantics
@@ -17,6 +16,7 @@ namespace ii887522::Calculator
 		const int h;
 
 		explicit constexpr Size(const int w = 0, const int h = 0) : w{ w }, h{ h } { }
+		constexpr Size(const Size&) = default;
 	};
 }
 

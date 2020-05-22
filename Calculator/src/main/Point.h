@@ -5,8 +5,7 @@ namespace ii887522::Calculator
 {
 	struct Point final
 	{
-		// remove copy semantics
-		Point(const Point&) = delete;
+		// remove operator= copy semantics
 		Point& operator=(const Point&) = delete;
 
 		// remove move semantics
@@ -17,6 +16,7 @@ namespace ii887522::Calculator
 		const int y;
 
 		explicit constexpr Point(const int x = 0, const int y = 0) : x{ x }, y{ y } { }
+		constexpr Point(const Point&) = default;
 	};
 }
 
