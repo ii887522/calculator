@@ -6,6 +6,7 @@ namespace ii887522::Calculator
 {
 	static int main()
 	{
+
 		testButtonModel();
 		return 0;
 	}
