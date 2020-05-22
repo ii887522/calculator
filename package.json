@@ -20,6 +20,7 @@
   "homepage": "https://github.com/ii887522/calculator#readme",
   "type": "module",
   "dependencies": {
+    "create-desktop-shortcuts": "^1.0.2",
     "jszip": "^3.4.0",
     "png-to-ico": "^2.1.0"
   },

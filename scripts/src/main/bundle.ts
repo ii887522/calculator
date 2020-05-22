@@ -4,6 +4,7 @@ import fs from "fs";
 import { endsWithAny } from "./string_ext.js";
 import pngToIco from "png-to-ico";
 import { getFileNameWithoutExt } from "./synthetic_fs.js";
+import createDesktopShortcuts from "create-desktop-shortcuts";
 
 if (process.argv.length !== 8 || process.argv[2] !== "--release-path" || process.argv[4] !== "--resource-path" ||
     process.argv[6] !== "--ico")
