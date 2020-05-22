@@ -7,7 +7,6 @@ declare module "create-desktop-shortcuts" {
         filePath: string;
         outputPath: string;
         name: string;
-        description: string;
         icon: string;
         windowMode: string;
     }
