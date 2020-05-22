@@ -33,6 +33,9 @@
     <ClCompile Include="src\main\Button.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="src\test\ButtonModel.test.cpp">
+      <Filter>Test Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\main\App.h">
@@ -48,6 +51,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\main\Point.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\test\ButtonModel.test.h">
+      <Filter>Test Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\main\Size.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

@@ -231,6 +231,7 @@
     <ClCompile Include="src\main\Button.cpp" />
     <ClCompile Include="src\main\calculator.cpp" />
     <ClCompile Include="src\main\Subsystems.cpp" />
+    <ClCompile Include="src\test\ButtonModel.test.cpp" />
     <ClCompile Include="src\test\test.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -238,7 +239,9 @@
     <ClInclude Include="src\main\Button.h" />
     <ClInclude Include="src\main\ButtonModel.h" />
     <ClInclude Include="src\main\Point.h" />
+    <ClInclude Include="src\main\Size.h" />
     <ClInclude Include="src\main\Subsystems.h" />
+    <ClInclude Include="src\test\ButtonModel.test.h" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="res\main\calculator.png" />
