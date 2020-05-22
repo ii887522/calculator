@@ -8,8 +8,7 @@ namespace ii887522::Calculator
 {
 	struct Rect final
 	{
-		// remove copy semantics
-		Rect(const Rect&) = delete;
+		// remove operator= copy semantics
 		Rect& operator=(const Rect&) = delete;
 
 		// remove move semantics
@@ -19,8 +18,8 @@ namespace ii887522::Calculator
 		const Point position;
 		const Size size;
 
-		explicit constexpr Rect(const Point& position = Point{ }, const Size& size = Size{ }) : position{ position }, size{ size }
-		{ }
+		explicit constexpr Rect(const Point& position = Point{ }, const Size& size = Size{ }) : position{ position }, size{ size } { }
+		constexpr Rect(const Rect&) = default;
 	};
 }
 
