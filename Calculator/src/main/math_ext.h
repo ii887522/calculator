@@ -7,20 +7,26 @@
 
 namespace ii887522::Calculator
 {
-	constexpr bool isOverlapX(const int x, const Range& xRange)
+	constexpr bool isOverlapX(const int x, const Range<const int>& xRange)
 	{
 		return x >= xRange.min && x < xRange.max;
 	}
 
-	constexpr bool isOverlapY(const int y, const Range& yRange)
+	constexpr bool isOverlapY(const int y, const Range<const int>& yRange)
 	{
 		return y >= yRange.min && y < yRange.max;
 	}
 
 	constexpr bool isOverlap(const Point& point, const Rect& rect)
 	{
-		return isOverlapX(point.x, Range{ rect.position.x, rect.position.x + rect.size.w }) &&
-			isOverlapY(point.y, Range{ rect.position.y, rect.position.y + rect.size.h });
+		return isOverlapX(point.x, Range<const int>{ rect.position.x, rect.position.x + rect.size.w }) &&
+			isOverlapY(point.y, Range<const int>{ rect.position.y, rect.position.y + rect.size.h });
+	}
+
+	constexpr void clamp(unsigned int& target, const Range<const unsigned int>& range)
+	{
+		if (target < range.min) target = range.min;
+		else if (target > range.max) target = range.max;
 	}
 }
 
