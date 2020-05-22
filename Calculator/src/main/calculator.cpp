@@ -13,7 +13,7 @@ namespace ii887522::Calculator
 		SDL_Event event;
 		while (SDL_WaitEvent(&event))
 		{
-			if (event.type == SDL_QUIT) break;
+			if (app.react(event) == App::Action::QUIT) break;
 			app.show();
 		}
 		return 0;
