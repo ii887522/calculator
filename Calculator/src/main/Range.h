@@ -3,7 +3,7 @@
 
 namespace ii887522::Calculator
 {
-	struct Range final
+	template <typename T> struct Range final
 	{
 		// remove copy semantics
 		Range(const Range&) = delete;
@@ -13,10 +13,10 @@ namespace ii887522::Calculator
 		Range(Range&&) = delete;
 		Range& operator=(Range&&) = delete;
 
-		const int min;
-		const int max;
+		const T min;
+		const T max;
 
-		explicit constexpr Range(const int min = 0, const int max = 0) : min{ min }, max{ max } { }
+		explicit constexpr Range(const T& min, const T& max) : min{ min }, max{ max } { }
 	};
 }
 

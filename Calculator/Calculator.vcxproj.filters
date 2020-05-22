@@ -77,6 +77,9 @@
     <ClInclude Include="src\main\Enums.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="src\main\AnimatedFloat.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Image Include="res\main\calculator.png">

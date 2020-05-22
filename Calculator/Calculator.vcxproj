@@ -236,6 +236,7 @@
     <ClCompile Include="src\test\test.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\main\AnimatedFloat.h" />
     <ClInclude Include="src\main\App.h" />
     <ClInclude Include="src\main\Button.h" />
     <ClInclude Include="src\main\ButtonModel.h" />

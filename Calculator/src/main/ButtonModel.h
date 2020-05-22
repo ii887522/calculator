@@ -4,6 +4,8 @@
 #include "Point.h"
 #include "Rect.h"
 #include "math_ext.h"
+#include "Enums.h"
+#include "AnimatedFloat.h"
 
 namespace ii887522::Calculator
 {
@@ -24,33 +26,42 @@ namespace ii887522::Calculator
 		ButtonModel& operator=(ButtonModel&&) = delete;
 
 		State state;
+		unsigned int elaspedTime;
 
 		constexpr void reactMouseMotionWhenInitial(const Point& mousePosition)
 		{
 			if (!isOverlap(mousePosition, rect)) return;
 			state = State::HOVERED;
-			lightness = .9f;
+			elaspedTime = 0u;
+			lightness.end = .9f;
+			isAnimating = true;
 		}
 		
 		constexpr void reactMouseMotionWhenHovered(const Point& mousePosition)
 		{
 			if (isOverlap(mousePosition, rect)) return;
 			state = State::INITIAL;
-			lightness = 1.f;
+			elaspedTime = 0u;
+			lightness.end = 1.f;
+			isAnimating = true;
 		}
 
 		constexpr void reactMouseMotionWhenPressed(const Point& mousePosition)
 		{
 			if (isOverlap(mousePosition, rect)) return;
 			state = State::INITIAL;
-			lightness = 1.f;
+			elaspedTime = 0u;
+			lightness.end = 1.f;
+			isAnimating = true;
 		}
 
 	public:
 		const Rect rect;
-		float lightness;
+		AnimatedFloat lightness;
+		bool isAnimating;
 
-		explicit constexpr ButtonModel(const Rect& rect) : state{ State::INITIAL }, rect{ rect }, lightness{ 1.f } { }
+		explicit constexpr ButtonModel(const Rect& rect) : state{ State::INITIAL }, elaspedTime{ 0u }, rect{ rect }, lightness{ 1.f },
+			isAnimating{ false } { }
 
 		constexpr void reactMouseMotion(const Point& mousePosition)
 		{
@@ -68,20 +79,35 @@ namespace ii887522::Calculator
 		{
 			if (state != State::HOVERED) return;
 			state = State::PRESSED;
-			lightness = .8f;
+			elaspedTime = 0u;
+			lightness.end = .8f;
+			isAnimating = true;
 		}
 
 		constexpr void reactLeftMouseButtonUp()
 		{
 			if (state != State::PRESSED) return;
 			state = State::HOVERED;
-			lightness = .9f;
+			elaspedTime = 0u;
+			lightness.end = .9f;
+			isAnimating = true;
 		}
 
 		constexpr void reactMouseLeaveWindow()
 		{
 			state = State::INITIAL;
-			lightness = 1.f;
+			elaspedTime = 0u;
+			lightness.end = 1.f;
+			isAnimating = true;
+		}
+
+		constexpr void step(const unsigned int dt)
+		{
+			elaspedTime += dt;
+			const auto duration{ 500u };
+
+			lightness.now = lightness.start + (lightness.end - lightness.start) * (static_cast<float>(elaspedTime) / duration);
+
 		}
 	};
 }

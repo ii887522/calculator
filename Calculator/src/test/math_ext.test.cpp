@@ -44,11 +44,17 @@ namespace ii887522::Calculator
 		static_assert(isOverlap(Point{ 2, 2 }, Rect{ Point{ 2, 2 }, Size{ 5, 5 } }));
 	}
 
+	constexpr static void testClamp()
+	{
+
+	}
+
 	void testMathExt()
 	{
 		testIsOverlapX();
 		testIsOverlapY();
 		testIsOverlap();
+		testClamp();
 	}
 }
 

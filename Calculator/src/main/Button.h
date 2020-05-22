@@ -7,6 +7,7 @@
 #include "ButtonModel.h"
 #include "Rect.h"
 #include "Point.h"
+#include "Enums.h"
 
 namespace ii887522::Calculator
 {
@@ -44,6 +45,12 @@ namespace ii887522::Calculator
 		constexpr void reactMouseLeaveWindow(const SDL_WindowEvent&)
 		{
 			viewModel.reactMouseLeaveWindow();
+		}
+
+		constexpr Action step(const unsigned int dt)
+		{
+			dt;
+			return Action::NONE;
 		}
 
 		// Param renderer: it must not be assigned to integer

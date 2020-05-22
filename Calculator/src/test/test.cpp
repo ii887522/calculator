@@ -12,6 +12,7 @@ namespace ii887522::Calculator
 		buttonModelTest.testReactLeftMouseButtonDown();
 		buttonModelTest.testReactLeftMouseButtonUp();
 		buttonModelTest.testReactMouseLeaveWindow();
+		buttonModelTest.testStep();
 	}
 
 	static int main()
