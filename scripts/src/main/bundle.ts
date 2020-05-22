@@ -2,13 +2,18 @@
 
 import fs from "fs";
 import { endsWithAny } from "./string_ext.js";
+import pngToIco from "png-to-ico";
+import { getFileNameWithoutExt } from "./synthetic_fs.js";
 
-if (process.argv.length !== 6 || process.argv[2] !== "--release-path" || process.argv[4] !== "--resource-path")
+if (process.argv.length !== 8 || process.argv[2] !== "--release-path" || process.argv[4] !== "--resource-path" ||
+    process.argv[6] !== "--ico")
     throw new Error(
-        "Invalid Command Line!   Usage: node scripts/out/main/bundle.js --release-path <path> --resource-path <path>"
+        "Invalid Command Line!   Usage: node scripts/out/main/bundle.js --release-path <path> --resource-path <path> " +
+        "--ico <file-name>"
     );
 const outPath = "out/";
 const outResPath = `${outPath}res/main/`;
+fs.rmdirSync(outPath, { recursive: true });
 fs.mkdirSync(outResPath, { recursive: true });
 const args = [
     {
@@ -33,3 +38,12 @@ for (const arg of args) {
         }
     });
 }
+pngToIco(`${process.argv[5]}${process.argv[7]}`).then(value => {
+    fs.writeFile(`${outPath}${getFileNameWithoutExt(process.argv[7])}.ico`, value, err => {
+        if (err) throw err;
+    });
+}, reason => {
+    throw new Error(reason);
+}).catch(reason => {
+    throw new Error(reason);
+});

@@ -6,7 +6,7 @@
   "scripts": {
     "install": "node init.js",
     "test": "node scripts/out/test/all.test.js",
-    "bundle": "node scripts/out/main/bundle.js --release-path Calculator/Release/ --resource-path Calculator/res/main/"
+    "bundle": "node scripts/out/main/bundle.js --release-path Calculator/Release/ --resource-path Calculator/res/main/ --ico calculator.png"
   },
   "repository": {
     "type": "git",
@@ -20,7 +20,8 @@
   "homepage": "https://github.com/ii887522/calculator#readme",
   "type": "module",
   "dependencies": {
-    "jszip": "^3.4.0"
+    "jszip": "^3.4.0",
+    "png-to-ico": "^2.1.0"
   },
   "devDependencies": {
     "@types/jszip": "^3.4.1",
