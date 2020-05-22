@@ -27,30 +27,39 @@ namespace ii887522::Calculator
 	public:
 		explicit constexpr Button(const Rect& rect) : viewModel{ rect } { }
 
-		constexpr void reactMouseMotion(const SDL_MouseMotionEvent& motionEvent)
+		constexpr Action reactMouseMotion(const SDL_MouseMotionEvent& motionEvent)
 		{
 			viewModel.reactMouseMotion(Point{ motionEvent.x, motionEvent.y });
+			if (viewModel.isAnimating) return Action::START_ANIMATION;
+			return Action::NONE;
 		}
 
-		constexpr void reactLeftMouseButtonDown(const SDL_MouseButtonEvent&)
+		constexpr Action reactLeftMouseButtonDown(const SDL_MouseButtonEvent&)
 		{
 			viewModel.reactLeftMouseButtonDown();
+			if (viewModel.isAnimating) return Action::START_ANIMATION;
+			return Action::NONE;
 		}
 
-		constexpr void reactLeftMouseButtonUp(const SDL_MouseButtonEvent&)
+		constexpr Action reactLeftMouseButtonUp(const SDL_MouseButtonEvent&)
 		{
 			viewModel.reactLeftMouseButtonUp();
+			if (viewModel.isAnimating) return Action::START_ANIMATION;
+			return Action::NONE;
 		}
 
-		constexpr void reactMouseLeaveWindow(const SDL_WindowEvent&)
+		constexpr Action reactMouseLeaveWindow(const SDL_WindowEvent&)
 		{
 			viewModel.reactMouseLeaveWindow();
+			if (viewModel.isAnimating) return Action::START_ANIMATION;
+			return Action::NONE;
 		}
 
 		constexpr Action step(const unsigned int dt)
 		{
-			dt;
-			return Action::NONE;
+			viewModel.step(dt);
+			if (viewModel.isAnimating) return Action::NONE;
+			return Action::STOP_ANIMATION;
 		}
 
 		// Param renderer: it must not be assigned to integer

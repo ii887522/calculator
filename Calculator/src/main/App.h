@@ -28,19 +28,22 @@ namespace ii887522::Calculator
 		void renderBackground();
 		void render();
 
-		constexpr void reactMouseButtonDown(const SDL_MouseButtonEvent& buttonEvent)
+		constexpr Action reactMouseButtonDown(const SDL_MouseButtonEvent& buttonEvent)
 		{
-			if (buttonEvent.button == SDL_BUTTON_LEFT) button.reactLeftMouseButtonDown(buttonEvent);
+			if (buttonEvent.button == SDL_BUTTON_LEFT) return button.reactLeftMouseButtonDown(buttonEvent);
+			return Action::NONE;
 		}
 
-		constexpr void reactMouseButtonUp(const SDL_MouseButtonEvent& buttonEvent)
+		constexpr Action reactMouseButtonUp(const SDL_MouseButtonEvent& buttonEvent)
 		{
-			if (buttonEvent.button == SDL_BUTTON_LEFT) button.reactLeftMouseButtonUp(buttonEvent);
+			if (buttonEvent.button == SDL_BUTTON_LEFT) return button.reactLeftMouseButtonUp(buttonEvent);
+			return Action::NONE;
 		}
 
-		constexpr void reactWindowEvent(const SDL_WindowEvent& windowEvent)
+		constexpr Action reactWindowEvent(const SDL_WindowEvent& windowEvent)
 		{
-			if (windowEvent.event == SDL_WINDOWEVENT_LEAVE) button.reactMouseLeaveWindow(windowEvent);
+			if (windowEvent.event == SDL_WINDOWEVENT_LEAVE) return button.reactMouseLeaveWindow(windowEvent);
+			return Action::NONE;
 		}
 
 	public:
@@ -51,21 +54,17 @@ namespace ii887522::Calculator
 			switch (event.type)
 			{
 			case SDL_QUIT: return Action::QUIT;
-			case SDL_MOUSEMOTION: button.reactMouseMotion(event.motion);
-				break;
-			case SDL_MOUSEBUTTONDOWN: reactMouseButtonDown(event.button);
-				break;
-			case SDL_MOUSEBUTTONUP: reactMouseButtonUp(event.button);
-				break;
-			case SDL_WINDOWEVENT: reactWindowEvent(event.window);
+			case SDL_MOUSEMOTION: return button.reactMouseMotion(event.motion);
+			case SDL_MOUSEBUTTONDOWN: return reactMouseButtonDown(event.button);
+			case SDL_MOUSEBUTTONUP: return reactMouseButtonUp(event.button);
+			case SDL_WINDOWEVENT: return reactWindowEvent(event.window);
 			}
 			return Action::NONE;
 		}
 
 		constexpr Action step(const unsigned int dt)
 		{
-			dt;
-			return Action::NONE;
+			return button.step(dt);
 		}
 
 		void show();

@@ -6,6 +6,7 @@
 #include "math_ext.h"
 #include "Enums.h"
 #include "AnimatedFloat.h"
+#include "Range.h"
 
 namespace ii887522::Calculator
 {
@@ -33,6 +34,7 @@ namespace ii887522::Calculator
 			if (!isOverlap(mousePosition, rect)) return;
 			state = State::HOVERED;
 			elaspedTime = 0u;
+			lightness.start = lightness.now;
 			lightness.end = .9f;
 			isAnimating = true;
 		}
@@ -42,6 +44,7 @@ namespace ii887522::Calculator
 			if (isOverlap(mousePosition, rect)) return;
 			state = State::INITIAL;
 			elaspedTime = 0u;
+			lightness.start = lightness.now;
 			lightness.end = 1.f;
 			isAnimating = true;
 		}
@@ -51,6 +54,7 @@ namespace ii887522::Calculator
 			if (isOverlap(mousePosition, rect)) return;
 			state = State::INITIAL;
 			elaspedTime = 0u;
+			lightness.start = lightness.now;
 			lightness.end = 1.f;
 			isAnimating = true;
 		}
@@ -80,6 +84,7 @@ namespace ii887522::Calculator
 			if (state != State::HOVERED) return;
 			state = State::PRESSED;
 			elaspedTime = 0u;
+			lightness.start = lightness.now;
 			lightness.end = .8f;
 			isAnimating = true;
 		}
@@ -89,6 +94,7 @@ namespace ii887522::Calculator
 			if (state != State::PRESSED) return;
 			state = State::HOVERED;
 			elaspedTime = 0u;
+			lightness.start = lightness.now;
 			lightness.end = .9f;
 			isAnimating = true;
 		}
@@ -97,6 +103,7 @@ namespace ii887522::Calculator
 		{
 			state = State::INITIAL;
 			elaspedTime = 0u;
+			lightness.start = lightness.now;
 			lightness.end = 1.f;
 			isAnimating = true;
 		}
@@ -104,10 +111,10 @@ namespace ii887522::Calculator
 		constexpr void step(const unsigned int dt)
 		{
 			elaspedTime += dt;
-			const auto duration{ 500u };
-
+			const auto duration{ 200u };
+			clamp(elaspedTime, Range<const unsigned int>{ 0u, duration });
 			lightness.now = lightness.start + (lightness.end - lightness.start) * (static_cast<float>(elaspedTime) / duration);
-
+			if (elaspedTime == duration) isAnimating = false;
 		}
 	};
 }

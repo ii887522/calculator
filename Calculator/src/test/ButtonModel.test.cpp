@@ -184,7 +184,51 @@ namespace ii887522::Calculator
 	{
 		{
 			ButtonModel buttonModel{ Rect{ Point{ 1, 1 }, Size{ 3, 3 } } };
-
+			buttonModel.reactMouseMotion(Point{ 2, 2 });
+			buttonModel.step(30u);
+			assert(buttonModel.lightness.start == initialLightness);
+			assert(buttonModel.lightness.now == .985f);
+			assert(buttonModel.lightness.end == hoveredLightness);
+			assert(buttonModel.isAnimating);
+			buttonModel.step(40u);
+			assert(buttonModel.lightness.start == initialLightness);
+			assert(buttonModel.lightness.now == .965f);
+			assert(buttonModel.lightness.end == hoveredLightness);
+			assert(buttonModel.isAnimating);
+			buttonModel.step(60u);
+			assert(buttonModel.lightness.start == initialLightness);
+			assert(buttonModel.lightness.now == .935f);
+			assert(buttonModel.lightness.end == hoveredLightness);
+			assert(buttonModel.isAnimating);
+			buttonModel.step(70u);
+			assert(buttonModel.lightness.start == initialLightness);
+			assert(buttonModel.lightness.now == .9f);
+			assert(buttonModel.lightness.end == hoveredLightness);
+			assert(!buttonModel.isAnimating);
+		}
+		{
+			ButtonModel buttonModel{ Rect{ Point{ 2, 2 }, Size{ 5, 5 } } };
+			buttonModel.reactMouseMotion(Point{ 4, 4 });
+			buttonModel.step(30u);
+			assert(buttonModel.lightness.start == initialLightness);
+			assert(buttonModel.lightness.now == .985f);
+			assert(buttonModel.lightness.end == hoveredLightness);
+			assert(buttonModel.isAnimating);
+			buttonModel.step(40u);
+			assert(buttonModel.lightness.start == initialLightness);
+			assert(buttonModel.lightness.now == .965f);
+			assert(buttonModel.lightness.end == hoveredLightness);
+			assert(buttonModel.isAnimating);
+			buttonModel.step(60u);
+			assert(buttonModel.lightness.start == initialLightness);
+			assert(buttonModel.lightness.now == .935f);
+			assert(buttonModel.lightness.end == hoveredLightness);
+			assert(buttonModel.isAnimating);
+			buttonModel.step(170u);
+			assert(buttonModel.lightness.start == initialLightness);
+			assert(buttonModel.lightness.now == .9f);
+			assert(buttonModel.lightness.end == hoveredLightness);
+			assert(!buttonModel.isAnimating);
 		}
 	}
 }
