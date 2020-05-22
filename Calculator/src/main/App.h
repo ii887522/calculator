@@ -5,6 +5,7 @@
 
 #include <SDL.h>
 #include "Button.h"
+#include "Enums.h"
 
 namespace ii887522::Calculator
 {
@@ -43,11 +44,6 @@ namespace ii887522::Calculator
 		}
 
 	public:
-		enum class Action : unsigned int
-		{
-			NONE, QUIT
-		};
-
 		explicit App();
 
 		constexpr Action react(const SDL_Event& event)
@@ -63,6 +59,12 @@ namespace ii887522::Calculator
 				break;
 			case SDL_WINDOWEVENT: reactWindowEvent(event.window);
 			}
+			return Action::NONE;
+		}
+
+		constexpr Action step(const unsigned int dt)
+		{
+			dt;
 			return Action::NONE;
 		}
 
