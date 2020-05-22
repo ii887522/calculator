@@ -24,6 +24,7 @@ namespace ii887522::Calculator
 		SDL_Renderer*const renderer;
 		Button button;
 
+		void renderBackground();
 		void render();
 
 		constexpr void reactMouseButtonDown(const SDL_MouseButtonEvent& buttonEvent)

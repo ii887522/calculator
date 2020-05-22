@@ -5,6 +5,8 @@
 
 #include <SDL.h>
 #include "ButtonModel.h"
+#include "Rect.h"
+#include "Point.h"
 
 namespace ii887522::Calculator
 {
@@ -22,27 +24,26 @@ namespace ii887522::Calculator
 		ButtonModel viewModel;
 
 	public:
-		// 
-		explicit constexpr Button() { }
+		explicit constexpr Button(const Rect& rect) : viewModel{ rect } { }
 
 		constexpr void reactMouseMotion(const SDL_MouseMotionEvent& motionEvent)
 		{
-			motionEvent;
+			viewModel.reactMouseMotion(Point{ motionEvent.x, motionEvent.y });
 		}
 
-		constexpr void reactLeftMouseButtonDown(const SDL_MouseButtonEvent& buttonEvent)
+		constexpr void reactLeftMouseButtonDown(const SDL_MouseButtonEvent&)
 		{
-			buttonEvent;
+			viewModel.reactLeftMouseButtonDown();
 		}
 
-		constexpr void reactLeftMouseButtonUp(const SDL_MouseButtonEvent& buttonEvent)
+		constexpr void reactLeftMouseButtonUp(const SDL_MouseButtonEvent&)
 		{
-			buttonEvent;
+			viewModel.reactLeftMouseButtonUp();
 		}
 
-		constexpr void reactMouseLeaveWindow(const SDL_WindowEvent& windowEvent)
+		constexpr void reactMouseLeaveWindow(const SDL_WindowEvent&)
 		{
-			windowEvent;
+			viewModel.reactMouseLeaveWindow();
 		}
 
 		// Param renderer: it must not be assigned to integer

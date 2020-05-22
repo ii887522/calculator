@@ -23,7 +23,6 @@ namespace ii887522::Calculator
 		ButtonModel(ButtonModel&&) = delete;
 		ButtonModel& operator=(ButtonModel&&) = delete;
 
-		const Rect rect;
 		State state;
 
 		constexpr void reactMouseMotionWhenInitial(const Point& mousePosition)
@@ -48,9 +47,10 @@ namespace ii887522::Calculator
 		}
 
 	public:
+		const Rect rect;
 		float lightness;
 
-		explicit constexpr ButtonModel(const Rect& rect) : rect{ rect }, state{ State::INITIAL }, lightness{ 1.f } { }
+		explicit constexpr ButtonModel(const Rect& rect) : state{ State::INITIAL }, rect{ rect }, lightness{ 1.f } { }
 
 		constexpr void reactMouseMotion(const Point& mousePosition)
 		{
