@@ -2,8 +2,11 @@
 
 #include "Scene.h"
 #include <SDL.h>
+#include <SDL_image.h>
+#include <SDL_ttf.h>
 #include "../View/Button.h"
 #include "../View/ResourceView.h"
+#include "../ResourceView/Text.h"
 #include "../Functions/control_flow.h"
 #include "../Struct/Rect.h"
 #include "../Struct/Point.h"
@@ -12,12 +15,16 @@
 
 namespace ii887522::Calculator
 {
-	Scene::Scene(SDL_Renderer*const renderer, const Size& size, const int buttonSize) : views{
+	Scene::Scene(SDL_Renderer*const renderer, const Size& size, TTF_Font*const font, const int buttonSize) : views{
 		new Button{ renderer, Rect{ Point{ 0, 0 }, Size{ buttonSize, buttonSize } } },
-		new ResourceView{ renderer, "res/main/drawer.png" },
+		new ResourceView{ renderer, IMG_Load("res/main/drawer.png") },
+		new Text{ renderer, font, "Standard", Point{ 53, 10 } },
 		new Button{ renderer, Rect{ Point{ size.w - buttonSize, 0 }, Size{ buttonSize, buttonSize } } },
-		new ResourceView{ renderer, "res/main/history.png", Point{ size.w - buttonSize, 0 } }
-	}, isAnimating{ false }, viewAnimationsCount{ 0u } { }
+		new ResourceView{ renderer, IMG_Load("res/main/history.png"), Point{ size.w - buttonSize, 0 } }
+	}, isAnimating{ false }, viewAnimationsCount{ 0u }
+	{
+		TTF_CloseFont(font);
+	}
 
 	Action Scene::reactMouseMotion(const SDL_MouseMotionEvent& motionEvent)
 	{

@@ -11,8 +11,8 @@ using std::string;
 
 namespace ii887522::Calculator
 {
-	ResourceView::ResourceView(SDL_Renderer*const renderer, const string& filePath, const Point& position) : View{ renderer },
-		position{ position }, surface{ IMG_Load(filePath.c_str()) }, texture{ SDL_CreateTextureFromSurface(renderer, surface) } { }
+	ResourceView::ResourceView(SDL_Renderer*const renderer, SDL_Surface*const surface, const Point& position) : View{ renderer },
+		position{ position }, surface{ surface }, texture{ SDL_CreateTextureFromSurface(renderer, surface) } { }
 
 	void ResourceView::render()
 	{

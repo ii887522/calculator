@@ -4,6 +4,7 @@
 #define II887522_CALCULATOR_SCENE_H
 
 #include <SDL.h>
+#include <SDL_ttf.h>
 #include "View.h"
 #include "Enums.h"
 #include "../Struct/Size.h"
@@ -21,13 +22,15 @@ namespace ii887522::Calculator
 		Scene(Scene&&) = delete;
 		Scene& operator=(Scene&&) = delete;
 
-		View*const views[4u];
+		View*const views[5u];
 		bool isAnimating;
 		unsigned int viewAnimationsCount;
 
 	public:
 		// Param renderer: it must not be assigned to integer
-		explicit Scene(SDL_Renderer*const renderer, const Size& size, const int buttonSize = 41);
+		// Param font: it must not be assigned to integer
+		explicit Scene(SDL_Renderer*const renderer, const Size& size, TTF_Font*const font = TTF_OpenFont("res/main/arial.ttf", 20),
+			const int buttonSize = 41);
 
 		Action reactMouseMotion(const SDL_MouseMotionEvent&);
 		Action reactLeftMouseButtonDown(const SDL_MouseButtonEvent&);

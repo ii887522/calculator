@@ -37,6 +37,12 @@
     <Filter Include="Source Files\Functions">
       <UniqueIdentifier>{6fa5ecc1-7883-4dce-afdb-e317f938a8dc}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\ResourceView">
+      <UniqueIdentifier>{2776f4cd-20dd-4f67-9ff2-bfcc17b1f40e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\ResourceView">
+      <UniqueIdentifier>{b5410e9d-d0d2-4e49-80e8-a9a131d25d49}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\test\test.cpp">
@@ -71,6 +77,9 @@
     </ClCompile>
     <ClCompile Include="src\main\Functions\calculator.cpp">
       <Filter>Source Files\Functions</Filter>
+    </ClCompile>
+    <ClCompile Include="src\main\ResourceView\Text.cpp">
+      <Filter>Source Files\ResourceView</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -128,6 +137,9 @@
     <ClInclude Include="src\main\Functions\math_ext.h">
       <Filter>Header Files\Functions</Filter>
     </ClInclude>
+    <ClInclude Include="src\main\ResourceView\Text.h">
+      <Filter>Header Files\ResourceView</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Image Include="res\main\calculator.png">
@@ -139,5 +151,10 @@
     <Image Include="res\main\history.png">
       <Filter>Resource Files</Filter>
     </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <Font Include="res\main\arial.ttf">
+      <Filter>Resource Files</Filter>
+    </Font>
   </ItemGroup>
 </Project>
