@@ -3,9 +3,9 @@
 #include "App.h"
 #include <SDL.h>
 #include <SDL_image.h>
-#include "Rect.h"
-#include "Point.h"
-#include "Size.h"
+#include "../Struct/Rect.h"
+#include "../Struct/Point.h"
+#include "../Struct/Size.h"
 #include "Enums.h"
 
 namespace ii887522::Calculator

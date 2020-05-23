@@ -3,10 +3,10 @@
 #ifndef II887522_CALCULATOR_RESOURCE_VIEW_H
 #define II887522_CALCULATOR_RESOURCE_VIEW_H
 
-#include "View.h"
+#include "../Any/View.h"
 #include <SDL.h>
 #include <string>
-#include "Point.h"
+#include "../Struct/Point.h"
 
 using std::string;
 

@@ -2,9 +2,9 @@
 
 #include "ButtonModel.test.h"
 #include <cassert>
-#include "../main/ButtonModel.h"
-#include "../main/Rect.h"
-#include "../main/Point.h"
+#include "../main/Any/ButtonModel.h"
+#include "../main/Struct/Rect.h"
+#include "../main/Struct/Point.h"
 
 namespace ii887522::Calculator
 {

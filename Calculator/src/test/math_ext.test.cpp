@@ -2,8 +2,8 @@
 
 #include "math_ext.test.h"
 #include <cassert>
-#include "../main/math_ext.h"
-#include "../main/Range.h"
+#include "../main/Functions/math_ext.h"
+#include "../main/Struct/Range.h"
 
 namespace ii887522::Calculator
 {

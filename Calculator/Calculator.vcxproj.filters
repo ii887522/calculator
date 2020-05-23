@@ -16,22 +16,31 @@
     <Filter Include="Test Source Files">
       <UniqueIdentifier>{13320f6e-0403-47e5-b52e-ff3b44aef6b8}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Any">
+      <UniqueIdentifier>{0a76d9ce-cc47-4f7c-8df3-deca8701acba}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\View">
+      <UniqueIdentifier>{9f886110-c6f8-40e5-8b11-53a9ee17aeec}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Struct">
+      <UniqueIdentifier>{a9e5bc8c-ca79-4590-a51c-82505715d6ce}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Any">
+      <UniqueIdentifier>{2cffd0d0-6ad7-4901-b51c-ec13cebb9abc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\View">
+      <UniqueIdentifier>{be24d579-2c57-4063-b7aa-0b163f5ed9d2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Functions">
+      <UniqueIdentifier>{d2ff3dc2-08a7-4041-8e2b-4e9a7215ae67}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Functions">
+      <UniqueIdentifier>{6fa5ecc1-7883-4dce-afdb-e317f938a8dc}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\main\calculator.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="src\test\test.cpp">
       <Filter>Test Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\main\App.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\main\Subsystems.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\main\Button.cpp">
-      <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\test\ButtonModel.test.cpp">
       <Filter>Test Source Files</Filter>
@@ -39,73 +48,85 @@
     <ClCompile Include="src\test\math_ext.test.cpp">
       <Filter>Test Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\main\ResourceView.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\main\View.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\main\Scene.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="src\test\control_flow.test.cpp">
       <Filter>Test Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="src\main\Any\App.cpp">
+      <Filter>Source Files\Any</Filter>
+    </ClCompile>
+    <ClCompile Include="src\main\Any\Scene.cpp">
+      <Filter>Source Files\Any</Filter>
+    </ClCompile>
+    <ClCompile Include="src\main\Any\Subsystems.cpp">
+      <Filter>Source Files\Any</Filter>
+    </ClCompile>
+    <ClCompile Include="src\main\Any\View.cpp">
+      <Filter>Source Files\Any</Filter>
+    </ClCompile>
+    <ClCompile Include="src\main\View\Button.cpp">
+      <Filter>Source Files\View</Filter>
+    </ClCompile>
+    <ClCompile Include="src\main\View\ResourceView.cpp">
+      <Filter>Source Files\View</Filter>
+    </ClCompile>
+    <ClCompile Include="src\main\Functions\calculator.cpp">
+      <Filter>Source Files\Functions</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="src\main\App.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\main\Subsystems.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\main\Button.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\main\ButtonModel.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\main\Point.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="src\test\ButtonModel.test.h">
       <Filter>Test Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\main\Size.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\main\Rect.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\main\math_ext.h">
-      <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\test\math_ext.test.h">
       <Filter>Test Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\main\Range.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\main\Enums.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\main\AnimatedFloat.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\main\ResourceView.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\main\View.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\main\Scene.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\main\control_flow.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="src\test\control_flow.test.h">
       <Filter>Test Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\main\Any\App.h">
+      <Filter>Header Files\Any</Filter>
+    </ClInclude>
+    <ClInclude Include="src\main\Any\ButtonModel.h">
+      <Filter>Header Files\Any</Filter>
+    </ClInclude>
+    <ClInclude Include="src\main\Any\Enums.h">
+      <Filter>Header Files\Any</Filter>
+    </ClInclude>
+    <ClInclude Include="src\main\Any\Scene.h">
+      <Filter>Header Files\Any</Filter>
+    </ClInclude>
+    <ClInclude Include="src\main\Any\Subsystems.h">
+      <Filter>Header Files\Any</Filter>
+    </ClInclude>
+    <ClInclude Include="src\main\Any\View.h">
+      <Filter>Header Files\Any</Filter>
+    </ClInclude>
+    <ClInclude Include="src\main\Struct\AnimatedFloat.h">
+      <Filter>Header Files\Struct</Filter>
+    </ClInclude>
+    <ClInclude Include="src\main\Struct\Point.h">
+      <Filter>Header Files\Struct</Filter>
+    </ClInclude>
+    <ClInclude Include="src\main\Struct\Range.h">
+      <Filter>Header Files\Struct</Filter>
+    </ClInclude>
+    <ClInclude Include="src\main\Struct\Rect.h">
+      <Filter>Header Files\Struct</Filter>
+    </ClInclude>
+    <ClInclude Include="src\main\Struct\Size.h">
+      <Filter>Header Files\Struct</Filter>
+    </ClInclude>
+    <ClInclude Include="src\main\View\Button.h">
+      <Filter>Header Files\View</Filter>
+    </ClInclude>
+    <ClInclude Include="src\main\View\ResourceView.h">
+      <Filter>Header Files\View</Filter>
+    </ClInclude>
+    <ClInclude Include="src\main\Functions\control_flow.h">
+      <Filter>Header Files\Functions</Filter>
+    </ClInclude>
+    <ClInclude Include="src\main\Functions\math_ext.h">
+      <Filter>Header Files\Functions</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

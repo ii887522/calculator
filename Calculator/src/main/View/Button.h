@@ -3,12 +3,12 @@
 #ifndef II887522_CALCULATOR_BUTTON_H
 #define II887522_CALCULATOR_BUTTON_H
 
-#include "View.h"
+#include "../Any/View.h"
 #include <SDL.h>
-#include "ButtonModel.h"
-#include "Rect.h"
-#include "Point.h"
-#include "Enums.h"
+#include "../Any/ButtonModel.h"
+#include "../Struct/Rect.h"
+#include "../Struct/Point.h"
+#include "../Any/Enums.h"
 
 namespace ii887522::Calculator
 {
