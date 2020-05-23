@@ -232,6 +232,7 @@
     <ClCompile Include="src\main\Any\Subsystems.cpp" />
     <ClCompile Include="src\main\Any\View.cpp" />
     <ClCompile Include="src\main\Functions\calculator.cpp" />
+    <ClCompile Include="src\main\ResourceView\Text.cpp" />
     <ClCompile Include="src\main\View\Button.cpp" />
     <ClCompile Include="src\main\View\ResourceView.cpp" />
     <ClCompile Include="src\test\ButtonModel.test.cpp" />
@@ -248,6 +249,7 @@
     <ClInclude Include="src\main\Any\View.h" />
     <ClInclude Include="src\main\Functions\control_flow.h" />
     <ClInclude Include="src\main\Functions\math_ext.h" />
+    <ClInclude Include="src\main\ResourceView\Text.h" />
     <ClInclude Include="src\main\Struct\AnimatedFloat.h" />
     <ClInclude Include="src\main\Struct\Point.h" />
     <ClInclude Include="src\main\Struct\Range.h" />
@@ -263,6 +265,9 @@
     <Image Include="res\main\calculator.png" />
     <Image Include="res\main\drawer.png" />
     <Image Include="res\main\history.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Font Include="res\main\arial.ttf" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
