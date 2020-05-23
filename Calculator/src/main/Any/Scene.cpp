@@ -7,6 +7,7 @@
 #include "../View/Button.h"
 #include "../View/ResourceView.h"
 #include "../View/ButtonGroup.h"
+#include "../View/TextGroup.h"
 #include "../ResourceView/Text.h"
 #include "../Functions/control_flow.h"
 #include "../Struct/Rect.h"
@@ -24,7 +25,8 @@ namespace ii887522::Calculator
 		new Text{ renderer, font, "Standard", Point{ 53, 10 } },
 		new Button{ renderer, Rect{ Point{ size.w - buttonSize, 0 }, Size{ buttonSize, buttonSize } }, Color{ 192u, 192u, 192u } },
 		new ResourceView{ renderer, IMG_Load("res/main/history.png"), Point{ size.w - buttonSize, 0 } },
-		new ButtonGroup{ renderer, ButtonGrid{ Point{ 4, 53 } } }
+		new ButtonGroup{ renderer, ButtonGrid{ Point{ 4, 53 } } },
+		new TextGroup{ renderer, font, ButtonGrid{ Point{ 4, 53 } } }
 	}, isAnimating{ false }, viewAnimationsCount{ 0u }
 	{
 		TTF_CloseFont(font);

@@ -90,6 +90,9 @@
     <ClCompile Include="src\main\Functions\control_flow.cpp">
       <Filter>Source Files\Functions</Filter>
     </ClCompile>
+    <ClCompile Include="src\main\View\TextGroup.cpp">
+      <Filter>Source Files\View</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\test\ButtonModel.test.h">
@@ -160,6 +163,12 @@
     </ClInclude>
     <ClInclude Include="src\main\Struct\Color.h">
       <Filter>Header Files\Struct</Filter>
+    </ClInclude>
+    <ClInclude Include="src\main\View\TextGroup.h">
+      <Filter>Header Files\View</Filter>
+    </ClInclude>
+    <ClInclude Include="src\main\Any\constants.h">
+      <Filter>Header Files\Any</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

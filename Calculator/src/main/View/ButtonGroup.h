@@ -8,6 +8,7 @@
 #include <SDL.h>
 #include "../Any/Enums.h"
 #include "../Any/ButtonGrid.h"
+#include "../Any/constants.h"
 
 namespace ii887522::Calculator
 {
@@ -22,7 +23,7 @@ namespace ii887522::Calculator
 		ButtonGroup(ButtonGroup&&) = delete;
 		ButtonGroup& operator=(ButtonGroup&&) = delete;
 
-		Button buttons[24u];
+		Button buttons[buttonsCount];
 		bool isAnimating;
 		unsigned int buttonAnimationsCount;
 
