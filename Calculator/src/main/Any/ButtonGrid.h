@@ -24,7 +24,7 @@ namespace ii887522::Calculator
 		const Size buttonSize;
 
 		explicit constexpr ButtonGrid(const Point& position = Point{ }) : position{ position }, buttonMargin{ 2 }, cols{ 4 },
-			buttonSize{ 72, 48 } { }
+			buttonSize{ 76, 48 } { }
 
 		constexpr int getButtonX(const int i) const
 		{

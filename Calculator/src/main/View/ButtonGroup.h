@@ -7,6 +7,7 @@
 #include "Button.h"
 #include <SDL.h>
 #include "../Any/Enums.h"
+#include "../Any/ButtonGrid.h"
 
 namespace ii887522::Calculator
 {
@@ -27,7 +28,7 @@ namespace ii887522::Calculator
 
 	public:
 		// Param renderer: it must not be assigned to integer
-		explicit ButtonGroup(SDL_Renderer*const renderer);
+		explicit ButtonGroup(SDL_Renderer*const renderer, const ButtonGrid&);
 
 		virtual Action reactMouseMotion(const SDL_MouseMotionEvent&) override;
 		virtual Action reactLeftMouseButtonDown(const SDL_MouseButtonEvent&) override;

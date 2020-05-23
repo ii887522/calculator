@@ -9,6 +9,7 @@
 #include "../Struct/Rect.h"
 #include "../Struct/Point.h"
 #include "../Any/Enums.h"
+#include "../Struct/Color.h"
 
 namespace ii887522::Calculator
 {
@@ -24,11 +25,12 @@ namespace ii887522::Calculator
 		Button& operator=(Button&&) = delete;
 
 		ButtonModel viewModel;
+		const Color color;
 		bool isAnimating;
 
 	public:
 		// Param renderer: it must not be assigned to integer
-		explicit Button(SDL_Renderer*const renderer, const Rect& rect);
+		explicit Button(SDL_Renderer*const renderer, const Rect&, const Color&);
 
 		virtual Action reactMouseMotion(const SDL_MouseMotionEvent&) override;
 		virtual Action reactLeftMouseButtonDown(const SDL_MouseButtonEvent&) override;

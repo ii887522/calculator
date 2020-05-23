@@ -28,7 +28,7 @@ if (process.argv.length === 10) {
         },
         {
             src: process.argv[5],
-            exts: [".png"],
+            exts: [".png", ".ttf"],
             dest: outResPath
         }
     ];
