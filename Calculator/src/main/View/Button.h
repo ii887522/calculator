@@ -28,6 +28,9 @@ namespace ii887522::Calculator
 		const Color color;
 		bool isAnimating;
 
+		void renderBackground();
+		void renderBorder();
+
 	public:
 		// Param renderer: it must not be assigned to integer
 		explicit Button(SDL_Renderer*const renderer, const Rect&, const Color&);

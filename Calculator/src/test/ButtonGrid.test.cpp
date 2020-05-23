@@ -11,32 +11,32 @@ namespace ii887522::Calculator
 		{
 			constexpr ButtonGrid buttonGrid{ Point{ 0, 0 } };
 			static_assert(buttonGrid.getButtonX(0) == 0);
-			static_assert(buttonGrid.getButtonX(1) == 74);
-			static_assert(buttonGrid.getButtonX(2) == 148);
+			static_assert(buttonGrid.getButtonX(1) == 78);
+			static_assert(buttonGrid.getButtonX(2) == 156);
 		}
 		{
 			constexpr ButtonGrid buttonGrid{ Point{ 1, 0 } };
 			static_assert(buttonGrid.getButtonX(0) == 1);
-			static_assert(buttonGrid.getButtonX(1) == 75);
-			static_assert(buttonGrid.getButtonX(2) == 149);
+			static_assert(buttonGrid.getButtonX(1) == 79);
+			static_assert(buttonGrid.getButtonX(2) == 157);
 		}
 		{
 			constexpr ButtonGrid buttonGrid{ Point{ 2, 0 } };
 			static_assert(buttonGrid.getButtonX(0) == 2);
-			static_assert(buttonGrid.getButtonX(1) == 76);
-			static_assert(buttonGrid.getButtonX(2) == 150);
+			static_assert(buttonGrid.getButtonX(1) == 80);
+			static_assert(buttonGrid.getButtonX(2) == 158);
 		}
 		{
 			constexpr ButtonGrid buttonGrid{ Point{ 2, 1 } };
 			static_assert(buttonGrid.getButtonX(0) == 2);
-			static_assert(buttonGrid.getButtonX(1) == 76);
-			static_assert(buttonGrid.getButtonX(2) == 150);
+			static_assert(buttonGrid.getButtonX(1) == 80);
+			static_assert(buttonGrid.getButtonX(2) == 158);
 		}
 		{
 			constexpr ButtonGrid buttonGrid{ Point{ 2, 2 } };
 			static_assert(buttonGrid.getButtonX(0) == 2);
-			static_assert(buttonGrid.getButtonX(1) == 76);
-			static_assert(buttonGrid.getButtonX(2) == 150);
+			static_assert(buttonGrid.getButtonX(1) == 80);
+			static_assert(buttonGrid.getButtonX(2) == 158);
 		}
 	}
 

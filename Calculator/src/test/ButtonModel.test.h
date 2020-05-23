@@ -18,9 +18,13 @@ namespace ii887522::Calculator
 		const float initialLightness;
 		const float hoveredLightness;
 		const float pressedLightness;
+		const float initialBorderA;
+		const float hoveredBorderA;
+		const float pressedBorderA;
 
 	public:
-		explicit constexpr ButtonModelTest() : initialLightness{ 1.f }, hoveredLightness{ .9f }, pressedLightness{ .8f } { }
+		explicit constexpr ButtonModelTest() : initialLightness{ 1.f }, hoveredLightness{ .9f }, pressedLightness{ .8f },
+			initialBorderA{ 0.f }, hoveredBorderA{ 255.f }, pressedBorderA{ 255.f } { }
 
 		void testReactMouseMotion() const;
 		void testReactLeftMouseButtonDown() const;

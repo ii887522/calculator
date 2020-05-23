@@ -36,6 +36,8 @@ namespace ii887522::Calculator
 			elaspedTime = 0u;
 			lightness.start = lightness.now;
 			lightness.end = .9f;
+			borderA.start = borderA.now;
+			borderA.end = 255.f;
 			isAnimating = true;
 		}
 		
@@ -46,6 +48,8 @@ namespace ii887522::Calculator
 			elaspedTime = 0u;
 			lightness.start = lightness.now;
 			lightness.end = 1.f;
+			borderA.start = borderA.now;
+			borderA.end = 0.f;
 			isAnimating = true;
 		}
 
@@ -56,16 +60,19 @@ namespace ii887522::Calculator
 			elaspedTime = 0u;
 			lightness.start = lightness.now;
 			lightness.end = 1.f;
+			borderA.start = borderA.now;
+			borderA.end = 0.f;
 			isAnimating = true;
 		}
 
 	public:
 		const Rect rect;
 		AnimatedFloat lightness;
+		AnimatedFloat borderA;
 		bool isAnimating;
 
 		explicit constexpr ButtonModel(const Rect& rect) : state{ State::INITIAL }, elaspedTime{ 0u }, rect{ rect }, lightness{ 1.f },
-			isAnimating{ false } { }
+			borderA{ 0.f }, isAnimating{ false } { }
 
 		constexpr void reactMouseMotion(const Point& mousePosition)
 		{
@@ -86,6 +93,8 @@ namespace ii887522::Calculator
 			elaspedTime = 0u;
 			lightness.start = lightness.now;
 			lightness.end = .8f;
+			borderA.start = borderA.now;
+			borderA.end = 255.f;
 			isAnimating = true;
 		}
 
@@ -96,6 +105,8 @@ namespace ii887522::Calculator
 			elaspedTime = 0u;
 			lightness.start = lightness.now;
 			lightness.end = .9f;
+			borderA.start = borderA.now;
+			borderA.end = 255.f;
 			isAnimating = true;
 		}
 
@@ -105,6 +116,8 @@ namespace ii887522::Calculator
 			elaspedTime = 0u;
 			lightness.start = lightness.now;
 			lightness.end = 1.f;
+			borderA.start = borderA.now;
+			borderA.end = 0.f;
 			isAnimating = true;
 		}
 
@@ -114,6 +127,7 @@ namespace ii887522::Calculator
 			const auto duration{ 200u };
 			clamp(elaspedTime, Range<const unsigned int>{ 0u, duration });
 			lightness.now = lightness.start + (lightness.end - lightness.start) * (static_cast<float>(elaspedTime) / duration);
+			borderA.now = borderA.start + (borderA.end - borderA.start) * (static_cast<float>(elaspedTime) / duration);
 			if (elaspedTime == duration) isAnimating = false;
 		}
 	};
