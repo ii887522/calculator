@@ -6,14 +6,19 @@
 #include "Rect.h"
 #include "Point.h"
 #include "Size.h"
+#include "Enums.h"
 
 namespace ii887522::Calculator
 {
 	App::App() : window{ SDL_CreateWindow("Calcuator", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, 320, 480, 0u) },
-		ico{ IMG_Load("res/main/calculator.png") }, renderer{ SDL_CreateRenderer(window, -1, SDL_RENDERER_SOFTWARE) },
-		button{ renderer, Rect{ Point{ 0, 0 }, Size{ 41, 41 } } }
+		ico{ IMG_Load("res/main/calculator.png") }, renderer{ SDL_CreateRenderer(window, -1, SDL_RENDERER_SOFTWARE) }, scene{ renderer }
 	{
 		SDL_SetWindowIcon(window, ico);
+	}
+
+	Action App::step(const unsigned int dt)
+	{
+		return scene.step(dt);
 	}
 
 	void App::renderBackground()
@@ -25,7 +30,7 @@ namespace ii887522::Calculator
 	void App::render()
 	{
 		renderBackground();
-		button.render(renderer);
+		scene.render();
 	}
 
 	void App::show()

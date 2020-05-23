@@ -24,6 +24,7 @@ namespace ii887522::Calculator
 		Button& operator=(Button&&) = delete;
 
 		ButtonModel viewModel;
+		bool isAnimating;
 
 	public:
 		// Param renderer: it must not be assigned to integer

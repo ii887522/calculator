@@ -5,6 +5,7 @@
 
 #include <SDL.h>
 #include "View.h"
+#include "Enums.h"
 
 namespace ii887522::Calculator
 {
@@ -20,11 +21,18 @@ namespace ii887522::Calculator
 		Scene& operator=(Scene&&) = delete;
 
 		View*const views[2u];
+		bool isAnimating;
 
 	public:
 		// Param renderer: it must not be assigned to integer
 		explicit Scene(SDL_Renderer*const renderer);
 
+		Action reactMouseMotion(const SDL_MouseMotionEvent&);
+		Action reactLeftMouseButtonDown(const SDL_MouseButtonEvent&);
+		Action reactLeftMouseButtonUp(const SDL_MouseButtonEvent&);
+		Action reactMouseLeaveWindow(const SDL_WindowEvent&);
+		Action step(const unsigned int dt);
+		void render();
 		~Scene();
 	};
 }

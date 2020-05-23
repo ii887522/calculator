@@ -10,35 +10,35 @@ namespace ii887522::Calculator
 	{
 		{
 			auto n{ 0 };
-			loop(0u, [&](const unsigned int) {
+			loop(0u, [&](const auto) {
 				++n;
 			});
 			assert(n == 0);
 		}
 		{
 			auto n{ 0 };
-			loop(1u, [&](const unsigned int) {
+			loop(1u, [&](const auto) {
 				++n;
 			});
 			assert(n == 1);
 		}
 		{
 			auto n{ 0 };
-			loop(2u, [&](const unsigned int) {
+			loop(2u, [&](const auto) {
 				++n;
 			});
 			assert(n == 2);
 		}
 		{
 			auto n{ 0 };
-			loop(2u, [&](const unsigned int) {
+			loop(2u, [&](const auto) {
 				--n;
 			});
 			assert(n == -2);
 		}
 		{
 			auto n{ 0 };
-			loop(2u, [&](const unsigned int i) {
+			loop(2u, [&](const auto i) {
 				n -= i;
 			});
 			assert(n == -1);
