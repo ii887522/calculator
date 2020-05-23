@@ -4,6 +4,7 @@
 #include <SDL.h>
 #include "Button.h"
 #include "ResourceView.h"
+#include "control_flow.h"
 
 namespace ii887522::Calculator
 {
@@ -11,7 +12,9 @@ namespace ii887522::Calculator
 
 	Scene::~Scene()
 	{
+		loop(sizeof views / sizeof(View*), []() {
 
+		});
 	}
 }
 
