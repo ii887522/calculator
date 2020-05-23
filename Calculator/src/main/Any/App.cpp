@@ -15,6 +15,7 @@ namespace ii887522::Calculator
 		scene{ renderer, size }
 	{
 		SDL_SetWindowIcon(window, ico);
+		SDL_SetRenderDrawBlendMode(renderer, SDL_BLENDMODE_BLEND);
 	}
 
 	Action App::step(const unsigned int dt)

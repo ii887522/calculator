@@ -16,21 +16,33 @@ namespace ii887522::Calculator
 			assert(buttonModel.lightness.start == initialLightness);
 			assert(buttonModel.lightness.now == initialLightness);
 			assert(buttonModel.lightness.end == initialLightness);
+			assert(buttonModel.borderA.start == initialBorderA);
+			assert(buttonModel.borderA.now == initialBorderA);
+			assert(buttonModel.borderA.end == initialBorderA);
 			assert(!buttonModel.isAnimating);
 			buttonModel.reactMouseMotion(Point{ 2, 2 });
 			assert(buttonModel.lightness.start == initialLightness);
 			assert(buttonModel.lightness.now == initialLightness);
 			assert(buttonModel.lightness.end == hoveredLightness);
+			assert(buttonModel.borderA.start == initialBorderA);
+			assert(buttonModel.borderA.now == initialBorderA);
+			assert(buttonModel.borderA.end == hoveredBorderA);
 			assert(buttonModel.isAnimating);
 			buttonModel.reactMouseMotion(Point{ 2, 2 });
 			assert(buttonModel.lightness.start == initialLightness);
 			assert(buttonModel.lightness.now == initialLightness);
 			assert(buttonModel.lightness.end == hoveredLightness);
+			assert(buttonModel.borderA.start == initialBorderA);
+			assert(buttonModel.borderA.now == initialBorderA);
+			assert(buttonModel.borderA.end == hoveredBorderA);
 			assert(buttonModel.isAnimating);
 			buttonModel.reactMouseMotion(Point{ 4, 4 });
 			assert(buttonModel.lightness.start == initialLightness);
 			assert(buttonModel.lightness.now == initialLightness);
 			assert(buttonModel.lightness.end == initialLightness);
+			assert(buttonModel.borderA.start == initialBorderA);
+			assert(buttonModel.borderA.now == initialBorderA);
+			assert(buttonModel.borderA.end == initialBorderA);
 			assert(buttonModel.isAnimating);
 			buttonModel.reactMouseMotion(Point{ 2, 2 });
 			buttonModel.reactLeftMouseButtonDown();
@@ -38,11 +50,17 @@ namespace ii887522::Calculator
 			assert(buttonModel.lightness.start == initialLightness);
 			assert(buttonModel.lightness.now == initialLightness);
 			assert(buttonModel.lightness.end == pressedLightness);
+			assert(buttonModel.borderA.start == initialBorderA);
+			assert(buttonModel.borderA.now == initialBorderA);
+			assert(buttonModel.borderA.end == pressedBorderA);
 			assert(buttonModel.isAnimating);
 			buttonModel.reactMouseMotion(Point{ 4, 4 });
 			assert(buttonModel.lightness.start == initialLightness);
 			assert(buttonModel.lightness.now == initialLightness);
 			assert(buttonModel.lightness.end == initialLightness);
+			assert(buttonModel.borderA.start == initialBorderA);
+			assert(buttonModel.borderA.now == initialBorderA);
+			assert(buttonModel.borderA.end == initialBorderA);
 			assert(buttonModel.isAnimating);
 		}
 		{
@@ -51,21 +69,33 @@ namespace ii887522::Calculator
 			assert(buttonModel.lightness.start == initialLightness);
 			assert(buttonModel.lightness.now == initialLightness);
 			assert(buttonModel.lightness.end == initialLightness);
+			assert(buttonModel.borderA.start == initialBorderA);
+			assert(buttonModel.borderA.now == initialBorderA);
+			assert(buttonModel.borderA.end == initialBorderA);
 			assert(!buttonModel.isAnimating);
 			buttonModel.reactMouseMotion(Point{ 4, 4 });
 			assert(buttonModel.lightness.start == initialLightness);
 			assert(buttonModel.lightness.now == initialLightness);
 			assert(buttonModel.lightness.end == hoveredLightness);
+			assert(buttonModel.borderA.start == initialBorderA);
+			assert(buttonModel.borderA.now == initialBorderA);
+			assert(buttonModel.borderA.end == hoveredBorderA);
 			assert(buttonModel.isAnimating);
 			buttonModel.reactMouseMotion(Point{ 4, 4 });
 			assert(buttonModel.lightness.start == initialLightness);
 			assert(buttonModel.lightness.now == initialLightness);
 			assert(buttonModel.lightness.end == hoveredLightness);
+			assert(buttonModel.borderA.start == initialBorderA);
+			assert(buttonModel.borderA.now == initialBorderA);
+			assert(buttonModel.borderA.end == hoveredBorderA);
 			assert(buttonModel.isAnimating);
 			buttonModel.reactMouseMotion(Point{ 8, 8 });
 			assert(buttonModel.lightness.start == initialLightness);
 			assert(buttonModel.lightness.now == initialLightness);
 			assert(buttonModel.lightness.end == initialLightness);
+			assert(buttonModel.borderA.start == initialBorderA);
+			assert(buttonModel.borderA.now == initialBorderA);
+			assert(buttonModel.borderA.end == initialBorderA);
 			assert(buttonModel.isAnimating);
 			buttonModel.reactMouseMotion(Point{ 4, 4 });
 			buttonModel.reactLeftMouseButtonDown();
@@ -73,11 +103,17 @@ namespace ii887522::Calculator
 			assert(buttonModel.lightness.start == initialLightness);
 			assert(buttonModel.lightness.now == initialLightness);
 			assert(buttonModel.lightness.end == pressedLightness);
+			assert(buttonModel.borderA.start == initialBorderA);
+			assert(buttonModel.borderA.now == initialBorderA);
+			assert(buttonModel.borderA.end == pressedBorderA);
 			assert(buttonModel.isAnimating);
 			buttonModel.reactMouseMotion(Point{ 8, 8 });
 			assert(buttonModel.lightness.start == initialLightness);
 			assert(buttonModel.lightness.now == initialLightness);
 			assert(buttonModel.lightness.end == initialLightness);
+			assert(buttonModel.borderA.start == initialBorderA);
+			assert(buttonModel.borderA.now == initialBorderA);
+			assert(buttonModel.borderA.end == initialBorderA);
 			assert(buttonModel.isAnimating);
 		}
 	}
@@ -91,6 +127,9 @@ namespace ii887522::Calculator
 			assert(buttonModel.lightness.start == initialLightness);
 			assert(buttonModel.lightness.now == initialLightness);
 			assert(buttonModel.lightness.end == initialLightness);
+			assert(buttonModel.borderA.start == initialBorderA);
+			assert(buttonModel.borderA.now == initialBorderA);
+			assert(buttonModel.borderA.end == initialBorderA);
 			assert(!buttonModel.isAnimating);
 			buttonModel.reactLeftMouseButtonUp();
 			buttonModel.reactMouseMotion(Point{ 2, 2 });
@@ -98,6 +137,9 @@ namespace ii887522::Calculator
 			assert(buttonModel.lightness.start == initialLightness);
 			assert(buttonModel.lightness.now == initialLightness);
 			assert(buttonModel.lightness.end == pressedLightness);
+			assert(buttonModel.borderA.start == initialBorderA);
+			assert(buttonModel.borderA.now == initialBorderA);
+			assert(buttonModel.borderA.end == pressedBorderA);
 			assert(buttonModel.isAnimating);
 			buttonModel.reactLeftMouseButtonUp();
 		}
@@ -108,6 +150,9 @@ namespace ii887522::Calculator
 			assert(buttonModel.lightness.start == initialLightness);
 			assert(buttonModel.lightness.now == initialLightness);
 			assert(buttonModel.lightness.end == initialLightness);
+			assert(buttonModel.borderA.start == initialBorderA);
+			assert(buttonModel.borderA.now == initialBorderA);
+			assert(buttonModel.borderA.end == initialBorderA);
 			assert(!buttonModel.isAnimating);
 			buttonModel.reactLeftMouseButtonUp();
 			buttonModel.reactMouseMotion(Point{ 4, 4 });
@@ -115,6 +160,9 @@ namespace ii887522::Calculator
 			assert(buttonModel.lightness.start == initialLightness);
 			assert(buttonModel.lightness.now == initialLightness);
 			assert(buttonModel.lightness.end == pressedLightness);
+			assert(buttonModel.borderA.start == initialBorderA);
+			assert(buttonModel.borderA.now == initialBorderA);
+			assert(buttonModel.borderA.end == pressedBorderA);
 			assert(buttonModel.isAnimating);
 			buttonModel.reactLeftMouseButtonUp();
 		}
@@ -130,6 +178,9 @@ namespace ii887522::Calculator
 			assert(buttonModel.lightness.start == initialLightness);
 			assert(buttonModel.lightness.now == initialLightness);
 			assert(buttonModel.lightness.end == initialLightness);
+			assert(buttonModel.borderA.start == initialBorderA);
+			assert(buttonModel.borderA.now == initialBorderA);
+			assert(buttonModel.borderA.end == initialBorderA);
 			assert(!buttonModel.isAnimating);
 			buttonModel.reactMouseMotion(Point{ 2, 2 });
 			buttonModel.reactLeftMouseButtonDown();
@@ -137,6 +188,9 @@ namespace ii887522::Calculator
 			assert(buttonModel.lightness.start == initialLightness);
 			assert(buttonModel.lightness.now == initialLightness);
 			assert(buttonModel.lightness.end == hoveredLightness);
+			assert(buttonModel.borderA.start == initialBorderA);
+			assert(buttonModel.borderA.now == initialBorderA);
+			assert(buttonModel.borderA.end == hoveredBorderA);
 			assert(buttonModel.isAnimating);
 		}
 		{
@@ -147,6 +201,9 @@ namespace ii887522::Calculator
 			assert(buttonModel.lightness.start == initialLightness);
 			assert(buttonModel.lightness.now == initialLightness);
 			assert(buttonModel.lightness.end == initialLightness);
+			assert(buttonModel.borderA.start == initialBorderA);
+			assert(buttonModel.borderA.now == initialBorderA);
+			assert(buttonModel.borderA.end == initialBorderA);
 			assert(!buttonModel.isAnimating);
 			buttonModel.reactMouseMotion(Point{ 4, 4 });
 			buttonModel.reactLeftMouseButtonDown();
@@ -154,6 +211,9 @@ namespace ii887522::Calculator
 			assert(buttonModel.lightness.start == initialLightness);
 			assert(buttonModel.lightness.now == initialLightness);
 			assert(buttonModel.lightness.end == hoveredLightness);
+			assert(buttonModel.borderA.start == initialBorderA);
+			assert(buttonModel.borderA.now == initialBorderA);
+			assert(buttonModel.borderA.end == hoveredBorderA);
 			assert(buttonModel.isAnimating);
 		}
 	}
@@ -167,6 +227,9 @@ namespace ii887522::Calculator
 			assert(buttonModel.lightness.start == initialLightness);
 			assert(buttonModel.lightness.now == initialLightness);
 			assert(buttonModel.lightness.end == initialLightness);
+			assert(buttonModel.borderA.start == initialBorderA);
+			assert(buttonModel.borderA.now == initialBorderA);
+			assert(buttonModel.borderA.end == initialBorderA);
 			assert(buttonModel.isAnimating);
 		}
 		{
@@ -176,6 +239,9 @@ namespace ii887522::Calculator
 			assert(buttonModel.lightness.start == initialLightness);
 			assert(buttonModel.lightness.now == initialLightness);
 			assert(buttonModel.lightness.end == initialLightness);
+			assert(buttonModel.borderA.start == initialBorderA);
+			assert(buttonModel.borderA.now == initialBorderA);
+			assert(buttonModel.borderA.end == initialBorderA);
 			assert(buttonModel.isAnimating);
 		}
 	}
@@ -189,21 +255,33 @@ namespace ii887522::Calculator
 			assert(buttonModel.lightness.start == initialLightness);
 			assert(buttonModel.lightness.now == .985f);
 			assert(buttonModel.lightness.end == hoveredLightness);
+			assert(buttonModel.borderA.start == initialBorderA);
+			assert(buttonModel.borderA.now == 38.25f);
+			assert(buttonModel.borderA.end == hoveredBorderA);
 			assert(buttonModel.isAnimating);
 			buttonModel.step(40u);
 			assert(buttonModel.lightness.start == initialLightness);
 			assert(buttonModel.lightness.now == .965f);
 			assert(buttonModel.lightness.end == hoveredLightness);
+			assert(buttonModel.borderA.start == initialBorderA);
+			assert(buttonModel.borderA.now == 89.25f);
+			assert(buttonModel.borderA.end == hoveredBorderA);
 			assert(buttonModel.isAnimating);
 			buttonModel.step(60u);
 			assert(buttonModel.lightness.start == initialLightness);
 			assert(buttonModel.lightness.now == .935f);
 			assert(buttonModel.lightness.end == hoveredLightness);
+			assert(buttonModel.borderA.start == initialBorderA);
+			assert(buttonModel.borderA.now == 165.75f);
+			assert(buttonModel.borderA.end == hoveredBorderA);
 			assert(buttonModel.isAnimating);
 			buttonModel.step(70u);
 			assert(buttonModel.lightness.start == initialLightness);
 			assert(buttonModel.lightness.now == .9f);
 			assert(buttonModel.lightness.end == hoveredLightness);
+			assert(buttonModel.borderA.start == initialBorderA);
+			assert(buttonModel.borderA.now == 255.f);
+			assert(buttonModel.borderA.end == hoveredBorderA);
 			assert(!buttonModel.isAnimating);
 		}
 		{
@@ -213,21 +291,33 @@ namespace ii887522::Calculator
 			assert(buttonModel.lightness.start == initialLightness);
 			assert(buttonModel.lightness.now == .985f);
 			assert(buttonModel.lightness.end == hoveredLightness);
+			assert(buttonModel.borderA.start == initialBorderA);
+			assert(buttonModel.borderA.now == 38.25f);
+			assert(buttonModel.borderA.end == hoveredBorderA);
 			assert(buttonModel.isAnimating);
 			buttonModel.step(40u);
 			assert(buttonModel.lightness.start == initialLightness);
 			assert(buttonModel.lightness.now == .965f);
 			assert(buttonModel.lightness.end == hoveredLightness);
+			assert(buttonModel.borderA.start == initialBorderA);
+			assert(buttonModel.borderA.now == 89.25f);
+			assert(buttonModel.borderA.end == hoveredBorderA);
 			assert(buttonModel.isAnimating);
 			buttonModel.step(60u);
 			assert(buttonModel.lightness.start == initialLightness);
 			assert(buttonModel.lightness.now == .935f);
 			assert(buttonModel.lightness.end == hoveredLightness);
+			assert(buttonModel.borderA.start == initialBorderA);
+			assert(buttonModel.borderA.now == 165.75f);
+			assert(buttonModel.borderA.end == hoveredBorderA);
 			assert(buttonModel.isAnimating);
 			buttonModel.step(170u);
 			assert(buttonModel.lightness.start == initialLightness);
 			assert(buttonModel.lightness.now == .9f);
 			assert(buttonModel.lightness.end == hoveredLightness);
+			assert(buttonModel.borderA.start == initialBorderA);
+			assert(buttonModel.borderA.now == 255.f);
+			assert(buttonModel.borderA.end == hoveredBorderA);
 			assert(!buttonModel.isAnimating);
 		}
 	}

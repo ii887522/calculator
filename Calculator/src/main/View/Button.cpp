@@ -50,12 +50,25 @@ namespace ii887522::Calculator
 		return Action::STOP_ANIMATION;
 	}
 
-	void Button::render()
+	void Button::renderBackground()
 	{
 		SDL_SetRenderDrawColor(renderer, static_cast<Uint8>(color.r * viewModel.lightness.now), static_cast<Uint8>(color.g *
 			viewModel.lightness.now), static_cast<Uint8>(color.b * viewModel.lightness.now), 255u);
 		const SDL_Rect rect{ viewModel.rect.position.x, viewModel.rect.position.y, viewModel.rect.size.w, viewModel.rect.size.h };
 		SDL_RenderFillRect(renderer, &rect);
+	}
+
+	void Button::renderBorder()
+	{
+		SDL_SetRenderDrawColor(renderer, 128u, 128u, 128u, static_cast<Uint8>(viewModel.borderA.now));
+		const SDL_Rect rect{ viewModel.rect.position.x, viewModel.rect.position.y, viewModel.rect.size.w, viewModel.rect.size.h };
+		SDL_RenderDrawRect(renderer, &rect);
+	}
+
+	void Button::render()
+	{
+		renderBackground();
+		renderBorder();
 	}
 }
 
