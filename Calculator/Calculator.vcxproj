@@ -234,7 +234,9 @@
     <ClCompile Include="src\main\Functions\calculator.cpp" />
     <ClCompile Include="src\main\ResourceView\Text.cpp" />
     <ClCompile Include="src\main\View\Button.cpp" />
+    <ClCompile Include="src\main\View\ButtonGroup.cpp" />
     <ClCompile Include="src\main\View\ResourceView.cpp" />
+    <ClCompile Include="src\test\ButtonGrid.test.cpp" />
     <ClCompile Include="src\test\ButtonModel.test.cpp" />
     <ClCompile Include="src\test\control_flow.test.cpp" />
     <ClCompile Include="src\test\math_ext.test.cpp" />
@@ -242,6 +244,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\main\Any\App.h" />
+    <ClInclude Include="src\main\Any\ButtonGrid.h" />
     <ClInclude Include="src\main\Any\ButtonModel.h" />
     <ClInclude Include="src\main\Any\Enums.h" />
     <ClInclude Include="src\main\Any\Scene.h" />
@@ -256,7 +259,9 @@
     <ClInclude Include="src\main\Struct\Rect.h" />
     <ClInclude Include="src\main\Struct\Size.h" />
     <ClInclude Include="src\main\View\Button.h" />
+    <ClInclude Include="src\main\View\ButtonGroup.h" />
     <ClInclude Include="src\main\View\ResourceView.h" />
+    <ClInclude Include="src\test\ButtonGrid.test.h" />
     <ClInclude Include="src\test\ButtonModel.test.h" />
     <ClInclude Include="src\test\control_flow.test.h" />
     <ClInclude Include="src\test\math_ext.test.h" />
