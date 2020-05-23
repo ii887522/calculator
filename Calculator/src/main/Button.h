@@ -22,10 +22,12 @@ namespace ii887522::Calculator
 		Button(Button&&) = delete;
 		Button& operator=(Button&&) = delete;
 
+		SDL_Renderer*const renderer;
 		ButtonModel viewModel;
 
 	public:
-		explicit constexpr Button(const Rect& rect) : viewModel{ rect } { }
+		// Param renderer: it must not be assigned to integer
+		explicit constexpr Button(SDL_Renderer*const renderer, const Rect& rect) : renderer{ renderer }, viewModel{ rect } { }
 
 		constexpr Action reactMouseMotion(const SDL_MouseMotionEvent& motionEvent)
 		{
@@ -62,8 +64,7 @@ namespace ii887522::Calculator
 			return Action::STOP_ANIMATION;
 		}
 
-		// Param renderer: it must not be assigned to integer
-		void render(SDL_Renderer*const renderer);
+		void render();
 	};
 }
 

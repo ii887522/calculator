@@ -39,6 +39,12 @@
     <ClCompile Include="src\test\math_ext.test.cpp">
       <Filter>Test Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="src\main\ResourceView.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\main\View.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\main\App.h">
@@ -80,9 +86,21 @@
     <ClInclude Include="src\main\AnimatedFloat.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="src\main\ResourceView.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\main\View.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Image Include="res\main\calculator.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\main\drawer.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\main\history.png">
       <Filter>Resource Files</Filter>
     </Image>
   </ItemGroup>

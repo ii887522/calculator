@@ -11,7 +11,7 @@ namespace ii887522::Calculator
 {
 	App::App() : window{ SDL_CreateWindow("Calcuator", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, 320, 480, 0u) },
 		ico{ IMG_Load("res/main/calculator.png") }, renderer{ SDL_CreateRenderer(window, -1, SDL_RENDERER_SOFTWARE) },
-		button{ Rect{ Point{ 0, 0 }, Size{ 41, 41 } } }
+		button{ renderer, Rect{ Point{ 0, 0 }, Size{ 41, 41 } } }
 	{
 		SDL_SetWindowIcon(window, ico);
 	}

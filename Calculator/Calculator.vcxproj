@@ -230,7 +230,9 @@
     <ClCompile Include="src\main\App.cpp" />
     <ClCompile Include="src\main\Button.cpp" />
     <ClCompile Include="src\main\calculator.cpp" />
+    <ClCompile Include="src\main\ResourceView.cpp" />
     <ClCompile Include="src\main\Subsystems.cpp" />
+    <ClCompile Include="src\main\View.cpp" />
     <ClCompile Include="src\test\ButtonModel.test.cpp" />
     <ClCompile Include="src\test\math_ext.test.cpp" />
     <ClCompile Include="src\test\test.cpp" />
@@ -245,13 +247,17 @@
     <ClInclude Include="src\main\Point.h" />
     <ClInclude Include="src\main\Range.h" />
     <ClInclude Include="src\main\Rect.h" />
+    <ClInclude Include="src\main\ResourceView.h" />
     <ClInclude Include="src\main\Size.h" />
     <ClInclude Include="src\main\Subsystems.h" />
+    <ClInclude Include="src\main\View.h" />
     <ClInclude Include="src\test\ButtonModel.test.h" />
     <ClInclude Include="src\test\math_ext.test.h" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="res\main\calculator.png" />
+    <Image Include="res\main\drawer.png" />
+    <Image Include="res\main\history.png" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
