@@ -81,6 +81,18 @@
     <ClCompile Include="src\main\ResourceView\Text.cpp">
       <Filter>Source Files\ResourceView</Filter>
     </ClCompile>
+    <ClCompile Include="src\main\View\ButtonGroup.cpp">
+      <Filter>Source Files\View</Filter>
+    </ClCompile>
+    <ClCompile Include="src\test\ButtonGrid.test.cpp">
+      <Filter>Test Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\main\Functions\control_flow.cpp">
+      <Filter>Source Files\Functions</Filter>
+    </ClCompile>
+    <ClCompile Include="src\main\View\TextGroup.cpp">
+      <Filter>Source Files\View</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\test\ButtonModel.test.h">
@@ -139,6 +151,24 @@
     </ClInclude>
     <ClInclude Include="src\main\ResourceView\Text.h">
       <Filter>Header Files\ResourceView</Filter>
+    </ClInclude>
+    <ClInclude Include="src\main\View\ButtonGroup.h">
+      <Filter>Header Files\View</Filter>
+    </ClInclude>
+    <ClInclude Include="src\main\Any\ButtonGrid.h">
+      <Filter>Header Files\Any</Filter>
+    </ClInclude>
+    <ClInclude Include="src\test\ButtonGrid.test.h">
+      <Filter>Test Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\main\Struct\Color.h">
+      <Filter>Header Files\Struct</Filter>
+    </ClInclude>
+    <ClInclude Include="src\main\View\TextGroup.h">
+      <Filter>Header Files\View</Filter>
+    </ClInclude>
+    <ClInclude Include="src\main\Any\constants.h">
+      <Filter>Header Files\Any</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

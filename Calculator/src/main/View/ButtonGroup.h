@@ -1,36 +1,35 @@
 #ifndef TEST
 
-#ifndef II887522_CALCULATOR_BUTTON_H
-#define II887522_CALCULATOR_BUTTON_H
+#ifndef II887522_CALCULATOR_BUTTON_GROUP_H
+#define II887522_CALCULATOR_BUTTON_GROUP_H
 
 #include "../Any/View.h"
+#include "Button.h"
 #include <SDL.h>
-#include "../Any/ButtonModel.h"
-#include "../Struct/Rect.h"
-#include "../Struct/Point.h"
 #include "../Any/Enums.h"
-#include "../Struct/Color.h"
+#include "../Any/ButtonGrid.h"
+#include "../Any/constants.h"
 
 namespace ii887522::Calculator
 {
 	// Not Thread Safe: it must only be used in main thread
-	class Button final : public View
+	class ButtonGroup final : public View
 	{
 		// remove copy semantics
-		Button(const Button&) = delete;
-		Button& operator=(const Button&) = delete;
+		ButtonGroup(const ButtonGroup&) = delete;
+		ButtonGroup& operator=(const ButtonGroup&) = delete;
 
 		// remove move semantics
-		Button(Button&&) = delete;
-		Button& operator=(Button&&) = delete;
+		ButtonGroup(ButtonGroup&&) = delete;
+		ButtonGroup& operator=(ButtonGroup&&) = delete;
 
-		ButtonModel viewModel;
-		const Color color;
+		Button buttons[buttonsCount];
 		bool isAnimating;
+		unsigned int buttonAnimationsCount;
 
 	public:
 		// Param renderer: it must not be assigned to integer
-		explicit Button(SDL_Renderer*const renderer, const Rect&, const Color&);
+		explicit ButtonGroup(SDL_Renderer*const renderer, const ButtonGrid&);
 
 		virtual Action reactMouseMotion(const SDL_MouseMotionEvent&) override;
 		virtual Action reactLeftMouseButtonDown(const SDL_MouseButtonEvent&) override;

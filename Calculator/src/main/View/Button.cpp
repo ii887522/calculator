@@ -6,7 +6,8 @@
 
 namespace ii887522::Calculator
 {
-	Button::Button(SDL_Renderer*const renderer, const Rect& rect) : View{ renderer }, viewModel{ rect }, isAnimating{ false } { }
+	Button::Button(SDL_Renderer*const renderer, const Rect& rect, const Color& color) : View{ renderer }, viewModel{ rect },
+		color{ color }, isAnimating{ false } { }
 
 	Action Button::reactMouseMotion(const SDL_MouseMotionEvent& motionEvent)
 	{
@@ -51,8 +52,8 @@ namespace ii887522::Calculator
 
 	void Button::render()
 	{
-		SDL_SetRenderDrawColor(renderer, static_cast<Uint8>(192u * viewModel.lightness.now), static_cast<Uint8>(192u *
-			viewModel.lightness.now), static_cast<Uint8>(192u * viewModel.lightness.now), 255u);
+		SDL_SetRenderDrawColor(renderer, static_cast<Uint8>(color.r * viewModel.lightness.now), static_cast<Uint8>(color.g *
+			viewModel.lightness.now), static_cast<Uint8>(color.b * viewModel.lightness.now), 255u);
 		const SDL_Rect rect{ viewModel.rect.position.x, viewModel.rect.position.y, viewModel.rect.size.w, viewModel.rect.size.h };
 		SDL_RenderFillRect(renderer, &rect);
 	}
