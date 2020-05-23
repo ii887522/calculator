@@ -6,6 +6,7 @@
 #include <SDL.h>
 #include "Scene.h"
 #include "Enums.h"
+#include "Size.h"
 
 namespace ii887522::Calculator
 {
@@ -47,7 +48,7 @@ namespace ii887522::Calculator
 		}
 
 	public:
-		explicit App();
+		explicit App(const Size& = Size{ 320, 480 });
 
 		constexpr Action react(const SDL_Event& event)
 		{

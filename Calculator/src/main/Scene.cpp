@@ -12,9 +12,12 @@
 
 namespace ii887522::Calculator
 {
-	Scene::Scene(SDL_Renderer*const renderer) : views{
-		new Button{ renderer, Rect{ Point{ 0, 0 }, Size{ 41, 41 } } }, new ResourceView{ renderer, "res/main/drawer.png" }
-	}, isAnimating{ false } { }
+	Scene::Scene(SDL_Renderer*const renderer, const Size& size, const int buttonSize) : views{
+		new Button{ renderer, Rect{ Point{ 0, 0 }, Size{ buttonSize, buttonSize } } },
+		new ResourceView{ renderer, "res/main/drawer.png" },
+		new Button{ renderer, Rect{ Point{ size.w - buttonSize, 0 }, Size{ buttonSize, buttonSize } } },
+		new ResourceView{ renderer, "res/main/history.png", Point{ size.w - buttonSize, 0 } }
+	}, isAnimating{ false }, viewAnimationsCount{ 0u } { }
 
 	Action Scene::reactMouseMotion(const SDL_MouseMotionEvent& motionEvent)
 	{
@@ -22,6 +25,7 @@ namespace ii887522::Calculator
 		loop(sizeof views / sizeof(View*), [=, &result](const auto i) {
 			const auto action{ views[i]->reactMouseMotion(motionEvent) };
 			if (action != Action::START_ANIMATION) return;
+			++viewAnimationsCount;
 			if (isAnimating) return;
 			result = action;
 			isAnimating = true;
@@ -35,6 +39,7 @@ namespace ii887522::Calculator
 		loop(sizeof views / sizeof(View*), [=, &result](const auto i) {
 			const auto action{ views[i]->reactLeftMouseButtonDown(buttonEvent) };
 			if (action != Action::START_ANIMATION) return;
+			++viewAnimationsCount;
 			if (isAnimating) return;
 			result = action;
 			isAnimating = true;
@@ -48,6 +53,7 @@ namespace ii887522::Calculator
 		loop(sizeof views / sizeof(View*), [=, &result](const auto i) {
 			const auto action{ views[i]->reactLeftMouseButtonUp(buttonEvent) };
 			if (action != Action::START_ANIMATION) return;
+			++viewAnimationsCount;
 			if (isAnimating) return;
 			result = action;
 			isAnimating = true;
@@ -61,6 +67,7 @@ namespace ii887522::Calculator
 		loop(sizeof views / sizeof(View*), [=, &result](const auto i) {
 			const auto action{ views[i]->reactMouseLeaveWindow(windowEvent) };
 			if (action != Action::START_ANIMATION) return;
+			++viewAnimationsCount;
 			if (isAnimating) return;
 			result = action;
 			isAnimating = true;
@@ -74,7 +81,8 @@ namespace ii887522::Calculator
 		loop(sizeof views / sizeof(View*), [=, &result](const auto i) {
 			const auto action{ views[i]->step(dt) };
 			if (action != Action::STOP_ANIMATION) return;
-			if (!isAnimating) return;
+			--viewAnimationsCount;
+			if (viewAnimationsCount != 0u) return;
 			result = action;
 			isAnimating = false;
 		});

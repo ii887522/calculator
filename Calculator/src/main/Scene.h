@@ -6,6 +6,7 @@
 #include <SDL.h>
 #include "View.h"
 #include "Enums.h"
+#include "Size.h"
 
 namespace ii887522::Calculator
 {
@@ -20,12 +21,13 @@ namespace ii887522::Calculator
 		Scene(Scene&&) = delete;
 		Scene& operator=(Scene&&) = delete;
 
-		View*const views[2u];
+		View*const views[4u];
 		bool isAnimating;
+		unsigned int viewAnimationsCount;
 
 	public:
 		// Param renderer: it must not be assigned to integer
-		explicit Scene(SDL_Renderer*const renderer);
+		explicit Scene(SDL_Renderer*const renderer, const Size& size, const int buttonSize = 41);
 
 		Action reactMouseMotion(const SDL_MouseMotionEvent&);
 		Action reactLeftMouseButtonDown(const SDL_MouseButtonEvent&);
