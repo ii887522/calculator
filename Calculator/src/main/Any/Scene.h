@@ -6,7 +6,7 @@
 #include <SDL.h>
 #include "View.h"
 #include "Enums.h"
-#include "Size.h"
+#include "../Struct/Size.h"
 
 namespace ii887522::Calculator
 {

@@ -1,9 +1,9 @@
 #ifndef TEST
 
 #include <SDL.h>
-#include "Subsystems.h"
-#include "App.h"
-#include "Enums.h"
+#include "../Any/Subsystems.h"
+#include "../Any/App.h"
+#include "../Any/Enums.h"
 
 namespace ii887522::Calculator
 {

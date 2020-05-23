@@ -2,12 +2,12 @@
 
 #include "Scene.h"
 #include <SDL.h>
-#include "Button.h"
-#include "ResourceView.h"
-#include "control_flow.h"
-#include "Rect.h"
-#include "Point.h"
-#include "Size.h"
+#include "../View/Button.h"
+#include "../View/ResourceView.h"
+#include "../Functions/control_flow.h"
+#include "../Struct/Rect.h"
+#include "../Struct/Point.h"
+#include "../Struct/Size.h"
 #include "Enums.h"
 
 namespace ii887522::Calculator

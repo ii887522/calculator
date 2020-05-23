@@ -1,11 +1,11 @@
 #ifndef TEST
 
 #include "ResourceView.h"
-#include "View.h"
+#include "../Any/View.h"
 #include <SDL.h>
 #include <SDL_image.h>
 #include <string>
-#include "Point.h"
+#include "../Struct/Point.h"
 
 using std::string;
 

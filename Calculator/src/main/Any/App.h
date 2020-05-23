@@ -6,11 +6,12 @@
 #include <SDL.h>
 #include "Scene.h"
 #include "Enums.h"
-#include "Size.h"
+#include "../Struct/Size.h"
 
 namespace ii887522::Calculator
 {
 	// Not Thread Safe: it must only be used in main thread
+	// See also "../Functions/calculator.cpp" if you are looking for main entry point
 	class App final
 	{
 		// remove copy semantics

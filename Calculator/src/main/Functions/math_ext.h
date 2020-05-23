@@ -1,9 +1,9 @@
 #ifndef II887522_CALCULATOR_MATH_EXT_H
 #define II887522_CALCULATOR_MATH_EXT_H
 
-#include "Range.h"
-#include "Point.h"
-#include "Rect.h"
+#include "../Struct/Range.h"
+#include "../Struct/Point.h"
+#include "../Struct/Rect.h"
 
 namespace ii887522::Calculator
 {

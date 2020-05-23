@@ -1,12 +1,12 @@
 #ifndef II887522_CALCULATOR_BUTTON_MODEL_H
 #define II887522_CALCULATOR_BUTTON_MODEL_H
 
-#include "Point.h"
-#include "Rect.h"
-#include "math_ext.h"
+#include "../Struct/Point.h"
+#include "../Struct/Rect.h"
+#include "../Functions/math_ext.h"
 #include "Enums.h"
-#include "AnimatedFloat.h"
-#include "Range.h"
+#include "../Struct/AnimatedFloat.h"
+#include "../Struct/Range.h"
 
 namespace ii887522::Calculator
 {
