@@ -30,6 +30,27 @@
     <ClCompile Include="src\main\Subsystems.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="src\main\Button.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\test\ButtonModel.test.cpp">
+      <Filter>Test Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\test\math_ext.test.cpp">
+      <Filter>Test Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\main\ResourceView.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\main\View.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\main\Scene.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\test\control_flow.test.cpp">
+      <Filter>Test Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\main\App.h">
@@ -38,9 +59,63 @@
     <ClInclude Include="src\main\Subsystems.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="src\main\Button.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\main\ButtonModel.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\main\Point.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\test\ButtonModel.test.h">
+      <Filter>Test Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\main\Size.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\main\Rect.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\main\math_ext.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\test\math_ext.test.h">
+      <Filter>Test Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\main\Range.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\main\Enums.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\main\AnimatedFloat.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\main\ResourceView.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\main\View.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\main\Scene.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\main\control_flow.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\test\control_flow.test.h">
+      <Filter>Test Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Image Include="res\main\calculator.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\main\drawer.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\main\history.png">
       <Filter>Resource Files</Filter>
     </Image>
   </ItemGroup>
