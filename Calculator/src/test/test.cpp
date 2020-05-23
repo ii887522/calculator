@@ -2,6 +2,7 @@
 
 #include "ButtonModel.test.h"
 #include "math_ext.test.h"
+#include "control_flow.test.h"
 
 namespace ii887522::Calculator
 {
@@ -19,6 +20,7 @@ namespace ii887522::Calculator
 	{
 		testMathExt();
 		testButtonModel();
+		testControlFlow();
 		return 0;
 	}
 }

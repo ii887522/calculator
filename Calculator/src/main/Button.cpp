@@ -1,11 +1,55 @@
 #ifndef TEST
 
 #include "Button.h"
+#include "View.h"
 #include <SDL.h>
 
 namespace ii887522::Calculator
 {
-	void Button::render(SDL_Renderer*const renderer)
+	Button::Button(SDL_Renderer*const renderer, const Rect& rect) : View{ renderer }, viewModel{ rect }, isAnimating{ false } { }
+
+	Action Button::reactMouseMotion(const SDL_MouseMotionEvent& motionEvent)
+	{
+		viewModel.reactMouseMotion(Point{ motionEvent.x, motionEvent.y });
+		if (isAnimating || !viewModel.isAnimating) return Action::NONE;
+		isAnimating = true;
+		return Action::START_ANIMATION;
+	}
+
+	Action Button::reactLeftMouseButtonDown(const SDL_MouseButtonEvent&)
+	{
+		viewModel.reactLeftMouseButtonDown();
+		if (isAnimating || !viewModel.isAnimating) return Action::NONE;
+		isAnimating = true;
+		return Action::START_ANIMATION;
+	}
+
+	Action Button::reactLeftMouseButtonUp(const SDL_MouseButtonEvent&)
+	{
+		viewModel.reactLeftMouseButtonUp();
+		if (isAnimating || !viewModel.isAnimating) return Action::NONE;
+		isAnimating = true;
+		return Action::START_ANIMATION;
+	}
+
+	Action Button::reactMouseLeaveWindow(const SDL_WindowEvent&)
+	{
+		viewModel.reactMouseLeaveWindow();
+		if (isAnimating || !viewModel.isAnimating) return Action::NONE;
+		isAnimating = true;
+		return Action::START_ANIMATION;
+	}
+
+	Action Button::step(const unsigned int dt)
+	{
+		if (!isAnimating) return Action::NONE;
+		viewModel.step(dt);
+		if (viewModel.isAnimating) return Action::NONE;
+		isAnimating = false;
+		return Action::STOP_ANIMATION;
+	}
+
+	void Button::render()
 	{
 		SDL_SetRenderDrawColor(renderer, static_cast<Uint8>(192u * viewModel.lightness.now), static_cast<Uint8>(192u *
 			viewModel.lightness.now), static_cast<Uint8>(192u * viewModel.lightness.now), 255u);
