@@ -28,6 +28,16 @@ namespace ii887522::Calculator
 		return Action::NONE;
 	}
 
+	Action View::reactKeyDown(const SDL_KeyboardEvent&)
+	{
+		return Action::NONE;
+	}
+
+	Action View::reactKeyUp(const SDL_KeyboardEvent&)
+	{
+		return Action::NONE;
+	}
+
 	Action View::step(const unsigned int)
 	{
 		return Action::NONE;

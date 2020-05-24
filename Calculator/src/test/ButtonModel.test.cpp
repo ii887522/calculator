@@ -5,6 +5,7 @@
 #include "../main/Any/ButtonModel.h"
 #include "../main/Struct/Rect.h"
 #include "../main/Struct/Point.h"
+#include <SDL.h>
 
 namespace ii887522::Calculator
 {
@@ -116,6 +117,59 @@ namespace ii887522::Calculator
 			assert(buttonModel.borderA.end == initialBorderA);
 			assert(buttonModel.isAnimating);
 		}
+		{
+			ButtonModel buttonModel{ Rect{ Point{ 2, 2 }, Size{ 5, 5 } }, SDLK_a };
+			buttonModel.reactMouseMotion(Point{ 0, 0 });
+			assert(buttonModel.lightness.start == initialLightness);
+			assert(buttonModel.lightness.now == initialLightness);
+			assert(buttonModel.lightness.end == initialLightness);
+			assert(buttonModel.borderA.start == initialBorderA);
+			assert(buttonModel.borderA.now == initialBorderA);
+			assert(buttonModel.borderA.end == initialBorderA);
+			assert(!buttonModel.isAnimating);
+			buttonModel.reactMouseMotion(Point{ 4, 4 });
+			assert(buttonModel.lightness.start == initialLightness);
+			assert(buttonModel.lightness.now == initialLightness);
+			assert(buttonModel.lightness.end == hoveredLightness);
+			assert(buttonModel.borderA.start == initialBorderA);
+			assert(buttonModel.borderA.now == initialBorderA);
+			assert(buttonModel.borderA.end == hoveredBorderA);
+			assert(buttonModel.isAnimating);
+			buttonModel.reactMouseMotion(Point{ 4, 4 });
+			assert(buttonModel.lightness.start == initialLightness);
+			assert(buttonModel.lightness.now == initialLightness);
+			assert(buttonModel.lightness.end == hoveredLightness);
+			assert(buttonModel.borderA.start == initialBorderA);
+			assert(buttonModel.borderA.now == initialBorderA);
+			assert(buttonModel.borderA.end == hoveredBorderA);
+			assert(buttonModel.isAnimating);
+			buttonModel.reactMouseMotion(Point{ 8, 8 });
+			assert(buttonModel.lightness.start == initialLightness);
+			assert(buttonModel.lightness.now == initialLightness);
+			assert(buttonModel.lightness.end == initialLightness);
+			assert(buttonModel.borderA.start == initialBorderA);
+			assert(buttonModel.borderA.now == initialBorderA);
+			assert(buttonModel.borderA.end == initialBorderA);
+			assert(buttonModel.isAnimating);
+			buttonModel.reactMouseMotion(Point{ 4, 4 });
+			buttonModel.reactLeftMouseButtonDown();
+			buttonModel.reactMouseMotion(Point{ 4, 4 });
+			assert(buttonModel.lightness.start == initialLightness);
+			assert(buttonModel.lightness.now == initialLightness);
+			assert(buttonModel.lightness.end == pressedLightness);
+			assert(buttonModel.borderA.start == initialBorderA);
+			assert(buttonModel.borderA.now == initialBorderA);
+			assert(buttonModel.borderA.end == pressedBorderA);
+			assert(buttonModel.isAnimating);
+			buttonModel.reactMouseMotion(Point{ 8, 8 });
+			assert(buttonModel.lightness.start == initialLightness);
+			assert(buttonModel.lightness.now == initialLightness);
+			assert(buttonModel.lightness.end == initialLightness);
+			assert(buttonModel.borderA.start == initialBorderA);
+			assert(buttonModel.borderA.now == initialBorderA);
+			assert(buttonModel.borderA.end == initialBorderA);
+			assert(buttonModel.isAnimating);
+		}
 	}
 
 	void ButtonModelTest::testReactLeftMouseButtonDown() const
@@ -145,6 +199,29 @@ namespace ii887522::Calculator
 		}
 		{
 			ButtonModel buttonModel{ Rect{ Point{ 2, 2 }, Size{ 5, 5 } } };
+			buttonModel.reactMouseMotion(Point{ 0, 0 });
+			buttonModel.reactLeftMouseButtonDown();
+			assert(buttonModel.lightness.start == initialLightness);
+			assert(buttonModel.lightness.now == initialLightness);
+			assert(buttonModel.lightness.end == initialLightness);
+			assert(buttonModel.borderA.start == initialBorderA);
+			assert(buttonModel.borderA.now == initialBorderA);
+			assert(buttonModel.borderA.end == initialBorderA);
+			assert(!buttonModel.isAnimating);
+			buttonModel.reactLeftMouseButtonUp();
+			buttonModel.reactMouseMotion(Point{ 4, 4 });
+			buttonModel.reactLeftMouseButtonDown();
+			assert(buttonModel.lightness.start == initialLightness);
+			assert(buttonModel.lightness.now == initialLightness);
+			assert(buttonModel.lightness.end == pressedLightness);
+			assert(buttonModel.borderA.start == initialBorderA);
+			assert(buttonModel.borderA.now == initialBorderA);
+			assert(buttonModel.borderA.end == pressedBorderA);
+			assert(buttonModel.isAnimating);
+			buttonModel.reactLeftMouseButtonUp();
+		}
+		{
+			ButtonModel buttonModel{ Rect{ Point{ 2, 2 }, Size{ 5, 5 } }, SDLK_a };
 			buttonModel.reactMouseMotion(Point{ 0, 0 });
 			buttonModel.reactLeftMouseButtonDown();
 			assert(buttonModel.lightness.start == initialLightness);
@@ -216,6 +293,29 @@ namespace ii887522::Calculator
 			assert(buttonModel.borderA.end == hoveredBorderA);
 			assert(buttonModel.isAnimating);
 		}
+		{
+			ButtonModel buttonModel{ Rect{ Point{ 2, 2 }, Size{ 5, 5 } }, SDLK_a };
+			buttonModel.reactMouseMotion(Point{ 0, 0 });
+			buttonModel.reactLeftMouseButtonDown();
+			buttonModel.reactLeftMouseButtonUp();
+			assert(buttonModel.lightness.start == initialLightness);
+			assert(buttonModel.lightness.now == initialLightness);
+			assert(buttonModel.lightness.end == initialLightness);
+			assert(buttonModel.borderA.start == initialBorderA);
+			assert(buttonModel.borderA.now == initialBorderA);
+			assert(buttonModel.borderA.end == initialBorderA);
+			assert(!buttonModel.isAnimating);
+			buttonModel.reactMouseMotion(Point{ 4, 4 });
+			buttonModel.reactLeftMouseButtonDown();
+			buttonModel.reactLeftMouseButtonUp();
+			assert(buttonModel.lightness.start == initialLightness);
+			assert(buttonModel.lightness.now == initialLightness);
+			assert(buttonModel.lightness.end == hoveredLightness);
+			assert(buttonModel.borderA.start == initialBorderA);
+			assert(buttonModel.borderA.now == initialBorderA);
+			assert(buttonModel.borderA.end == hoveredBorderA);
+			assert(buttonModel.isAnimating);
+		}
 	}
 
 	void ButtonModelTest::testReactMouseLeaveWindow() const
@@ -236,6 +336,146 @@ namespace ii887522::Calculator
 			ButtonModel buttonModel{ Rect{ Point{ 2, 2 }, Size{ 5, 5 } } };
 			buttonModel.reactMouseMotion(Point{ 4, 4 });
 			buttonModel.reactMouseLeaveWindow();
+			assert(buttonModel.lightness.start == initialLightness);
+			assert(buttonModel.lightness.now == initialLightness);
+			assert(buttonModel.lightness.end == initialLightness);
+			assert(buttonModel.borderA.start == initialBorderA);
+			assert(buttonModel.borderA.now == initialBorderA);
+			assert(buttonModel.borderA.end == initialBorderA);
+			assert(buttonModel.isAnimating);
+		}
+		{
+			ButtonModel buttonModel{ Rect{ Point{ 2, 2 }, Size{ 5, 5 } }, SDLK_a };
+			buttonModel.reactMouseMotion(Point{ 4, 4 });
+			buttonModel.reactMouseLeaveWindow();
+			assert(buttonModel.lightness.start == initialLightness);
+			assert(buttonModel.lightness.now == initialLightness);
+			assert(buttonModel.lightness.end == initialLightness);
+			assert(buttonModel.borderA.start == initialBorderA);
+			assert(buttonModel.borderA.now == initialBorderA);
+			assert(buttonModel.borderA.end == initialBorderA);
+			assert(buttonModel.isAnimating);
+		}
+	}
+
+	void ButtonModelTest::testReactKeyDown() const
+	{
+		{
+			ButtonModel buttonModel{ Rect{ Point{ 1, 1 }, Size{ 3, 3 } }, SDLK_a };
+			buttonModel.reactKeyDown(SDLK_b);
+			assert(buttonModel.lightness.start == initialLightness);
+			assert(buttonModel.lightness.now == initialLightness);
+			assert(buttonModel.lightness.end == initialLightness);
+			assert(buttonModel.borderA.start == initialBorderA);
+			assert(buttonModel.borderA.now == initialBorderA);
+			assert(buttonModel.borderA.end == initialBorderA);
+			assert(!buttonModel.isAnimating);
+			buttonModel.reactKeyDown(SDLK_a);
+			assert(buttonModel.lightness.start == initialLightness);
+			assert(buttonModel.lightness.now == initialLightness);
+			assert(buttonModel.lightness.end == pressedLightness);
+			assert(buttonModel.borderA.start == initialBorderA);
+			assert(buttonModel.borderA.now == initialBorderA);
+			assert(buttonModel.borderA.end == pressedBorderA);
+			assert(buttonModel.isAnimating);
+		}
+		{
+			ButtonModel buttonModel{ Rect{ Point{ 2, 2 }, Size{ 5, 5 } }, SDLK_a };
+			buttonModel.reactKeyDown(SDLK_b);
+			assert(buttonModel.lightness.start == initialLightness);
+			assert(buttonModel.lightness.now == initialLightness);
+			assert(buttonModel.lightness.end == initialLightness);
+			assert(buttonModel.borderA.start == initialBorderA);
+			assert(buttonModel.borderA.now == initialBorderA);
+			assert(buttonModel.borderA.end == initialBorderA);
+			assert(!buttonModel.isAnimating);
+			buttonModel.reactKeyDown(SDLK_a);
+			assert(buttonModel.lightness.start == initialLightness);
+			assert(buttonModel.lightness.now == initialLightness);
+			assert(buttonModel.lightness.end == pressedLightness);
+			assert(buttonModel.borderA.start == initialBorderA);
+			assert(buttonModel.borderA.now == initialBorderA);
+			assert(buttonModel.borderA.end == pressedBorderA);
+			assert(buttonModel.isAnimating);
+		}
+		{
+			ButtonModel buttonModel{ Rect{ Point{ 2, 2 }, Size{ 5, 5 } }, SDLK_b };
+			buttonModel.reactKeyDown(SDLK_a);
+			assert(buttonModel.lightness.start == initialLightness);
+			assert(buttonModel.lightness.now == initialLightness);
+			assert(buttonModel.lightness.end == initialLightness);
+			assert(buttonModel.borderA.start == initialBorderA);
+			assert(buttonModel.borderA.now == initialBorderA);
+			assert(buttonModel.borderA.end == initialBorderA);
+			assert(!buttonModel.isAnimating);
+			buttonModel.reactKeyDown(SDLK_b);
+			assert(buttonModel.lightness.start == initialLightness);
+			assert(buttonModel.lightness.now == initialLightness);
+			assert(buttonModel.lightness.end == pressedLightness);
+			assert(buttonModel.borderA.start == initialBorderA);
+			assert(buttonModel.borderA.now == initialBorderA);
+			assert(buttonModel.borderA.end == pressedBorderA);
+			assert(buttonModel.isAnimating);
+		}
+	}
+
+	void ButtonModelTest::testReactKeyUp() const
+	{
+		{
+			ButtonModel buttonModel{ Rect{ Point{ 1, 1 }, Size{ 3, 3 } }, SDLK_a };
+			buttonModel.reactKeyDown(SDLK_b);
+			buttonModel.reactKeyUp(SDLK_b);
+			assert(buttonModel.lightness.start == initialLightness);
+			assert(buttonModel.lightness.now == initialLightness);
+			assert(buttonModel.lightness.end == initialLightness);
+			assert(buttonModel.borderA.start == initialBorderA);
+			assert(buttonModel.borderA.now == initialBorderA);
+			assert(buttonModel.borderA.end == initialBorderA);
+			assert(!buttonModel.isAnimating);
+			buttonModel.reactKeyDown(SDLK_a);
+			buttonModel.reactKeyUp(SDLK_a);
+			assert(buttonModel.lightness.start == initialLightness);
+			assert(buttonModel.lightness.now == initialLightness);
+			assert(buttonModel.lightness.end == initialLightness);
+			assert(buttonModel.borderA.start == initialBorderA);
+			assert(buttonModel.borderA.now == initialBorderA);
+			assert(buttonModel.borderA.end == initialBorderA);
+			assert(buttonModel.isAnimating);
+		}
+		{
+			ButtonModel buttonModel{ Rect{ Point{ 2, 2 }, Size{ 5, 5 } }, SDLK_a };
+			buttonModel.reactKeyDown(SDLK_b);
+			buttonModel.reactKeyUp(SDLK_b);
+			assert(buttonModel.lightness.start == initialLightness);
+			assert(buttonModel.lightness.now == initialLightness);
+			assert(buttonModel.lightness.end == initialLightness);
+			assert(buttonModel.borderA.start == initialBorderA);
+			assert(buttonModel.borderA.now == initialBorderA);
+			assert(buttonModel.borderA.end == initialBorderA);
+			assert(!buttonModel.isAnimating);
+			buttonModel.reactKeyDown(SDLK_a);
+			buttonModel.reactKeyUp(SDLK_a);
+			assert(buttonModel.lightness.start == initialLightness);
+			assert(buttonModel.lightness.now == initialLightness);
+			assert(buttonModel.lightness.end == initialLightness);
+			assert(buttonModel.borderA.start == initialBorderA);
+			assert(buttonModel.borderA.now == initialBorderA);
+			assert(buttonModel.borderA.end == initialBorderA);
+			assert(buttonModel.isAnimating);
+		}
+		{
+			ButtonModel buttonModel{ Rect{ Point{ 2, 2 }, Size{ 5, 5 } }, SDLK_b };
+			buttonModel.reactKeyDown(SDLK_a);
+			buttonModel.reactKeyUp(SDLK_a);
+			assert(buttonModel.lightness.start == initialLightness);
+			assert(buttonModel.lightness.now == initialLightness);
+			assert(buttonModel.lightness.end == initialLightness);
+			assert(buttonModel.borderA.start == initialBorderA);
+			assert(buttonModel.borderA.now == initialBorderA);
+			assert(buttonModel.borderA.end == initialBorderA);
+			assert(!buttonModel.isAnimating);
+			buttonModel.reactKeyDown(SDLK_b);
+			buttonModel.reactKeyUp(SDLK_b);
 			assert(buttonModel.lightness.start == initialLightness);
 			assert(buttonModel.lightness.now == initialLightness);
 			assert(buttonModel.lightness.end == initialLightness);
@@ -286,6 +526,42 @@ namespace ii887522::Calculator
 		}
 		{
 			ButtonModel buttonModel{ Rect{ Point{ 2, 2 }, Size{ 5, 5 } } };
+			buttonModel.reactMouseMotion(Point{ 4, 4 });
+			buttonModel.step(30u);
+			assert(buttonModel.lightness.start == initialLightness);
+			assert(buttonModel.lightness.now == .985f);
+			assert(buttonModel.lightness.end == hoveredLightness);
+			assert(buttonModel.borderA.start == initialBorderA);
+			assert(buttonModel.borderA.now == 38.25f);
+			assert(buttonModel.borderA.end == hoveredBorderA);
+			assert(buttonModel.isAnimating);
+			buttonModel.step(40u);
+			assert(buttonModel.lightness.start == initialLightness);
+			assert(buttonModel.lightness.now == .965f);
+			assert(buttonModel.lightness.end == hoveredLightness);
+			assert(buttonModel.borderA.start == initialBorderA);
+			assert(buttonModel.borderA.now == 89.25f);
+			assert(buttonModel.borderA.end == hoveredBorderA);
+			assert(buttonModel.isAnimating);
+			buttonModel.step(60u);
+			assert(buttonModel.lightness.start == initialLightness);
+			assert(buttonModel.lightness.now == .935f);
+			assert(buttonModel.lightness.end == hoveredLightness);
+			assert(buttonModel.borderA.start == initialBorderA);
+			assert(buttonModel.borderA.now == 165.75f);
+			assert(buttonModel.borderA.end == hoveredBorderA);
+			assert(buttonModel.isAnimating);
+			buttonModel.step(170u);
+			assert(buttonModel.lightness.start == initialLightness);
+			assert(buttonModel.lightness.now == .9f);
+			assert(buttonModel.lightness.end == hoveredLightness);
+			assert(buttonModel.borderA.start == initialBorderA);
+			assert(buttonModel.borderA.now == 255.f);
+			assert(buttonModel.borderA.end == hoveredBorderA);
+			assert(!buttonModel.isAnimating);
+		}
+		{
+			ButtonModel buttonModel{ Rect{ Point{ 2, 2 }, Size{ 5, 5 } }, SDLK_a };
 			buttonModel.reactMouseMotion(Point{ 4, 4 });
 			buttonModel.step(30u);
 			assert(buttonModel.lightness.start == initialLightness);

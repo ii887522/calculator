@@ -3,6 +3,7 @@
 #include "ButtonModel.test.h"
 #include "math_ext.test.h"
 #include "control_flow.test.h"
+#include "ButtonGrid.test.h"
 #include "RadialGradientModel.test.h"
 
 namespace ii887522::Calculator
@@ -14,6 +15,8 @@ namespace ii887522::Calculator
 		buttonModelTest.testReactLeftMouseButtonDown();
 		buttonModelTest.testReactLeftMouseButtonUp();
 		buttonModelTest.testReactMouseLeaveWindow();
+		buttonModelTest.testReactKeyDown();
+		buttonModelTest.testReactKeyUp();
 		buttonModelTest.testStep();
 	}
 
@@ -22,6 +25,7 @@ namespace ii887522::Calculator
 		testMathExt();
 		testButtonModel();
 		testControlFlow();
+		testButtonGrid();
 		testRadialGradientModel();
 		return 0;
 	}

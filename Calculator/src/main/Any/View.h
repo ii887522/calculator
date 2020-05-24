@@ -23,6 +23,8 @@ namespace ii887522::Calculator
 		virtual Action reactLeftMouseButtonDown(const SDL_MouseButtonEvent&);
 		virtual Action reactLeftMouseButtonUp(const SDL_MouseButtonEvent&);
 		virtual Action reactMouseLeaveWindow(const SDL_WindowEvent&);
+		virtual Action reactKeyDown(const SDL_KeyboardEvent&);
+		virtual Action reactKeyUp(const SDL_KeyboardEvent&);
 		virtual Action step(const unsigned int dt);
 		virtual void render() = 0;
 		virtual ~View();

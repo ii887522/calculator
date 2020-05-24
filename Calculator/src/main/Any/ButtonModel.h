@@ -7,6 +7,7 @@
 #include "Enums.h"
 #include "../Struct/AnimatedFloat.h"
 #include "../Struct/Range.h"
+#include <SDL.h>
 
 namespace ii887522::Calculator
 {
@@ -28,6 +29,7 @@ namespace ii887522::Calculator
 
 		State state;
 		unsigned int elaspedTime;
+		const SDL_Keycode keyCode;
 
 		constexpr void reactMouseMotionWhenInitial(const Point& mousePosition)
 		{
@@ -71,8 +73,8 @@ namespace ii887522::Calculator
 		AnimatedFloat borderA;
 		bool isAnimating;
 
-		explicit constexpr ButtonModel(const Rect& rect) : state{ State::INITIAL }, elaspedTime{ 0u }, rect{ rect }, lightness{ 1.f },
-			borderA{ 0.f }, isAnimating{ false } { }
+		explicit constexpr ButtonModel(const Rect& rect, const SDL_Keycode keyCode = SDLK_UNKNOWN) : state{ State::INITIAL },
+			elaspedTime{ 0u }, keyCode{ keyCode }, rect{ rect }, lightness{ 1.f }, borderA{ 0.f }, isAnimating{ false } { }
 
 		constexpr void reactMouseMotion(const Point& mousePosition)
 		{
@@ -112,6 +114,30 @@ namespace ii887522::Calculator
 
 		constexpr void reactMouseLeaveWindow()
 		{
+			state = State::INITIAL;
+			elaspedTime = 0u;
+			lightness.start = lightness.now;
+			lightness.end = 1.f;
+			borderA.start = borderA.now;
+			borderA.end = 0.f;
+			isAnimating = true;
+		}
+
+		constexpr void reactKeyDown(const SDL_Keycode p_keyCode)
+		{
+			if (keyCode != p_keyCode) return;
+			state = State::PRESSED;
+			elaspedTime = 0u;
+			lightness.start = lightness.now;
+			lightness.end = .8f;
+			borderA.start = borderA.now;
+			borderA.end = 255.f;
+			isAnimating = true;
+		}
+
+		constexpr void reactKeyUp(const SDL_Keycode p_keyCode)
+		{
+			if (keyCode != p_keyCode) return;
 			state = State::INITIAL;
 			elaspedTime = 0u;
 			lightness.start = lightness.now;
