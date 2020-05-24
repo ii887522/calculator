@@ -114,6 +114,9 @@
     <ClCompile Include="src\main\Text\CalcExpr.cpp">
       <Filter>Source Files\Text</Filter>
     </ClCompile>
+    <ClCompile Include="src\main\Text\CalcResult.cpp">
+      <Filter>Source Files\Text</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\test\ButtonModel.test.h">
@@ -210,6 +213,9 @@
       <Filter>Header Files\View</Filter>
     </ClInclude>
     <ClInclude Include="src\main\Text\CalcExpr.h">
+      <Filter>Header Files\Text</Filter>
+    </ClInclude>
+    <ClInclude Include="src\main\Text\CalcResult.h">
       <Filter>Header Files\Text</Filter>
     </ClInclude>
   </ItemGroup>

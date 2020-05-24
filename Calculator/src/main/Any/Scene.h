@@ -25,7 +25,7 @@ namespace ii887522::Calculator
 		Scene(Scene&&) = delete;
 		Scene& operator=(Scene&&) = delete;
 
-		View*const views[11u];
+		View*const views[12u];
 		bool isAnimating;
 		unsigned int viewAnimationsCount;
 

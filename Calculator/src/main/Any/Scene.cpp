@@ -11,6 +11,7 @@
 #include "../ResourceView/Text.h"
 #include "../View/CalcScreen.h"
 #include "../Text/CalcExpr.h"
+#include "../Text/CalcResult.h"
 #include "../View/ButtonGroup.h"
 #include "../View/TextGroup.h"
 #include "../Functions/control_flow.h"
@@ -37,6 +38,7 @@ namespace ii887522::Calculator
 			new ResourceView{ renderer, IMG_Load("res/main/history.png"), Point{ size.w - buttonSize, 0 } },
 			new CalcScreen{ renderer, calcScreenRect },
 			new CalcExpr{ renderer, calcScreenRect },
+			new CalcResult{ renderer, calcScreenRect },
 			new ButtonGroup{ renderer, buttonGrid },
 			new TextGroup{ renderer, font, buttonGrid }
 		}, isAnimating{ false }, viewAnimationsCount{ 0u }

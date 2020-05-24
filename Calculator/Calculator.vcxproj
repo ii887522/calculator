@@ -236,6 +236,7 @@
     <ClCompile Include="src\main\ResourceView\RadialGradient.cpp" />
     <ClCompile Include="src\main\ResourceView\Text.cpp" />
     <ClCompile Include="src\main\Text\CalcExpr.cpp" />
+    <ClCompile Include="src\main\Text\CalcResult.cpp" />
     <ClCompile Include="src\main\View\Button.cpp" />
     <ClCompile Include="src\main\View\ButtonGroup.cpp" />
     <ClCompile Include="src\main\View\CalcScreen.cpp" />
@@ -271,6 +272,7 @@
     <ClInclude Include="src\main\Struct\Rect.h" />
     <ClInclude Include="src\main\Struct\Size.h" />
     <ClInclude Include="src\main\Text\CalcExpr.h" />
+    <ClInclude Include="src\main\Text\CalcResult.h" />
     <ClInclude Include="src\main\View\Button.h" />
     <ClInclude Include="src\main\View\ButtonGroup.h" />
     <ClInclude Include="src\main\View\CalcScreen.h" />
