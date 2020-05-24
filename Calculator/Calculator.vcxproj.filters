@@ -99,6 +99,12 @@
     <ClCompile Include="src\test\RadialGradientModel.test.cpp">
       <Filter>Test Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="src\main\View\NavBar.cpp">
+      <Filter>Source Files\View</Filter>
+    </ClCompile>
+    <ClCompile Include="src\main\View\CalcScreen.cpp">
+      <Filter>Source Files\View</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\test\ButtonModel.test.h">
@@ -187,6 +193,12 @@
     </ClInclude>
     <ClInclude Include="src\main\Struct\Flow.h">
       <Filter>Header Files\Struct</Filter>
+    </ClInclude>
+    <ClInclude Include="src\main\View\NavBar.h">
+      <Filter>Header Files\View</Filter>
+    </ClInclude>
+    <ClInclude Include="src\main\View\CalcScreen.h">
+      <Filter>Header Files\View</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

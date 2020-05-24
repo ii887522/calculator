@@ -4,12 +4,14 @@
 #include <SDL.h>
 #include <SDL_image.h>
 #include <SDL_ttf.h>
+#include "../ResourceView/RadialGradient.h"
+#include "../View/NavBar.h"
+#include "../View/CalcScreen.h"
 #include "../View/Button.h"
 #include "../View/ResourceView.h"
 #include "../View/ButtonGroup.h"
 #include "../View/TextGroup.h"
 #include "../ResourceView/Text.h"
-#include "../ResourceView/RadialGradient.h"
 #include "../Functions/control_flow.h"
 #include "../Struct/Rect.h"
 #include "../Struct/Point.h"
@@ -22,13 +24,15 @@ namespace ii887522::Calculator
 {
 	Scene::Scene(SDL_Renderer*const renderer, const Size& size, TTF_Font*const font, const int buttonSize) : views{
 		new RadialGradient{ renderer, size },
+		new NavBar{ renderer, Size{ size.w, buttonSize } },
+		new CalcScreen{ renderer, Rect{ Point{ 0, buttonSize }, Size{ size.w, 89 } } },
 		new Button{ renderer, Rect{ Point{ 0, 0 }, Size{ buttonSize, buttonSize } }, Color{ 192u, 192u, 192u } },
 		new ResourceView{ renderer, IMG_Load("res/main/drawer.png") },
 		new Text{ renderer, font, "Standard", Point{ 53, 10 } },
 		new Button{ renderer, Rect{ Point{ size.w - buttonSize, 0 }, Size{ buttonSize, buttonSize } }, Color{ 192u, 192u, 192u } },
 		new ResourceView{ renderer, IMG_Load("res/main/history.png"), Point{ size.w - buttonSize, 0 } },
-		new ButtonGroup{ renderer, ButtonGrid{ Point{ 4, 53 } } },
-		new TextGroup{ renderer, font, ButtonGrid{ Point{ 4, 53 } } }
+		new ButtonGroup{ renderer, ButtonGrid{ Point{ 4, 134 } } },
+		new TextGroup{ renderer, font, ButtonGrid{ Point{ 4, 134 } } }
 	}, isAnimating{ false }, viewAnimationsCount{ 0u }
 	{
 		TTF_CloseFont(font);

@@ -49,7 +49,7 @@ namespace ii887522::Calculator
 		}
 
 	public:
-		explicit App(const Size& = Size{ 318, 480 });
+		explicit App(const Size& = Size{ 318, 437 });
 
 		constexpr Action react(const SDL_Event& event)
 		{
