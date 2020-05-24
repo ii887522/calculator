@@ -5,6 +5,7 @@
 
 #include "../View/ResourceView.h"
 #include <SDL.h>
+#include "../Any/Enums.h"
 
 namespace ii887522::Calculator
 {
@@ -24,6 +25,8 @@ namespace ii887522::Calculator
 	public:
 		// Param renderer: it must not be assigned to intger
 		explicit RadialGradient(SDL_Renderer*const renderer);
+
+		virtual Action reactMouseMotion(const SDL_MouseMotionEvent&) override;
 	};
 }
 

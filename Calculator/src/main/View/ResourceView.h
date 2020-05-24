@@ -13,7 +13,7 @@ using std::string;
 namespace ii887522::Calculator
 {
 	// Not Thread Safe: it must only be used in main thread
-	class ResourceView : public View
+	struct ResourceView : public View
 	{
 		// remove copy semantics
 		ResourceView(const ResourceView&) = delete;
@@ -23,17 +23,17 @@ namespace ii887522::Calculator
 		ResourceView(ResourceView&&) = delete;
 		ResourceView& operator=(ResourceView&&) = delete;
 
-		Point position;
-		SDL_Surface*const surface;
-		SDL_Texture*const texture;
-
-	public:
 		// Param renderer: it must not be assigned to integer
 		// Param surface: it must not be assigned to integer
 		explicit ResourceView(SDL_Renderer*const renderer, SDL_Surface*const surface, const Point& position = Point{ });
 
 		virtual void render() override;
 		~ResourceView();
+
+	protected:
+		Point position;
+		SDL_Surface*const surface;
+		SDL_Texture*const texture;
 	};
 }
 
