@@ -99,12 +99,24 @@ namespace ii887522::Calculator
 		}
 	}
 
+	constexpr static void testNormalize()
+	{
+
+	}
+
+	constexpr static void testMap()
+	{
+
+	}
+
 	void testMathExt()
 	{
 		testIsOverlapX();
 		testIsOverlapY();
 		testIsOverlap();
 		testClamp();
+		testNormalize();
+		testMap();
 	}
 }
 

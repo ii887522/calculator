@@ -96,6 +96,9 @@
     <ClCompile Include="src\main\ResourceView\RadialGradient.cpp">
       <Filter>Source Files\ResourceView</Filter>
     </ClCompile>
+    <ClCompile Include="src\test\RadialGradientModel.test.cpp">
+      <Filter>Test Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\test\ButtonModel.test.h">
@@ -175,6 +178,15 @@
     </ClInclude>
     <ClInclude Include="src\main\ResourceView\RadialGradient.h">
       <Filter>Header Files\ResourceView</Filter>
+    </ClInclude>
+    <ClInclude Include="src\main\Any\RadialGradientModel.h">
+      <Filter>Header Files\Any</Filter>
+    </ClInclude>
+    <ClInclude Include="src\test\RadialGradientModel.test.h">
+      <Filter>Test Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\main\Struct\Flow.h">
+      <Filter>Header Files\Struct</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

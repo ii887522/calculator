@@ -28,6 +28,15 @@ namespace ii887522::Calculator
 		if (target < range.min) target = range.min;
 		else if (target > range.max) target = range.max;
 	}
+
+	// 
+	constexpr float normalize(const float src, const Range<const float>& srcRange)
+	{
+		return 0.f;
+	}
+
+	// 
+	constexpr 
 }
 
 #endif

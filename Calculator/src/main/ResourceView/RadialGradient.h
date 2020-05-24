@@ -4,6 +4,7 @@
 #define II887522_CALCULATOR_RADIAL_GRADIENT_H
 
 #include "../View/ResourceView.h"
+#include "../Any/RadialGradientModel.h"
 #include <SDL.h>
 #include "../Any/Enums.h"
 
@@ -20,13 +21,14 @@ namespace ii887522::Calculator
 		RadialGradient(RadialGradient&&) = delete;
 		RadialGradient& operator=(RadialGradient&&) = delete;
 
-
+		RadialGradientModel viewModel;
 
 	public:
 		// Param renderer: it must not be assigned to intger
 		explicit RadialGradient(SDL_Renderer*const renderer);
 
 		virtual Action reactMouseMotion(const SDL_MouseMotionEvent&) override;
+		virtual void render() override;
 	};
 }
 
