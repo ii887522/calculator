@@ -23,7 +23,7 @@ namespace ii887522::Calculator
 		ResourceView(ResourceView&&) = delete;
 		ResourceView& operator=(ResourceView&&) = delete;
 
-		const Point position;
+		Point position;
 		SDL_Surface*const surface;
 		SDL_Texture*const texture;
 
