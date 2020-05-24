@@ -30,6 +30,8 @@ namespace ii887522::Calculator
 		void testReactLeftMouseButtonDown() const;
 		void testReactLeftMouseButtonUp() const;
 		void testReactMouseLeaveWindow() const;
+		void testReactKeyDown() const;
+		void testReactKeyUp() const;
 		void testStep() const;
 	};
 }

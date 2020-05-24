@@ -36,6 +36,8 @@ namespace ii887522::Calculator
 		Action reactLeftMouseButtonDown(const SDL_MouseButtonEvent&);
 		Action reactLeftMouseButtonUp(const SDL_MouseButtonEvent&);
 		Action reactMouseLeaveWindow(const SDL_WindowEvent&);
+		Action reactKeyDown(const SDL_KeyboardEvent&);
+		Action reactKeyUp(const SDL_KeyboardEvent&);
 		Action step(const unsigned int dt);
 		void render();
 		~Scene();

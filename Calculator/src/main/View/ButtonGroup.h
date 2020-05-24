@@ -35,6 +35,8 @@ namespace ii887522::Calculator
 		virtual Action reactLeftMouseButtonDown(const SDL_MouseButtonEvent&) override;
 		virtual Action reactLeftMouseButtonUp(const SDL_MouseButtonEvent&) override;
 		virtual Action reactMouseLeaveWindow(const SDL_WindowEvent&) override;
+		virtual Action reactKeyDown(const SDL_KeyboardEvent&) override;
+		virtual Action reactKeyUp(const SDL_KeyboardEvent&) override;
 		virtual Action step(const unsigned int dt) override;
 		virtual void render() override;
 	};

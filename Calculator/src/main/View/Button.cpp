@@ -6,8 +6,8 @@
 
 namespace ii887522::Calculator
 {
-	Button::Button(SDL_Renderer*const renderer, const Rect& rect, const Color& color) : View{ renderer }, viewModel{ rect },
-		color{ color }, isAnimating{ false } { }
+	Button::Button(SDL_Renderer*const renderer, const Rect& rect, const Color& color, const SDL_Keycode keyCode) : View{ renderer },
+		viewModel{ rect, keyCode }, color{ color }, isAnimating{ false } { }
 
 	Action Button::reactMouseMotion(const SDL_MouseMotionEvent& motionEvent)
 	{
@@ -36,6 +36,22 @@ namespace ii887522::Calculator
 	Action Button::reactMouseLeaveWindow(const SDL_WindowEvent&)
 	{
 		viewModel.reactMouseLeaveWindow();
+		if (isAnimating || !viewModel.isAnimating) return Action::NONE;
+		isAnimating = true;
+		return Action::START_ANIMATION;
+	}
+
+	Action Button::reactKeyDown(const SDL_KeyboardEvent& keyEvent)
+	{
+		viewModel.reactKeyDown(keyEvent.keysym.sym);
+		if (isAnimating || !viewModel.isAnimating) return Action::NONE;
+		isAnimating = true;
+		return Action::START_ANIMATION;
+	}
+
+	Action Button::reactKeyUp(const SDL_KeyboardEvent& keyEvent)
+	{
+		viewModel.reactKeyUp(keyEvent.keysym.sym);
 		if (isAnimating || !viewModel.isAnimating) return Action::NONE;
 		isAnimating = true;
 		return Action::START_ANIMATION;

@@ -94,6 +94,34 @@ namespace ii887522::Calculator
 		return result;
 	}
 
+	Action Scene::reactKeyDown(const SDL_KeyboardEvent& keyEvent)
+	{
+		auto result{ Action::NONE };
+		loop(sizeof views / sizeof(View*), [=, &result](const auto i) {
+			const auto action{ views[i]->reactKeyDown(keyEvent) };
+			if (action != Action::START_ANIMATION) return;
+			++viewAnimationsCount;
+			if (isAnimating) return;
+			result = action;
+			isAnimating = true;
+		});
+		return result;
+	}
+
+	Action Scene::reactKeyUp(const SDL_KeyboardEvent& keyEvent)
+	{
+		auto result{ Action::NONE };
+		loop(sizeof views / sizeof(View*), [=, &result](const auto i) {
+			const auto action{ views[i]->reactKeyUp(keyEvent) };
+			if (action != Action::START_ANIMATION) return;
+			++viewAnimationsCount;
+			if (isAnimating) return;
+			result = action;
+			isAnimating = true;
+		});
+		return result;
+	}
+
 	Action Scene::step(const unsigned int dt)
 	{
 		auto result{ Action::NONE };
