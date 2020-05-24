@@ -14,7 +14,7 @@ using std::string;
 namespace ii887522::Calculator
 {
 	// Not Thread Safe: it must only be used in main thread
-	struct Text final : public ResourceView
+	struct Text : public ResourceView
 	{
 		// remove copy semantics
 		Text(const Text&) = delete;
@@ -26,7 +26,8 @@ namespace ii887522::Calculator
 
 		// Param renderer: it must not be assigned to integer
 		// Param font: it must not be assigned to integer
-		explicit Text(SDL_Renderer*const renderer, TTF_Font*const font, const string& value, const Point& position = Point{ });
+		explicit Text(SDL_Renderer*const renderer, TTF_Font*const font, const Point& position = Point{ }, const string& value = " ");
+			// " " because TTF_RenderText_* requires text with at least 1 character to render
 	};
 }
 
