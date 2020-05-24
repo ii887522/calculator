@@ -12,11 +12,16 @@ namespace ii887522::Calculator
 		Point(Point&&) = delete;
 		Point& operator=(Point&&) = delete;
 
-		const int x;
-		const int y;
+		int x;
+		int y;
 
 		explicit constexpr Point(const int x = 0, const int y = 0) : x{ x }, y{ y } { }
 		constexpr Point(const Point&) = default;
+
+		constexpr bool operator==(const Point& that)
+		{
+			return x == that.x && y == that.y;
+		}
 	};
 }
 

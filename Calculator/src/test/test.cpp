@@ -3,6 +3,7 @@
 #include "ButtonModel.test.h"
 #include "math_ext.test.h"
 #include "control_flow.test.h"
+#include "RadialGradientModel.test.h"
 
 namespace ii887522::Calculator
 {
@@ -21,6 +22,7 @@ namespace ii887522::Calculator
 		testMathExt();
 		testButtonModel();
 		testControlFlow();
+		testRadialGradientModel();
 		return 0;
 	}
 }

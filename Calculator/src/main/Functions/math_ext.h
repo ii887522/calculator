@@ -4,6 +4,7 @@
 #include "../Struct/Range.h"
 #include "../Struct/Point.h"
 #include "../Struct/Rect.h"
+#include "../Struct/Flow.h"
 
 namespace ii887522::Calculator
 {
@@ -27,6 +28,17 @@ namespace ii887522::Calculator
 	{
 		if (target < range.min) target = range.min;
 		else if (target > range.max) target = range.max;
+	}
+
+	constexpr float normalize(const float src, const Range<const float>& srcRange)
+	{
+		return (src - srcRange.min) / (srcRange.max - srcRange.min);
+	}
+
+	// Return: dest
+	constexpr float map(const float src, const Flow<const Range<const float>>& rangeFlow)
+	{
+		return normalize(src, rangeFlow.src) * (rangeFlow.dest.max - rangeFlow.dest.min) + rangeFlow.dest.min;
 	}
 }
 

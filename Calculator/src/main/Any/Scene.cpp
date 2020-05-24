@@ -9,6 +9,7 @@
 #include "../View/ButtonGroup.h"
 #include "../View/TextGroup.h"
 #include "../ResourceView/Text.h"
+#include "../ResourceView/RadialGradient.h"
 #include "../Functions/control_flow.h"
 #include "../Struct/Rect.h"
 #include "../Struct/Point.h"
@@ -20,6 +21,7 @@
 namespace ii887522::Calculator
 {
 	Scene::Scene(SDL_Renderer*const renderer, const Size& size, TTF_Font*const font, const int buttonSize) : views{
+		new RadialGradient{ renderer, size },
 		new Button{ renderer, Rect{ Point{ 0, 0 }, Size{ buttonSize, buttonSize } }, Color{ 192u, 192u, 192u } },
 		new ResourceView{ renderer, IMG_Load("res/main/drawer.png") },
 		new Text{ renderer, font, "Standard", Point{ 53, 10 } },
