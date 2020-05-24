@@ -7,6 +7,7 @@
 #include "../Any/RadialGradientModel.h"
 #include <SDL.h>
 #include "../Any/Enums.h"
+#include "../Struct/Size.h"
 
 namespace ii887522::Calculator
 {
@@ -24,8 +25,8 @@ namespace ii887522::Calculator
 		RadialGradientModel viewModel;
 
 	public:
-		// Param renderer: it must not be assigned to intger
-		explicit RadialGradient(SDL_Renderer*const renderer);
+		// Param renderer: it must not be assigned to integer
+		explicit RadialGradient(SDL_Renderer*const renderer, const Size& parentSize);
 
 		virtual Action reactMouseMotion(const SDL_MouseMotionEvent&) override;
 		virtual void render() override;
