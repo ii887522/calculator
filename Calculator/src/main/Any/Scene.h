@@ -8,6 +8,9 @@
 #include "View.h"
 #include "Enums.h"
 #include "../Struct/Size.h"
+#include "../Any/ButtonGrid.h"
+#include "../Struct/Point.h"
+#include "../Struct/Rect.h"
 
 namespace ii887522::Calculator
 {
@@ -22,15 +25,19 @@ namespace ii887522::Calculator
 		Scene(Scene&&) = delete;
 		Scene& operator=(Scene&&) = delete;
 
-		View*const views[10u];
+		View*const views[12u];
 		bool isAnimating;
 		unsigned int viewAnimationsCount;
 
+		// Param renderer: it must not be assigned to integer
+		// Param font: it must not be assigned to integer
+		explicit Scene(SDL_Renderer*const renderer, const Size& size, TTF_Font*const font, const int buttonSize,
+			const Rect& calcScreenRect, const ButtonGrid&);
 	public:
 		// Param renderer: it must not be assigned to integer
 		// Param font: it must not be assigned to integer
 		explicit Scene(SDL_Renderer*const renderer, const Size& size, TTF_Font*const font = TTF_OpenFont("res/main/arial.ttf", 20),
-			const int buttonSize = 41);
+			const int buttonSize = 41, const ButtonGrid& = ButtonGrid{ Point{ 4, 134 } });
 
 		Action reactMouseMotion(const SDL_MouseMotionEvent&);
 		Action reactLeftMouseButtonDown(const SDL_MouseButtonEvent&);

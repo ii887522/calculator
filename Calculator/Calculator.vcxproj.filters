@@ -43,6 +43,12 @@
     <Filter Include="Source Files\ResourceView">
       <UniqueIdentifier>{b5410e9d-d0d2-4e49-80e8-a9a131d25d49}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Text">
+      <UniqueIdentifier>{76a47f9f-2435-441d-8e01-9f0db8463f37}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Text">
+      <UniqueIdentifier>{ff9cbec5-9773-4790-b67d-82aa23f9d984}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\test\test.cpp">
@@ -104,6 +110,12 @@
     </ClCompile>
     <ClCompile Include="src\main\View\CalcScreen.cpp">
       <Filter>Source Files\View</Filter>
+    </ClCompile>
+    <ClCompile Include="src\main\Text\CalcExpr.cpp">
+      <Filter>Source Files\Text</Filter>
+    </ClCompile>
+    <ClCompile Include="src\main\Text\CalcResult.cpp">
+      <Filter>Source Files\Text</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -199,6 +211,12 @@
     </ClInclude>
     <ClInclude Include="src\main\View\CalcScreen.h">
       <Filter>Header Files\View</Filter>
+    </ClInclude>
+    <ClInclude Include="src\main\Text\CalcExpr.h">
+      <Filter>Header Files\Text</Filter>
+    </ClInclude>
+    <ClInclude Include="src\main\Text\CalcResult.h">
+      <Filter>Header Files\Text</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

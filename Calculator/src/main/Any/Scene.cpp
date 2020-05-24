@@ -6,12 +6,14 @@
 #include <SDL_ttf.h>
 #include "../ResourceView/RadialGradient.h"
 #include "../View/NavBar.h"
-#include "../View/CalcScreen.h"
 #include "../View/Button.h"
 #include "../View/ResourceView.h"
+#include "../ResourceView/Text.h"
+#include "../View/CalcScreen.h"
+#include "../Text/CalcExpr.h"
+#include "../Text/CalcResult.h"
 #include "../View/ButtonGroup.h"
 #include "../View/TextGroup.h"
-#include "../ResourceView/Text.h"
 #include "../Functions/control_flow.h"
 #include "../Struct/Rect.h"
 #include "../Struct/Point.h"
@@ -22,21 +24,27 @@
 
 namespace ii887522::Calculator
 {
-	Scene::Scene(SDL_Renderer*const renderer, const Size& size, TTF_Font*const font, const int buttonSize) : views{
-		new RadialGradient{ renderer, size },
-		new NavBar{ renderer, Size{ size.w, buttonSize } },
-		new CalcScreen{ renderer, Rect{ Point{ 0, buttonSize }, Size{ size.w, 89 } } },
-		new Button{ renderer, Rect{ Point{ 0, 0 }, Size{ buttonSize, buttonSize } }, Color{ 192u, 192u, 192u } },
-		new ResourceView{ renderer, IMG_Load("res/main/drawer.png") },
-		new Text{ renderer, font, "Standard", Point{ 53, 10 } },
-		new Button{ renderer, Rect{ Point{ size.w - buttonSize, 0 }, Size{ buttonSize, buttonSize } }, Color{ 192u, 192u, 192u } },
-		new ResourceView{ renderer, IMG_Load("res/main/history.png"), Point{ size.w - buttonSize, 0 } },
-		new ButtonGroup{ renderer, ButtonGrid{ Point{ 4, 134 } } },
-		new TextGroup{ renderer, font, ButtonGrid{ Point{ 4, 134 } } }
-	}, isAnimating{ false }, viewAnimationsCount{ 0u }
-	{
-		TTF_CloseFont(font);
-	}
+	Scene::Scene(SDL_Renderer*const renderer, const Size& size, TTF_Font*const font, const int buttonSize, const ButtonGrid& buttonGrid)
+		: Scene{ renderer, size, font, buttonSize, Rect{ Point{ 0, buttonSize }, Size{ size.w, 89 } }, buttonGrid } { }
+
+	Scene::Scene(SDL_Renderer*const renderer, const Size& size, TTF_Font*const font, const int buttonSize, const Rect& calcScreenRect,
+		const ButtonGrid& buttonGrid) : views{
+			new RadialGradient{ renderer, size },
+			new NavBar{ renderer, Size{ size.w, buttonSize } },
+			new Button{ renderer, Rect{ Point{ 0, 0 }, Size{ buttonSize, buttonSize } }, Color{ 192u, 192u, 192u } },
+			new ResourceView{ renderer, IMG_Load("res/main/drawer.png") },
+			new Text{ renderer, font, Point{ 53, 10 }, "Standard" },
+			new Button{ renderer, Rect{ Point{ size.w - buttonSize, 0 }, Size{ buttonSize, buttonSize } }, Color{ 192u, 192u, 192u } },
+			new ResourceView{ renderer, IMG_Load("res/main/history.png"), Point{ size.w - buttonSize, 0 } },
+			new CalcScreen{ renderer, calcScreenRect },
+			new CalcExpr{ renderer, calcScreenRect },
+			new CalcResult{ renderer, calcScreenRect },
+			new ButtonGroup{ renderer, buttonGrid },
+			new TextGroup{ renderer, font, buttonGrid }
+		}, isAnimating{ false }, viewAnimationsCount{ 0u }
+		{
+			TTF_CloseFont(font);
+		}
 
 	Action Scene::reactMouseMotion(const SDL_MouseMotionEvent& motionEvent)
 	{

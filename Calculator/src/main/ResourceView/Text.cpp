@@ -11,7 +11,7 @@ using std::string;
 
 namespace ii887522::Calculator
 {
-	Text::Text(SDL_Renderer*const renderer, TTF_Font*const font, const string& value, const Point& position) :
+	Text::Text(SDL_Renderer*const renderer, TTF_Font*const font, const Point& position, const string& value) :
 		ResourceView{ renderer, TTF_RenderText_Blended(font, value.c_str(), SDL_Color{ 0u, 0u, 0u, 255u }), position } { }
 }
 
