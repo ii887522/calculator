@@ -237,6 +237,7 @@
     <ClCompile Include="src\main\ResourceView\Text.cpp" />
     <ClCompile Include="src\main\View\Button.cpp" />
     <ClCompile Include="src\main\View\ButtonGroup.cpp" />
+    <ClCompile Include="src\main\View\NavBar.cpp" />
     <ClCompile Include="src\main\View\ResourceView.cpp" />
     <ClCompile Include="src\main\View\TextGroup.cpp" />
     <ClCompile Include="src\test\ButtonGrid.test.cpp" />
@@ -269,6 +270,7 @@
     <ClInclude Include="src\main\Struct\Size.h" />
     <ClInclude Include="src\main\View\Button.h" />
     <ClInclude Include="src\main\View\ButtonGroup.h" />
+    <ClInclude Include="src\main\View\NavBar.h" />
     <ClInclude Include="src\main\View\ResourceView.h" />
     <ClInclude Include="src\main\View\TextGroup.h" />
     <ClInclude Include="src\test\ButtonGrid.test.h" />
