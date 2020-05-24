@@ -111,6 +111,32 @@ namespace ii887522::Calculator
 		static_assert(normalize(3.f, Range<const float>{ 2.f, 6.f }) == .25f);
 	}
 
+	constexpr static void testMap()
+	{
+		static_assert(map(1.f, Flow<const Range<const float>>{ Range<const float>{ 0.f, 4.f }, Range<const float>{ 0.f, 2.f } }) ==
+			.5f);
+		static_assert(map(2.f, Flow<const Range<const float>>{ Range<const float>{ 0.f, 4.f }, Range<const float>{ 0.f, 2.f } }) ==
+			1.f);
+		static_assert(map(3.f, Flow<const Range<const float>>{ Range<const float>{ 0.f, 4.f }, Range<const float>{ 0.f, 2.f } }) ==
+			1.5f);
+		static_assert(map(3.f, Flow<const Range<const float>>{ Range<const float>{ 1.f, 4.f }, Range<const float>{ 0.f, 2.f } }) ==
+			1.33333333f);
+		static_assert(map(3.f, Flow<const Range<const float>>{ Range<const float>{ 2.f, 4.f }, Range<const float>{ 0.f, 2.f } }) ==
+			1.f);
+		static_assert(map(3.f, Flow<const Range<const float>>{ Range<const float>{ 2.f, 5.f }, Range<const float>{ 0.f, 2.f } }) ==
+			.66666667f);
+		static_assert(map(3.f, Flow<const Range<const float>>{ Range<const float>{ 2.f, 6.f }, Range<const float>{ 0.f, 2.f } }) ==
+			.5f);
+		static_assert(map(3.f, Flow<const Range<const float>>{ Range<const float>{ 2.f, 6.f }, Range<const float>{ 1.f, 2.f } }) ==
+			1.25f);
+		static_assert(map(3.f, Flow<const Range<const float>>{ Range<const float>{ 2.f, 6.f }, Range<const float>{ 2.f, 2.f } }) ==
+			2.f);
+		static_assert(map(3.f, Flow<const Range<const float>>{ Range<const float>{ 2.f, 6.f }, Range<const float>{ 2.f, 3.f } }) ==
+			2.25f);
+		static_assert(map(3.f, Flow<const Range<const float>>{ Range<const float>{ 2.f, 6.f }, Range<const float>{ 2.f, 4.f } }) ==
+			2.5f);
+	}
+
 	void testMathExt()
 	{
 		testIsOverlapX();
@@ -118,6 +144,7 @@ namespace ii887522::Calculator
 		testIsOverlap();
 		testClamp();
 		testNormalize();
+		testMap();
 	}
 }
 

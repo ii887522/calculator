@@ -34,6 +34,12 @@ namespace ii887522::Calculator
 	{
 		return (src - srcRange.min) / (srcRange.max - srcRange.min);
 	}
+
+	// Return: dest
+	constexpr float map(const float src, const Flow<const Range<const float>>& rangeFlow)
+	{
+		return normalize(src, rangeFlow.src) * (rangeFlow.dest.max - rangeFlow.dest.min) + rangeFlow.dest.min;
+	}
 }
 
 #endif
