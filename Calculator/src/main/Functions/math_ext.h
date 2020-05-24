@@ -4,6 +4,7 @@
 #include "../Struct/Range.h"
 #include "../Struct/Point.h"
 #include "../Struct/Rect.h"
+#include "../Struct/Flow.h"
 
 namespace ii887522::Calculator
 {
@@ -29,14 +30,10 @@ namespace ii887522::Calculator
 		else if (target > range.max) target = range.max;
 	}
 
-	// 
 	constexpr float normalize(const float src, const Range<const float>& srcRange)
 	{
-		return 0.f;
+		return (src - srcRange.min) / (srcRange.max - srcRange.min);
 	}
-
-	// 
-	constexpr 
 }
 
 #endif

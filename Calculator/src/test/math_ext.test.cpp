@@ -4,6 +4,7 @@
 #include <cassert>
 #include "../main/Functions/math_ext.h"
 #include "../main/Struct/Range.h"
+#include "../main/Struct/Flow.h"
 
 namespace ii887522::Calculator
 {
@@ -101,12 +102,13 @@ namespace ii887522::Calculator
 
 	constexpr static void testNormalize()
 	{
-
-	}
-
-	constexpr static void testMap()
-	{
-
+		static_assert(normalize(1.f, Range<const float>{ 0.f, 4.f }) == .25f);
+		static_assert(normalize(2.f, Range<const float>{ 0.f, 4.f }) == .5f);
+		static_assert(normalize(3.f, Range<const float>{ 0.f, 4.f }) == .75f);
+		static_assert(normalize(3.f, Range<const float>{ 1.f, 4.f }) == .66666667f);
+		static_assert(normalize(3.f, Range<const float>{ 2.f, 4.f }) == .5f);
+		static_assert(normalize(3.f, Range<const float>{ 2.f, 5.f }) == .33333333f);
+		static_assert(normalize(3.f, Range<const float>{ 2.f, 6.f }) == .25f);
 	}
 
 	void testMathExt()
@@ -116,7 +118,6 @@ namespace ii887522::Calculator
 		testIsOverlap();
 		testClamp();
 		testNormalize();
-		testMap();
 	}
 }
 
