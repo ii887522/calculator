@@ -9,6 +9,8 @@
 #include "../Any/Enums.h"
 #include "../Any/ButtonGrid.h"
 #include "../Any/constants.h"
+#include "../Struct/Pair.h"
+#include "../Struct/Message.h"
 
 namespace ii887522::Calculator
 {
@@ -33,9 +35,9 @@ namespace ii887522::Calculator
 
 		virtual Action reactMouseMotion(const SDL_MouseMotionEvent&) override;
 		virtual Action reactLeftMouseButtonDown(const SDL_MouseButtonEvent&) override;
-		virtual Action reactLeftMouseButtonUp(const SDL_MouseButtonEvent&) override;
+		virtual Pair<Action, Message> reactLeftMouseButtonUp(const SDL_MouseButtonEvent&) override;
 		virtual Action reactMouseLeaveWindow(const SDL_WindowEvent&) override;
-		virtual Action reactKeyDown(const SDL_KeyboardEvent&) override;
+		virtual Pair<Action, Message> reactKeyDown(const SDL_KeyboardEvent&) override;
 		virtual Action reactKeyUp(const SDL_KeyboardEvent&) override;
 		virtual Action step(const unsigned int dt) override;
 		virtual void render() override;

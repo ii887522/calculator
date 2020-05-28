@@ -3,11 +3,13 @@
 #include "Button.h"
 #include "../Any/View.h"
 #include <SDL.h>
+#include "../Struct/Pair.h"
+#include "../Struct/Message.h"
 
 namespace ii887522::Calculator
 {
-	Button::Button(SDL_Renderer*const renderer, const Rect& rect, const Color& color, const SDL_Keycode keyCode) : View{ renderer },
-		viewModel{ rect, keyCode }, color{ color }, isAnimating{ false } { }
+	Button::Button(SDL_Renderer*const renderer, const Rect& rect, const Color& color, const Message& message, const SDL_Keycode keyCode)
+		: View{ renderer }, viewModel{ rect, keyCode }, color{ color }, isAnimating{ false }, message{ message } { }
 
 	Action Button::reactMouseMotion(const SDL_MouseMotionEvent& motionEvent)
 	{
@@ -25,12 +27,13 @@ namespace ii887522::Calculator
 		return Action::START_ANIMATION;
 	}
 
-	Action Button::reactLeftMouseButtonUp(const SDL_MouseButtonEvent&)
+	Pair<Action, Message> Button::reactLeftMouseButtonUp(const SDL_MouseButtonEvent&)
 	{
 		viewModel.reactLeftMouseButtonUp();
-		if (isAnimating || !viewModel.isAnimating) return Action::NONE;
+		if (!viewModel.isAnimating) return Pair{ Action::NONE, Message{ } };
+		if (isAnimating) return Pair{ Action::NONE, message };
 		isAnimating = true;
-		return Action::START_ANIMATION;
+		return Pair{ Action::START_ANIMATION, message };
 	}
 
 	Action Button::reactMouseLeaveWindow(const SDL_WindowEvent&)
@@ -41,12 +44,13 @@ namespace ii887522::Calculator
 		return Action::START_ANIMATION;
 	}
 
-	Action Button::reactKeyDown(const SDL_KeyboardEvent& keyEvent)
+	Pair<Action, Message> Button::reactKeyDown(const SDL_KeyboardEvent& keyEvent)
 	{
 		viewModel.reactKeyDown(keyEvent.keysym.sym);
-		if (isAnimating || !viewModel.isAnimating) return Action::NONE;
+		if (!viewModel.isAnimating) return Pair{ Action::NONE, Message{ } };
+		if (isAnimating) return Pair{ Action::NONE, message };
 		isAnimating = true;
-		return Action::START_ANIMATION;
+		return Pair{ Action::START_ANIMATION, message };
 	}
 
 	Action Button::reactKeyUp(const SDL_KeyboardEvent& keyEvent)

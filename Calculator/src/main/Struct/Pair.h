@@ -5,8 +5,7 @@ namespace ii887522::Calculator
 {
 	template <typename T, typename U> struct Pair final
 	{
-		// remove copy semantics
-		Pair(const Pair&) = delete;
+		// remove operator= copy semantics
 		Pair& operator=(const Pair&) = delete;
 
 		// remove move semantics
@@ -17,6 +16,7 @@ namespace ii887522::Calculator
 		U second;
 
 		explicit constexpr Pair(const T& first, const U& second) : first{ first }, second{ second } { }
+		constexpr Pair(const Pair&) = default;
 	};
 }
 

@@ -6,12 +6,18 @@
 #include <SDL_ttf.h>
 #include "../Struct/Rect.h"
 #include "../Struct/Point.h"
+#include "../Struct/Message.h"
 
 namespace ii887522::Calculator
 {
 	CalcResult::CalcResult(SDL_Renderer*const renderer, const Rect& calcScreenRect, TTF_Font*const font) :
 		Text{ renderer, font, Point{ calcScreenRect.position.x + calcScreenRect.size.w - /* margin right */ 10,
 		calcScreenRect.position.y + calcScreenRect.size.h - /* margin bottom */ 8 }, "0" }, font{ font } { }
+
+	void CalcResult::reactMessage(const Message& message)
+	{
+		message;
+	}
 
 	void CalcResult::render()
 	{

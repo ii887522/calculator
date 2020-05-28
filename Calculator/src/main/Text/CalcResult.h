@@ -7,6 +7,7 @@
 #include <SDL.h>
 #include <SDL_ttf.h>
 #include "../Struct/Rect.h"
+#include "../Struct/Message.h"
 
 namespace ii887522::Calculator
 {
@@ -29,6 +30,7 @@ namespace ii887522::Calculator
 		explicit CalcResult(SDL_Renderer*const renderer, const Rect& calcScreenRect,
 			TTF_Font*const font = TTF_OpenFont("res/main/arial.ttf", 48));
 
+		virtual void reactMessage(const Message&) override;
 		virtual void render() override;
 		~CalcResult();
 	};

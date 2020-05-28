@@ -3,6 +3,8 @@
 #include "View.h"
 #include <SDL.h>
 #include "Enums.h"
+#include "../Struct/Pair.h"
+#include "../Struct/Message.h"
 
 namespace ii887522::Calculator
 {
@@ -18,9 +20,9 @@ namespace ii887522::Calculator
 		return Action::NONE;
 	}
 
-	Action View::reactLeftMouseButtonUp(const SDL_MouseButtonEvent&)
+	Pair<Action, Message> View::reactLeftMouseButtonUp(const SDL_MouseButtonEvent&)
 	{
-		return Action::NONE;
+		return Pair{ Action::NONE, Message{ } };
 	}
 
 	Action View::reactMouseLeaveWindow(const SDL_WindowEvent&)
@@ -28,15 +30,17 @@ namespace ii887522::Calculator
 		return Action::NONE;
 	}
 
-	Action View::reactKeyDown(const SDL_KeyboardEvent&)
+	Pair<Action, Message> View::reactKeyDown(const SDL_KeyboardEvent&)
 	{
-		return Action::NONE;
+		return Pair{ Action::NONE, Message{ } };
 	}
 
 	Action View::reactKeyUp(const SDL_KeyboardEvent&)
 	{
 		return Action::NONE;
 	}
+
+	void View::reactMessage(const Message&) { }
 
 	Action View::step(const unsigned int)
 	{
