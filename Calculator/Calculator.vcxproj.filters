@@ -227,6 +227,9 @@
     <ClInclude Include="src\main\Struct\Message.h">
       <Filter>Header Files\Struct</Filter>
     </ClInclude>
+    <ClInclude Include="src\main\Struct\Pair.h">
+      <Filter>Header Files\Struct</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Image Include="res\main\calculator.png">

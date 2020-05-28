@@ -5,6 +5,7 @@
 
 #include <SDL.h>
 #include "Enums.h"
+#include "../Struct/Message.h"
 
 namespace ii887522::Calculator
 {
