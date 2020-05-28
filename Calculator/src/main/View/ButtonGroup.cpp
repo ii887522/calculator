@@ -11,6 +11,7 @@
 #include "../Any/Enums.h"
 #include "../Functions/control_flow.h"
 #include "../Any/ButtonGrid.h"
+#include "../Struct/Message.h"
 
 namespace ii887522::Calculator
 {

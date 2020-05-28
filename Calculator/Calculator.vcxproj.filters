@@ -49,6 +49,9 @@
     <Filter Include="Source Files\Text">
       <UniqueIdentifier>{ff9cbec5-9773-4790-b67d-82aa23f9d984}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Struct">
+      <UniqueIdentifier>{422f992d-ef5d-4924-ba8f-e9c6e9745bb5}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\test\test.cpp">
@@ -116,6 +119,9 @@
     </ClCompile>
     <ClCompile Include="src\main\Text\CalcResult.cpp">
       <Filter>Source Files\Text</Filter>
+    </ClCompile>
+    <ClCompile Include="src\main\Struct\Message.cpp">
+      <Filter>Source Files\Struct</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -217,6 +223,9 @@
     </ClInclude>
     <ClInclude Include="src\main\Text\CalcResult.h">
       <Filter>Header Files\Text</Filter>
+    </ClInclude>
+    <ClInclude Include="src\main\Struct\Message.h">
+      <Filter>Header Files\Struct</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
