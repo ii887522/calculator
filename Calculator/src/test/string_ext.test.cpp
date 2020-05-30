@@ -19,9 +19,18 @@ namespace ii887522::Calculator
 		assert(-string{ "310" } == "-310");
 	}
 
+	static void testSizeIgnoreDash()
+	{
+		assert(sizeIgnoreDash("1") == 1u);
+		assert(sizeIgnoreDash("10") == 2u);
+		assert(sizeIgnoreDash("100") == 3u);
+		assert(sizeIgnoreDash("-100") == 3u);
+	}
+
 	void testStringExt()
 	{
 		testNegate();
+		testSizeIgnoreDash();
 	}
 }
 

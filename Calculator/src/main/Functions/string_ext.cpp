@@ -11,4 +11,9 @@ namespace ii887522::Calculator
 		if (numberStr[0u] == '-') return numberStr.substr(1u);
 		return '-' + numberStr;
 	}
+
+	unsigned int sizeIgnoreDash(const string& numberStr)
+	{
+		return numberStr.size() - (numberStr[0u] == '-' ? 1u : 0u);
+	}
 }

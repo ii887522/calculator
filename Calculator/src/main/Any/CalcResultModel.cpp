@@ -1,6 +1,7 @@
 #include "CalcResultModel.h"
 #include "../Struct/Message.h"
 #include <string>
+#include "../Functions/string_ext.h"
 
 using std::string;
 
@@ -82,7 +83,7 @@ namespace ii887522::Calculator
 			break;
 		case Message::Head::INPUT_RIGHT: moveRight();
 			break;
-		case Message::Head::INPUT_SIGN: 
+		case Message::Head::INPUT_SIGN: value = -value;
 			break;
 		case Message::Head::INPUT_SQR: reactUnaryOperator("sqr");
 			break;
