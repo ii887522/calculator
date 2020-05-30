@@ -12,6 +12,7 @@ namespace ii887522::Calculator
 		const Subsystems subsystems;
 		App app;
 		SDL_Event event;
+		sizeof SDL_Event;
 		while (true)
 		{
 			auto isAnimating{ false };
