@@ -29,6 +29,7 @@ namespace ii887522::Calculator
 		explicit RadialGradient(SDL_Renderer*const renderer, const Size& parentSize);
 
 		virtual Action reactMouseMotion(const SDL_MouseMotionEvent&) override;
+		virtual Action reactMouseLeaveWindow(const SDL_WindowEvent&) override;
 		virtual void render() override;
 	};
 }

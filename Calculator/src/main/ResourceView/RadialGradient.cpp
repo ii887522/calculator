@@ -21,6 +21,12 @@ namespace ii887522::Calculator
 		return Action::NONE;
 	}
 
+	Action RadialGradient::reactMouseLeaveWindow(const SDL_WindowEvent&)
+	{
+		viewModel.reactMouseLeaveWindow();
+		return Action::NONE;
+	}
+
 	void RadialGradient::render()
 	{
 		SDL_SetTextureAlphaMod(texture, static_cast<Uint8>(viewModel.a));

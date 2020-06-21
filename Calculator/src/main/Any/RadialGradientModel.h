@@ -112,6 +112,11 @@ namespace ii887522::Calculator
 			}
 			else a = 255u;
 		}
+
+		constexpr void reactMouseLeaveWindow()
+		{
+			a = 0u;
+		}
 	};
 }
 
