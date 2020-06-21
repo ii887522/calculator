@@ -138,9 +138,19 @@ namespace ii887522::Calculator
 		}
 	}
 
+	static void testReactMouseLeaveWindow()
+	{
+		RadialGradientModel radialGradientModel{ Size{ 64, 64 }, Size{ 1, 1 } };
+		radialGradientModel.reactMouseMotion(Point{ 32, 32 });
+		radialGradientModel.reactMouseLeaveWindow();
+		assert(radialGradientModel.a == 0u);
+		assert(radialGradientModel.position.operator==(Point{ 32, 32 }));
+	}
+
 	void testRadialGradientModel()
 	{
 		testReactMouseMotion();
+		testReactMouseLeaveWindow();
 	}
 }
 
