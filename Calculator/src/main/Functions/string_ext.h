@@ -9,6 +9,7 @@ namespace ii887522::Calculator
 {
 	string operator-(const string& numberStr);
 	unsigned int sizeIgnoreDash(const string& numberStr);
+	void noTrailingDot(string& numberStr);
 }
 
 #endif

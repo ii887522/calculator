@@ -21,13 +21,13 @@ namespace ii887522::Calculator
 		CalcExpr(CalcExpr&&) = delete;
 		CalcExpr& operator=(CalcExpr&&) = delete;
 
-		TTF_Font*const font;
+		TTF_Font* const font;
 
 	public:
 		// Param renderer: it must not be assigned to integer
 		// Param font: it must not be assigned to integer
-		explicit CalcExpr(SDL_Renderer*const renderer, const Rect& calcScreenRect,
-			TTF_Font*const font = TTF_OpenFont("res/main/arial.ttf", 16));
+		explicit CalcExpr(SDL_Renderer* const renderer, const Rect& calcScreenRect,
+			TTF_Font* const font = TTF_OpenFont("res/main/courbd.ttf", 16));
 
 		virtual void render() override;
 		~CalcExpr();

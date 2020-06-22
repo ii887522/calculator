@@ -16,4 +16,9 @@ namespace ii887522::Calculator
 	{
 		return numberStr.size() - (numberStr[0u] == '-' ? 1u : 0u);
 	}
+
+	void noTrailingDot(string& numberStr)
+	{
+		if (numberStr[numberStr.size() - 1u] == '.') numberStr.pop_back();
+	}
 }

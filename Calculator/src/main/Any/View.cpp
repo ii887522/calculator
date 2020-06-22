@@ -8,13 +8,13 @@
 
 namespace ii887522::Calculator
 {
-	View::View(SDL_Renderer*const renderer) : renderer{ renderer } { }
-	
+	View::View(SDL_Renderer* const renderer) : renderer{ renderer } { }
+
 	Action View::reactMouseMotion(const SDL_MouseMotionEvent&)
 	{
 		return Action::NONE;
 	}
-	
+
 	Action View::reactLeftMouseButtonDown(const SDL_MouseButtonEvent&)
 	{
 		return Action::NONE;
@@ -40,7 +40,10 @@ namespace ii887522::Calculator
 		return Action::NONE;
 	}
 
-	void View::reactMessage(const Message&) { }
+	Message View::reactMessage(const Message&)
+	{
+		return Message{ };
+	}
 
 	Action View::step(const unsigned int)
 	{

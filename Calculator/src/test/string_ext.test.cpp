@@ -27,10 +27,35 @@ namespace ii887522::Calculator
 		assert(sizeIgnoreDash("-100") == 3u);
 	}
 
+	static void testNoTrailingDot()
+	{
+		{
+			string numberStr{ "0" };
+			noTrailingDot(numberStr);
+			assert(numberStr == "0");
+		}
+		{
+			string numberStr{ "1" };
+			noTrailingDot(numberStr);
+			assert(numberStr == "1");
+		}
+		{
+			string numberStr{ "1." };
+			noTrailingDot(numberStr);
+			assert(numberStr == "1");
+		}
+		{
+			string numberStr{ "1.0" };
+			noTrailingDot(numberStr);
+			assert(numberStr == "1.0");
+		}
+	}
+
 	void testStringExt()
 	{
 		testNegate();
 		testSizeIgnoreDash();
+		testNoTrailingDot();
 	}
 }
 

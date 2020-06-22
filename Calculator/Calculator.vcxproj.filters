@@ -273,5 +273,8 @@
     <Font Include="res\main\arial.ttf">
       <Filter>Resource Files</Filter>
     </Font>
+    <Font Include="res\main\courbd.ttf">
+      <Filter>Resource Files</Filter>
+    </Font>
   </ItemGroup>
 </Project>

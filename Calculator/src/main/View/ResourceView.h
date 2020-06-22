@@ -25,15 +25,20 @@ namespace ii887522::Calculator
 
 		// Param renderer: it must not be assigned to integer
 		// Param surface: it must not be assigned to integer
-		explicit ResourceView(SDL_Renderer*const renderer, SDL_Surface*const surface, const Point& position = Point{ });
+		explicit ResourceView(SDL_Renderer* const renderer, SDL_Surface* const surface, const Point& position = Point{ });
 
 		virtual void render() override;
 		~ResourceView();
 
 	protected:
 		Point position;
-		SDL_Surface*const surface;
-		SDL_Texture*const texture;
+		SDL_Surface* surface;
+		SDL_Texture* texture;
+
+		// Param surface: it must not be assigned to integer
+		void set(SDL_Surface* const surface);
+
+		void free();
 	};
 }
 

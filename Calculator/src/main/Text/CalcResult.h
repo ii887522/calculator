@@ -8,6 +8,7 @@
 #include <SDL_ttf.h>
 #include "../Struct/Rect.h"
 #include "../Struct/Message.h"
+#include "../Any/CalcResultModel.h"
 
 namespace ii887522::Calculator
 {
@@ -22,15 +23,18 @@ namespace ii887522::Calculator
 		CalcResult(CalcResult&&) = delete;
 		CalcResult& operator=(CalcResult&&) = delete;
 
-		TTF_Font*const font;
+		TTF_Font* const font;
+		CalcResultModel viewModel;
+
+		void set(const string& value);
 
 	public:
 		// Param renderer: it must not be assigned to integer
 		// Param font: it must not be assigned to integer
-		explicit CalcResult(SDL_Renderer*const renderer, const Rect& calcScreenRect,
-			TTF_Font*const font = TTF_OpenFont("res/main/arial.ttf", 48));
+		explicit CalcResult(SDL_Renderer* const renderer, const Rect& calcScreenRect,
+			TTF_Font* const font = TTF_OpenFont("res/main/courbd.ttf", 48));
 
-		virtual void reactMessage(const Message&) override;
+		virtual Message reactMessage(const Message&) override;
 		virtual void render() override;
 		~CalcResult();
 	};

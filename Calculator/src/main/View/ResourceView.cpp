@@ -11,8 +11,15 @@ using std::string;
 
 namespace ii887522::Calculator
 {
-	ResourceView::ResourceView(SDL_Renderer*const renderer, SDL_Surface*const surface, const Point& position) : View{ renderer },
+	ResourceView::ResourceView(SDL_Renderer* const renderer, SDL_Surface* const surface, const Point& position) : View{ renderer },
 		position{ position }, surface{ surface }, texture{ SDL_CreateTextureFromSurface(renderer, surface) } { }
+
+	void ResourceView::set(SDL_Surface* const newSurface)
+	{
+		free();
+		surface = newSurface;
+		texture = SDL_CreateTextureFromSurface(renderer, newSurface);
+	}
 
 	void ResourceView::render()
 	{
@@ -20,10 +27,15 @@ namespace ii887522::Calculator
 		SDL_RenderCopy(renderer, texture, nullptr, &rect);
 	}
 
-	ResourceView::~ResourceView()
+	void ResourceView::free()
 	{
 		SDL_DestroyTexture(texture);
 		SDL_FreeSurface(surface);
+	}
+
+	ResourceView::~ResourceView()
+	{
+		free();
 	}
 }
 
