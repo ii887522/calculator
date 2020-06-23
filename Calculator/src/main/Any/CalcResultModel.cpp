@@ -102,6 +102,7 @@ namespace ii887522::Calculator
 
 	void CalcResultModel::reactDotWhenInt()
 	{
+		if (sizeIgnoreDash(value) == 9u) return;
 		value += '.';
 		state = State::FLOAT;
 	}
@@ -114,6 +115,7 @@ namespace ii887522::Calculator
 
 	void CalcResultModel::reactDotWhenBinaryOperatorPressedThenInt()
 	{
+		if (sizeIgnoreDash(value) == 9u) return;
 		value += '.';
 		state = State::BINARY_OPERATOR_PRESSED_THEN_FLOAT;
 	}

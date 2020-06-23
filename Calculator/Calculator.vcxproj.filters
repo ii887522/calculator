@@ -1,280 +1,283 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <ItemGroup>
-    <Filter Include="Resource Files">
-      <UniqueIdentifier>{81503593-e3f5-434e-8980-b9b4868e9684}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Header Files">
-      <UniqueIdentifier>{898380b5-5539-48fe-b376-667b64aae7b9}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files">
-      <UniqueIdentifier>{ac78dc83-fb10-45bc-8f52-e7debbea47fa}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Test Header Files">
-      <UniqueIdentifier>{a9587721-2024-4bd1-87b1-9d9dea71cdea}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Test Source Files">
-      <UniqueIdentifier>{13320f6e-0403-47e5-b52e-ff3b44aef6b8}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Header Files\Any">
-      <UniqueIdentifier>{0a76d9ce-cc47-4f7c-8df3-deca8701acba}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Header Files\View">
-      <UniqueIdentifier>{9f886110-c6f8-40e5-8b11-53a9ee17aeec}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Header Files\Struct">
-      <UniqueIdentifier>{a9e5bc8c-ca79-4590-a51c-82505715d6ce}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\Any">
-      <UniqueIdentifier>{2cffd0d0-6ad7-4901-b51c-ec13cebb9abc}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\View">
-      <UniqueIdentifier>{be24d579-2c57-4063-b7aa-0b163f5ed9d2}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Header Files\Functions">
-      <UniqueIdentifier>{d2ff3dc2-08a7-4041-8e2b-4e9a7215ae67}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\Functions">
-      <UniqueIdentifier>{6fa5ecc1-7883-4dce-afdb-e317f938a8dc}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Header Files\ResourceView">
-      <UniqueIdentifier>{2776f4cd-20dd-4f67-9ff2-bfcc17b1f40e}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\ResourceView">
-      <UniqueIdentifier>{b5410e9d-d0d2-4e49-80e8-a9a131d25d49}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Header Files\Text">
-      <UniqueIdentifier>{76a47f9f-2435-441d-8e01-9f0db8463f37}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\Text">
-      <UniqueIdentifier>{ff9cbec5-9773-4790-b67d-82aa23f9d984}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\Struct">
-      <UniqueIdentifier>{422f992d-ef5d-4924-ba8f-e9c6e9745bb5}</UniqueIdentifier>
-    </Filter>
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="src\test\test.cpp">
-      <Filter>Test Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\test\ButtonModel.test.cpp">
-      <Filter>Test Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\test\math_ext.test.cpp">
-      <Filter>Test Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\test\control_flow.test.cpp">
-      <Filter>Test Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\main\Any\App.cpp">
-      <Filter>Source Files\Any</Filter>
-    </ClCompile>
-    <ClCompile Include="src\main\Any\Scene.cpp">
-      <Filter>Source Files\Any</Filter>
-    </ClCompile>
-    <ClCompile Include="src\main\Any\Subsystems.cpp">
-      <Filter>Source Files\Any</Filter>
-    </ClCompile>
-    <ClCompile Include="src\main\Any\View.cpp">
-      <Filter>Source Files\Any</Filter>
-    </ClCompile>
-    <ClCompile Include="src\main\View\Button.cpp">
-      <Filter>Source Files\View</Filter>
-    </ClCompile>
-    <ClCompile Include="src\main\View\ResourceView.cpp">
-      <Filter>Source Files\View</Filter>
-    </ClCompile>
-    <ClCompile Include="src\main\Functions\calculator.cpp">
-      <Filter>Source Files\Functions</Filter>
-    </ClCompile>
-    <ClCompile Include="src\main\ResourceView\Text.cpp">
-      <Filter>Source Files\ResourceView</Filter>
-    </ClCompile>
-    <ClCompile Include="src\main\View\ButtonGroup.cpp">
-      <Filter>Source Files\View</Filter>
-    </ClCompile>
-    <ClCompile Include="src\test\ButtonGrid.test.cpp">
-      <Filter>Test Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\main\Functions\control_flow.cpp">
-      <Filter>Source Files\Functions</Filter>
-    </ClCompile>
-    <ClCompile Include="src\main\View\TextGroup.cpp">
-      <Filter>Source Files\View</Filter>
-    </ClCompile>
-    <ClCompile Include="src\main\ResourceView\RadialGradient.cpp">
-      <Filter>Source Files\ResourceView</Filter>
-    </ClCompile>
-    <ClCompile Include="src\test\RadialGradientModel.test.cpp">
-      <Filter>Test Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\main\View\NavBar.cpp">
-      <Filter>Source Files\View</Filter>
-    </ClCompile>
-    <ClCompile Include="src\main\View\CalcScreen.cpp">
-      <Filter>Source Files\View</Filter>
-    </ClCompile>
-    <ClCompile Include="src\main\Text\CalcExpr.cpp">
-      <Filter>Source Files\Text</Filter>
-    </ClCompile>
-    <ClCompile Include="src\main\Text\CalcResult.cpp">
-      <Filter>Source Files\Text</Filter>
-    </ClCompile>
-    <ClCompile Include="src\main\Struct\Message.cpp">
-      <Filter>Source Files\Struct</Filter>
-    </ClCompile>
-    <ClCompile Include="src\test\CalcResultModel.test.cpp">
-      <Filter>Test Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\main\Any\CalcResultModel.cpp">
-      <Filter>Source Files\Any</Filter>
-    </ClCompile>
-    <ClCompile Include="src\test\string_ext.test.cpp">
-      <Filter>Test Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\main\Functions\string_ext.cpp">
-      <Filter>Source Files\Functions</Filter>
-    </ClCompile>
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="src\test\ButtonModel.test.h">
-      <Filter>Test Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\test\math_ext.test.h">
-      <Filter>Test Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\test\control_flow.test.h">
-      <Filter>Test Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\main\Any\App.h">
-      <Filter>Header Files\Any</Filter>
-    </ClInclude>
-    <ClInclude Include="src\main\Any\ButtonModel.h">
-      <Filter>Header Files\Any</Filter>
-    </ClInclude>
-    <ClInclude Include="src\main\Any\Enums.h">
-      <Filter>Header Files\Any</Filter>
-    </ClInclude>
-    <ClInclude Include="src\main\Any\Scene.h">
-      <Filter>Header Files\Any</Filter>
-    </ClInclude>
-    <ClInclude Include="src\main\Any\Subsystems.h">
-      <Filter>Header Files\Any</Filter>
-    </ClInclude>
-    <ClInclude Include="src\main\Any\View.h">
-      <Filter>Header Files\Any</Filter>
-    </ClInclude>
-    <ClInclude Include="src\main\Struct\AnimatedFloat.h">
-      <Filter>Header Files\Struct</Filter>
-    </ClInclude>
-    <ClInclude Include="src\main\Struct\Point.h">
-      <Filter>Header Files\Struct</Filter>
-    </ClInclude>
-    <ClInclude Include="src\main\Struct\Range.h">
-      <Filter>Header Files\Struct</Filter>
-    </ClInclude>
-    <ClInclude Include="src\main\Struct\Rect.h">
-      <Filter>Header Files\Struct</Filter>
-    </ClInclude>
-    <ClInclude Include="src\main\Struct\Size.h">
-      <Filter>Header Files\Struct</Filter>
-    </ClInclude>
-    <ClInclude Include="src\main\View\Button.h">
-      <Filter>Header Files\View</Filter>
-    </ClInclude>
-    <ClInclude Include="src\main\View\ResourceView.h">
-      <Filter>Header Files\View</Filter>
-    </ClInclude>
-    <ClInclude Include="src\main\Functions\control_flow.h">
-      <Filter>Header Files\Functions</Filter>
-    </ClInclude>
-    <ClInclude Include="src\main\Functions\math_ext.h">
-      <Filter>Header Files\Functions</Filter>
-    </ClInclude>
-    <ClInclude Include="src\main\ResourceView\Text.h">
-      <Filter>Header Files\ResourceView</Filter>
-    </ClInclude>
-    <ClInclude Include="src\main\View\ButtonGroup.h">
-      <Filter>Header Files\View</Filter>
-    </ClInclude>
-    <ClInclude Include="src\main\Any\ButtonGrid.h">
-      <Filter>Header Files\Any</Filter>
-    </ClInclude>
-    <ClInclude Include="src\test\ButtonGrid.test.h">
-      <Filter>Test Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\main\Struct\Color.h">
-      <Filter>Header Files\Struct</Filter>
-    </ClInclude>
-    <ClInclude Include="src\main\View\TextGroup.h">
-      <Filter>Header Files\View</Filter>
-    </ClInclude>
-    <ClInclude Include="src\main\Any\constants.h">
-      <Filter>Header Files\Any</Filter>
-    </ClInclude>
-    <ClInclude Include="src\main\ResourceView\RadialGradient.h">
-      <Filter>Header Files\ResourceView</Filter>
-    </ClInclude>
-    <ClInclude Include="src\main\Any\RadialGradientModel.h">
-      <Filter>Header Files\Any</Filter>
-    </ClInclude>
-    <ClInclude Include="src\test\RadialGradientModel.test.h">
-      <Filter>Test Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\main\Struct\Flow.h">
-      <Filter>Header Files\Struct</Filter>
-    </ClInclude>
-    <ClInclude Include="src\main\View\NavBar.h">
-      <Filter>Header Files\View</Filter>
-    </ClInclude>
-    <ClInclude Include="src\main\View\CalcScreen.h">
-      <Filter>Header Files\View</Filter>
-    </ClInclude>
-    <ClInclude Include="src\main\Text\CalcExpr.h">
-      <Filter>Header Files\Text</Filter>
-    </ClInclude>
-    <ClInclude Include="src\main\Text\CalcResult.h">
-      <Filter>Header Files\Text</Filter>
-    </ClInclude>
-    <ClInclude Include="src\main\Struct\Message.h">
-      <Filter>Header Files\Struct</Filter>
-    </ClInclude>
-    <ClInclude Include="src\main\Struct\Pair.h">
-      <Filter>Header Files\Struct</Filter>
-    </ClInclude>
-    <ClInclude Include="src\main\Any\CalcResultModel.h">
-      <Filter>Header Files\Any</Filter>
-    </ClInclude>
-    <ClInclude Include="src\test\CalcResultModel.test.h">
-      <Filter>Test Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\main\Functions\string_ext.h">
-      <Filter>Header Files\Functions</Filter>
-    </ClInclude>
-    <ClInclude Include="src\test\string_ext.test.h">
-      <Filter>Test Header Files</Filter>
-    </ClInclude>
-  </ItemGroup>
-  <ItemGroup>
-    <Image Include="res\main\calculator.png">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="res\main\drawer.png">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="res\main\history.png">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="res\main\radial_gradient.png">
-      <Filter>Resource Files</Filter>
-    </Image>
-  </ItemGroup>
-  <ItemGroup>
-    <Font Include="res\main\arial.ttf">
-      <Filter>Resource Files</Filter>
-    </Font>
-    <Font Include="res\main\courbd.ttf">
-      <Filter>Resource Files</Filter>
-    </Font>
-  </ItemGroup>
+	<ItemGroup>
+		<Filter Include="Resource Files">
+			<UniqueIdentifier>{81503593-e3f5-434e-8980-b9b4868e9684}</UniqueIdentifier>
+		</Filter>
+		<Filter Include="Header Files">
+			<UniqueIdentifier>{898380b5-5539-48fe-b376-667b64aae7b9}</UniqueIdentifier>
+		</Filter>
+		<Filter Include="Source Files">
+			<UniqueIdentifier>{ac78dc83-fb10-45bc-8f52-e7debbea47fa}</UniqueIdentifier>
+		</Filter>
+		<Filter Include="Test Header Files">
+			<UniqueIdentifier>{a9587721-2024-4bd1-87b1-9d9dea71cdea}</UniqueIdentifier>
+		</Filter>
+		<Filter Include="Test Source Files">
+			<UniqueIdentifier>{13320f6e-0403-47e5-b52e-ff3b44aef6b8}</UniqueIdentifier>
+		</Filter>
+		<Filter Include="Header Files\Any">
+			<UniqueIdentifier>{0a76d9ce-cc47-4f7c-8df3-deca8701acba}</UniqueIdentifier>
+		</Filter>
+		<Filter Include="Header Files\View">
+			<UniqueIdentifier>{9f886110-c6f8-40e5-8b11-53a9ee17aeec}</UniqueIdentifier>
+		</Filter>
+		<Filter Include="Header Files\Struct">
+			<UniqueIdentifier>{a9e5bc8c-ca79-4590-a51c-82505715d6ce}</UniqueIdentifier>
+		</Filter>
+		<Filter Include="Source Files\Any">
+			<UniqueIdentifier>{2cffd0d0-6ad7-4901-b51c-ec13cebb9abc}</UniqueIdentifier>
+		</Filter>
+		<Filter Include="Source Files\View">
+			<UniqueIdentifier>{be24d579-2c57-4063-b7aa-0b163f5ed9d2}</UniqueIdentifier>
+		</Filter>
+		<Filter Include="Header Files\Functions">
+			<UniqueIdentifier>{d2ff3dc2-08a7-4041-8e2b-4e9a7215ae67}</UniqueIdentifier>
+		</Filter>
+		<Filter Include="Source Files\Functions">
+			<UniqueIdentifier>{6fa5ecc1-7883-4dce-afdb-e317f938a8dc}</UniqueIdentifier>
+		</Filter>
+		<Filter Include="Header Files\ResourceView">
+			<UniqueIdentifier>{2776f4cd-20dd-4f67-9ff2-bfcc17b1f40e}</UniqueIdentifier>
+		</Filter>
+		<Filter Include="Source Files\ResourceView">
+			<UniqueIdentifier>{b5410e9d-d0d2-4e49-80e8-a9a131d25d49}</UniqueIdentifier>
+		</Filter>
+		<Filter Include="Header Files\Text">
+			<UniqueIdentifier>{76a47f9f-2435-441d-8e01-9f0db8463f37}</UniqueIdentifier>
+		</Filter>
+		<Filter Include="Source Files\Text">
+			<UniqueIdentifier>{ff9cbec5-9773-4790-b67d-82aa23f9d984}</UniqueIdentifier>
+		</Filter>
+		<Filter Include="Source Files\Struct">
+			<UniqueIdentifier>{422f992d-ef5d-4924-ba8f-e9c6e9745bb5}</UniqueIdentifier>
+		</Filter>
+	</ItemGroup>
+	<ItemGroup>
+		<ClCompile Include="src\test\test.cpp">
+			<Filter>Test Source Files</Filter>
+		</ClCompile>
+		<ClCompile Include="src\test\ButtonModel.test.cpp">
+			<Filter>Test Source Files</Filter>
+		</ClCompile>
+		<ClCompile Include="src\test\math_ext.test.cpp">
+			<Filter>Test Source Files</Filter>
+		</ClCompile>
+		<ClCompile Include="src\test\control_flow.test.cpp">
+			<Filter>Test Source Files</Filter>
+		</ClCompile>
+		<ClCompile Include="src\main\Any\App.cpp">
+			<Filter>Source Files\Any</Filter>
+		</ClCompile>
+		<ClCompile Include="src\main\Any\Scene.cpp">
+			<Filter>Source Files\Any</Filter>
+		</ClCompile>
+		<ClCompile Include="src\main\Any\Subsystems.cpp">
+			<Filter>Source Files\Any</Filter>
+		</ClCompile>
+		<ClCompile Include="src\main\Any\View.cpp">
+			<Filter>Source Files\Any</Filter>
+		</ClCompile>
+		<ClCompile Include="src\main\View\Button.cpp">
+			<Filter>Source Files\View</Filter>
+		</ClCompile>
+		<ClCompile Include="src\main\View\ResourceView.cpp">
+			<Filter>Source Files\View</Filter>
+		</ClCompile>
+		<ClCompile Include="src\main\Functions\calculator.cpp">
+			<Filter>Source Files\Functions</Filter>
+		</ClCompile>
+		<ClCompile Include="src\main\ResourceView\Text.cpp">
+			<Filter>Source Files\ResourceView</Filter>
+		</ClCompile>
+		<ClCompile Include="src\main\View\ButtonGroup.cpp">
+			<Filter>Source Files\View</Filter>
+		</ClCompile>
+		<ClCompile Include="src\test\ButtonGrid.test.cpp">
+			<Filter>Test Source Files</Filter>
+		</ClCompile>
+		<ClCompile Include="src\main\Functions\control_flow.cpp">
+			<Filter>Source Files\Functions</Filter>
+		</ClCompile>
+		<ClCompile Include="src\main\View\TextGroup.cpp">
+			<Filter>Source Files\View</Filter>
+		</ClCompile>
+		<ClCompile Include="src\main\ResourceView\RadialGradient.cpp">
+			<Filter>Source Files\ResourceView</Filter>
+		</ClCompile>
+		<ClCompile Include="src\test\RadialGradientModel.test.cpp">
+			<Filter>Test Source Files</Filter>
+		</ClCompile>
+		<ClCompile Include="src\main\View\NavBar.cpp">
+			<Filter>Source Files\View</Filter>
+		</ClCompile>
+		<ClCompile Include="src\main\View\CalcScreen.cpp">
+			<Filter>Source Files\View</Filter>
+		</ClCompile>
+		<ClCompile Include="src\main\Text\CalcExpr.cpp">
+			<Filter>Source Files\Text</Filter>
+		</ClCompile>
+		<ClCompile Include="src\main\Text\CalcResult.cpp">
+			<Filter>Source Files\Text</Filter>
+		</ClCompile>
+		<ClCompile Include="src\main\Struct\Message.cpp">
+			<Filter>Source Files\Struct</Filter>
+		</ClCompile>
+		<ClCompile Include="src\test\CalcResultModel.test.cpp">
+			<Filter>Test Source Files</Filter>
+		</ClCompile>
+		<ClCompile Include="src\main\Any\CalcResultModel.cpp">
+			<Filter>Source Files\Any</Filter>
+		</ClCompile>
+		<ClCompile Include="src\test\string_ext.test.cpp">
+			<Filter>Test Source Files</Filter>
+		</ClCompile>
+		<ClCompile Include="src\main\Functions\string_ext.cpp">
+			<Filter>Source Files\Functions</Filter>
+		</ClCompile>
+		<ClCompile Include="src\main\Any\ButtonModel.cpp">
+			<Filter>Source Files\Any</Filter>
+		</ClCompile>
+	</ItemGroup>
+	<ItemGroup>
+		<ClInclude Include="src\test\ButtonModel.test.h">
+			<Filter>Test Header Files</Filter>
+		</ClInclude>
+		<ClInclude Include="src\test\math_ext.test.h">
+			<Filter>Test Header Files</Filter>
+		</ClInclude>
+		<ClInclude Include="src\test\control_flow.test.h">
+			<Filter>Test Header Files</Filter>
+		</ClInclude>
+		<ClInclude Include="src\main\Any\App.h">
+			<Filter>Header Files\Any</Filter>
+		</ClInclude>
+		<ClInclude Include="src\main\Any\ButtonModel.h">
+			<Filter>Header Files\Any</Filter>
+		</ClInclude>
+		<ClInclude Include="src\main\Any\Enums.h">
+			<Filter>Header Files\Any</Filter>
+		</ClInclude>
+		<ClInclude Include="src\main\Any\Scene.h">
+			<Filter>Header Files\Any</Filter>
+		</ClInclude>
+		<ClInclude Include="src\main\Any\Subsystems.h">
+			<Filter>Header Files\Any</Filter>
+		</ClInclude>
+		<ClInclude Include="src\main\Any\View.h">
+			<Filter>Header Files\Any</Filter>
+		</ClInclude>
+		<ClInclude Include="src\main\Struct\AnimatedFloat.h">
+			<Filter>Header Files\Struct</Filter>
+		</ClInclude>
+		<ClInclude Include="src\main\Struct\Point.h">
+			<Filter>Header Files\Struct</Filter>
+		</ClInclude>
+		<ClInclude Include="src\main\Struct\Range.h">
+			<Filter>Header Files\Struct</Filter>
+		</ClInclude>
+		<ClInclude Include="src\main\Struct\Rect.h">
+			<Filter>Header Files\Struct</Filter>
+		</ClInclude>
+		<ClInclude Include="src\main\Struct\Size.h">
+			<Filter>Header Files\Struct</Filter>
+		</ClInclude>
+		<ClInclude Include="src\main\View\Button.h">
+			<Filter>Header Files\View</Filter>
+		</ClInclude>
+		<ClInclude Include="src\main\View\ResourceView.h">
+			<Filter>Header Files\View</Filter>
+		</ClInclude>
+		<ClInclude Include="src\main\Functions\control_flow.h">
+			<Filter>Header Files\Functions</Filter>
+		</ClInclude>
+		<ClInclude Include="src\main\Functions\math_ext.h">
+			<Filter>Header Files\Functions</Filter>
+		</ClInclude>
+		<ClInclude Include="src\main\ResourceView\Text.h">
+			<Filter>Header Files\ResourceView</Filter>
+		</ClInclude>
+		<ClInclude Include="src\main\View\ButtonGroup.h">
+			<Filter>Header Files\View</Filter>
+		</ClInclude>
+		<ClInclude Include="src\main\Any\ButtonGrid.h">
+			<Filter>Header Files\Any</Filter>
+		</ClInclude>
+		<ClInclude Include="src\test\ButtonGrid.test.h">
+			<Filter>Test Header Files</Filter>
+		</ClInclude>
+		<ClInclude Include="src\main\Struct\Color.h">
+			<Filter>Header Files\Struct</Filter>
+		</ClInclude>
+		<ClInclude Include="src\main\View\TextGroup.h">
+			<Filter>Header Files\View</Filter>
+		</ClInclude>
+		<ClInclude Include="src\main\Any\constants.h">
+			<Filter>Header Files\Any</Filter>
+		</ClInclude>
+		<ClInclude Include="src\main\ResourceView\RadialGradient.h">
+			<Filter>Header Files\ResourceView</Filter>
+		</ClInclude>
+		<ClInclude Include="src\main\Any\RadialGradientModel.h">
+			<Filter>Header Files\Any</Filter>
+		</ClInclude>
+		<ClInclude Include="src\test\RadialGradientModel.test.h">
+			<Filter>Test Header Files</Filter>
+		</ClInclude>
+		<ClInclude Include="src\main\Struct\Flow.h">
+			<Filter>Header Files\Struct</Filter>
+		</ClInclude>
+		<ClInclude Include="src\main\View\NavBar.h">
+			<Filter>Header Files\View</Filter>
+		</ClInclude>
+		<ClInclude Include="src\main\View\CalcScreen.h">
+			<Filter>Header Files\View</Filter>
+		</ClInclude>
+		<ClInclude Include="src\main\Text\CalcExpr.h">
+			<Filter>Header Files\Text</Filter>
+		</ClInclude>
+		<ClInclude Include="src\main\Text\CalcResult.h">
+			<Filter>Header Files\Text</Filter>
+		</ClInclude>
+		<ClInclude Include="src\main\Struct\Message.h">
+			<Filter>Header Files\Struct</Filter>
+		</ClInclude>
+		<ClInclude Include="src\main\Struct\Pair.h">
+			<Filter>Header Files\Struct</Filter>
+		</ClInclude>
+		<ClInclude Include="src\main\Any\CalcResultModel.h">
+			<Filter>Header Files\Any</Filter>
+		</ClInclude>
+		<ClInclude Include="src\test\CalcResultModel.test.h">
+			<Filter>Test Header Files</Filter>
+		</ClInclude>
+		<ClInclude Include="src\main\Functions\string_ext.h">
+			<Filter>Header Files\Functions</Filter>
+		</ClInclude>
+		<ClInclude Include="src\test\string_ext.test.h">
+			<Filter>Test Header Files</Filter>
+		</ClInclude>
+	</ItemGroup>
+	<ItemGroup>
+		<Image Include="res\main\calculator.png">
+			<Filter>Resource Files</Filter>
+		</Image>
+		<Image Include="res\main\drawer.png">
+			<Filter>Resource Files</Filter>
+		</Image>
+		<Image Include="res\main\history.png">
+			<Filter>Resource Files</Filter>
+		</Image>
+		<Image Include="res\main\radial_gradient.png">
+			<Filter>Resource Files</Filter>
+		</Image>
+	</ItemGroup>
+	<ItemGroup>
+		<Font Include="res\main\arial.ttf">
+			<Filter>Resource Files</Filter>
+		</Font>
+		<Font Include="res\main\courbd.ttf">
+			<Filter>Resource Files</Filter>
+		</Font>
+	</ItemGroup>
 </Project>
