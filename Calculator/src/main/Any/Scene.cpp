@@ -78,7 +78,8 @@ namespace ii887522::Calculator
 	{
 		auto result{ Action::NONE };
 		loop(sizeof views / sizeof(View*), [=, &result](const auto i) {
-			const auto action{ views[i]->reactLeftMouseButtonUp(buttonEvent) };
+			const auto [action, message]{ views[i]->reactLeftMouseButtonUp(buttonEvent) };
+			if (message.head != Message::Head::EMPTY) reactMessage(message);
 			if (action != Action::START_ANIMATION) return;
 			++viewAnimationsCount;
 			if (isAnimating) return;
@@ -106,7 +107,8 @@ namespace ii887522::Calculator
 	{
 		auto result{ Action::NONE };
 		loop(sizeof views / sizeof(View*), [=, &result](const auto i) {
-			const auto action{ views[i]->reactKeyDown(keyEvent) };
+			const auto [action, message]{ views[i]->reactKeyDown(keyEvent) };
+			if (message.head != Message::Head::EMPTY) reactMessage(message);
 			if (action != Action::START_ANIMATION) return;
 			++viewAnimationsCount;
 			if (isAnimating) return;
@@ -128,6 +130,13 @@ namespace ii887522::Calculator
 			isAnimating = true;
 		});
 		return result;
+	}
+
+	void Scene::reactMessage(const Message& message)
+	{
+		loop(sizeof views / sizeof(View*), [=](const auto i) {
+			views[i]->reactMessage(message);
+		});
 	}
 
 	Action Scene::step(const unsigned int dt)

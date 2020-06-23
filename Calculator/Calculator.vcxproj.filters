@@ -49,6 +49,9 @@
     <Filter Include="Source Files\Text">
       <UniqueIdentifier>{ff9cbec5-9773-4790-b67d-82aa23f9d984}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Struct">
+      <UniqueIdentifier>{422f992d-ef5d-4924-ba8f-e9c6e9745bb5}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\test\test.cpp">
@@ -116,6 +119,21 @@
     </ClCompile>
     <ClCompile Include="src\main\Text\CalcResult.cpp">
       <Filter>Source Files\Text</Filter>
+    </ClCompile>
+    <ClCompile Include="src\main\Struct\Message.cpp">
+      <Filter>Source Files\Struct</Filter>
+    </ClCompile>
+    <ClCompile Include="src\test\CalcResultModel.test.cpp">
+      <Filter>Test Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\main\Any\CalcResultModel.cpp">
+      <Filter>Source Files\Any</Filter>
+    </ClCompile>
+    <ClCompile Include="src\test\string_ext.test.cpp">
+      <Filter>Test Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\main\Functions\string_ext.cpp">
+      <Filter>Source Files\Functions</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -218,6 +236,24 @@
     <ClInclude Include="src\main\Text\CalcResult.h">
       <Filter>Header Files\Text</Filter>
     </ClInclude>
+    <ClInclude Include="src\main\Struct\Message.h">
+      <Filter>Header Files\Struct</Filter>
+    </ClInclude>
+    <ClInclude Include="src\main\Struct\Pair.h">
+      <Filter>Header Files\Struct</Filter>
+    </ClInclude>
+    <ClInclude Include="src\main\Any\CalcResultModel.h">
+      <Filter>Header Files\Any</Filter>
+    </ClInclude>
+    <ClInclude Include="src\test\CalcResultModel.test.h">
+      <Filter>Test Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\main\Functions\string_ext.h">
+      <Filter>Header Files\Functions</Filter>
+    </ClInclude>
+    <ClInclude Include="src\test\string_ext.test.h">
+      <Filter>Test Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Image Include="res\main\calculator.png">
@@ -235,6 +271,9 @@
   </ItemGroup>
   <ItemGroup>
     <Font Include="res\main\arial.ttf">
+      <Filter>Resource Files</Filter>
+    </Font>
+    <Font Include="res\main\courbd.ttf">
       <Filter>Resource Files</Filter>
     </Font>
   </ItemGroup>

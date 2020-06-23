@@ -11,6 +11,7 @@
 #include "../Any/ButtonGrid.h"
 #include "../Struct/Point.h"
 #include "../Struct/Rect.h"
+#include "../Struct/Message.h"
 
 namespace ii887522::Calculator
 {
@@ -28,6 +29,8 @@ namespace ii887522::Calculator
 		View*const views[12u];
 		bool isAnimating;
 		unsigned int viewAnimationsCount;
+
+		void reactMessage(const Message&);
 
 		// Param renderer: it must not be assigned to integer
 		// Param font: it must not be assigned to integer

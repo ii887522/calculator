@@ -10,6 +10,8 @@
 #include "../Struct/Point.h"
 #include "../Any/Enums.h"
 #include "../Struct/Color.h"
+#include "../Struct/Pair.h"
+#include "../Struct/Message.h"
 
 namespace ii887522::Calculator
 {
@@ -27,19 +29,21 @@ namespace ii887522::Calculator
 		ButtonModel viewModel;
 		const Color color;
 		bool isAnimating;
+		const Message message;
 
 		void renderBackground();
 		void renderBorder();
 
 	public:
 		// Param renderer: it must not be assigned to integer
-		explicit Button(SDL_Renderer*const renderer, const Rect&, const Color&, const SDL_Keycode = SDLK_UNKNOWN);
+		explicit Button(SDL_Renderer*const renderer, const Rect&, const Color&, const Message& = Message{  },
+			const SDL_Keycode = SDLK_UNKNOWN);
 
 		virtual Action reactMouseMotion(const SDL_MouseMotionEvent&) override;
 		virtual Action reactLeftMouseButtonDown(const SDL_MouseButtonEvent&) override;
-		virtual Action reactLeftMouseButtonUp(const SDL_MouseButtonEvent&) override;
+		virtual Pair<Action, Message> reactLeftMouseButtonUp(const SDL_MouseButtonEvent&) override;
 		virtual Action reactMouseLeaveWindow(const SDL_WindowEvent&) override;
-		virtual Action reactKeyDown(const SDL_KeyboardEvent&) override;
+		virtual Pair<Action, Message> reactKeyDown(const SDL_KeyboardEvent&) override;
 		virtual Action reactKeyUp(const SDL_KeyboardEvent&) override;
 		virtual Action step(const unsigned int dt) override;
 		virtual void render() override;

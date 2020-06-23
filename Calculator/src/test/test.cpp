@@ -5,6 +5,8 @@
 #include "control_flow.test.h"
 #include "ButtonGrid.test.h"
 #include "RadialGradientModel.test.h"
+#include "CalcResultModel.test.h"
+#include "string_ext.test.h"
 
 namespace ii887522::Calculator
 {
@@ -27,6 +29,8 @@ namespace ii887522::Calculator
 		testControlFlow();
 		testButtonGrid();
 		testRadialGradientModel();
+		testStringExt();
+		testCalcResultModel();
 		return 0;
 	}
 }
