@@ -10,13 +10,20 @@
 
 namespace ii887522::Calculator
 {
-	CalcResult::CalcResult(SDL_Renderer*const renderer, const Rect& calcScreenRect, TTF_Font*const font) :
+	CalcResult::CalcResult(SDL_Renderer* const renderer, const Rect& calcScreenRect, TTF_Font* const font) :
 		Text{ renderer, font, Point{ calcScreenRect.position.x + calcScreenRect.size.w - /* margin right */ 10,
 		calcScreenRect.position.y + calcScreenRect.size.h - /* margin bottom */ 8 }, "0" }, font{ font } { }
 
-	void CalcResult::reactMessage(const Message& message)
+	void CalcResult::set(const string& value)
 	{
-		message;
+		ResourceView::set(TTF_RenderText_Blended(font, value.c_str(), SDL_Color{ 0u, 0u, 0u, 255u }));
+	}
+
+	Message CalcResult::reactMessage(const Message& message)
+	{
+		viewModel.reactMessage(message);
+		set(viewModel.value);
+		return viewModel.message;
 	}
 
 	void CalcResult::render()
