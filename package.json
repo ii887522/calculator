@@ -4,7 +4,7 @@
   "description": "It is an offline calculator that can help you do the math even when losing internet connection.",
   "main": "init.js",
   "scripts": {
-    "install": "node init.js",
+    "install": "npx tsc & node init.js",
     "test": "node scripts/out/test/all.test.js",
     "bundle": "node scripts/out/main/bundle.js --release-path Calculator/Release/ --resource-path Calculator/res/main/ --ico calculator.png --exe-file Calculator.exe"
   },
