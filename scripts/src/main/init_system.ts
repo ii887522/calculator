@@ -93,6 +93,22 @@ export function zip(url: string): void {
     });
 }
 
+export function file(url: string): void {
+    if (process.argv.length !== 2) return;
+    https.get(url, res => {
+        let file = "";
+        res.on("data", chunk => {
+            file += chunk;
+        }).on("end", () => {
+            fs.writeFile(`${libsPath}${getFileName(url)}`, file, err => {
+                if (err) throw err;
+            });
+        }).on("error", err => {
+            throw err;
+        })
+    });
+}
+
 process.on("exit", code => {
     if (process.argv.length === 2) child_process.fork("init.js", ["--dll"], { detached: true });
 });
