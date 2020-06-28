@@ -5,9 +5,12 @@ import fs from "fs";
 import JSZip from "jszip";
 import child_process from "child_process";
 import { getFileName } from "./synthetic_fs.js";
+import HtmlEntities from "html-entities";
 
 export const libsPath = "libs/";
 let solutionConfigPaths: string[];
+const xmlEntities = new HtmlEntities.XmlEntities();
+const textDecoder = new TextDecoder();
 
 export function setSolutionConfigPaths(...value: string[]): void {
     solutionConfigPaths = value;
@@ -66,27 +69,33 @@ export function zip(url: string): void {
             file.set(chunk, fileSize);
             fileSize += chunk.length;
         }).on("end", () => {
-            JSZip.loadAsync(file).then(value => {
-                for (const relativePath in value.files) {
-                    if (value.files[relativePath].dir) {
-                        fs.mkdirSync(`${libsPath}${relativePath}`);
-                    } else {
-                        value.files[relativePath].async("uint8array").then(value => {
-                            fs.writeFile(`${libsPath}${relativePath}`, value, err => {
-                                if (err) throw err;
+            const fileStr = textDecoder.decode(file);
+            if (fileStr.startsWith("<html>")) {
+                const httpsI = fileStr.indexOf("https");
+                zip(xmlEntities.decode(fileStr.substring(httpsI, fileStr.indexOf('"', httpsI))));
+            } else {
+                JSZip.loadAsync(file).then(value => {
+                    for (const relativePath in value.files) {
+                        if (value.files[relativePath].dir) {
+                            fs.mkdirSync(`${libsPath}${relativePath}`);
+                        } else {
+                            value.files[relativePath].async("uint8array").then(value => {
+                                fs.writeFile(`${libsPath}${relativePath}`, value, err => {
+                                    if (err) throw err;
+                                });
+                            }, reason => {
+                                throw new Error(reason);
+                            }).catch(reason => {
+                                throw new Error(reason);
                             });
-                        }, reason => {
-                            throw new Error(reason);
-                        }).catch(reason => {
-                            throw new Error(reason);
-                        });
+                        }
                     }
-                }
-            }, reason => {
-                throw new Error(reason);
-            }).catch(reason => {
-                throw new Error(reason);
-            });
+                }, reason => {
+                    throw new Error(reason);
+                }).catch(reason => {
+                    throw new Error(reason);
+                });
+            }
         }).on("error", err => {
             throw err;
         });
@@ -96,13 +105,21 @@ export function zip(url: string): void {
 export function file(url: string): void {
     if (process.argv.length !== 2) return;
     https.get(url, res => {
-        let file = "";
+        const file = new Uint8Array(Number(res.headers["content-length"]));
+        let fileSize = 0;
         res.on("data", chunk => {
-            file += chunk;
+            file.set(chunk, fileSize);
+            fileSize += chunk.length;
         }).on("end", () => {
-            fs.writeFile(`${libsPath}${getFileName(url)}`, file, err => {
-                if (err) throw err;
-            });
+            const fileStr = textDecoder.decode();
+            if (fileStr.startsWith("<html>")) {
+                const httpsI = fileStr.indexOf("https");
+                zip(xmlEntities.decode(fileStr.substring(httpsI, fileStr.indexOf('"', httpsI))));
+            } else {
+                fs.writeFile(`${libsPath}${getFileName(url)}`, file, err => {
+                    if (err) throw err;
+                });
+            }
         }).on("error", err => {
             throw err;
         })
