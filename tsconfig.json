@@ -17,8 +17,7 @@
         "outDir": "scripts/out",
         "rootDir": "scripts/src",
         "strict": true,
-        "target": "ES6",
-        "watch": true
+        "target": "ES6"
     },
     "typeAcquisition": {
         "enable": true
