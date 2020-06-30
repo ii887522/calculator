@@ -13,7 +13,7 @@ namespace ii887522::Calculator
 	{
 		enum class State : unsigned int
 		{
-			EMPTY, EXIST
+			EMPTY, EXIST, EQUAL_PRESSED
 		};
 
 		// remove copy semantics
@@ -30,6 +30,7 @@ namespace ii887522::Calculator
 		void clear();
 		void reactBinaryExprWhenEmpty(const string& exprStr);
 		void reactBinaryExprWhenExist(const string& exprStr);
+		void reactBinaryExprWhenEqualPressed(const string& exprStr);
 		void reactBinaryExpr(const string& exprStr);
 		void reactUnaryExpr(const string& exprStr);
 

@@ -34,4 +34,9 @@ namespace ii887522::Calculator
 		if (numberStr.find('.') == string::npos) return;
 		while (numberStr[numberStr.size() - 1u] == '0') numberStr.pop_back();
 	}
+
+	double getNumberFromUnaryExpr(const string& unaryExprStr)
+	{
+		return stod(unaryExprStr.substr(unaryExprStr.find('(') + 1u, unaryExprStr.size() - 1u));
+	}
 }

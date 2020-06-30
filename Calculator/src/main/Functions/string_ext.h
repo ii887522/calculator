@@ -12,6 +12,7 @@ namespace ii887522::Calculator
 	void noTrailingDot(string& numberStr);
 	double getNumberFromBinaryExpr(const string& binaryExprStr);
 	void noTrailingZeros(string& numberStr);
+	double getNumberFromUnaryExpr(const string& unaryExprStr);
 }
 
 #endif

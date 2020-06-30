@@ -116,6 +116,17 @@ namespace ii887522::Calculator
 		}
 	}
 
+	static void testGetNumberFromUnaryExpr()
+	{
+		assert(getNumberFromUnaryExpr("sqr(0)") == 0.);
+		assert(getNumberFromUnaryExpr("sqrt(1)") == 1.);
+		assert(getNumberFromUnaryExpr("sqr(2.0)") == 2.);
+		assert(getNumberFromUnaryExpr("sqr(2.1)") == 2.1);
+		assert(getNumberFromUnaryExpr("sqr(2.2)") == 2.2);
+		assert(getNumberFromUnaryExpr("sqr(3.2)") == 3.2);
+		assert(getNumberFromUnaryExpr("sqr(3.21)") == 3.21);
+	}
+
 	void testStringExt()
 	{
 		testNegate();
@@ -123,6 +134,7 @@ namespace ii887522::Calculator
 		testNoTrailingDot();
 		testGetNumberFromBinaryExpr();
 		testNoTrailingZeros();
+		testGetNumberFromUnaryExpr();
 	}
 }
 

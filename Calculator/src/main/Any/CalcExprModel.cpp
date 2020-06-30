@@ -27,6 +27,7 @@ namespace ii887522::Calculator
 
 	void CalcExprModel::reactBinaryExprWhenExist(const string& exprStr)
 	{
+		if (exprStr[exprStr.size() - 1u] == '=') state = State::EQUAL_PRESSED;
 		switch (value[value.size() - 1u])
 		{
 		case '+': result += getNumberFromBinaryExpr(exprStr);
@@ -37,8 +38,17 @@ namespace ii887522::Calculator
 			break;
 		case '/': result /= getNumberFromBinaryExpr(exprStr);
 		}
-		value += exprStr;
-		message = Message{ Message::Head::EXPR_RESULT, to_string(result) };
+		value += ' ' + exprStr;
+		auto resultStr{ to_string(result) };
+		noTrailingZeros(resultStr);
+		noTrailingDot(resultStr);
+		message = Message{ Message::Head::EXPR_RESULT, resultStr };
+	}
+
+	void CalcExprModel::reactBinaryExprWhenEqualPressed(const string& exprStr)
+	{
+		clear();
+		reactBinaryExprWhenEmpty(exprStr);
 	}
 
 	void CalcExprModel::reactBinaryExpr(const string& exprStr)
@@ -48,6 +58,8 @@ namespace ii887522::Calculator
 		case State::EMPTY: reactBinaryExprWhenEmpty(exprStr);
 			break;
 		case State::EXIST: reactBinaryExprWhenExist(exprStr);
+			break;
+		case State::EQUAL_PRESSED: reactBinaryExprWhenEqualPressed(exprStr);
 		}
 	}
 
