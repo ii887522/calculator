@@ -16,10 +16,11 @@ namespace ii887522::Calculator
 		calcExprModel.reactMessage(Message{ Message::Head::BINARY_EXPR, "1 +" });
 		assert(calcExprModel.message.head == Message::Head::EMPTY);
 		assert(calcExprModel.value == " 1 +");
-		calcExprModel.reactMessage(Message{ Message::Head::BINARY_EXPR, "2 -" });
+		/*calcExprModel.reactMessage(Message{ Message::Head::BINARY_EXPR, "2 -" });
 		assert(calcExprModel.message.head == Message::Head::EXPR_RESULT);
 		assert(calcExprModel.message.body == "3");
-		assert(calcExprModel.value == " 1 + 2 -");
+		assert(calcExprModel.value == " 1 + 2 -");*/
+
 	}
 
 	void testCalcExprModel()

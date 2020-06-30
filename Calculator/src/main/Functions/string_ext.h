@@ -11,6 +11,7 @@ namespace ii887522::Calculator
 	unsigned int sizeIgnoreDash(const string& numberStr);
 	void noTrailingDot(string& numberStr);
 	double getNumberFromBinaryExpr(const string& binaryExprStr);
+	void noTrailingZeros(string& numberStr);
 }
 
 #endif

@@ -62,12 +62,67 @@ namespace ii887522::Calculator
 		assert(getNumberFromBinaryExpr("3.21 -") == 3.21);
 	}
 
+	static void testNoTrailingZeros()
+	{
+		{
+			string numberStr{ "0" };
+			noTrailingZeros(numberStr);
+			assert(numberStr == "0");
+		}
+		{
+			string numberStr{ "1" };
+			noTrailingZeros(numberStr);
+			assert(numberStr == "1");
+		}
+		{
+			string numberStr{ "1." };
+			noTrailingZeros(numberStr);
+			assert(numberStr == "1.");
+		}
+		{
+			string numberStr{ "1.0" };
+			noTrailingZeros(numberStr);
+			assert(numberStr == "1.");
+		}
+		{
+			string numberStr{ "1.1" };
+			noTrailingZeros(numberStr);
+			assert(numberStr == "1.1");
+		}
+		{
+			string numberStr{ "1.10" };
+			noTrailingZeros(numberStr);
+			assert(numberStr == "1.1");
+		}
+		{
+			string numberStr{ "1.01" };
+			noTrailingZeros(numberStr);
+			assert(numberStr == "1.01");
+		}
+		{
+			string numberStr{ "1.00" };
+			noTrailingZeros(numberStr);
+			assert(numberStr == "1.");
+		}
+		{
+			string numberStr{ "1.010" };
+			noTrailingZeros(numberStr);
+			assert(numberStr == "1.01");
+		}
+		{
+			string numberStr{ "0.00" };
+			noTrailingZeros(numberStr);
+			assert(numberStr == "0.");
+		}
+	}
+
 	void testStringExt()
 	{
 		testNegate();
 		testSizeIgnoreDash();
 		testNoTrailingDot();
 		testGetNumberFromBinaryExpr();
+		testNoTrailingZeros();
 	}
 }
 

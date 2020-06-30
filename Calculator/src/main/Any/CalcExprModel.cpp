@@ -1,9 +1,10 @@
 #include "CalcExprModel.h"
 #include "../Struct/Message.h"
 #include <string>
+#include "../Functions/string_ext.h"
 
 using std::string;
-using std::stod;
+using std::to_string;
 
 namespace ii887522::Calculator
 {
@@ -21,22 +22,23 @@ namespace ii887522::Calculator
 	{
 		value += exprStr;
 		state = State::EXIST;
-		result = stod(exprStr.substr(0u, exprStr.rfind(' ')));
+		result = getNumberFromBinaryExpr(exprStr);
 	}
 
 	void CalcExprModel::reactBinaryExprWhenExist(const string& exprStr)
 	{
 		switch (value[value.size() - 1u])
 		{
-		case '+': result += stod(exprStr.substr(0u, exprStr.rfind(' ')));
+		case '+': result += getNumberFromBinaryExpr(exprStr);
 			break;
-		case '-': 
+		case '-': result -= getNumberFromBinaryExpr(exprStr);
 			break;
-		case 'x': 
+		case 'x': result *= getNumberFromBinaryExpr(exprStr);
 			break;
-		case '/': ;
+		case '/': result /= getNumberFromBinaryExpr(exprStr);
 		}
 		value += exprStr;
+		message = Message{ Message::Head::EXPR_RESULT, to_string(result) };
 	}
 
 	void CalcExprModel::reactBinaryExpr(const string& exprStr)

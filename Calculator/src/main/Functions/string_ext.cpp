@@ -1,5 +1,6 @@
 #include "string_ext.h"
 #include <string>
+#include "control_flow.h"
 
 using std::string;
 using std::stod;
@@ -26,5 +27,11 @@ namespace ii887522::Calculator
 	double getNumberFromBinaryExpr(const string& binaryExprStr)
 	{
 		return stod(binaryExprStr.substr(0u, binaryExprStr.rfind(' ')));
+	}
+
+	void noTrailingZeros(string& numberStr)
+	{
+		if (numberStr.find('.') == string::npos) return;
+		while (numberStr[numberStr.size() - 1u] == '0') numberStr.pop_back();
 	}
 }
