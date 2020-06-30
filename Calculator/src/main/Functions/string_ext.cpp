@@ -2,6 +2,7 @@
 #include <string>
 
 using std::string;
+using std::stod;
 
 namespace ii887522::Calculator
 {
@@ -20,5 +21,10 @@ namespace ii887522::Calculator
 	void noTrailingDot(string& numberStr)
 	{
 		if (numberStr[numberStr.size() - 1u] == '.') numberStr.pop_back();
+	}
+
+	double getNumberFromBinaryExpr(const string& binaryExprStr)
+	{
+		return stod(binaryExprStr.substr(0u, binaryExprStr.rfind(' ')));
 	}
 }

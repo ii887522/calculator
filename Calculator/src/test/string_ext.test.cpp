@@ -51,11 +51,23 @@ namespace ii887522::Calculator
 		}
 	}
 
+	static void testGetNumberFromBinaryExpr()
+	{
+		assert(getNumberFromBinaryExpr("0 +") == 0.);
+		assert(getNumberFromBinaryExpr("1 -") == 1.);
+		assert(getNumberFromBinaryExpr("2.0 x") == 2.);
+		assert(getNumberFromBinaryExpr("2.1 /") == 2.1);
+		assert(getNumberFromBinaryExpr("2.2 =") == 2.2);
+		assert(getNumberFromBinaryExpr("3.2 +") == 3.2);
+		assert(getNumberFromBinaryExpr("3.21 -") == 3.21);
+	}
+
 	void testStringExt()
 	{
 		testNegate();
 		testSizeIgnoreDash();
 		testNoTrailingDot();
+		testGetNumberFromBinaryExpr();
 	}
 }
 

@@ -1,317 +1,321 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-	<ItemGroup Label="ProjectConfigurations">
-		<ProjectConfiguration Include="Debug|Win32">
-			<Configuration>Debug</Configuration>
-			<Platform>Win32</Platform>
-		</ProjectConfiguration>
-		<ProjectConfiguration Include="Release|Win32">
-			<Configuration>Release</Configuration>
-			<Platform>Win32</Platform>
-		</ProjectConfiguration>
-		<ProjectConfiguration Include="Debug|x64">
-			<Configuration>Debug</Configuration>
-			<Platform>x64</Platform>
-		</ProjectConfiguration>
-		<ProjectConfiguration Include="Release|x64">
-			<Configuration>Release</Configuration>
-			<Platform>x64</Platform>
-		</ProjectConfiguration>
-		<ProjectConfiguration Include="Test|Win32">
-			<Configuration>Test</Configuration>
-			<Platform>Win32</Platform>
-		</ProjectConfiguration>
-		<ProjectConfiguration Include="Test|x64">
-			<Configuration>Test</Configuration>
-			<Platform>x64</Platform>
-		</ProjectConfiguration>
-	</ItemGroup>
-	<PropertyGroup Label="Globals">
-		<VCProjectVersion>16.0</VCProjectVersion>
-		<Keyword>Win32Proj</Keyword>
-		<ProjectGuid>{48e48994-72d2-43fa-ab73-690d3017fa47}</ProjectGuid>
-		<RootNamespace>Calculator</RootNamespace>
-		<WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
-	</PropertyGroup>
-	<Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
-	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
-		<ConfigurationType>Application</ConfigurationType>
-		<UseDebugLibraries>true</UseDebugLibraries>
-		<PlatformToolset>v142</PlatformToolset>
-		<CharacterSet>Unicode</CharacterSet>
-	</PropertyGroup>
-	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Test|Win32'" Label="Configuration">
-		<ConfigurationType>Application</ConfigurationType>
-		<UseDebugLibraries>true</UseDebugLibraries>
-		<PlatformToolset>v142</PlatformToolset>
-		<CharacterSet>Unicode</CharacterSet>
-	</PropertyGroup>
-	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
-		<ConfigurationType>Application</ConfigurationType>
-		<UseDebugLibraries>false</UseDebugLibraries>
-		<PlatformToolset>v142</PlatformToolset>
-		<WholeProgramOptimization>true</WholeProgramOptimization>
-		<CharacterSet>Unicode</CharacterSet>
-	</PropertyGroup>
-	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
-		<ConfigurationType>Application</ConfigurationType>
-		<UseDebugLibraries>true</UseDebugLibraries>
-		<PlatformToolset>v142</PlatformToolset>
-		<CharacterSet>Unicode</CharacterSet>
-	</PropertyGroup>
-	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Test|x64'" Label="Configuration">
-		<ConfigurationType>Application</ConfigurationType>
-		<UseDebugLibraries>true</UseDebugLibraries>
-		<PlatformToolset>v142</PlatformToolset>
-		<CharacterSet>Unicode</CharacterSet>
-	</PropertyGroup>
-	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
-		<ConfigurationType>Application</ConfigurationType>
-		<UseDebugLibraries>false</UseDebugLibraries>
-		<PlatformToolset>v142</PlatformToolset>
-		<WholeProgramOptimization>true</WholeProgramOptimization>
-		<CharacterSet>Unicode</CharacterSet>
-	</PropertyGroup>
-	<Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
-	<ImportGroup Label="ExtensionSettings">
-	</ImportGroup>
-	<ImportGroup Label="Shared">
-	</ImportGroup>
-	<ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-		<Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
-	</ImportGroup>
-	<ImportGroup Condition="'$(Configuration)|$(Platform)'=='Test|Win32'" Label="PropertySheets">
-		<Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
-	</ImportGroup>
-	<ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-		<Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
-	</ImportGroup>
-	<ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-		<Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
-	</ImportGroup>
-	<ImportGroup Condition="'$(Configuration)|$(Platform)'=='Test|x64'" Label="PropertySheets">
-		<Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
-	</ImportGroup>
-	<ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-		<Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
-	</ImportGroup>
-	<PropertyGroup Label="UserMacros" />
-	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-		<LinkIncremental>true</LinkIncremental>
-	</PropertyGroup>
-	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Test|Win32'">
-		<LinkIncremental>true</LinkIncremental>
-	</PropertyGroup>
-	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-		<LinkIncremental>false</LinkIncremental>
-	</PropertyGroup>
-	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-		<LinkIncremental>true</LinkIncremental>
-	</PropertyGroup>
-	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Test|x64'">
-		<LinkIncremental>true</LinkIncremental>
-	</PropertyGroup>
-	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-		<LinkIncremental>false</LinkIncremental>
-	</PropertyGroup>
-	<ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-		<ClCompile>
-			<WarningLevel>Level4</WarningLevel>
-			<SDLCheck>true</SDLCheck>
-			<PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-			<ConformanceMode>true</ConformanceMode>
-			<LanguageStandard>stdcpplatest</LanguageStandard>
-			<AdditionalIncludeDirectories>$(SolutionDir)..\libs\SDL2-2.0.12\include;$(SolutionDir)..\libs\SDL2_image-2.0.5\include;$(SolutionDir)..\libs\SDL2_ttf-2.0.15\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-			<TreatWarningAsError>true</TreatWarningAsError>
-			<DisableLanguageExtensions>true</DisableLanguageExtensions>
-		</ClCompile>
-		<Link>
-			<SubSystem>Console</SubSystem>
-			<GenerateDebugInformation>true</GenerateDebugInformation>
-			<AdditionalLibraryDirectories>$(SolutionDir)..\libs\SDL2-2.0.12\lib\x86;$(SolutionDir)..\libs\SDL2_image-2.0.5\lib\x86;$(SolutionDir)..\libs\SDL2_ttf-2.0.15\lib\x86;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-			<AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2_image.lib;SDL2_ttf.lib;%(AdditionalDependencies)</AdditionalDependencies>
-		</Link>
-	</ItemDefinitionGroup>
-	<ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Test|Win32'">
-		<ClCompile>
-			<WarningLevel>Level4</WarningLevel>
-			<SDLCheck>true</SDLCheck>
-			<PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;TEST;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-			<ConformanceMode>true</ConformanceMode>
-			<LanguageStandard>stdcpplatest</LanguageStandard>
-			<AdditionalIncludeDirectories>$(SolutionDir)..\libs\SDL2-2.0.12\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-			<TreatWarningAsError>true</TreatWarningAsError>
-			<DisableLanguageExtensions>true</DisableLanguageExtensions>
-		</ClCompile>
-		<Link>
-			<SubSystem>Console</SubSystem>
-			<GenerateDebugInformation>true</GenerateDebugInformation>
-			<AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-			<AdditionalDependencies>%(AdditionalDependencies)</AdditionalDependencies>
-		</Link>
-	</ItemDefinitionGroup>
-	<ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-		<ClCompile>
-			<WarningLevel>Level4</WarningLevel>
-			<FunctionLevelLinking>true</FunctionLevelLinking>
-			<IntrinsicFunctions>true</IntrinsicFunctions>
-			<SDLCheck>true</SDLCheck>
-			<PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-			<ConformanceMode>true</ConformanceMode>
-			<LanguageStandard>stdcpplatest</LanguageStandard>
-			<AdditionalIncludeDirectories>$(SolutionDir)..\libs\SDL2-2.0.12\include;$(SolutionDir)..\libs\SDL2_image-2.0.5\include;$(SolutionDir)..\libs\SDL2_ttf-2.0.15\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-			<TreatWarningAsError>true</TreatWarningAsError>
-			<DisableLanguageExtensions>false</DisableLanguageExtensions>
-			<Optimization>Full</Optimization>
-			<EnableEnhancedInstructionSet>StreamingSIMDExtensions2</EnableEnhancedInstructionSet>
-			<FloatingPointModel>Fast</FloatingPointModel>
-		</ClCompile>
-		<Link>
-			<SubSystem>Windows</SubSystem>
-			<EnableCOMDATFolding>true</EnableCOMDATFolding>
-			<OptimizeReferences>true</OptimizeReferences>
-			<GenerateDebugInformation>true</GenerateDebugInformation>
-			<AdditionalLibraryDirectories>$(SolutionDir)..\libs\SDL2-2.0.12\lib\x86;$(SolutionDir)..\libs\SDL2_image-2.0.5\lib\x86;$(SolutionDir)..\libs\SDL2_ttf-2.0.15\lib\x86;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-			<AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2_image.lib;SDL2_ttf.lib;%(AdditionalDependencies)</AdditionalDependencies>
-		</Link>
-	</ItemDefinitionGroup>
-	<ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-		<ClCompile>
-			<WarningLevel>Level4</WarningLevel>
-			<SDLCheck>true</SDLCheck>
-			<PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-			<ConformanceMode>true</ConformanceMode>
-			<LanguageStandard>stdcpplatest</LanguageStandard>
-			<AdditionalIncludeDirectories>$(SolutionDir)..\libs\SDL2-2.0.12\include;$(SolutionDir)..\libs\SDL2_image-2.0.5\include;$(SolutionDir)..\libs\SDL2_ttf-2.0.15\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-			<TreatWarningAsError>true</TreatWarningAsError>
-			<DisableLanguageExtensions>true</DisableLanguageExtensions>
-		</ClCompile>
-		<Link>
-			<SubSystem>Console</SubSystem>
-			<GenerateDebugInformation>true</GenerateDebugInformation>
-		</Link>
-	</ItemDefinitionGroup>
-	<ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Test|x64'">
-		<ClCompile>
-			<WarningLevel>Level4</WarningLevel>
-			<SDLCheck>true</SDLCheck>
-			<PreprocessorDefinitions>_DEBUG;_CONSOLE;TEST;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-			<ConformanceMode>true</ConformanceMode>
-			<LanguageStandard>stdcpplatest</LanguageStandard>
-			<AdditionalIncludeDirectories>$(SolutionDir)..\libs\SDL2-2.0.12\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-			<TreatWarningAsError>true</TreatWarningAsError>
-			<DisableLanguageExtensions>true</DisableLanguageExtensions>
-		</ClCompile>
-		<Link>
-			<SubSystem>Console</SubSystem>
-			<GenerateDebugInformation>true</GenerateDebugInformation>
-		</Link>
-	</ItemDefinitionGroup>
-	<ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-		<ClCompile>
-			<WarningLevel>Level4</WarningLevel>
-			<FunctionLevelLinking>true</FunctionLevelLinking>
-			<IntrinsicFunctions>true</IntrinsicFunctions>
-			<SDLCheck>true</SDLCheck>
-			<PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-			<ConformanceMode>true</ConformanceMode>
-			<LanguageStandard>stdcpplatest</LanguageStandard>
-			<AdditionalIncludeDirectories>$(SolutionDir)..\libs\SDL2-2.0.12\include;$(SolutionDir)..\libs\SDL2_image-2.0.5\include;$(SolutionDir)..\libs\SDL2_ttf-2.0.15\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-			<TreatWarningAsError>true</TreatWarningAsError>
-			<DisableLanguageExtensions>false</DisableLanguageExtensions>
-			<Optimization>Full</Optimization>
-			<EnableEnhancedInstructionSet>AdvancedVectorExtensions2</EnableEnhancedInstructionSet>
-			<FloatingPointModel>Fast</FloatingPointModel>
-		</ClCompile>
-		<Link>
-			<SubSystem>Console</SubSystem>
-			<EnableCOMDATFolding>true</EnableCOMDATFolding>
-			<OptimizeReferences>true</OptimizeReferences>
-			<GenerateDebugInformation>true</GenerateDebugInformation>
-		</Link>
-	</ItemDefinitionGroup>
-	<ItemGroup>
-		<ClCompile Include="src\main\Any\App.cpp" />
-		<ClCompile Include="src\main\Any\ButtonModel.cpp" />
-		<ClCompile Include="src\main\Any\CalcResultModel.cpp" />
-		<ClCompile Include="src\main\Any\Scene.cpp" />
-		<ClCompile Include="src\main\Any\Subsystems.cpp" />
-		<ClCompile Include="src\main\Any\View.cpp" />
-		<ClCompile Include="src\main\Functions\calculator.cpp" />
-		<ClCompile Include="src\main\Functions\control_flow.cpp" />
-		<ClCompile Include="src\main\Functions\string_ext.cpp" />
-		<ClCompile Include="src\main\ResourceView\RadialGradient.cpp" />
-		<ClCompile Include="src\main\ResourceView\Text.cpp" />
-		<ClCompile Include="src\main\Struct\Message.cpp" />
-		<ClCompile Include="src\main\Text\CalcExpr.cpp" />
-		<ClCompile Include="src\main\Text\CalcResult.cpp" />
-		<ClCompile Include="src\main\View\Button.cpp" />
-		<ClCompile Include="src\main\View\ButtonGroup.cpp" />
-		<ClCompile Include="src\main\View\CalcScreen.cpp" />
-		<ClCompile Include="src\main\View\NavBar.cpp" />
-		<ClCompile Include="src\main\View\ResourceView.cpp" />
-		<ClCompile Include="src\main\View\TextGroup.cpp" />
-		<ClCompile Include="src\test\ButtonGrid.test.cpp" />
-		<ClCompile Include="src\test\ButtonModel.test.cpp" />
-		<ClCompile Include="src\test\CalcResultModel.test.cpp" />
-		<ClCompile Include="src\test\control_flow.test.cpp" />
-		<ClCompile Include="src\test\math_ext.test.cpp" />
-		<ClCompile Include="src\test\RadialGradientModel.test.cpp" />
-		<ClCompile Include="src\test\string_ext.test.cpp" />
-		<ClCompile Include="src\test\test.cpp" />
-	</ItemGroup>
-	<ItemGroup>
-		<ClInclude Include="src\main\Any\App.h" />
-		<ClInclude Include="src\main\Any\ButtonGrid.h" />
-		<ClInclude Include="src\main\Any\ButtonModel.h" />
-		<ClInclude Include="src\main\Any\CalcResultModel.h" />
-		<ClInclude Include="src\main\Any\constants.h" />
-		<ClInclude Include="src\main\Any\Enums.h" />
-		<ClInclude Include="src\main\Any\RadialGradientModel.h" />
-		<ClInclude Include="src\main\Any\Scene.h" />
-		<ClInclude Include="src\main\Any\Subsystems.h" />
-		<ClInclude Include="src\main\Any\View.h" />
-		<ClInclude Include="src\main\Functions\control_flow.h" />
-		<ClInclude Include="src\main\Functions\math_ext.h" />
-		<ClInclude Include="src\main\Functions\string_ext.h" />
-		<ClInclude Include="src\main\ResourceView\RadialGradient.h" />
-		<ClInclude Include="src\main\ResourceView\Text.h" />
-		<ClInclude Include="src\main\Struct\AnimatedFloat.h" />
-		<ClInclude Include="src\main\Struct\Color.h" />
-		<ClInclude Include="src\main\Struct\Flow.h" />
-		<ClInclude Include="src\main\Struct\Message.h" />
-		<ClInclude Include="src\main\Struct\Pair.h" />
-		<ClInclude Include="src\main\Struct\Point.h" />
-		<ClInclude Include="src\main\Struct\Range.h" />
-		<ClInclude Include="src\main\Struct\Rect.h" />
-		<ClInclude Include="src\main\Struct\Size.h" />
-		<ClInclude Include="src\main\Text\CalcExpr.h" />
-		<ClInclude Include="src\main\Text\CalcResult.h" />
-		<ClInclude Include="src\main\View\Button.h" />
-		<ClInclude Include="src\main\View\ButtonGroup.h" />
-		<ClInclude Include="src\main\View\CalcScreen.h" />
-		<ClInclude Include="src\main\View\NavBar.h" />
-		<ClInclude Include="src\main\View\ResourceView.h" />
-		<ClInclude Include="src\main\View\TextGroup.h" />
-		<ClInclude Include="src\test\ButtonGrid.test.h" />
-		<ClInclude Include="src\test\ButtonModel.test.h" />
-		<ClInclude Include="src\test\CalcResultModel.test.h" />
-		<ClInclude Include="src\test\control_flow.test.h" />
-		<ClInclude Include="src\test\math_ext.test.h" />
-		<ClInclude Include="src\test\RadialGradientModel.test.h" />
-		<ClInclude Include="src\test\string_ext.test.h" />
-	</ItemGroup>
-	<ItemGroup>
-		<Image Include="res\main\calculator.png" />
-		<Image Include="res\main\drawer.png" />
-		<Image Include="res\main\history.png" />
-		<Image Include="res\main\radial_gradient.png" />
-	</ItemGroup>
-	<ItemGroup>
-		<Font Include="res\main\arial.ttf" />
-		<Font Include="res\main\courbd.ttf" />
-	</ItemGroup>
-	<Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
-	<ImportGroup Label="ExtensionTargets">
-	</ImportGroup>
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Test|Win32">
+      <Configuration>Test</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Test|x64">
+      <Configuration>Test</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>16.0</VCProjectVersion>
+    <Keyword>Win32Proj</Keyword>
+    <ProjectGuid>{48e48994-72d2-43fa-ab73-690d3017fa47}</ProjectGuid>
+    <RootNamespace>Calculator</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Test|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Test|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Test|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Test|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Test|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Test|x64'">
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level4</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <LanguageStandard>stdcpplatest</LanguageStandard>
+      <AdditionalIncludeDirectories>$(SolutionDir)..\libs\SDL2-2.0.12\include;$(SolutionDir)..\libs\SDL2_image-2.0.5\include;$(SolutionDir)..\libs\SDL2_ttf-2.0.15\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <TreatWarningAsError>true</TreatWarningAsError>
+      <DisableLanguageExtensions>true</DisableLanguageExtensions>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>$(SolutionDir)..\libs\SDL2-2.0.12\lib\x86;$(SolutionDir)..\libs\SDL2_image-2.0.5\lib\x86;$(SolutionDir)..\libs\SDL2_ttf-2.0.15\lib\x86;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2_image.lib;SDL2_ttf.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Test|Win32'">
+    <ClCompile>
+      <WarningLevel>Level4</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;TEST;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <LanguageStandard>stdcpplatest</LanguageStandard>
+      <AdditionalIncludeDirectories>$(SolutionDir)..\libs\SDL2-2.0.12\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <TreatWarningAsError>true</TreatWarningAsError>
+      <DisableLanguageExtensions>true</DisableLanguageExtensions>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level4</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <LanguageStandard>stdcpplatest</LanguageStandard>
+      <AdditionalIncludeDirectories>$(SolutionDir)..\libs\SDL2-2.0.12\include;$(SolutionDir)..\libs\SDL2_image-2.0.5\include;$(SolutionDir)..\libs\SDL2_ttf-2.0.15\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <TreatWarningAsError>true</TreatWarningAsError>
+      <DisableLanguageExtensions>false</DisableLanguageExtensions>
+      <Optimization>Full</Optimization>
+      <EnableEnhancedInstructionSet>StreamingSIMDExtensions2</EnableEnhancedInstructionSet>
+      <FloatingPointModel>Fast</FloatingPointModel>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>$(SolutionDir)..\libs\SDL2-2.0.12\lib\x86;$(SolutionDir)..\libs\SDL2_image-2.0.5\lib\x86;$(SolutionDir)..\libs\SDL2_ttf-2.0.15\lib\x86;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2_image.lib;SDL2_ttf.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <WarningLevel>Level4</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <LanguageStandard>stdcpplatest</LanguageStandard>
+      <AdditionalIncludeDirectories>$(SolutionDir)..\libs\SDL2-2.0.12\include;$(SolutionDir)..\libs\SDL2_image-2.0.5\include;$(SolutionDir)..\libs\SDL2_ttf-2.0.15\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <TreatWarningAsError>true</TreatWarningAsError>
+      <DisableLanguageExtensions>true</DisableLanguageExtensions>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Test|x64'">
+    <ClCompile>
+      <WarningLevel>Level4</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>_DEBUG;_CONSOLE;TEST;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <LanguageStandard>stdcpplatest</LanguageStandard>
+      <AdditionalIncludeDirectories>$(SolutionDir)..\libs\SDL2-2.0.12\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <TreatWarningAsError>true</TreatWarningAsError>
+      <DisableLanguageExtensions>true</DisableLanguageExtensions>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level4</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <LanguageStandard>stdcpplatest</LanguageStandard>
+      <AdditionalIncludeDirectories>$(SolutionDir)..\libs\SDL2-2.0.12\include;$(SolutionDir)..\libs\SDL2_image-2.0.5\include;$(SolutionDir)..\libs\SDL2_ttf-2.0.15\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <TreatWarningAsError>true</TreatWarningAsError>
+      <DisableLanguageExtensions>false</DisableLanguageExtensions>
+      <Optimization>Full</Optimization>
+      <EnableEnhancedInstructionSet>AdvancedVectorExtensions2</EnableEnhancedInstructionSet>
+      <FloatingPointModel>Fast</FloatingPointModel>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="src\main\Any\App.cpp" />
+    <ClCompile Include="src\main\Any\ButtonModel.cpp" />
+    <ClCompile Include="src\main\Any\CalcExprModel.cpp" />
+    <ClCompile Include="src\main\Any\CalcResultModel.cpp" />
+    <ClCompile Include="src\main\Any\Scene.cpp" />
+    <ClCompile Include="src\main\Any\Subsystems.cpp" />
+    <ClCompile Include="src\main\Any\View.cpp" />
+    <ClCompile Include="src\main\Functions\calculator.cpp" />
+    <ClCompile Include="src\main\Functions\control_flow.cpp" />
+    <ClCompile Include="src\main\Functions\string_ext.cpp" />
+    <ClCompile Include="src\main\ResourceView\RadialGradient.cpp" />
+    <ClCompile Include="src\main\ResourceView\Text.cpp" />
+    <ClCompile Include="src\main\Struct\Message.cpp" />
+    <ClCompile Include="src\main\Text\CalcExpr.cpp" />
+    <ClCompile Include="src\main\Text\CalcResult.cpp" />
+    <ClCompile Include="src\main\View\Button.cpp" />
+    <ClCompile Include="src\main\View\ButtonGroup.cpp" />
+    <ClCompile Include="src\main\View\CalcScreen.cpp" />
+    <ClCompile Include="src\main\View\NavBar.cpp" />
+    <ClCompile Include="src\main\View\ResourceView.cpp" />
+    <ClCompile Include="src\main\View\TextGroup.cpp" />
+    <ClCompile Include="src\test\ButtonGrid.test.cpp" />
+    <ClCompile Include="src\test\ButtonModel.test.cpp" />
+    <ClCompile Include="src\test\CalcExprModel.test.cpp" />
+    <ClCompile Include="src\test\CalcResultModel.test.cpp" />
+    <ClCompile Include="src\test\control_flow.test.cpp" />
+    <ClCompile Include="src\test\math_ext.test.cpp" />
+    <ClCompile Include="src\test\RadialGradientModel.test.cpp" />
+    <ClCompile Include="src\test\string_ext.test.cpp" />
+    <ClCompile Include="src\test\test.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\main\Any\App.h" />
+    <ClInclude Include="src\main\Any\ButtonGrid.h" />
+    <ClInclude Include="src\main\Any\ButtonModel.h" />
+    <ClInclude Include="src\main\Any\CalcExprModel.h" />
+    <ClInclude Include="src\main\Any\CalcResultModel.h" />
+    <ClInclude Include="src\main\Any\constants.h" />
+    <ClInclude Include="src\main\Any\Enums.h" />
+    <ClInclude Include="src\main\Any\RadialGradientModel.h" />
+    <ClInclude Include="src\main\Any\Scene.h" />
+    <ClInclude Include="src\main\Any\Subsystems.h" />
+    <ClInclude Include="src\main\Any\View.h" />
+    <ClInclude Include="src\main\Functions\control_flow.h" />
+    <ClInclude Include="src\main\Functions\math_ext.h" />
+    <ClInclude Include="src\main\Functions\string_ext.h" />
+    <ClInclude Include="src\main\ResourceView\RadialGradient.h" />
+    <ClInclude Include="src\main\ResourceView\Text.h" />
+    <ClInclude Include="src\main\Struct\AnimatedFloat.h" />
+    <ClInclude Include="src\main\Struct\Color.h" />
+    <ClInclude Include="src\main\Struct\Flow.h" />
+    <ClInclude Include="src\main\Struct\Message.h" />
+    <ClInclude Include="src\main\Struct\Pair.h" />
+    <ClInclude Include="src\main\Struct\Point.h" />
+    <ClInclude Include="src\main\Struct\Range.h" />
+    <ClInclude Include="src\main\Struct\Rect.h" />
+    <ClInclude Include="src\main\Struct\Size.h" />
+    <ClInclude Include="src\main\Text\CalcExpr.h" />
+    <ClInclude Include="src\main\Text\CalcResult.h" />
+    <ClInclude Include="src\main\View\Button.h" />
+    <ClInclude Include="src\main\View\ButtonGroup.h" />
+    <ClInclude Include="src\main\View\CalcScreen.h" />
+    <ClInclude Include="src\main\View\NavBar.h" />
+    <ClInclude Include="src\main\View\ResourceView.h" />
+    <ClInclude Include="src\main\View\TextGroup.h" />
+    <ClInclude Include="src\test\ButtonGrid.test.h" />
+    <ClInclude Include="src\test\ButtonModel.test.h" />
+    <ClInclude Include="src\test\CalcExprModel.test.h" />
+    <ClInclude Include="src\test\CalcResultModel.test.h" />
+    <ClInclude Include="src\test\control_flow.test.h" />
+    <ClInclude Include="src\test\math_ext.test.h" />
+    <ClInclude Include="src\test\RadialGradientModel.test.h" />
+    <ClInclude Include="src\test\string_ext.test.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="res\main\calculator.png" />
+    <Image Include="res\main\drawer.png" />
+    <Image Include="res\main\history.png" />
+    <Image Include="res\main\radial_gradient.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Font Include="res\main\arial.ttf" />
+    <Font Include="res\main\courbd.ttf" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
 </Project>
