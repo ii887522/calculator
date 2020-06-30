@@ -39,4 +39,9 @@ namespace ii887522::Calculator
 	{
 		return stod(unaryExprStr.substr(unaryExprStr.find('(') + 1u, unaryExprStr.size() - 1u));
 	}
+
+	string getUnaryOperator(const string& unaryExprStr)
+	{
+		return unaryExprStr.substr(0u, unaryExprStr.find('('));
+	}
 }

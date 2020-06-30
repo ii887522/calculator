@@ -65,6 +65,7 @@ namespace ii887522::Calculator
 
 	void CalcExprModel::reactUnaryExpr(const string& exprStr)
 	{
+		state = State::EXIST;
 		exprStr;
 	}
 

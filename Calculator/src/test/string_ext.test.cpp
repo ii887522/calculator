@@ -127,6 +127,17 @@ namespace ii887522::Calculator
 		assert(getNumberFromUnaryExpr("sqr(3.21)") == 3.21);
 	}
 
+	static void testGetUnaryOperator()
+	{
+		assert(getUnaryOperator("a(0)") == "a");
+		assert(getUnaryOperator("b(1)") == "b");
+		assert(getUnaryOperator("c(2)") == "c");
+		assert(getUnaryOperator("ca(20)") == "ca");
+		assert(getUnaryOperator("cb(21)") == "cb");
+		assert(getUnaryOperator("db(31)") == "db");
+		assert(getUnaryOperator("dba(310)") == "dba");
+	}
+
 	void testStringExt()
 	{
 		testNegate();
@@ -135,6 +146,7 @@ namespace ii887522::Calculator
 		testGetNumberFromBinaryExpr();
 		testNoTrailingZeros();
 		testGetNumberFromUnaryExpr();
+		testGetUnaryOperator();
 	}
 }
 
