@@ -44,4 +44,15 @@ namespace ii887522::Calculator
 	{
 		return unaryExprStr.substr(0u, unaryExprStr.find('('));
 	}
+
+	string limit(const string& numberStr, const unsigned int maxSizeIgnoreDash)
+	{
+		const auto maxSize{ maxSizeIgnoreDash + (sizeIgnoreDash(numberStr) == numberStr.size() ? 0u : 1u) };
+		const auto dotI{ numberStr.find('.') };
+		if (dotI == string::npos && numberStr.size() > maxSize || dotI != string::npos && maxSize < dotI) return "NO SPACE";
+		auto result{ numberStr.substr(0u, maxSize) };
+		noTrailingZeros(result);
+		noTrailingDot(result);
+		return result;
+	}
 }
