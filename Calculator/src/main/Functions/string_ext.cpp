@@ -1,9 +1,11 @@
 #include "string_ext.h"
 #include <string>
 #include "control_flow.h"
+#include <sstream>
 
 using std::string;
 using std::stod;
+using std::ostringstream;
 
 namespace ii887522::Calculator
 {
@@ -54,5 +56,16 @@ namespace ii887522::Calculator
 		noTrailingZeros(result);
 		noTrailingDot(result);
 		return result;
+	}
+
+	string toString(const double src, const unsigned int maxSizeIgnoreDash)
+	{
+		ostringstream resultStream;
+		resultStream.precision(maxSizeIgnoreDash);
+		resultStream << src;
+		auto resultStr{ resultStream.str() };
+		noTrailingZeros(resultStr);
+		noTrailingDot(resultStr);
+		return resultStr;
 	}
 }

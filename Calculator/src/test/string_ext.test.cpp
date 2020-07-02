@@ -4,6 +4,8 @@
 #include <cassert>
 #include "../main/Functions/string_ext.h"
 
+#include <iostream>
+
 namespace ii887522::Calculator
 {
 	static void testNegate()
@@ -162,6 +164,35 @@ namespace ii887522::Calculator
 		assert(limit("210", 2u) == "NO SPACE");
 	}
 
+	static void testToString()
+	{
+		assert(toString(0., 7u) == "0");
+		assert(toString(1., 7u) == "1");
+		assert(toString(10., 7u) == "10");
+		assert(toString(11., 7u) == "11");
+		assert(toString(21., 7u) == "21");
+		assert(toString(210., 7u) == "210");
+		assert(toString(210.0, 7u) == "210");
+		assert(toString(210.1, 7u) == "210.1");
+		assert(toString(210.01, 7u) == "210.01");
+		assert(toString(210.10, 7u) == "210.1");
+		assert(toString(210.100, 7u) == "210.1");
+		assert(toString(210.101, 7u) == "210.101");
+		assert(toString(-210.101, 7u) == "-210.101");
+		assert(toString(-210.101, 7u) == "-210.101");
+		assert(toString(-210.101, 6u) == "-210.101");
+		assert(toString(-210.101, 5u) == "-210.1");
+		assert(toString(-210.101, 4u) == "-210.1");
+		assert(toString(-210.101, 3u) == "-210");
+		assert(toString(-210.101, 2u) == "-2.1e+02");
+		assert(toString(-210.101, 1u) == "-2e+02");
+		assert(toString(210.01, 5u) == "210.01");
+		assert(toString(210.01, 4u) == "210");
+		assert(toString(210.01, 3u) == "210");
+		assert(toString(210.01, 2u) == "2.1e+02");
+		assert(toString(210.01, 1u) == "2e+02");
+	}
+
 	void testStringExt()
 	{
 		testNegate();
@@ -172,6 +203,7 @@ namespace ii887522::Calculator
 		testGetNumberFromUnaryExpr();
 		testGetUnaryOperator();
 		testLimit();
+		testToString();
 	}
 }
 
