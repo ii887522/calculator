@@ -15,7 +15,15 @@ namespace ii887522::Calculator
 
 	void CalcExprModel::reactDigit()
 	{
-		if (state == State::EQUAL_PRESSED) clear();
+		switch (state)
+		{
+		case State::EQUAL_PRESSED:
+			clear();
+			break;
+		case State::UNARY_OPERATOR_PRESSED:
+		case State::BINARY_OPERATOR_PRESSED_THEN_UNARY_OPERATOR_PRESSED:
+			clearEntry();
+		}
 	}
 
 	void CalcExprModel::clear()
