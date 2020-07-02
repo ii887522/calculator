@@ -64,6 +64,8 @@ namespace ii887522::Calculator
 		resultStream.precision(maxSizeIgnoreDash);
 		resultStream << src;
 		auto resultStr{ resultStream.str() };
+		if (resultStr.find('e') != string::npos) return "NO SPACE";
+		if (sizeIgnoreDash(resultStr) > maxSizeIgnoreDash) resultStr.pop_back();
 		noTrailingZeros(resultStr);
 		noTrailingDot(resultStr);
 		return resultStr;

@@ -179,18 +179,17 @@ namespace ii887522::Calculator
 		assert(toString(210.100, 7u) == "210.1");
 		assert(toString(210.101, 7u) == "210.101");
 		assert(toString(-210.101, 7u) == "-210.101");
-		assert(toString(-210.101, 7u) == "-210.101");
-		assert(toString(-210.101, 6u) == "-210.101");
+		assert(toString(-210.101, 6u) == "-210.1");
 		assert(toString(-210.101, 5u) == "-210.1");
-		assert(toString(-210.101, 4u) == "-210.1");
+		assert(toString(-210.101, 4u) == "-210");
 		assert(toString(-210.101, 3u) == "-210");
-		assert(toString(-210.101, 2u) == "-2.1e+02");
-		assert(toString(-210.101, 1u) == "-2e+02");
-		assert(toString(210.01, 5u) == "210.01");
-		assert(toString(210.01, 4u) == "210");
+		assert(toString(-210.101, 2u) == "NO SPACE");
+		assert(toString(-210.101, 1u) == "NO SPACE");
+		assert(toString(210.01, 6u) == "210.01");
+		assert(toString(210.01, 5u) == "210");
 		assert(toString(210.01, 3u) == "210");
-		assert(toString(210.01, 2u) == "2.1e+02");
-		assert(toString(210.01, 1u) == "2e+02");
+		assert(toString(210.01, 2u) == "NO SPACE");
+		assert(toString(210.01, 1u) == "NO SPACE");
 	}
 
 	void testStringExt()
