@@ -13,7 +13,7 @@ namespace ii887522::Calculator
 	{
 		enum class State : unsigned int
 		{
-			EMPTY, EXIST, EQUAL_PRESSED
+			EMPTY, UNARY_OPERATOR_PRESSED, BINARY_OPERATOR_PRESSED, EQUAL_PRESSED, BINARY_OPERATOR_PRESSED_THEN_UNARY_OPERATOR_PRESSED
 		};
 
 		// remove copy semantics
@@ -26,19 +26,29 @@ namespace ii887522::Calculator
 
 		State state;
 		double result;
+		const unsigned int maxSizeIgnoreDash;
 
+		void reactDigit();
 		void clear();
+		void clearEntryWhenBinaryOperatorPressedThenUnaryOperatorPressed();
+		void clearEntry();
 		void reactBinaryExprWhenEmpty(const string& exprStr);
-		void reactBinaryExprWhenExist(const string& exprStr);
+		void reactBinaryExprWhenUnaryOperatorPressed(const string& exprStr);
+		void reactBinaryExprWhenBinaryOperatorPressed(const string& exprStr);
 		void reactBinaryExprWhenEqualPressed(const string& exprStr);
+		void reactBinaryExprWhenBinaryOperatorPressedThenUnaryOperatorPressed(const string& exprStr);
 		void reactBinaryExpr(const string& exprStr);
+		void reactUnaryExprWhenEmpty(const string& exprStr);
+		void reactUnaryExprWhenBinaryOperatorPressed(const string& exprStr);
+		void reactUnaryExprWhenEqualPressed(const string& exprStr);
+		void reactUnaryExprWhenUnaryOperatorPressed(const string& exprStr);
 		void reactUnaryExpr(const string& exprStr);
 
 	public:
 		string value;
 		Message message;
 
-		explicit CalcExprModel();
+		explicit CalcExprModel(const unsigned int maxSizeIgnoreDash);
 		void reactMessage(const Message&);
 	};
 }

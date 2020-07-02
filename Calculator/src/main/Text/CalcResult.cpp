@@ -10,9 +10,10 @@
 
 namespace ii887522::Calculator
 {
-	CalcResult::CalcResult(SDL_Renderer* const renderer, const Rect& calcScreenRect, TTF_Font* const font) :
-		Text{ renderer, font, Point{ calcScreenRect.position.x + calcScreenRect.size.w - /* margin right */ 10,
-		calcScreenRect.position.y + calcScreenRect.size.h - /* margin bottom */ 8 }, "0" }, font{ font } { }
+	CalcResult::CalcResult(SDL_Renderer*const renderer, const Rect& calcScreenRect, const unsigned int maxSizeIgnoreDash,
+		TTF_Font*const font) : Text{ renderer, font, Point{ calcScreenRect.position.x + calcScreenRect.size.w - /* margin right */ 10,
+		calcScreenRect.position.y + calcScreenRect.size.h - /* margin bottom */ 8 }, "0" }, font{ font }, viewModel{ maxSizeIgnoreDash }
+		{ }
 
 	void CalcResult::set(const string& value)
 	{

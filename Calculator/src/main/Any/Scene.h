@@ -34,13 +34,11 @@ namespace ii887522::Calculator
 
 		// Param renderer: it must not be assigned to integer
 		// Param font: it must not be assigned to integer
-		explicit Scene(SDL_Renderer*const renderer, const Size& size, TTF_Font*const font, const int buttonSize,
-			const Rect& calcScreenRect, const ButtonGrid&);
+		explicit Scene(SDL_Renderer*const renderer, const Size& size, const unsigned int maxSizeIgnoreDash, const Rect& calcScreenRect,
+			TTF_Font*const font, const int buttonSize, const ButtonGrid&);
 	public:
 		// Param renderer: it must not be assigned to integer
-		// Param font: it must not be assigned to integer
-		explicit Scene(SDL_Renderer*const renderer, const Size& size, TTF_Font*const font = TTF_OpenFont("res/main/arial.ttf", 20),
-			const int buttonSize = 41, const ButtonGrid& = ButtonGrid{ Point{ 4, 134 } });
+		explicit Scene(SDL_Renderer*const renderer, const Size& size, const int buttonSize = 41);
 
 		Action reactMouseMotion(const SDL_MouseMotionEvent&);
 		Action reactLeftMouseButtonDown(const SDL_MouseButtonEvent&);
