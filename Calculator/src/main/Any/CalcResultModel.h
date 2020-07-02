@@ -26,7 +26,9 @@ namespace ii887522::Calculator
 		CalcResultModel operator=(CalcResultModel&&) = delete;
 
 		State state;
+		const unsigned int maxSizeIgnoreDash;
 
+		void reactExprResult(const string& resultStr);
 		void reactDigitWhenNumber(const char digitCh);
 		void reactDigitWhenBinaryOperatorPressed(const char digitCh);
 		void reactDigitWhenEqualPressed(const char digitCh);
@@ -44,17 +46,21 @@ namespace ii887522::Calculator
 		void reactDot();
 		void tryToggleSign();
 		void reactBinaryOperatorWhenNumber(const char operatorCh);
-		void reactBinaryOperatorWhenBinaryOperatorPressedThenNumber(const char operatorCh);
+		void reactBinaryOperatorWhenBinaryOperatorPressed(const char operatorCh);
+		void reactBinaryOperatorWhenBinaryOperatorPressedBefore(const char operatorCh);
+		void reactBinaryOperatorWhenEqualPressed(const char operatorCh);
+		void reactBinaryOperatorWhenUnaryOperatorPressed(const char operatorCh);
 		void reactBinaryOperator(const char operatorCh);
 		void reactUnaryOperatorWhenBinaryOperatorNotPressed(const string& operatorStr);
 		void reactUnaryOperatorWhenBinaryOperatorPressed(const string& operatorStr);
+		void reactUnaryOperatorWhenEqualPressed(const string& operatorStr);
 		void reactUnaryOperator(const string& operatorStr);
 
 	public:
 		string value;
 		Message message;
 
-		explicit CalcResultModel();
+		explicit CalcResultModel(const unsigned int maxSizeIgnoreDash);
 		void reactMessage(const Message&);
 	};
 }

@@ -7,6 +7,7 @@
 #include "RadialGradientModel.test.h"
 #include "CalcResultModel.test.h"
 #include "string_ext.test.h"
+#include "CalcExprModel.test.h"
 
 namespace ii887522::Calculator
 {
@@ -31,6 +32,7 @@ namespace ii887522::Calculator
 		testRadialGradientModel();
 		testStringExt();
 		testCalcResultModel();
+		testCalcExprModel();
 		return 0;
 	}
 }

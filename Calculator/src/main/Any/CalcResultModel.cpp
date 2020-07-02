@@ -7,13 +7,20 @@ using std::string;
 
 namespace ii887522::Calculator
 {
-	CalcResultModel::CalcResultModel() : state{ State::INT }, value{ '0' }, message{ } { }
+	CalcResultModel::CalcResultModel(const unsigned int maxSizeIgnoreDash) : state{ State::INT }, maxSizeIgnoreDash{ maxSizeIgnoreDash },
+		value{ '0' }, message{ } { }
+
+	void CalcResultModel::reactExprResult(const string& resultStr)
+	{
+		value = resultStr;
+		if (resultStr == "NO SPACE") message = Message{ Message::Head::ERROR };
+	}
 
 	void CalcResultModel::reactDigitWhenNumber(const char digitCh)
 	{
 		if (value != "0")
 		{
-			if (sizeIgnoreDash(value) != 9u) value += digitCh;
+			if (sizeIgnoreDash(value) != maxSizeIgnoreDash) value += digitCh;
 		}
 		else value = digitCh;
 	}
@@ -64,7 +71,15 @@ namespace ii887522::Calculator
 		}
 		if (sizeIgnoreDash(value) != 1u)
 		{
-			if (value[value.size() - 1u] == '.') state = State::INT;
+			if (value[value.size() - 1u] == '.')
+			{
+				switch (state)
+				{
+				case State::FLOAT: state = State::INT;
+					break;
+				case State::BINARY_OPERATOR_PRESSED_THEN_FLOAT: state = State::BINARY_OPERATOR_PRESSED_THEN_INT;
+				}
+			}
 			value.pop_back();
 		}
 		else value = '0';
@@ -102,7 +117,7 @@ namespace ii887522::Calculator
 
 	void CalcResultModel::reactDotWhenInt()
 	{
-		if (sizeIgnoreDash(value) == 9u) return;
+		if (sizeIgnoreDash(value) == maxSizeIgnoreDash) return;
 		value += '.';
 		state = State::FLOAT;
 	}
@@ -115,7 +130,7 @@ namespace ii887522::Calculator
 
 	void CalcResultModel::reactDotWhenBinaryOperatorPressedThenInt()
 	{
-		if (sizeIgnoreDash(value) == 9u) return;
+		if (sizeIgnoreDash(value) == maxSizeIgnoreDash) return;
 		value += '.';
 		state = State::BINARY_OPERATOR_PRESSED_THEN_FLOAT;
 	}
@@ -175,9 +190,30 @@ namespace ii887522::Calculator
 		message = Message{ Message::Head::BINARY_EXPR, value + " " + operatorCh };
 	}
 
-	void CalcResultModel::reactBinaryOperatorWhenBinaryOperatorPressedThenNumber(const char operatorCh)
+	void CalcResultModel::reactBinaryOperatorWhenBinaryOperatorPressed(const char operatorCh)
+	{
+		if (operatorCh != '=') message = Message{ Message::Head::LAST_BINARY_OPERATOR, string{ operatorCh } };
+	}
+
+	void CalcResultModel::reactBinaryOperatorWhenBinaryOperatorPressedBefore(const char operatorCh)
 	{
 		state = operatorCh != '=' ? State::BINARY_OPERATOR_PRESSED : State::EQUAL_PRESSED;
+		noTrailingDot(value);
+		message = Message{ Message::Head::BINARY_EXPR, value + " " + operatorCh };
+	}
+
+	void CalcResultModel::reactBinaryOperatorWhenEqualPressed(const char operatorCh)
+	{
+		if (operatorCh == '=') return;
+		state = State::BINARY_OPERATOR_PRESSED;
+		noTrailingDot(value);
+		message = Message{ Message::Head::BINARY_EXPR, value + " " + operatorCh };
+	}
+
+	void CalcResultModel::reactBinaryOperatorWhenUnaryOperatorPressed(const char operatorCh)
+	{
+		if (operatorCh == '=') return;
+		state = State::BINARY_OPERATOR_PRESSED;
 		noTrailingDot(value);
 		message = Message{ Message::Head::BINARY_EXPR, value + " " + operatorCh };
 	}
@@ -190,9 +226,19 @@ namespace ii887522::Calculator
 		case State::FLOAT:
 			reactBinaryOperatorWhenNumber(operatorCh);
 			break;
+		case State::BINARY_OPERATOR_PRESSED:
+			reactBinaryOperatorWhenBinaryOperatorPressed(operatorCh);
+			break;
 		case State::BINARY_OPERATOR_PRESSED_THEN_INT:
 		case State::BINARY_OPERATOR_PRESSED_THEN_FLOAT:
-			reactBinaryOperatorWhenBinaryOperatorPressedThenNumber(operatorCh);
+		case State::BINARY_OPERATOR_PRESSED_THEN_UNARY_OPERATOR_PRESSED:
+			reactBinaryOperatorWhenBinaryOperatorPressedBefore(operatorCh);
+			break;
+		case State::EQUAL_PRESSED:
+			reactBinaryOperatorWhenEqualPressed(operatorCh);
+			break;
+		case State::UNARY_OPERATOR_PRESSED:
+			reactBinaryOperatorWhenUnaryOperatorPressed(operatorCh);
 		}
 	}
 
@@ -206,6 +252,13 @@ namespace ii887522::Calculator
 	void CalcResultModel::reactUnaryOperatorWhenBinaryOperatorPressed(const string& operatorStr)
 	{
 		state = State::BINARY_OPERATOR_PRESSED_THEN_UNARY_OPERATOR_PRESSED;
+		noTrailingDot(value);
+		message = Message{ Message::Head::UNARY_EXPR, operatorStr + '(' + value + ')' };
+	}
+
+	void CalcResultModel::reactUnaryOperatorWhenEqualPressed(const string& operatorStr)
+	{
+		state = State::UNARY_OPERATOR_PRESSED;
 		noTrailingDot(value);
 		message = Message{ Message::Head::UNARY_EXPR, operatorStr + '(' + value + ')' };
 	}
@@ -224,6 +277,9 @@ namespace ii887522::Calculator
 		case State::BINARY_OPERATOR_PRESSED_THEN_FLOAT:
 		case State::BINARY_OPERATOR_PRESSED_THEN_UNARY_OPERATOR_PRESSED:
 			reactUnaryOperatorWhenBinaryOperatorPressed(operatorStr);
+			break;
+		case State::EQUAL_PRESSED:
+			reactUnaryOperatorWhenEqualPressed(operatorStr);
 		}
 	}
 
@@ -232,6 +288,8 @@ namespace ii887522::Calculator
 		message = Message{ };
 		switch (p_message.head)
 		{
+		case Message::Head::EXPR_RESULT: reactExprResult(p_message.body);
+			break;
 		case Message::Head::INPUT_0: reactDigit('0');
 			break;
 		case Message::Head::INPUT_1: reactDigit('1');

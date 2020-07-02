@@ -24,11 +24,12 @@
 
 namespace ii887522::Calculator
 {
-	Scene::Scene(SDL_Renderer*const renderer, const Size& size, TTF_Font*const font, const int buttonSize, const ButtonGrid& buttonGrid)
-		: Scene{ renderer, size, font, buttonSize, Rect{ Point{ 0, buttonSize }, Size{ size.w, 89 } }, buttonGrid } { }
+	Scene::Scene(SDL_Renderer*const renderer, const Size& size, const int buttonSize) :
+		Scene{ renderer, size, 9u, Rect{ Point{ 0, buttonSize }, Size{ size.w, 89 } }, TTF_OpenFont("res/main/arial.ttf", 20), buttonSize,
+			ButtonGrid{ Point{ 4, 134 } } } { }
 
-	Scene::Scene(SDL_Renderer*const renderer, const Size& size, TTF_Font*const font, const int buttonSize, const Rect& calcScreenRect,
-		const ButtonGrid& buttonGrid) : views{
+	Scene::Scene(SDL_Renderer*const renderer, const Size& size, const unsigned int maxSizeIgnoreDash, const Rect& calcScreenRect,
+		TTF_Font*const font, const int buttonSize, const ButtonGrid& buttonGrid) : views{
 			new RadialGradient{ renderer, size },
 			new NavBar{ renderer, Size{ size.w, buttonSize } },
 			new Button{ renderer, Rect{ Point{ 0, 0 }, Size{ buttonSize, buttonSize } }, Color{ 192u, 192u, 192u } },
@@ -37,8 +38,8 @@ namespace ii887522::Calculator
 			new Button{ renderer, Rect{ Point{ size.w - buttonSize, 0 }, Size{ buttonSize, buttonSize } }, Color{ 192u, 192u, 192u } },
 			new ResourceView{ renderer, IMG_Load("res/main/history.png"), Point{ size.w - buttonSize, 0 } },
 			new CalcScreen{ renderer, calcScreenRect },
-			new CalcExpr{ renderer, calcScreenRect },
-			new CalcResult{ renderer, calcScreenRect },
+			new CalcExpr{ renderer, calcScreenRect, maxSizeIgnoreDash },
+			new CalcResult{ renderer, calcScreenRect, maxSizeIgnoreDash },
 			new ButtonGroup{ renderer, buttonGrid },
 			new TextGroup{ renderer, font, buttonGrid }
 		}, isAnimating{ false }, viewAnimationsCount{ 0u }
@@ -135,7 +136,8 @@ namespace ii887522::Calculator
 	void Scene::reactMessage(const Message& message)
 	{
 		loop(sizeof views / sizeof(View*), [=](const auto i) {
-			views[i]->reactMessage(message);
+			const auto resultMessage{ views[i]->reactMessage(message) };
+			if (resultMessage.head != Message::Head::EMPTY) reactMessage(resultMessage);
 		});
 	}
 
