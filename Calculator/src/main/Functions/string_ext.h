@@ -14,7 +14,6 @@ namespace ii887522::Calculator
 	void noTrailingZeros(string& numberStr);
 	double getNumberFromUnaryExpr(const string& unaryExprStr);
 	string getUnaryOperator(const string& unaryExprStr);
-	string limit(const string& numberStr, const unsigned int maxSizeIgnoreDash);
 	string toString(const double src, const unsigned int maxSizeIgnoreDash);
 }
 

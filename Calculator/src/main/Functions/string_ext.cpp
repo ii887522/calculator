@@ -6,6 +6,7 @@
 using std::string;
 using std::stod;
 using std::ostringstream;
+using std::ios;
 
 namespace ii887522::Calculator
 {
@@ -47,25 +48,17 @@ namespace ii887522::Calculator
 		return unaryExprStr.substr(0u, unaryExprStr.find('('));
 	}
 
-	string limit(const string& numberStr, const unsigned int maxSizeIgnoreDash)
-	{
-		const auto maxSize{ maxSizeIgnoreDash + (sizeIgnoreDash(numberStr) == numberStr.size() ? 0u : 1u) };
-		const auto dotI{ numberStr.find('.') };
-		if (dotI == string::npos && numberStr.size() > maxSize || dotI != string::npos && maxSize < dotI) return "NO SPACE";
-		auto result{ numberStr.substr(0u, maxSize) };
-		noTrailingZeros(result);
-		noTrailingDot(result);
-		return result;
-	}
-
 	string toString(const double src, const unsigned int maxSizeIgnoreDash)
 	{
 		ostringstream resultStream;
-		resultStream.precision(maxSizeIgnoreDash);
+		resultStream.precision(maxSizeIgnoreDash - 2u);
+		resultStream.setf(ios::fixed);
 		resultStream << src;
 		auto resultStr{ resultStream.str() };
-		if (resultStr.find('e') != string::npos) return "NO SPACE";
-		if (sizeIgnoreDash(resultStr) > maxSizeIgnoreDash) resultStr.pop_back();
+		const auto maxSize{ maxSizeIgnoreDash + (sizeIgnoreDash(resultStr) == resultStr.size() ? 0u : 1u) };
+		const auto dotI{ resultStr.find('.') };
+		if (maxSize < dotI) return "NO SPACE";
+		resultStr = resultStr.substr(0u, maxSize);
 		noTrailingZeros(resultStr);
 		noTrailingDot(resultStr);
 		return resultStr;

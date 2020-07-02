@@ -4,8 +4,6 @@
 #include <cassert>
 #include "../main/Functions/string_ext.h"
 
-#include <iostream>
-
 namespace ii887522::Calculator
 {
 	static void testNegate()
@@ -140,30 +138,6 @@ namespace ii887522::Calculator
 		assert(getUnaryOperator("dba(310)") == "dba");
 	}
 
-	static void testLimit()
-	{
-		assert(limit("0", 7u) == "0");
-		assert(limit("1", 7u) == "1");
-		assert(limit("10", 7u) == "10");
-		assert(limit("11", 7u) == "11");
-		assert(limit("21", 7u) == "21");
-		assert(limit("210", 7u) == "210");
-		assert(limit("210.1", 7u) == "210.1");
-		assert(limit("210.01", 7u) == "210.01");
-		assert(limit("210.11", 7u) == "210.11");
-		assert(limit("210.101", 7u) == "210.101");
-		assert(limit("-210.101", 7u) == "-210.101");
-		assert(limit("-210.101", 6u) == "-210.1");
-		assert(limit("-210.101", 5u) == "-210.1");
-		assert(limit("-210.101", 4u) == "-210");
-		assert(limit("-210.101", 3u) == "-210");
-		assert(limit("-210.101", 2u) == "NO SPACE");
-		assert(limit("210.01", 6u) == "210.01");
-		assert(limit("210.01", 5u) == "210");
-		assert(limit("210", 3u) == "210");
-		assert(limit("210", 2u) == "NO SPACE");
-	}
-
 	static void testToString()
 	{
 		assert(toString(0., 7u) == "0");
@@ -201,7 +175,6 @@ namespace ii887522::Calculator
 		testNoTrailingZeros();
 		testGetNumberFromUnaryExpr();
 		testGetUnaryOperator();
-		testLimit();
 		testToString();
 	}
 }
