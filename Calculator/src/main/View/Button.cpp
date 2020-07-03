@@ -3,10 +3,23 @@
 #include "Button.h"
 #include "../Any/View.h"
 #include <SDL.h>
+#include "../Struct/Pair.h"
+#include "../Struct/Message.h"
+#include "../Any/Enums.h"
 
 namespace ii887522::Calculator
 {
-	Button::Button(SDL_Renderer*const renderer, const Rect& rect) : View{ renderer }, viewModel{ rect }, isAnimating{ false } { }
+	Button::Button(SDL_Renderer*const renderer, const Rect& rect, const Color& color, const Message& message, const Ability ability,
+		const SDL_Keycode keyCode) : View{ renderer }, viewModel{ rect, message, ability, keyCode }, color{ color }, isAnimating{ false }
+	{ }
+
+	Pair<Action, Message> Button::reactMessage(const Message& message)
+	{
+		viewModel.reactMessage(message);
+		if (isAnimating || !viewModel.isAnimating) return Pair{ Action::NONE, viewModel.message };
+		isAnimating = true;
+		return Pair{ Action::START_ANIMATION, viewModel.message };
+	}
 
 	Action Button::reactMouseMotion(const SDL_MouseMotionEvent& motionEvent)
 	{
@@ -24,17 +37,33 @@ namespace ii887522::Calculator
 		return Action::START_ANIMATION;
 	}
 
-	Action Button::reactLeftMouseButtonUp(const SDL_MouseButtonEvent&)
+	Pair<Action, Message> Button::reactLeftMouseButtonUp(const SDL_MouseButtonEvent&)
 	{
 		viewModel.reactLeftMouseButtonUp();
-		if (isAnimating || !viewModel.isAnimating) return Action::NONE;
+		if (!viewModel.isAnimating || isAnimating) return Pair{ Action::NONE, viewModel.message };
 		isAnimating = true;
-		return Action::START_ANIMATION;
+		return Pair{ Action::START_ANIMATION, viewModel.message };
 	}
 
 	Action Button::reactMouseLeaveWindow(const SDL_WindowEvent&)
 	{
 		viewModel.reactMouseLeaveWindow();
+		if (isAnimating || !viewModel.isAnimating) return Action::NONE;
+		isAnimating = true;
+		return Action::START_ANIMATION;
+	}
+
+	Pair<Action, Message> Button::reactKeyDown(const SDL_KeyboardEvent& keyEvent)
+	{
+		viewModel.reactKeyDown(keyEvent.keysym.sym);
+		if (!viewModel.isAnimating || isAnimating) return Pair{ Action::NONE, viewModel.message };
+		isAnimating = true;
+		return Pair{ Action::START_ANIMATION, viewModel.message };
+	}
+
+	Action Button::reactKeyUp(const SDL_KeyboardEvent& keyEvent)
+	{
+		viewModel.reactKeyUp(keyEvent.keysym.sym);
 		if (isAnimating || !viewModel.isAnimating) return Action::NONE;
 		isAnimating = true;
 		return Action::START_ANIMATION;
@@ -49,12 +78,25 @@ namespace ii887522::Calculator
 		return Action::STOP_ANIMATION;
 	}
 
-	void Button::render()
+	void Button::renderBackground()
 	{
-		SDL_SetRenderDrawColor(renderer, static_cast<Uint8>(192u * viewModel.lightness.now), static_cast<Uint8>(192u *
-			viewModel.lightness.now), static_cast<Uint8>(192u * viewModel.lightness.now), 255u);
+		SDL_SetRenderDrawColor(renderer, static_cast<Uint8>(color.r * viewModel.lightness.now), static_cast<Uint8>(color.g *
+			viewModel.lightness.now), static_cast<Uint8>(color.b * viewModel.lightness.now), 255u);
 		const SDL_Rect rect{ viewModel.rect.position.x, viewModel.rect.position.y, viewModel.rect.size.w, viewModel.rect.size.h };
 		SDL_RenderFillRect(renderer, &rect);
+	}
+
+	void Button::renderBorder()
+	{
+		SDL_SetRenderDrawColor(renderer, 128u, 128u, 128u, static_cast<Uint8>(viewModel.borderA.now));
+		const SDL_Rect rect{ viewModel.rect.position.x, viewModel.rect.position.y, viewModel.rect.size.w, viewModel.rect.size.h };
+		SDL_RenderDrawRect(renderer, &rect);
+	}
+
+	void Button::render()
+	{
+		renderBackground();
+		renderBorder();
 	}
 }
 

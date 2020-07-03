@@ -139,7 +139,7 @@
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;TEST;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpplatest</LanguageStandard>
-      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)..\libs\SDL2-2.0.12\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <TreatWarningAsError>true</TreatWarningAsError>
       <DisableLanguageExtensions>true</DisableLanguageExtensions>
     </ClCompile>
@@ -161,8 +161,10 @@
       <LanguageStandard>stdcpplatest</LanguageStandard>
       <AdditionalIncludeDirectories>$(SolutionDir)..\libs\SDL2-2.0.12\include;$(SolutionDir)..\libs\SDL2_image-2.0.5\include;$(SolutionDir)..\libs\SDL2_ttf-2.0.15\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <TreatWarningAsError>true</TreatWarningAsError>
-      <DisableLanguageExtensions>true</DisableLanguageExtensions>
+      <DisableLanguageExtensions>false</DisableLanguageExtensions>
       <Optimization>Full</Optimization>
+      <EnableEnhancedInstructionSet>StreamingSIMDExtensions2</EnableEnhancedInstructionSet>
+      <FloatingPointModel>Fast</FloatingPointModel>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -196,7 +198,7 @@
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;TEST;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpplatest</LanguageStandard>
-      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)..\libs\SDL2-2.0.12\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <TreatWarningAsError>true</TreatWarningAsError>
       <DisableLanguageExtensions>true</DisableLanguageExtensions>
     </ClCompile>
@@ -216,8 +218,10 @@
       <LanguageStandard>stdcpplatest</LanguageStandard>
       <AdditionalIncludeDirectories>$(SolutionDir)..\libs\SDL2-2.0.12\include;$(SolutionDir)..\libs\SDL2_image-2.0.5\include;$(SolutionDir)..\libs\SDL2_ttf-2.0.15\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <TreatWarningAsError>true</TreatWarningAsError>
-      <DisableLanguageExtensions>true</DisableLanguageExtensions>
+      <DisableLanguageExtensions>false</DisableLanguageExtensions>
       <Optimization>Full</Optimization>
+      <EnableEnhancedInstructionSet>AdvancedVectorExtensions2</EnableEnhancedInstructionSet>
+      <FloatingPointModel>Fast</FloatingPointModel>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -228,41 +232,92 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="src\main\Any\App.cpp" />
+    <ClCompile Include="src\main\Any\ButtonModel.cpp" />
+    <ClCompile Include="src\main\Any\CalcExprModel.cpp" />
+    <ClCompile Include="src\main\Any\CalcResultModel.cpp" />
     <ClCompile Include="src\main\Any\Scene.cpp" />
     <ClCompile Include="src\main\Any\Subsystems.cpp" />
+    <ClCompile Include="src\main\Any\TextModel.cpp" />
     <ClCompile Include="src\main\Any\View.cpp" />
     <ClCompile Include="src\main\Functions\calculator.cpp" />
+    <ClCompile Include="src\main\Functions\control_flow.cpp" />
+    <ClCompile Include="src\main\Functions\string_ext.cpp" />
+    <ClCompile Include="src\main\ResourceView\RadialGradient.cpp" />
+    <ClCompile Include="src\main\ResourceView\Text.cpp" />
+    <ClCompile Include="src\main\Struct\Message.cpp" />
+    <ClCompile Include="src\main\Text\CalcExpr.cpp" />
+    <ClCompile Include="src\main\Text\CalcResult.cpp" />
     <ClCompile Include="src\main\View\Button.cpp" />
+    <ClCompile Include="src\main\View\ButtonGroup.cpp" />
+    <ClCompile Include="src\main\View\CalcScreen.cpp" />
+    <ClCompile Include="src\main\View\NavBar.cpp" />
     <ClCompile Include="src\main\View\ResourceView.cpp" />
+    <ClCompile Include="src\main\View\TextGroup.cpp" />
+    <ClCompile Include="src\test\ButtonGrid.test.cpp" />
     <ClCompile Include="src\test\ButtonModel.test.cpp" />
+    <ClCompile Include="src\test\CalcExprModel.test.cpp" />
+    <ClCompile Include="src\test\CalcResultModel.test.cpp" />
     <ClCompile Include="src\test\control_flow.test.cpp" />
     <ClCompile Include="src\test\math_ext.test.cpp" />
+    <ClCompile Include="src\test\RadialGradientModel.test.cpp" />
+    <ClCompile Include="src\test\string_ext.test.cpp" />
     <ClCompile Include="src\test\test.cpp" />
+    <ClCompile Include="src\test\TextModel.test.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\main\Any\App.h" />
+    <ClInclude Include="src\main\Any\ButtonGrid.h" />
     <ClInclude Include="src\main\Any\ButtonModel.h" />
+    <ClInclude Include="src\main\Any\CalcExprModel.h" />
+    <ClInclude Include="src\main\Any\CalcResultModel.h" />
+    <ClInclude Include="src\main\Any\constants.h" />
     <ClInclude Include="src\main\Any\Enums.h" />
+    <ClInclude Include="src\main\Any\RadialGradientModel.h" />
     <ClInclude Include="src\main\Any\Scene.h" />
     <ClInclude Include="src\main\Any\Subsystems.h" />
+    <ClInclude Include="src\main\Any\TextModel.h" />
     <ClInclude Include="src\main\Any\View.h" />
     <ClInclude Include="src\main\Functions\control_flow.h" />
     <ClInclude Include="src\main\Functions\math_ext.h" />
+    <ClInclude Include="src\main\Functions\string_ext.h" />
+    <ClInclude Include="src\main\ResourceView\RadialGradient.h" />
+    <ClInclude Include="src\main\ResourceView\Text.h" />
     <ClInclude Include="src\main\Struct\AnimatedFloat.h" />
+    <ClInclude Include="src\main\Struct\Color.h" />
+    <ClInclude Include="src\main\Struct\Flow.h" />
+    <ClInclude Include="src\main\Struct\Message.h" />
+    <ClInclude Include="src\main\Struct\Pair.h" />
     <ClInclude Include="src\main\Struct\Point.h" />
     <ClInclude Include="src\main\Struct\Range.h" />
     <ClInclude Include="src\main\Struct\Rect.h" />
     <ClInclude Include="src\main\Struct\Size.h" />
+    <ClInclude Include="src\main\Text\CalcExpr.h" />
+    <ClInclude Include="src\main\Text\CalcResult.h" />
     <ClInclude Include="src\main\View\Button.h" />
+    <ClInclude Include="src\main\View\ButtonGroup.h" />
+    <ClInclude Include="src\main\View\CalcScreen.h" />
+    <ClInclude Include="src\main\View\NavBar.h" />
     <ClInclude Include="src\main\View\ResourceView.h" />
+    <ClInclude Include="src\main\View\TextGroup.h" />
+    <ClInclude Include="src\test\ButtonGrid.test.h" />
     <ClInclude Include="src\test\ButtonModel.test.h" />
+    <ClInclude Include="src\test\CalcExprModel.test.h" />
+    <ClInclude Include="src\test\CalcResultModel.test.h" />
     <ClInclude Include="src\test\control_flow.test.h" />
     <ClInclude Include="src\test\math_ext.test.h" />
+    <ClInclude Include="src\test\RadialGradientModel.test.h" />
+    <ClInclude Include="src\test\string_ext.test.h" />
+    <ClInclude Include="src\test\TextModel.test.h" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="res\main\calculator.png" />
     <Image Include="res\main\drawer.png" />
     <Image Include="res\main\history.png" />
+    <Image Include="res\main\radial_gradient.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Font Include="res\main\arial.ttf" />
+    <Font Include="res\main\courbd.ttf" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -12,23 +12,28 @@ namespace ii887522::Calculator
 		const Subsystems subsystems;
 		App app;
 		SDL_Event event;
+		app.show();
 		while (true)
 		{
 			auto isAnimating{ false };
+			auto lastTime{ SDL_GetTicks() };
 			while (SDL_WaitEvent(&event))
 			{
 				switch (app.react(event))
 				{
-				case Action::QUIT: return 0;
+				case Action::QUIT: return EXIT_SUCCESS;
 				case Action::START_ANIMATION: isAnimating = true;
 				}
 				if (isAnimating) break;
+				const auto now{ SDL_GetTicks() };
+				if (now - lastTime < 3u) continue;
+				lastTime = now;
 				app.show();
 			}
-			auto lastTime{ SDL_GetTicks() };
+			lastTime = SDL_GetTicks();
 			while (true)
 			{
-				while (SDL_PollEvent(&event)) if (app.react(event) == Action::QUIT) return 0;
+				while (SDL_PollEvent(&event)) if (app.react(event) == Action::QUIT) return EXIT_SUCCESS;
 				const auto now{ SDL_GetTicks() };
 				const auto dt{ now - lastTime };
 				lastTime = now;
@@ -38,7 +43,7 @@ namespace ii887522::Calculator
 				SDL_Delay(1u);
 			}
 		}
-		return 0;
+		return EXIT_SUCCESS;
 	}
 }
 

@@ -49,7 +49,7 @@ namespace ii887522::Calculator
 		}
 
 	public:
-		explicit App(const Size& = Size{ 320, 480 });
+		explicit App(const Size& = Size{ 318, 437 });
 
 		constexpr Action react(const SDL_Event& event)
 		{
@@ -60,6 +60,8 @@ namespace ii887522::Calculator
 			case SDL_MOUSEBUTTONDOWN: return reactMouseButtonDown(event.button);
 			case SDL_MOUSEBUTTONUP: return reactMouseButtonUp(event.button);
 			case SDL_WINDOWEVENT: return reactWindowEvent(event.window);
+			case SDL_KEYDOWN: return scene.reactKeyDown(event.key);
+			case SDL_KEYUP: return scene.reactKeyUp(event.key);
 			}
 			return Action::NONE;
 		}

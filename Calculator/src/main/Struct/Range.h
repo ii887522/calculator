@@ -5,8 +5,7 @@ namespace ii887522::Calculator
 {
 	template <typename T> struct Range final
 	{
-		// remove copy semantics
-		Range(const Range&) = delete;
+		// remove operator= copy semantics
 		Range& operator=(const Range&) = delete;
 
 		// remove move semantics
@@ -17,6 +16,7 @@ namespace ii887522::Calculator
 		const T max;
 
 		explicit constexpr Range(const T& min, const T& max) : min{ min }, max{ max } { }
+		constexpr Range(const Range&) = default;
 	};
 }
 
