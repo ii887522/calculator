@@ -80,7 +80,7 @@ namespace ii887522::Calculator
 		auto result{ Action::NONE };
 		loop(sizeof views / sizeof(View*), [=, &result](const auto i) {
 			const auto [action, message]{ views[i]->reactLeftMouseButtonUp(buttonEvent) };
-			if (message.head != Message::Head::EMPTY) reactMessage(message);
+			if (message.head != Message::Head::EMPTY) result = reactMessage(message);
 			if (action != Action::START_ANIMATION) return;
 			++viewAnimationsCount;
 			if (isAnimating) return;
@@ -109,7 +109,7 @@ namespace ii887522::Calculator
 		auto result{ Action::NONE };
 		loop(sizeof views / sizeof(View*), [=, &result](const auto i) {
 			const auto [action, message]{ views[i]->reactKeyDown(keyEvent) };
-			if (message.head != Message::Head::EMPTY) reactMessage(message);
+			if (message.head != Message::Head::EMPTY) result = reactMessage(message);
 			if (action != Action::START_ANIMATION) return;
 			++viewAnimationsCount;
 			if (isAnimating) return;
@@ -133,12 +133,19 @@ namespace ii887522::Calculator
 		return result;
 	}
 
-	void Scene::reactMessage(const Message& message)
+	Action Scene::reactMessage(const Message& p_message)
 	{
-		loop(sizeof views / sizeof(View*), [=](const auto i) {
-			const auto resultMessage{ views[i]->reactMessage(message) };
-			if (resultMessage.head != Message::Head::EMPTY) reactMessage(resultMessage);
+		auto result{ Action::NONE };
+		loop(sizeof views / sizeof(View*), [=, &result](const auto i) {
+			const auto [action, message]{ views[i]->reactMessage(p_message) };
+			if (message.head != Message::Head::EMPTY) result = reactMessage(message);
+			if (action != Action::START_ANIMATION) return;
+			++viewAnimationsCount;
+			if (isAnimating) return;
+			result = action;
+			isAnimating = true;
 		});
+		return result;
 	}
 
 	Action Scene::step(const unsigned int dt)

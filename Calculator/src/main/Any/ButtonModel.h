@@ -17,7 +17,7 @@ namespace ii887522::Calculator
 	{
 		enum class State : unsigned int
 		{
-			INITIAL, HOVERED, PRESSED
+			INITIAL, HOVERED, PRESSED, DISABLED
 		};
 
 		// remove copy semantics
@@ -32,6 +32,7 @@ namespace ii887522::Calculator
 		unsigned int elaspedTime;
 		const Message _message;
 		const SDL_Keycode keyCode;
+		const Ability ability;
 
 		constexpr void reactMouseMotionWhenInitial(const Point& mousePosition)
 		{
@@ -76,7 +77,8 @@ namespace ii887522::Calculator
 		bool isAnimating;
 		Message message;
 
-		explicit ButtonModel(const Rect& rect, const Message& message = Message{ }, const SDL_Keycode keyCode = SDLK_UNKNOWN);
+		explicit ButtonModel(const Rect&, const Message& = Message{ }, const Ability = Ability::NONE, const SDL_Keycode = SDLK_UNKNOWN);
+		void reactMessage(const Message&);
 
 		constexpr void reactMouseMotion(const Point& mousePosition)
 		{
@@ -92,7 +94,7 @@ namespace ii887522::Calculator
 
 		constexpr void reactLeftMouseButtonDown()
 		{
-			if (state != State::HOVERED) return;
+			if (state != State::HOVERED || state == State::DISABLED) return;
 			state = State::PRESSED;
 			elaspedTime = 0u;
 			lightness.start = lightness.now;
@@ -106,6 +108,7 @@ namespace ii887522::Calculator
 
 		constexpr void reactMouseLeaveWindow()
 		{
+			if (state == State::DISABLED) return;
 			state = State::INITIAL;
 			elaspedTime = 0u;
 			lightness.start = lightness.now;
@@ -119,7 +122,7 @@ namespace ii887522::Calculator
 
 		constexpr void reactKeyUp(const SDL_Keycode p_keyCode)
 		{
-			if (keyCode != p_keyCode) return;
+			if (keyCode != p_keyCode || state == State::DISABLED) return;
 			state = State::INITIAL;
 			elaspedTime = 0u;
 			lightness.start = lightness.now;

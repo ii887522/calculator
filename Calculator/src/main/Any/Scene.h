@@ -30,7 +30,7 @@ namespace ii887522::Calculator
 		bool isAnimating;
 		unsigned int viewAnimationsCount;
 
-		void reactMessage(const Message&);
+		Action reactMessage(const Message&);
 
 		// Param renderer: it must not be assigned to integer
 		// Param font: it must not be assigned to integer

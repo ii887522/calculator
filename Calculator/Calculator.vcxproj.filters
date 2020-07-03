@@ -144,6 +144,12 @@
     <ClCompile Include="src\test\CalcExprModel.test.cpp">
       <Filter>Test Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="src\test\TextModel.test.cpp">
+      <Filter>Test Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\main\Any\TextModel.cpp">
+      <Filter>Source Files\Any</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\test\ButtonModel.test.h">
@@ -267,6 +273,12 @@
       <Filter>Header Files\Any</Filter>
     </ClInclude>
     <ClInclude Include="src\test\CalcExprModel.test.h">
+      <Filter>Test Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\main\Any\TextModel.h">
+      <Filter>Header Files\Any</Filter>
+    </ClInclude>
+    <ClInclude Include="src\test\TextModel.test.h">
       <Filter>Test Header Files</Filter>
     </ClInclude>
   </ItemGroup>

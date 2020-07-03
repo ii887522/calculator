@@ -33,6 +33,7 @@ namespace ii887522::Calculator
 		// Param renderer: it must not be assigned to integer
 		explicit ButtonGroup(SDL_Renderer*const renderer, const ButtonGrid&);
 
+		virtual Pair<Action, Message> reactMessage(const Message&) override;
 		virtual Action reactMouseMotion(const SDL_MouseMotionEvent&) override;
 		virtual Action reactLeftMouseButtonDown(const SDL_MouseButtonEvent&) override;
 		virtual Pair<Action, Message> reactLeftMouseButtonUp(const SDL_MouseButtonEvent&) override;

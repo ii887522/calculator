@@ -8,12 +8,12 @@
 
 namespace ii887522::Calculator
 {
-	constexpr bool isOverlapX(const int x, const Range<const int>& xRange)
+	template <typename T> constexpr bool isOverlapX(const T x, const Range<const T>& xRange)
 	{
 		return x >= xRange.min && x < xRange.max;
 	}
 
-	constexpr bool isOverlapY(const int y, const Range<const int>& yRange)
+	template <typename T> constexpr bool isOverlapY(const T y, const Range<const T>& yRange)
 	{
 		return y >= yRange.min && y < yRange.max;
 	}

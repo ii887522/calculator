@@ -7,6 +7,8 @@
 #include "../Struct/Rect.h"
 #include "../Struct/Point.h"
 #include "../Struct/Message.h"
+#include "../Struct/Pair.h"
+#include "../Any/Enums.h"
 
 namespace ii887522::Calculator
 {
@@ -20,11 +22,11 @@ namespace ii887522::Calculator
 		ResourceView::set(TTF_RenderText_Blended(font, value.c_str(), SDL_Color{ 0u, 0u, 0u, 255u }));
 	}
 
-	Message CalcResult::reactMessage(const Message& message)
+	Pair<Action, Message> CalcResult::reactMessage(const Message& message)
 	{
 		viewModel.reactMessage(message);
 		set(viewModel.value);
-		return viewModel.message;
+		return Pair{ Action::NONE, viewModel.message };
 	}
 
 	void CalcResult::render()

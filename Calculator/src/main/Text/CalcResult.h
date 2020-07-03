@@ -9,6 +9,8 @@
 #include "../Struct/Rect.h"
 #include "../Struct/Message.h"
 #include "../Any/CalcResultModel.h"
+#include "../Struct/Pair.h"
+#include "../Any/Enums.h"
 
 namespace ii887522::Calculator
 {
@@ -34,7 +36,7 @@ namespace ii887522::Calculator
 		explicit CalcResult(SDL_Renderer*const renderer, const Rect& calcScreenRect, const unsigned int maxSizeIgnoreDash,
 			TTF_Font*const font = TTF_OpenFont("res/main/courbd.ttf", 48));
 
-		virtual Message reactMessage(const Message&) override;
+		virtual Pair<Action, Message> reactMessage(const Message&) override;
 		virtual void render() override;
 		~CalcResult();
 	};

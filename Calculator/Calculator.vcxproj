@@ -237,6 +237,7 @@
     <ClCompile Include="src\main\Any\CalcResultModel.cpp" />
     <ClCompile Include="src\main\Any\Scene.cpp" />
     <ClCompile Include="src\main\Any\Subsystems.cpp" />
+    <ClCompile Include="src\main\Any\TextModel.cpp" />
     <ClCompile Include="src\main\Any\View.cpp" />
     <ClCompile Include="src\main\Functions\calculator.cpp" />
     <ClCompile Include="src\main\Functions\control_flow.cpp" />
@@ -261,6 +262,7 @@
     <ClCompile Include="src\test\RadialGradientModel.test.cpp" />
     <ClCompile Include="src\test\string_ext.test.cpp" />
     <ClCompile Include="src\test\test.cpp" />
+    <ClCompile Include="src\test\TextModel.test.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\main\Any\App.h" />
@@ -273,6 +275,7 @@
     <ClInclude Include="src\main\Any\RadialGradientModel.h" />
     <ClInclude Include="src\main\Any\Scene.h" />
     <ClInclude Include="src\main\Any\Subsystems.h" />
+    <ClInclude Include="src\main\Any\TextModel.h" />
     <ClInclude Include="src\main\Any\View.h" />
     <ClInclude Include="src\main\Functions\control_flow.h" />
     <ClInclude Include="src\main\Functions\math_ext.h" />
@@ -304,6 +307,7 @@
     <ClInclude Include="src\test\math_ext.test.h" />
     <ClInclude Include="src\test\RadialGradientModel.test.h" />
     <ClInclude Include="src\test\string_ext.test.h" />
+    <ClInclude Include="src\test\TextModel.test.h" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="res\main\calculator.png" />

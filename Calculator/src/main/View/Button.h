@@ -29,16 +29,16 @@ namespace ii887522::Calculator
 		ButtonModel viewModel;
 		const Color color;
 		bool isAnimating;
-		const Message message;
 
 		void renderBackground();
 		void renderBorder();
 
 	public:
 		// Param renderer: it must not be assigned to integer
-		explicit Button(SDL_Renderer*const renderer, const Rect&, const Color&, const Message& = Message{  },
-			const SDL_Keycode = SDLK_UNKNOWN);
+		explicit Button(SDL_Renderer*const renderer, const Rect&, const Color&, const Message& = Message{ }, const Ability = Ability::NONE
+			, const SDL_Keycode = SDLK_UNKNOWN);
 
+		virtual Pair<Action, Message> reactMessage(const Message&) override;
 		virtual Action reactMouseMotion(const SDL_MouseMotionEvent&) override;
 		virtual Action reactLeftMouseButtonDown(const SDL_MouseButtonEvent&) override;
 		virtual Pair<Action, Message> reactLeftMouseButtonUp(const SDL_MouseButtonEvent&) override;
