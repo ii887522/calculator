@@ -13,7 +13,9 @@ namespace ii887522::Calculator
 	void CalcResultModel::reactExprResult(const string& resultStr)
 	{
 		value = resultStr;
-		if (resultStr == "NO SPACE") message = Message{ Message::Head::ERROR };
+		if (resultStr != "NO SPACE") return;
+		state = State::ERROR;
+		message = Message{ Message::Head::ERROR };
 	}
 
 	void CalcResultModel::reactDigitWhenNumber(const char digitCh)
@@ -43,6 +45,13 @@ namespace ii887522::Calculator
 		value = digitCh;
 	}
 
+	void CalcResultModel::reactDigitWhenError(const char digitCh)
+	{
+		state = State::INT;
+		value = digitCh;
+		message = Message{ Message::Head::FIXED };
+	}
+
 	void CalcResultModel::reactDigit(const char digitCh)
 	{
 		switch (state)
@@ -54,6 +63,8 @@ namespace ii887522::Calculator
 		case State::EQUAL_PRESSED: reactDigitWhenEqualPressed(digitCh);
 			break;
 		case State::UNARY_OPERATOR_PRESSED: reactDigitWhenUnaryOperatorPressed(digitCh);
+			break;
+		case State::ERROR: reactDigitWhenError(digitCh);
 			break;
 		default: reactDigitWhenNumber(digitCh);
 		}
@@ -88,6 +99,7 @@ namespace ii887522::Calculator
 	void CalcResultModel::clear()
 	{
 		value = '0';
+		if (state == State::ERROR) message = Message{ Message::Head::FIXED };
 		state = State::INT;
 	}
 
@@ -111,6 +123,7 @@ namespace ii887522::Calculator
 		case State::INT:
 		case State::FLOAT:
 		case State::UNARY_OPERATOR_PRESSED:
+		case State::ERROR:
 			clear();
 		}
 	}

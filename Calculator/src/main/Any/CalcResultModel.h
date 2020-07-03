@@ -14,7 +14,7 @@ namespace ii887522::Calculator
 		enum class State
 		{
 			INT, FLOAT, BINARY_OPERATOR_PRESSED, BINARY_OPERATOR_PRESSED_THEN_INT, BINARY_OPERATOR_PRESSED_THEN_FLOAT, EQUAL_PRESSED,
-			UNARY_OPERATOR_PRESSED, BINARY_OPERATOR_PRESSED_THEN_UNARY_OPERATOR_PRESSED
+			UNARY_OPERATOR_PRESSED, BINARY_OPERATOR_PRESSED_THEN_UNARY_OPERATOR_PRESSED, ERROR
 		};
 
 		// remove copy semantics
@@ -33,6 +33,7 @@ namespace ii887522::Calculator
 		void reactDigitWhenBinaryOperatorPressed(const char digitCh);
 		void reactDigitWhenEqualPressed(const char digitCh);
 		void reactDigitWhenUnaryOperatorPressed(const char digitCh);
+		void reactDigitWhenError(const char digitCh);
 		void reactDigit(const char digitCh);
 		void reactBackspace();
 		void clear();

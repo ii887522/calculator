@@ -30,7 +30,7 @@ namespace ii887522::Calculator
 		Button{ renderer, Rect{ Point{ buttonGrid.getButtonX(5), buttonGrid.getButtonY(5) }, buttonGrid.buttonSize },
 			Color{ 224u, 224u, 224u }, Message{ Message::Head::INPUT_C }, Ability::NONE, SDLK_c },
 		Button{ renderer, Rect{ Point{ buttonGrid.getButtonX(6), buttonGrid.getButtonY(6) }, buttonGrid.buttonSize },
-			Color{ 224u, 224u, 224u }, Message{ Message::Head::INPUT_BACKSPACE }, Ability::NONE, SDLK_BACKSPACE },
+			Color{ 224u, 224u, 224u }, Message{ Message::Head::INPUT_BACKSPACE }, Ability::CAN_DISABLE, SDLK_BACKSPACE },
 		Button{ renderer, Rect{ Point{ buttonGrid.getButtonX(7), buttonGrid.getButtonY(7) }, buttonGrid.buttonSize },
 			Color{ 224u, 224u, 224u }, Message{ Message::Head::INPUT_DIVIDE }, Ability::CAN_DISABLE, SDLK_KP_DIVIDE },
 		Button{ renderer, Rect{ Point{ buttonGrid.getButtonX(8), buttonGrid.getButtonY(8) }, buttonGrid.buttonSize },

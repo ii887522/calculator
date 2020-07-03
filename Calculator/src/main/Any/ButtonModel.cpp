@@ -12,14 +12,13 @@ namespace ii887522::Calculator
 	void ButtonModel::reactMessage(const Message& p_message)
 	{
 		message = Message{ };
-		if (p_message.head != Message::Head::ERROR || ability != Ability::CAN_DISABLE) return;
-		state = State::DISABLED;
-		elaspedTime = 0u;
-		lightness.start = lightness.now;
-		lightness.end = 1.f;
-		borderA.start = borderA.now;
-		borderA.end = 0.f;
-		isAnimating = true;
+		if (ability != Ability::CAN_DISABLE) return;
+		switch (p_message.head)
+		{
+		case Message::Head::ERROR: reactError();
+			break;
+		case Message::Head::FIXED: state = State::INITIAL;
+		}
 	}
 
 	void ButtonModel::reactLeftMouseButtonUp()

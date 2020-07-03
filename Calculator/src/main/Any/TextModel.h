@@ -24,6 +24,22 @@ namespace ii887522::Calculator
 		unsigned int elaspedTime;
 		const Ability ability;
 
+		constexpr void reactError()
+		{
+			elaspedTime = 0u;
+			a.start = a.now;
+			a.end = 32.f;
+			isAnimating = true;
+		}
+
+		constexpr void reactFixed()
+		{
+			elaspedTime = 0u;
+			a.start = a.now;
+			a.end = 255.f;
+			isAnimating = true;
+		}
+
 	public:
 		AnimatedFloat a;
 		bool isAnimating;

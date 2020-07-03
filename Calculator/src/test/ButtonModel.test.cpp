@@ -33,6 +33,15 @@ namespace ii887522::Calculator
 			assert(buttonModel.borderA.end == initialBorderA);
 			assert(!buttonModel.isAnimating);
 			assert(buttonModel.message.head == Message::Head::EMPTY);
+			buttonModel.reactMessage(Message{ Message::Head::FIXED });
+			assert(buttonModel.lightness.start == initialLightness);
+			assert(buttonModel.lightness.now == initialLightness);
+			assert(buttonModel.lightness.end == initialLightness);
+			assert(buttonModel.borderA.start == initialBorderA);
+			assert(buttonModel.borderA.now == initialBorderA);
+			assert(buttonModel.borderA.end == initialBorderA);
+			assert(!buttonModel.isAnimating);
+			assert(buttonModel.message.head == Message::Head::EMPTY);
 		}
 		{
 			ButtonModel buttonModel{ Rect{ Point{ 2, 2 }, Size{ 5, 5 } } };
@@ -54,6 +63,15 @@ namespace ii887522::Calculator
 			assert(buttonModel.borderA.end == initialBorderA);
 			assert(!buttonModel.isAnimating);
 			assert(buttonModel.message.head == Message::Head::EMPTY);
+			buttonModel.reactMessage(Message{ Message::Head::FIXED });
+			assert(buttonModel.lightness.start == initialLightness);
+			assert(buttonModel.lightness.now == initialLightness);
+			assert(buttonModel.lightness.end == initialLightness);
+			assert(buttonModel.borderA.start == initialBorderA);
+			assert(buttonModel.borderA.now == initialBorderA);
+			assert(buttonModel.borderA.end == initialBorderA);
+			assert(!buttonModel.isAnimating);
+			assert(buttonModel.message.head == Message::Head::EMPTY);
 		}
 		{
 			ButtonModel buttonModel{ Rect{ Point{ 2, 2 }, Size{ 5, 5 } }, Message{ Message::Head::INPUT_0 }, Ability::NONE, SDLK_KP_0 };
@@ -67,6 +85,15 @@ namespace ii887522::Calculator
 			assert(!buttonModel.isAnimating);
 			assert(buttonModel.message.head == Message::Head::EMPTY);
 			buttonModel.reactMessage(Message{ Message::Head::ERROR });
+			assert(buttonModel.lightness.start == initialLightness);
+			assert(buttonModel.lightness.now == initialLightness);
+			assert(buttonModel.lightness.end == initialLightness);
+			assert(buttonModel.borderA.start == initialBorderA);
+			assert(buttonModel.borderA.now == initialBorderA);
+			assert(buttonModel.borderA.end == initialBorderA);
+			assert(!buttonModel.isAnimating);
+			assert(buttonModel.message.head == Message::Head::EMPTY);
+			buttonModel.reactMessage(Message{ Message::Head::FIXED });
 			assert(buttonModel.lightness.start == initialLightness);
 			assert(buttonModel.lightness.now == initialLightness);
 			assert(buttonModel.lightness.end == initialLightness);
@@ -99,6 +126,15 @@ namespace ii887522::Calculator
 			assert(buttonModel.isAnimating);
 			assert(buttonModel.message.head == Message::Head::EMPTY);
 			buttonModel.reactMouseMotion(Point{ 4, 4 });
+			assert(buttonModel.lightness.start == initialLightness);
+			assert(buttonModel.lightness.now == initialLightness);
+			assert(buttonModel.lightness.end == initialLightness);
+			assert(buttonModel.borderA.start == initialBorderA);
+			assert(buttonModel.borderA.now == initialBorderA);
+			assert(buttonModel.borderA.end == initialBorderA);
+			assert(buttonModel.isAnimating);
+			assert(buttonModel.message.head == Message::Head::EMPTY);
+			buttonModel.reactMessage(Message{ Message::Head::FIXED });
 			assert(buttonModel.lightness.start == initialLightness);
 			assert(buttonModel.lightness.now == initialLightness);
 			assert(buttonModel.lightness.end == initialLightness);

@@ -10,10 +10,12 @@ namespace ii887522::Calculator
 	void TextModel::reactMessage(const Message& p_message)
 	{
 		message = Message{ };
-		if (p_message.head != Message::Head::ERROR || ability != Ability::CAN_DISABLE) return;
-		elaspedTime = 0u;
-		a.start = a.now;
-		a.end = 32.f;
-		isAnimating = true;
+		if (ability != Ability::CAN_DISABLE) return;
+		switch (p_message.head)
+		{
+		case Message::Head::ERROR: reactError();
+			break;
+		case Message::Head::FIXED: reactFixed();
+		}
 	}
 }

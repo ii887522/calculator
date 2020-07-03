@@ -26,6 +26,12 @@ namespace ii887522::Calculator
 			assert(textModel.a.end == initialA);
 			assert(!textModel.isAnimating);
 			assert(textModel.message.head == Message::Head::EMPTY);
+			textModel.reactMessage(Message{ Message::Head::FIXED });
+			assert(textModel.a.start == initialA);
+			assert(textModel.a.now == initialA);
+			assert(textModel.a.end == initialA);
+			assert(!textModel.isAnimating);
+			assert(textModel.message.head == Message::Head::EMPTY);
 		}
 		{
 			TextModel textModel{ Ability::CAN_DISABLE };
@@ -39,6 +45,12 @@ namespace ii887522::Calculator
 			assert(textModel.a.start == initialA);
 			assert(textModel.a.now == initialA);
 			assert(textModel.a.end == errorA);
+			assert(textModel.isAnimating);
+			assert(textModel.message.head == Message::Head::EMPTY);
+			textModel.reactMessage(Message{ Message::Head::FIXED });
+			assert(textModel.a.start == initialA);
+			assert(textModel.a.now == initialA);
+			assert(textModel.a.end == initialA);
 			assert(textModel.isAnimating);
 			assert(textModel.message.head == Message::Head::EMPTY);
 		}

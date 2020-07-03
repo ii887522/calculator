@@ -34,6 +34,17 @@ namespace ii887522::Calculator
 		const SDL_Keycode keyCode;
 		const Ability ability;
 
+		constexpr void reactError()
+		{
+			state = State::DISABLED;
+			elaspedTime = 0u;
+			lightness.start = lightness.now;
+			lightness.end = 1.f;
+			borderA.start = borderA.now;
+			borderA.end = 0.f;
+			isAnimating = true;
+		}
+
 		constexpr void reactMouseMotionWhenInitial(const Point& mousePosition)
 		{
 			if (!isOverlap(mousePosition, rect)) return;
