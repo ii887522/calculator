@@ -8,6 +8,8 @@
 #include "../Struct/Point.h"
 #include "../Struct/Message.h"
 #include <algorithm>
+#include "../Struct/Pair.h"
+#include "../Any/Enums.h"
 
 using std::min;
 using std::max;
@@ -27,7 +29,7 @@ namespace ii887522::Calculator
 		ResourceView::set(TTF_RenderText_Blended(font, value.c_str(), SDL_Color{ 0u, 0u, 0u, 255u }));
 	}
 
-	Message CalcExpr::reactMessage(const Message& message)
+	Pair<Action, Message> CalcExpr::reactMessage(const Message& message)
 	{
 		switch (message.head)
 		{
@@ -50,7 +52,7 @@ namespace ii887522::Calculator
 		}
 		viewModel.reactMessage(message);
 		set(viewModel.value);
-		return viewModel.message;
+		return Pair{ Action::NONE, viewModel.message };
 	}
 
 	void CalcExpr::render()

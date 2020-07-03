@@ -10,6 +10,9 @@
 #include "../Any/ButtonGrid.h"
 #include "../Struct/Size.h"
 #include "../Any/constants.h"
+#include "../Struct/Pair.h"
+#include "../Any/Enums.h"
+#include "../Struct/Message.h"
 
 namespace ii887522::Calculator
 {
@@ -25,12 +28,16 @@ namespace ii887522::Calculator
 		TextGroup& operator=(TextGroup&&) = delete;
 
 		Text texts[textsCount];
+		bool isAnimating;
+		unsigned int textAnimationCount;
 
 	public:
 		// Param renderer: it must not be assigned to integer
 		// Param font: it must not be assigned to integer
 		explicit TextGroup(SDL_Renderer*const renderer, TTF_Font*const font, const ButtonGrid&, const Size& margin = Size{ 20, 12 });
 
+		virtual Pair<Action, Message> reactMessage(const Message&) override;
+		virtual Action step(const unsigned int dt);
 		virtual void render() override;
 	};
 }

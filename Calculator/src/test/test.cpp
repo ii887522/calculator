@@ -8,6 +8,7 @@
 #include "CalcResultModel.test.h"
 #include "string_ext.test.h"
 #include "CalcExprModel.test.h"
+#include "TextModel.test.h"
 
 namespace ii887522::Calculator
 {
@@ -21,6 +22,14 @@ namespace ii887522::Calculator
 		buttonModelTest.testReactKeyDown();
 		buttonModelTest.testReactKeyUp();
 		buttonModelTest.testStep();
+		buttonModelTest.testReactMessage();
+	}
+
+	static void testTextModel()
+	{
+		const TextModelTest textModelTest;
+		textModelTest.testReactMessage();
+		textModelTest.testStep();
 	}
 
 	static int main()
@@ -33,6 +42,7 @@ namespace ii887522::Calculator
 		testStringExt();
 		testCalcResultModel();
 		testCalcExprModel();
+		testTextModel();
 		return 0;
 	}
 }

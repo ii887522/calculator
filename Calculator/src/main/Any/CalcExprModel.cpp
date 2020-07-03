@@ -15,7 +15,15 @@ namespace ii887522::Calculator
 
 	void CalcExprModel::reactDigit()
 	{
-		if (state == State::EQUAL_PRESSED) clear();
+		switch (state)
+		{
+		case State::EQUAL_PRESSED:
+			clear();
+			break;
+		case State::UNARY_OPERATOR_PRESSED:
+		case State::BINARY_OPERATOR_PRESSED_THEN_UNARY_OPERATOR_PRESSED:
+			clearEntry();
+		}
 	}
 
 	void CalcExprModel::clear()
@@ -193,15 +201,21 @@ namespace ii887522::Calculator
 		case Message::Head::INPUT_DOT:
 			reactDigit();
 			break;
-		case Message::Head::INPUT_C: clear();
+		case Message::Head::ERROR:
+		case Message::Head::INPUT_C:
+			clear();
 			break;
-		case Message::Head::INPUT_CE: clearEntry();
+		case Message::Head::INPUT_CE:
+			clearEntry();
 			break;
-		case Message::Head::BINARY_EXPR: reactBinaryExpr(p_message.body);
+		case Message::Head::BINARY_EXPR:
+			reactBinaryExpr(p_message.body);
 			break;
-		case Message::Head::UNARY_EXPR: reactUnaryExpr(p_message.body);
+		case Message::Head::UNARY_EXPR:
+			reactUnaryExpr(p_message.body);
 			break;
-		case Message::Head::LAST_BINARY_OPERATOR: value[value.size() - 1u] = p_message.body[0u];
+		case Message::Head::LAST_BINARY_OPERATOR:
+			value[value.size() - 1u] = p_message.body[0u];
 		}
 	}
 }

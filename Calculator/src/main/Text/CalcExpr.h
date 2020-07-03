@@ -10,6 +10,8 @@
 #include "../Struct/Message.h"
 #include "../Any/CalcExprModel.h"
 #include <algorithm>
+#include "../Struct/Pair.h"
+#include "../Any/Enums.h"
 
 using std::max;
 
@@ -52,7 +54,7 @@ namespace ii887522::Calculator
 		explicit CalcExpr(SDL_Renderer*const renderer, const Rect& calcScreenRect, const unsigned int maxSizeIgnoreDash,
 			const int horizontalMargin = 16, TTF_Font*const font = TTF_OpenFont("res/main/arial.ttf", 16));
 
-		virtual Message reactMessage(const Message&) override;
+		virtual Pair<Action, Message> reactMessage(const Message&) override;
 		virtual void render() override;
 		~CalcExpr();
 	};

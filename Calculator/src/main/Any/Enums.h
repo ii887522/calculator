@@ -7,6 +7,11 @@ namespace ii887522::Calculator
 	{
 		NONE, QUIT, START_ANIMATION, STOP_ANIMATION
 	};
+
+	enum class Ability : unsigned int
+	{
+		NONE, CAN_DISABLE
+	};
 }
 
 #endif

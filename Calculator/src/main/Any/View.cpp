@@ -40,9 +40,9 @@ namespace ii887522::Calculator
 		return Action::NONE;
 	}
 
-	Message View::reactMessage(const Message&)
+	Pair<Action, Message> View::reactMessage(const Message&)
 	{
-		return Message{ };
+		return Pair{ Action::NONE, Message{ } };
 	}
 
 	Action View::step(const unsigned int)

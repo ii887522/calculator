@@ -5,11 +5,21 @@
 #include <SDL.h>
 #include "../Struct/Pair.h"
 #include "../Struct/Message.h"
+#include "../Any/Enums.h"
 
 namespace ii887522::Calculator
 {
-	Button::Button(SDL_Renderer*const renderer, const Rect& rect, const Color& color, const Message& message, const SDL_Keycode keyCode)
-		: View{ renderer }, viewModel{ rect, message, keyCode }, color{ color }, isAnimating{ false } { }
+	Button::Button(SDL_Renderer*const renderer, const Rect& rect, const Color& color, const Message& message, const Ability ability,
+		const SDL_Keycode keyCode) : View{ renderer }, viewModel{ rect, message, ability, keyCode }, color{ color }, isAnimating{ false }
+	{ }
+
+	Pair<Action, Message> Button::reactMessage(const Message& message)
+	{
+		viewModel.reactMessage(message);
+		if (isAnimating || !viewModel.isAnimating) return Pair{ Action::NONE, viewModel.message };
+		isAnimating = true;
+		return Pair{ Action::START_ANIMATION, viewModel.message };
+	}
 
 	Action Button::reactMouseMotion(const SDL_MouseMotionEvent& motionEvent)
 	{
