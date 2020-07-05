@@ -151,6 +151,30 @@ namespace ii887522::Calculator
 			calcExprModel.reactMessage(Message{ Message::Head::INPUT_0 });
 			assert(calcExprModel.message.head == Message::Head::EMPTY);
 			assert(calcExprModel.value == " 4 +");
+			calcExprModel.reactMessage(Message{ Message::Head::UNARY_EXPR, "sqr(3)" });
+			assert(calcExprModel.message.head == Message::Head::EXPR_RESULT);
+			assert(calcExprModel.message.body == "9");
+			assert(calcExprModel.value == " 4 + sqr(3)");
+			calcExprModel.reactMessage(Message{ Message::Head::BINARY_EXPR, "9 -" });
+			assert(calcExprModel.message.head == Message::Head::EXPR_RESULT);
+			assert(calcExprModel.message.body == "13");
+			assert(calcExprModel.value == " 4 + sqr(3) -");
+			calcExprModel.reactMessage(Message{ Message::Head::UNARY_EXPR, "sqr(4)" });
+			assert(calcExprModel.message.head == Message::Head::EXPR_RESULT);
+			assert(calcExprModel.message.body == "16");
+			assert(calcExprModel.value == " 4 + sqr(3) - sqr(4)");
+			calcExprModel.reactMessage(Message{ Message::Head::BINARY_EXPR, "16 x" });
+			assert(calcExprModel.message.head == Message::Head::EXPR_RESULT);
+			assert(calcExprModel.message.body == "-3");
+			assert(calcExprModel.value == " 4 + sqr(3) - sqr(4) x");
+			calcExprModel.reactMessage(Message{ Message::Head::UNARY_EXPR, "sqr(5)" });
+			assert(calcExprModel.message.head == Message::Head::EXPR_RESULT);
+			assert(calcExprModel.message.body == "25");
+			assert(calcExprModel.value == " 4 + sqr(3) - sqr(4) x sqr(5)");
+			calcExprModel.reactMessage(Message{ Message::Head::BINARY_EXPR, "25 /" });
+			assert(calcExprModel.message.head == Message::Head::EXPR_RESULT);
+			assert(calcExprModel.message.body == "-75");
+			assert(calcExprModel.value == " 4 + sqr(3) - sqr(4) x sqr(5) /");
 		}
 		{
 			CalcExprModel calcExprModel{ 3u };
@@ -292,6 +316,30 @@ namespace ii887522::Calculator
 			calcExprModel.reactMessage(Message{ Message::Head::INPUT_0 });
 			assert(calcExprModel.message.head == Message::Head::EMPTY);
 			assert(calcExprModel.value == " 4 +");
+			calcExprModel.reactMessage(Message{ Message::Head::UNARY_EXPR, "sqr(3)" });
+			assert(calcExprModel.message.head == Message::Head::EXPR_RESULT);
+			assert(calcExprModel.message.body == "9");
+			assert(calcExprModel.value == " 4 + sqr(3)");
+			calcExprModel.reactMessage(Message{ Message::Head::BINARY_EXPR, "9 -" });
+			assert(calcExprModel.message.head == Message::Head::EXPR_RESULT);
+			assert(calcExprModel.message.body == "13");
+			assert(calcExprModel.value == " 4 + sqr(3) -");
+			calcExprModel.reactMessage(Message{ Message::Head::UNARY_EXPR, "sqr(4)" });
+			assert(calcExprModel.message.head == Message::Head::EXPR_RESULT);
+			assert(calcExprModel.message.body == "16");
+			assert(calcExprModel.value == " 4 + sqr(3) - sqr(4)");
+			calcExprModel.reactMessage(Message{ Message::Head::BINARY_EXPR, "16 x" });
+			assert(calcExprModel.message.head == Message::Head::EXPR_RESULT);
+			assert(calcExprModel.message.body == "-3");
+			assert(calcExprModel.value == " 4 + sqr(3) - sqr(4) x");
+			calcExprModel.reactMessage(Message{ Message::Head::UNARY_EXPR, "sqr(5)" });
+			assert(calcExprModel.message.head == Message::Head::EXPR_RESULT);
+			assert(calcExprModel.message.body == "25");
+			assert(calcExprModel.value == " 4 + sqr(3) - sqr(4) x sqr(5)");
+			calcExprModel.reactMessage(Message{ Message::Head::BINARY_EXPR, "25 /" });
+			assert(calcExprModel.message.head == Message::Head::EXPR_RESULT);
+			assert(calcExprModel.message.body == "-75");
+			assert(calcExprModel.value == " 4 + sqr(3) - sqr(4) x sqr(5) /");
 		}
 	}
 

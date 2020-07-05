@@ -404,6 +404,37 @@ namespace ii887522::Calculator
 			calcResultModel.reactMessage(Message{ Message::Head::INPUT_CE });
 			assert(calcResultModel.value == "0");
 			assert(calcResultModel.message.head == Message::Head::FIXED);
+			calcResultModel.reactMessage(Message{ Message::Head::INPUT_3 });
+			assert(calcResultModel.value == "3");
+			assert(calcResultModel.message.head == Message::Head::EMPTY);
+			calcResultModel.reactMessage(Message{ Message::Head::INPUT_SQR });
+			assert(calcResultModel.value == "3");
+			assert(calcResultModel.message.head == Message::Head::UNARY_EXPR);
+			assert(calcResultModel.message.body == "sqr(3)");
+			calcResultModel.reactMessage(Message{ Message::Head::EXPR_RESULT, "9" });
+			assert(calcResultModel.value == "9");
+			assert(calcResultModel.message.head == Message::Head::EMPTY);
+			calcResultModel.reactMessage(Message{ Message::Head::INPUT_0 });
+			assert(calcResultModel.value == "0");
+			assert(calcResultModel.message.head == Message::Head::EMPTY);
+			calcResultModel.reactMessage(Message{ Message::Head::INPUT_PLUS });
+			assert(calcResultModel.value == "0");
+			assert(calcResultModel.message.head == Message::Head::BINARY_EXPR);
+			assert(calcResultModel.message.body == "0 +");
+			calcResultModel.reactMessage(Message{ Message::Head::INPUT_1 });
+			assert(calcResultModel.value == "1");
+			assert(calcResultModel.message.head == Message::Head::EMPTY);
+			calcResultModel.reactMessage(Message{ Message::Head::INPUT_EQUAL });
+			assert(calcResultModel.value == "1");
+			assert(calcResultModel.message.head == Message::Head::BINARY_EXPR);
+			assert(calcResultModel.message.body == "1 =");
+			calcResultModel.reactMessage(Message{ Message::Head::INPUT_DOT });
+			assert(calcResultModel.value == "0.");
+			assert(calcResultModel.message.head == Message::Head::EMPTY);
+			calcResultModel.reactMessage(Message{ Message::Head::INPUT_MULTIPLY });
+			assert(calcResultModel.value == "0");
+			assert(calcResultModel.message.head == Message::Head::BINARY_EXPR);
+			assert(calcResultModel.message.body == "0 x");
 		}
 		{
 			CalcResultModel calcResultModel{ 8u };
@@ -797,6 +828,37 @@ namespace ii887522::Calculator
 			calcResultModel.reactMessage(Message{ Message::Head::INPUT_CE });
 			assert(calcResultModel.value == "0");
 			assert(calcResultModel.message.head == Message::Head::FIXED);
+			calcResultModel.reactMessage(Message{ Message::Head::INPUT_3 });
+			assert(calcResultModel.value == "3");
+			assert(calcResultModel.message.head == Message::Head::EMPTY);
+			calcResultModel.reactMessage(Message{ Message::Head::INPUT_SQR });
+			assert(calcResultModel.value == "3");
+			assert(calcResultModel.message.head == Message::Head::UNARY_EXPR);
+			assert(calcResultModel.message.body == "sqr(3)");
+			calcResultModel.reactMessage(Message{ Message::Head::EXPR_RESULT, "9" });
+			assert(calcResultModel.value == "9");
+			assert(calcResultModel.message.head == Message::Head::EMPTY);
+			calcResultModel.reactMessage(Message{ Message::Head::INPUT_0 });
+			assert(calcResultModel.value == "0");
+			assert(calcResultModel.message.head == Message::Head::EMPTY);
+			calcResultModel.reactMessage(Message{ Message::Head::INPUT_PLUS });
+			assert(calcResultModel.value == "0");
+			assert(calcResultModel.message.head == Message::Head::BINARY_EXPR);
+			assert(calcResultModel.message.body == "0 +");
+			calcResultModel.reactMessage(Message{ Message::Head::INPUT_1 });
+			assert(calcResultModel.value == "1");
+			assert(calcResultModel.message.head == Message::Head::EMPTY);
+			calcResultModel.reactMessage(Message{ Message::Head::INPUT_EQUAL });
+			assert(calcResultModel.value == "1");
+			assert(calcResultModel.message.head == Message::Head::BINARY_EXPR);
+			assert(calcResultModel.message.body == "1 =");
+			calcResultModel.reactMessage(Message{ Message::Head::INPUT_DOT });
+			assert(calcResultModel.value == "0.");
+			assert(calcResultModel.message.head == Message::Head::EMPTY);
+			calcResultModel.reactMessage(Message{ Message::Head::INPUT_MULTIPLY });
+			assert(calcResultModel.value == "0");
+			assert(calcResultModel.message.head == Message::Head::BINARY_EXPR);
+			assert(calcResultModel.message.body == "0 x");
 		}
 	}
 
