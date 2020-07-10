@@ -1,7 +1,7 @@
 # Calculator
 It is an offline calculator that can help you do the math even when losing internet connection.
 
-![Standard Calculator Screen](https://github.com/ii887522/calculator/blob/main/docs/standard_calculator.png)
+![Standard Calculator Screen](https://github.com/ii887522/calculator/blob/master/docs/standard_calculator.png)
 
 ## Getting Started
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See bundling for notes on how to bundle the project for starting the calculator and distribution.
