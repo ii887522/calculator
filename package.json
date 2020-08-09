@@ -31,6 +31,6 @@
     "@types/jszip": "^3.4.1",
     "@types/node": "^14.0.23",
     "c8": "^7.3.0",
-    "typescript": "^3.9.6"
+    "typescript": "^3.9.7"
   }
 }
