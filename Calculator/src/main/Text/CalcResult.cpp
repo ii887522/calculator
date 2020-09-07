@@ -25,14 +25,14 @@ namespace ii887522::Calculator
 	Pair<Action, Message> CalcResult::reactMessage(const Message& message)
 	{
 		viewModel.reactMessage(message);
-		set(viewModel.value);
-		return Pair{ Action::NONE, viewModel.message };
+		set(viewModel.getValue());
+		return Pair{ Action::NONE, viewModel.getMessage() };
 	}
 
 	void CalcResult::render()
 	{
-		const SDL_Rect rect{ position.x - surface->w, position.y - surface->h, surface->w, surface->h };
-		SDL_RenderCopy(renderer, texture, nullptr, &rect);
+		const SDL_Rect rect{ getPosition().x - getSurface()->w, getPosition().y - getSurface()->h, getSurface()->w, getSurface()->h };
+		SDL_RenderCopy(getRenderer(), getTexture(), nullptr, &rect);
 	}
 
 	CalcResult::~CalcResult()

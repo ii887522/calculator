@@ -13,7 +13,7 @@ namespace ii887522::Calculator
 {
 	RadialGradient::RadialGradient(SDL_Renderer*const renderer, const Size& parentSize) :
 		ResourceView{ renderer, IMG_Load("res/main/radial_gradient.png"), Point{ 1024, 1024 } } /* 1024, 1024 to hide it */,
-		viewModel{ parentSize, Size{ surface->w, surface->h } } { }
+		viewModel{ parentSize, Size{ getSurface()->w, getSurface()->h } } { }
 
 	Action RadialGradient::reactMouseMotion(const SDL_MouseMotionEvent& motionEvent)
 	{
@@ -29,9 +29,9 @@ namespace ii887522::Calculator
 
 	void RadialGradient::render()
 	{
-		SDL_SetTextureAlphaMod(texture, static_cast<Uint8>(viewModel.a));
-		const SDL_Rect rect{ viewModel.position.x, viewModel.position.y, surface->w, surface->h };
-		SDL_RenderCopy(renderer, texture, nullptr, &rect);
+		SDL_SetTextureAlphaMod(getTexture(), static_cast<Uint8>(viewModel.getA()));
+		const SDL_Rect rect{ viewModel.getPosition().x, viewModel.getPosition().y, getSurface()->w, getSurface()->h };
+		SDL_RenderCopy(getRenderer(), getTexture(), nullptr, &rect);
 	}
 }
 

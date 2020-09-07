@@ -24,6 +24,10 @@ namespace ii887522::Calculator
 		unsigned int elaspedTime;
 		const Ability ability;
 
+		AnimatedFloat a;
+		bool isAnimating;
+		Message message;
+
 		constexpr void reactError()
 		{
 			elaspedTime = 0u;
@@ -41,11 +45,23 @@ namespace ii887522::Calculator
 		}
 
 	public:
-		AnimatedFloat a;
-		bool isAnimating;
-		Message message;
-
 		explicit TextModel(const Ability = Ability::NONE);
+
+		constexpr const AnimatedFloat& getA() const
+		{
+			return a;
+		}
+
+		constexpr bool getIsAnimating() const
+		{
+			return isAnimating;
+		}
+
+		constexpr const Message& getMessage() const
+		{
+			return message;
+		}
+
 		void reactMessage(const Message&);
 
 		constexpr void step(const unsigned int dt)

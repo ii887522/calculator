@@ -32,8 +32,13 @@ namespace ii887522::Calculator
 		virtual void render() = 0;
 		virtual ~View();
 
+	private: SDL_Renderer*const renderer;
+
 	protected:
-		SDL_Renderer*const renderer;
+		constexpr SDL_Renderer*const getRenderer()
+		{
+			return renderer;
+		}
 
 		// Param renderer: it must not be assigned to integer
 		explicit View(SDL_Renderer* const renderer);

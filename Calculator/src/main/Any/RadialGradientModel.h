@@ -23,6 +23,8 @@ namespace ii887522::Calculator
 
 		const Size parentSize;
 		const Size size;
+		unsigned int a;
+		Point position;
 
 		constexpr void follow(const Point& mousePosition)
 		{
@@ -31,11 +33,18 @@ namespace ii887522::Calculator
 		}
 
 	public:
-		unsigned int a;
-		Point position;
-
 		explicit constexpr RadialGradientModel(const Size& parentSize, const Size& size) : parentSize{ parentSize }, size{ size },
 			a{ 255u }, position{ 1024, 1024 } /* 1024, 1024 to hide it */ { }
+
+		constexpr unsigned int getA()
+		{
+			return a;
+		}
+
+		constexpr const Point& getPosition() const
+		{
+			return position;
+		}
 
 		constexpr void reactMouseMotion(const Point& mousePosition)
 		{

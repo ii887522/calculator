@@ -27,6 +27,8 @@ namespace ii887522::Calculator
 		State state;
 		double result;
 		const unsigned int maxSizeIgnoreDash;
+		string value;
+		Message message;
 
 		void reactDigit();
 		void clear();
@@ -45,10 +47,9 @@ namespace ii887522::Calculator
 		void reactUnaryExpr(const string& exprStr);
 
 	public:
-		string value;
-		Message message;
-
 		explicit CalcExprModel(const unsigned int maxSizeIgnoreDash);
+		const string& getValue() const;
+		const Message& getMessage() const;
 		void reactMessage(const Message&);
 	};
 }

@@ -18,13 +18,13 @@ namespace ii887522::Calculator
 	{
 		free();
 		surface = newSurface;
-		texture = SDL_CreateTextureFromSurface(renderer, newSurface);
+		texture = SDL_CreateTextureFromSurface(getRenderer(), newSurface);
 	}
 
 	void ResourceView::render()
 	{
 		const SDL_Rect rect{ position.x, position.y, surface->w, surface->h };
-		SDL_RenderCopy(renderer, texture, nullptr, &rect);
+		SDL_RenderCopy(getRenderer(), texture, nullptr, &rect);
 	}
 
 	void ResourceView::free()

@@ -27,6 +27,8 @@ namespace ii887522::Calculator
 
 		State state;
 		const unsigned int maxSizeIgnoreDash;
+		string value;
+		Message message;
 
 		void reactExprResult(const string& resultStr);
 		void reactDigitWhenNumber(const char digitCh);
@@ -58,9 +60,8 @@ namespace ii887522::Calculator
 		void reactUnaryOperator(const string& operatorStr);
 
 	public:
-		string value;
-		Message message;
-
+		const string& getValue() const;
+		const Message& getMessage() const;
 		explicit CalcResultModel(const unsigned int maxSizeIgnoreDash);
 		void reactMessage(const Message&);
 	};

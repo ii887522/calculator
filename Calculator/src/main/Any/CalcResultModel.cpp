@@ -10,6 +10,16 @@ namespace ii887522::Calculator
 	CalcResultModel::CalcResultModel(const unsigned int maxSizeIgnoreDash) : state{ State::INT }, maxSizeIgnoreDash{ maxSizeIgnoreDash },
 		value{ '0' }, message{ } { }
 
+	const string& CalcResultModel::getValue() const
+	{
+		return value;
+	}
+
+	const Message& CalcResultModel::getMessage() const
+	{
+		return message;
+	}
+
 	void CalcResultModel::reactExprResult(const string& resultStr)
 	{
 		value = resultStr;

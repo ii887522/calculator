@@ -21,25 +21,25 @@ namespace ii887522::Calculator
 	Pair<Action, Message> Text::reactMessage(const Message& message)
 	{
 		viewModel.reactMessage(message);
-		if (isAnimating || !viewModel.isAnimating) return Pair{ Action::NONE, viewModel.message };
+		if (isAnimating || !viewModel.getIsAnimating()) return Pair{ Action::NONE, viewModel.getMessage() };
 		isAnimating = true;
-		return Pair{ Action::START_ANIMATION, viewModel.message };
+		return Pair{ Action::START_ANIMATION, viewModel.getMessage() };
 	}
 
 	Action Text::step(const unsigned int dt)
 	{
 		if (!isAnimating) return Action::NONE;
 		viewModel.step(dt);
-		if (viewModel.isAnimating) return Action::NONE;
+		if (viewModel.getIsAnimating()) return Action::NONE;
 		isAnimating = false;
 		return Action::STOP_ANIMATION;
 	}
 
 	void Text::render()
 	{
-		SDL_SetTextureAlphaMod(texture, static_cast<Uint8>(viewModel.a.now));
-		const SDL_Rect rect{ position.x, position.y, surface->w, surface->h };
-		SDL_RenderCopy(renderer, texture, nullptr, &rect);
+		SDL_SetTextureAlphaMod(getTexture(), static_cast<Uint8>(viewModel.getA().now));
+		const SDL_Rect rect{ getPosition().x, getPosition().y, getSurface()->w, getSurface()->h };
+		SDL_RenderCopy(getRenderer(), getTexture(), nullptr, &rect);
 	}
 }
 
