@@ -11,9 +11,9 @@ namespace ii887522::Calculator
 
 	void CalcScreen::render()
 	{
-		SDL_SetRenderDrawColor(renderer, 192u, 192u, 192u, 255u);
+		SDL_SetRenderDrawColor(getRenderer(), 192u, 192u, 192u, 255u);
 		const SDL_Rect sdl_rect{ rect.position.x, rect.position.y, rect.size.w, rect.size.h };
-		SDL_RenderFillRect(renderer, &sdl_rect);
+		SDL_RenderFillRect(getRenderer(), &sdl_rect);
 	}
 }
 

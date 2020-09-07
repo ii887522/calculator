@@ -30,10 +30,26 @@ namespace ii887522::Calculator
 		virtual void render() override;
 		~ResourceView();
 
-	protected:
+	private:
 		Point position;
 		SDL_Surface* surface;
 		SDL_Texture* texture;
+
+	protected:
+		constexpr Point& getPosition()
+		{
+			return position;
+		}
+
+		constexpr SDL_Surface* getSurface()
+		{
+			return surface;
+		}
+
+		constexpr SDL_Texture* getTexture()
+		{
+			return texture;
+		}
 
 		// Param surface: it must not be assigned to integer
 		void set(SDL_Surface* const surface);

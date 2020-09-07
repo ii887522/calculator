@@ -48,22 +48,24 @@ namespace ii887522::Calculator
 		case Message::Head::INPUT_PLUS:
 		case Message::Head::INPUT_SQR:
 		case Message::Head::INPUT_SQRT:
-			position.x = boundingRect.position.x + boundingRect.size.w;
+			getPosition().x = boundingRect.position.x + boundingRect.size.w;
 		}
 		viewModel.reactMessage(message);
-		set(viewModel.value);
-		return Pair{ Action::NONE, viewModel.message };
+		set(viewModel.getValue());
+		return Pair{ Action::NONE, viewModel.getMessage() };
 	}
 
 	void CalcExpr::render()
 	{
 		const SDL_Rect srcRect{
-			max(0, boundingRect.position.x - position.x + surface->w), 0, min(surface->w, boundingRect.size.w), surface->h
+			max(0, boundingRect.position.x - getPosition().x + getSurface()->w), 0,
+			min(getSurface()->w, boundingRect.size.w), getSurface()->h
 		};
 		const SDL_Rect dstRect{
-			max(position.x - surface->w, boundingRect.position.x), position.y, min(surface->w, boundingRect.size.w), surface->h
+			max(getPosition().x - getSurface()->w, boundingRect.position.x), getPosition().y,
+			min(getSurface()->w, boundingRect.size.w), getSurface()->h
 		};
-		SDL_RenderCopy(renderer, texture, &srcRect, &dstRect);
+		SDL_RenderCopy(getRenderer(), getTexture(), &srcRect, &dstRect);
 	}
 
 	CalcExpr::~CalcExpr()

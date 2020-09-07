@@ -34,6 +34,12 @@ namespace ii887522::Calculator
 		const SDL_Keycode keyCode;
 		const Ability ability;
 
+		const Rect rect;
+		AnimatedFloat lightness;
+		AnimatedFloat borderA;
+		bool isAnimating;
+		Message message;
+
 		constexpr void reactError()
 		{
 			state = State::DISABLED;
@@ -82,13 +88,33 @@ namespace ii887522::Calculator
 		}
 
 	public:
-		const Rect rect;
-		AnimatedFloat lightness;
-		AnimatedFloat borderA;
-		bool isAnimating;
-		Message message;
-
 		explicit ButtonModel(const Rect&, const Message& = Message{ }, const Ability = Ability::NONE, const SDL_Keycode = SDLK_UNKNOWN);
+
+		constexpr const Rect& getRect() const
+		{
+			return rect;
+		}
+
+		constexpr const AnimatedFloat& getLightness() const
+		{
+			return lightness;
+		}
+
+		constexpr const AnimatedFloat& getBorderA() const
+		{
+			return borderA;
+		}
+
+		constexpr bool getIsAnimating() const
+		{
+			return isAnimating;
+		}
+
+		constexpr const Message& getMessage() const
+		{
+			return message;
+		}
+
 		void reactMessage(const Message&);
 
 		constexpr void reactMouseMotion(const Point& mousePosition)

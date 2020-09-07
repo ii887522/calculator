@@ -13,6 +13,16 @@ namespace ii887522::Calculator
 		maxSizeIgnoreDash{ maxSizeIgnoreDash }, value{ " " }, message{ } { }
 		// " " because TTF_RenderText_* requires text with at least 1 character to render
 
+	const string& CalcExprModel::getValue() const
+	{
+		return value;
+	}
+
+	const Message& CalcExprModel::getMessage() const
+	{
+		return message;
+	}
+
 	void CalcExprModel::reactDigit()
 	{
 		switch (state)

@@ -16,15 +16,15 @@ namespace ii887522::Calculator
 	Pair<Action, Message> Button::reactMessage(const Message& message)
 	{
 		viewModel.reactMessage(message);
-		if (isAnimating || !viewModel.isAnimating) return Pair{ Action::NONE, viewModel.message };
+		if (isAnimating || !viewModel.getIsAnimating()) return Pair{ Action::NONE, viewModel.getMessage() };
 		isAnimating = true;
-		return Pair{ Action::START_ANIMATION, viewModel.message };
+		return Pair{ Action::START_ANIMATION, viewModel.getMessage() };
 	}
 
 	Action Button::reactMouseMotion(const SDL_MouseMotionEvent& motionEvent)
 	{
 		viewModel.reactMouseMotion(Point{ motionEvent.x, motionEvent.y });
-		if (isAnimating || !viewModel.isAnimating) return Action::NONE;
+		if (isAnimating || !viewModel.getIsAnimating()) return Action::NONE;
 		isAnimating = true;
 		return Action::START_ANIMATION;
 	}
@@ -32,7 +32,7 @@ namespace ii887522::Calculator
 	Action Button::reactLeftMouseButtonDown(const SDL_MouseButtonEvent&)
 	{
 		viewModel.reactLeftMouseButtonDown();
-		if (isAnimating || !viewModel.isAnimating) return Action::NONE;
+		if (isAnimating || !viewModel.getIsAnimating()) return Action::NONE;
 		isAnimating = true;
 		return Action::START_ANIMATION;
 	}
@@ -40,15 +40,15 @@ namespace ii887522::Calculator
 	Pair<Action, Message> Button::reactLeftMouseButtonUp(const SDL_MouseButtonEvent&)
 	{
 		viewModel.reactLeftMouseButtonUp();
-		if (!viewModel.isAnimating || isAnimating) return Pair{ Action::NONE, viewModel.message };
+		if (!viewModel.getIsAnimating() || isAnimating) return Pair{ Action::NONE, viewModel.getMessage() };
 		isAnimating = true;
-		return Pair{ Action::START_ANIMATION, viewModel.message };
+		return Pair{ Action::START_ANIMATION, viewModel.getMessage() };
 	}
 
 	Action Button::reactMouseLeaveWindow(const SDL_WindowEvent&)
 	{
 		viewModel.reactMouseLeaveWindow();
-		if (isAnimating || !viewModel.isAnimating) return Action::NONE;
+		if (isAnimating || !viewModel.getIsAnimating()) return Action::NONE;
 		isAnimating = true;
 		return Action::START_ANIMATION;
 	}
@@ -56,15 +56,15 @@ namespace ii887522::Calculator
 	Pair<Action, Message> Button::reactKeyDown(const SDL_KeyboardEvent& keyEvent)
 	{
 		viewModel.reactKeyDown(keyEvent.keysym.sym);
-		if (!viewModel.isAnimating || isAnimating) return Pair{ Action::NONE, viewModel.message };
+		if (!viewModel.getIsAnimating() || isAnimating) return Pair{ Action::NONE, viewModel.getMessage() };
 		isAnimating = true;
-		return Pair{ Action::START_ANIMATION, viewModel.message };
+		return Pair{ Action::START_ANIMATION, viewModel.getMessage() };
 	}
 
 	Action Button::reactKeyUp(const SDL_KeyboardEvent& keyEvent)
 	{
 		viewModel.reactKeyUp(keyEvent.keysym.sym);
-		if (isAnimating || !viewModel.isAnimating) return Action::NONE;
+		if (isAnimating || !viewModel.getIsAnimating()) return Action::NONE;
 		isAnimating = true;
 		return Action::START_ANIMATION;
 	}
@@ -73,24 +73,26 @@ namespace ii887522::Calculator
 	{
 		if (!isAnimating) return Action::NONE;
 		viewModel.step(dt);
-		if (viewModel.isAnimating) return Action::NONE;
+		if (viewModel.getIsAnimating()) return Action::NONE;
 		isAnimating = false;
 		return Action::STOP_ANIMATION;
 	}
 
 	void Button::renderBackground()
 	{
-		SDL_SetRenderDrawColor(renderer, static_cast<Uint8>(color.r * viewModel.lightness.now), static_cast<Uint8>(color.g *
-			viewModel.lightness.now), static_cast<Uint8>(color.b * viewModel.lightness.now), 255u);
-		const SDL_Rect rect{ viewModel.rect.position.x, viewModel.rect.position.y, viewModel.rect.size.w, viewModel.rect.size.h };
-		SDL_RenderFillRect(renderer, &rect);
+		SDL_SetRenderDrawColor(getRenderer(), static_cast<Uint8>(color.r * viewModel.getLightness().now), static_cast<Uint8>(color.g *
+			viewModel.getLightness().now), static_cast<Uint8>(color.b * viewModel.getLightness().now), 255u);
+		const SDL_Rect rect{ viewModel.getRect().position.x, viewModel.getRect().position.y, viewModel.getRect().size.w,
+			viewModel.getRect().size.h };
+		SDL_RenderFillRect(getRenderer(), &rect);
 	}
 
 	void Button::renderBorder()
 	{
-		SDL_SetRenderDrawColor(renderer, 128u, 128u, 128u, static_cast<Uint8>(viewModel.borderA.now));
-		const SDL_Rect rect{ viewModel.rect.position.x, viewModel.rect.position.y, viewModel.rect.size.w, viewModel.rect.size.h };
-		SDL_RenderDrawRect(renderer, &rect);
+		SDL_SetRenderDrawColor(getRenderer(), 128u, 128u, 128u, static_cast<Uint8>(viewModel.getBorderA().now));
+		const SDL_Rect rect{ viewModel.getRect().position.x, viewModel.getRect().position.y, viewModel.getRect().size.w,
+			viewModel.getRect().size.h };
+		SDL_RenderDrawRect(getRenderer(), &rect);
 	}
 
 	void Button::render()

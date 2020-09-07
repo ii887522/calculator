@@ -37,15 +37,16 @@ namespace ii887522::Calculator
 
 		constexpr void moveLeft()
 		{
-			position.x -= speed;
-			if (position.x < boundingRect.position.x + boundingRect.size.w) position.x = boundingRect.position.x + boundingRect.size.w;
+			getPosition().x -= speed;
+			if (getPosition().x < boundingRect.position.x + boundingRect.size.w)
+				getPosition().x = boundingRect.position.x + boundingRect.size.w;
 		}
 
 		constexpr void moveRight()
 		{
-			position.x += speed;
-			if (position.x - surface->w > boundingRect.position.x)
-				position.x = max(boundingRect.position.x + surface->w, boundingRect.position.x + boundingRect.size.w);
+			getPosition().x += speed;
+			if (getPosition().x - getSurface()->w > boundingRect.position.x)
+				getPosition().x = max(boundingRect.position.x + getSurface()->w, boundingRect.position.x + boundingRect.size.w);
 		}
 
 	public:

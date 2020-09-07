@@ -11,9 +11,9 @@ namespace ii887522::Calculator
 
 	void NavBar::render()
 	{
-		SDL_SetRenderDrawColor(renderer, 192u, 192u, 192u, 255u);
+		SDL_SetRenderDrawColor(getRenderer(), 192u, 192u, 192u, 255u);
 		const SDL_Rect rect{ 0, 0, size.w, size.h };
-		SDL_RenderFillRect(renderer, &rect);
+		SDL_RenderFillRect(getRenderer(), &rect);
 	}
 }
 
