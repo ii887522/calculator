@@ -231,7 +231,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="src\main\Any\App.cpp" />
+    <ClCompile Include="src\main\Any\MainActivity.cpp" />
     <ClCompile Include="src\main\Any\ButtonModel.cpp" />
     <ClCompile Include="src\main\Any\CalcExprModel.cpp" />
     <ClCompile Include="src\main\Any\CalcResultModel.cpp" />
@@ -265,7 +265,7 @@
     <ClCompile Include="src\test\TextModel.test.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="src\main\Any\App.h" />
+    <ClInclude Include="src\main\Any\MainActivity.h" />
     <ClInclude Include="src\main\Any\ButtonGrid.h" />
     <ClInclude Include="src\main\Any\ButtonModel.h" />
     <ClInclude Include="src\main\Any\CalcExprModel.h" />

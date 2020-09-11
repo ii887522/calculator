@@ -66,9 +66,6 @@
     <ClCompile Include="src\test\control_flow.test.cpp">
       <Filter>Test Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\main\Any\App.cpp">
-      <Filter>Source Files\Any</Filter>
-    </ClCompile>
     <ClCompile Include="src\main\Any\Scene.cpp">
       <Filter>Source Files\Any</Filter>
     </ClCompile>
@@ -150,6 +147,9 @@
     <ClCompile Include="src\main\Any\TextModel.cpp">
       <Filter>Source Files\Any</Filter>
     </ClCompile>
+    <ClCompile Include="src\main\Any\MainActivity.cpp">
+      <Filter>Source Files\Any</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\test\ButtonModel.test.h">
@@ -160,9 +160,6 @@
     </ClInclude>
     <ClInclude Include="src\test\control_flow.test.h">
       <Filter>Test Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\main\Any\App.h">
-      <Filter>Header Files\Any</Filter>
     </ClInclude>
     <ClInclude Include="src\main\Any\ButtonModel.h">
       <Filter>Header Files\Any</Filter>
@@ -280,6 +277,9 @@
     </ClInclude>
     <ClInclude Include="src\test\TextModel.test.h">
       <Filter>Test Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\main\Any\MainActivity.h">
+      <Filter>Header Files\Any</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

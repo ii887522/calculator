@@ -1,7 +1,7 @@
 #ifndef TEST
 
-#ifndef II887522_CALCULATOR_APP_H
-#define II887522_CALCULATOR_APP_H
+#ifndef II887522_CALCULATOR_MAIN_ACTIVITY_H
+#define II887522_CALCULATOR_MAIN_ACTIVITY_H
 
 #include <SDL.h>
 #include "Scene.h"
@@ -12,15 +12,15 @@ namespace ii887522::Calculator
 {
 	// Not Thread Safe: it must only be used in main thread
 	// See also "../Functions/calculator.cpp" if you are looking for main entry point
-	class App final
+	class MainActivity final
 	{
 		// remove copy semantics
-		App(const App&) = delete;
-		App& operator=(const App&) = delete;
+		MainActivity(const MainActivity&) = delete;
+		MainActivity& operator=(const MainActivity&) = delete;
 
 		// remove move semantics
-		App(App&&) = delete;
-		App& operator=(App&&) = delete;
+		MainActivity(MainActivity&&) = delete;
+		MainActivity& operator=(MainActivity&&) = delete;
 
 		SDL_Window*const window;
 		SDL_Surface*const ico;
@@ -49,7 +49,7 @@ namespace ii887522::Calculator
 		}
 
 	public:
-		explicit App(const Size& = Size{ 318, 437 });
+		explicit MainActivity(const Size& = Size{ 318, 437 });
 
 		constexpr Action react(const SDL_Event& event)
 		{
@@ -68,7 +68,7 @@ namespace ii887522::Calculator
 
 		Action step(const unsigned int dt);
 		void show();
-		~App();
+		~MainActivity();
 	};
 }
 

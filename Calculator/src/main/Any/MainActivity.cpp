@@ -1,6 +1,6 @@
 #ifndef TEST
 
-#include "App.h"
+#include "MainActivity.h"
 #include <SDL.h>
 #include <SDL_image.h>
 #include "../Struct/Rect.h"
@@ -10,38 +10,38 @@
 
 namespace ii887522::Calculator
 {
-	App::App(const Size& size) : window{ SDL_CreateWindow("Calcuator", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, size.w, size.h,
-		0u) }, ico{ IMG_Load("res/main/calculator.png") }, renderer{ SDL_CreateRenderer(window, -1, SDL_RENDERER_SOFTWARE) },
+	MainActivity::MainActivity(const Size& size) : window{ SDL_CreateWindow("Calcuator", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED,
+		size.w, size.h, 0u) }, ico{ IMG_Load("res/main/calculator.png") }, renderer{ SDL_CreateRenderer(window, -1, SDL_RENDERER_SOFTWARE) },
 		scene{ renderer, size }
 	{
 		SDL_SetWindowIcon(window, ico);
 		SDL_SetRenderDrawBlendMode(renderer, SDL_BLENDMODE_BLEND);
 	}
 
-	Action App::step(const unsigned int dt)
+	Action MainActivity::step(const unsigned int dt)
 	{
 		return scene.step(dt);
 	}
 
-	void App::renderBackground()
+	void MainActivity::renderBackground()
 	{
 		SDL_SetRenderDrawColor(renderer, 192u, 192u, 192u, 255u);
 		SDL_RenderClear(renderer);
 	}
 
-	void App::render()
+	void MainActivity::render()
 	{
 		renderBackground();
 		scene.render();
 	}
 
-	void App::show()
+	void MainActivity::show()
 	{
 		render();
 		SDL_RenderPresent(renderer);
 	}
 
-	App::~App()
+	MainActivity::~MainActivity()
 	{
 		SDL_DestroyRenderer(renderer);
 		SDL_FreeSurface(ico);
