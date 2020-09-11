@@ -4,7 +4,7 @@
 #define II887522_CALCULATOR_MAIN_ACTIVITY_H
 
 #include <SDL.h>
-#include "Scene.h"
+#include "MainScene.h"
 #include "Enums.h"
 #include "../Struct/Size.h"
 
@@ -25,7 +25,7 @@ namespace ii887522::Calculator
 		SDL_Window*const window;
 		SDL_Surface*const ico;
 		SDL_Renderer*const renderer;
-		Scene scene;
+		MainScene scene;
 
 		void renderBackground();
 		void render();

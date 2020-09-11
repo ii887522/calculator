@@ -1,7 +1,7 @@
 #ifndef TEST
 
-#ifndef II887522_CALCULATOR_SCENE_H
-#define II887522_CALCULATOR_SCENE_H
+#ifndef II887522_CALCULATOR_MAIN_SCENE_H
+#define II887522_CALCULATOR_MAIN_SCENE_H
 
 #include <SDL.h>
 #include <SDL_ttf.h>
@@ -16,15 +16,15 @@
 namespace ii887522::Calculator
 {
 	// Not Thread Safe: it must only be used in main thread
-	class Scene final
+	class MainScene final
 	{
 		// remove copy semantics
-		Scene(const Scene&) = delete;
-		Scene& operator=(const Scene&) = delete;
+		MainScene(const MainScene&) = delete;
+		MainScene& operator=(const MainScene&) = delete;
 
 		// remove move semantics
-		Scene(Scene&&) = delete;
-		Scene& operator=(Scene&&) = delete;
+		MainScene(MainScene&&) = delete;
+		MainScene& operator=(MainScene&&) = delete;
 
 		View*const views[12u];
 		bool isAnimating;
@@ -34,11 +34,11 @@ namespace ii887522::Calculator
 
 		// Param renderer: it must not be assigned to integer
 		// Param font: it must not be assigned to integer
-		explicit Scene(SDL_Renderer*const renderer, const Size& size, const unsigned int maxSizeIgnoreDash, const Rect& calcScreenRect,
+		explicit MainScene(SDL_Renderer*const renderer, const Size& size, const unsigned int maxSizeIgnoreDash, const Rect& calcScreenRect,
 			TTF_Font*const font, const int buttonSize, const ButtonGrid&);
 	public:
 		// Param renderer: it must not be assigned to integer
-		explicit Scene(SDL_Renderer*const renderer, const Size& size, const int buttonSize = 41);
+		explicit MainScene(SDL_Renderer*const renderer, const Size& size, const int buttonSize = 41);
 
 		Action reactMouseMotion(const SDL_MouseMotionEvent&);
 		Action reactLeftMouseButtonDown(const SDL_MouseButtonEvent&);
@@ -48,7 +48,7 @@ namespace ii887522::Calculator
 		Action reactKeyUp(const SDL_KeyboardEvent&);
 		Action step(const unsigned int dt);
 		void render();
-		~Scene();
+		~MainScene();
 	};
 }
 

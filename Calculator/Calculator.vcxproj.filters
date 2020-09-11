@@ -66,9 +66,6 @@
     <ClCompile Include="src\test\control_flow.test.cpp">
       <Filter>Test Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\main\Any\Scene.cpp">
-      <Filter>Source Files\Any</Filter>
-    </ClCompile>
     <ClCompile Include="src\main\Any\Subsystems.cpp">
       <Filter>Source Files\Any</Filter>
     </ClCompile>
@@ -150,6 +147,9 @@
     <ClCompile Include="src\main\Any\MainActivity.cpp">
       <Filter>Source Files\Any</Filter>
     </ClCompile>
+    <ClCompile Include="src\main\Any\MainScene.cpp">
+      <Filter>Source Files\Any</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\test\ButtonModel.test.h">
@@ -165,9 +165,6 @@
       <Filter>Header Files\Any</Filter>
     </ClInclude>
     <ClInclude Include="src\main\Any\Enums.h">
-      <Filter>Header Files\Any</Filter>
-    </ClInclude>
-    <ClInclude Include="src\main\Any\Scene.h">
       <Filter>Header Files\Any</Filter>
     </ClInclude>
     <ClInclude Include="src\main\Any\Subsystems.h">
@@ -279,6 +276,9 @@
       <Filter>Test Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\main\Any\MainActivity.h">
+      <Filter>Header Files\Any</Filter>
+    </ClInclude>
+    <ClInclude Include="src\main\Any\MainScene.h">
       <Filter>Header Files\Any</Filter>
     </ClInclude>
   </ItemGroup>

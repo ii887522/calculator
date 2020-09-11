@@ -235,7 +235,7 @@
     <ClCompile Include="src\main\Any\ButtonModel.cpp" />
     <ClCompile Include="src\main\Any\CalcExprModel.cpp" />
     <ClCompile Include="src\main\Any\CalcResultModel.cpp" />
-    <ClCompile Include="src\main\Any\Scene.cpp" />
+    <ClCompile Include="src\main\Any\MainScene.cpp" />
     <ClCompile Include="src\main\Any\Subsystems.cpp" />
     <ClCompile Include="src\main\Any\TextModel.cpp" />
     <ClCompile Include="src\main\Any\View.cpp" />
@@ -273,7 +273,7 @@
     <ClInclude Include="src\main\Any\constants.h" />
     <ClInclude Include="src\main\Any\Enums.h" />
     <ClInclude Include="src\main\Any\RadialGradientModel.h" />
-    <ClInclude Include="src\main\Any\Scene.h" />
+    <ClInclude Include="src\main\Any\MainScene.h" />
     <ClInclude Include="src\main\Any\Subsystems.h" />
     <ClInclude Include="src\main\Any\TextModel.h" />
     <ClInclude Include="src\main\Any\View.h" />

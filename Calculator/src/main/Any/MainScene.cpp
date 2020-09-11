@@ -1,6 +1,6 @@
 #ifndef TEST
 
-#include "Scene.h"
+#include "MainScene.h"
 #include <SDL.h>
 #include <SDL_image.h>
 #include <SDL_ttf.h>
@@ -24,11 +24,11 @@
 
 namespace ii887522::Calculator
 {
-	Scene::Scene(SDL_Renderer*const renderer, const Size& size, const int buttonSize) :
-		Scene{ renderer, size, 9u, Rect{ Point{ 0, buttonSize }, Size{ size.w, 89 } }, TTF_OpenFont("res/main/arial.ttf", 20), buttonSize,
-			ButtonGrid{ Point{ 4, 134 } } } { }
+	MainScene::MainScene(SDL_Renderer*const renderer, const Size& size, const int buttonSize) :
+		MainScene{ renderer, size, 9u, Rect{ Point{ 0, buttonSize }, Size{ size.w, 89 } }, TTF_OpenFont("res/main/arial.ttf", 20),
+			buttonSize, ButtonGrid{ Point{ 4, 134 } } } { }
 
-	Scene::Scene(SDL_Renderer*const renderer, const Size& size, const unsigned int maxSizeIgnoreDash, const Rect& calcScreenRect,
+	MainScene::MainScene(SDL_Renderer*const renderer, const Size& size, const unsigned int maxSizeIgnoreDash, const Rect& calcScreenRect,
 		TTF_Font*const font, const int buttonSize, const ButtonGrid& buttonGrid) : views{
 			new RadialGradient{ renderer, size },
 			new NavBar{ renderer, Size{ size.w, buttonSize } },
@@ -47,7 +47,7 @@ namespace ii887522::Calculator
 			TTF_CloseFont(font);
 		}
 
-	Action Scene::reactMouseMotion(const SDL_MouseMotionEvent& motionEvent)
+	Action MainScene::reactMouseMotion(const SDL_MouseMotionEvent& motionEvent)
 	{
 		auto result{ Action::NONE };
 		loop(sizeof views / sizeof(View*), [=, &result](const auto i) {
@@ -61,7 +61,7 @@ namespace ii887522::Calculator
 		return result;
 	}
 
-	Action Scene::reactLeftMouseButtonDown(const SDL_MouseButtonEvent& buttonEvent)
+	Action MainScene::reactLeftMouseButtonDown(const SDL_MouseButtonEvent& buttonEvent)
 	{
 		auto result{ Action::NONE };
 		loop(sizeof views / sizeof(View*), [=, &result](const auto i) {
@@ -75,7 +75,7 @@ namespace ii887522::Calculator
 		return result;
 	}
 
-	Action Scene::reactLeftMouseButtonUp(const SDL_MouseButtonEvent& buttonEvent)
+	Action MainScene::reactLeftMouseButtonUp(const SDL_MouseButtonEvent& buttonEvent)
 	{
 		auto result{ Action::NONE };
 		loop(sizeof views / sizeof(View*), [=, &result](const auto i) {
@@ -90,7 +90,7 @@ namespace ii887522::Calculator
 		return result;
 	}
 
-	Action Scene::reactMouseLeaveWindow(const SDL_WindowEvent& windowEvent)
+	Action MainScene::reactMouseLeaveWindow(const SDL_WindowEvent& windowEvent)
 	{
 		auto result{ Action::NONE };
 		loop(sizeof views / sizeof(View*), [=, &result](const auto i) {
@@ -104,7 +104,7 @@ namespace ii887522::Calculator
 		return result;
 	}
 
-	Action Scene::reactKeyDown(const SDL_KeyboardEvent& keyEvent)
+	Action MainScene::reactKeyDown(const SDL_KeyboardEvent& keyEvent)
 	{
 		auto result{ Action::NONE };
 		loop(sizeof views / sizeof(View*), [=, &result](const auto i) {
@@ -119,7 +119,7 @@ namespace ii887522::Calculator
 		return result;
 	}
 
-	Action Scene::reactKeyUp(const SDL_KeyboardEvent& keyEvent)
+	Action MainScene::reactKeyUp(const SDL_KeyboardEvent& keyEvent)
 	{
 		auto result{ Action::NONE };
 		loop(sizeof views / sizeof(View*), [=, &result](const auto i) {
@@ -133,7 +133,7 @@ namespace ii887522::Calculator
 		return result;
 	}
 
-	Action Scene::reactMessage(const Message& p_message)
+	Action MainScene::reactMessage(const Message& p_message)
 	{
 		auto result{ Action::NONE };
 		loop(sizeof views / sizeof(View*), [=, &result](const auto i) {
@@ -148,7 +148,7 @@ namespace ii887522::Calculator
 		return result;
 	}
 
-	Action Scene::step(const unsigned int dt)
+	Action MainScene::step(const unsigned int dt)
 	{
 		auto result{ Action::NONE };
 		loop(sizeof views / sizeof(View*), [=, &result](const auto i) {
@@ -162,14 +162,14 @@ namespace ii887522::Calculator
 		return result;
 	}
 
-	void Scene::render()
+	void MainScene::render()
 	{
 		loop(sizeof views / sizeof(View*), [=](const auto i) {
 			views[i]->render();
 		});
 	}
 
-	Scene::~Scene()
+	MainScene::~MainScene()
 	{
 		loop(sizeof views / sizeof(View*), [=](const auto i) {
 			delete views[i];
