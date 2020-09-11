@@ -52,6 +52,12 @@
     <Filter Include="Source Files\Struct">
       <UniqueIdentifier>{422f992d-ef5d-4924-ba8f-e9c6e9745bb5}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Activity">
+      <UniqueIdentifier>{900c96a8-dd7a-4ee6-b99e-6606f4cac11d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Activity">
+      <UniqueIdentifier>{83003136-e58b-464a-9b79-5200a83c73b1}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\test\test.cpp">
@@ -144,10 +150,19 @@
     <ClCompile Include="src\main\Any\TextModel.cpp">
       <Filter>Source Files\Any</Filter>
     </ClCompile>
-    <ClCompile Include="src\main\Any\MainActivity.cpp">
+    <ClCompile Include="src\main\Any\MainScene.cpp">
       <Filter>Source Files\Any</Filter>
     </ClCompile>
-    <ClCompile Include="src\main\Any\MainScene.cpp">
+    <ClCompile Include="src\main\Any\Activity.cpp">
+      <Filter>Source Files\Any</Filter>
+    </ClCompile>
+    <ClCompile Include="src\main\Activity\MainActivity.cpp">
+      <Filter>Source Files\Activity</Filter>
+    </ClCompile>
+    <ClCompile Include="src\main\Activity\ContextMenu.cpp">
+      <Filter>Source Files\Activity</Filter>
+    </ClCompile>
+    <ClCompile Include="src\main\Any\App.cpp">
       <Filter>Source Files\Any</Filter>
     </ClCompile>
   </ItemGroup>
@@ -160,18 +175,6 @@
     </ClInclude>
     <ClInclude Include="src\test\control_flow.test.h">
       <Filter>Test Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\main\Any\ButtonModel.h">
-      <Filter>Header Files\Any</Filter>
-    </ClInclude>
-    <ClInclude Include="src\main\Any\Enums.h">
-      <Filter>Header Files\Any</Filter>
-    </ClInclude>
-    <ClInclude Include="src\main\Any\Subsystems.h">
-      <Filter>Header Files\Any</Filter>
-    </ClInclude>
-    <ClInclude Include="src\main\Any\View.h">
-      <Filter>Header Files\Any</Filter>
     </ClInclude>
     <ClInclude Include="src\main\Struct\AnimatedFloat.h">
       <Filter>Header Files\Struct</Filter>
@@ -206,9 +209,6 @@
     <ClInclude Include="src\main\View\ButtonGroup.h">
       <Filter>Header Files\View</Filter>
     </ClInclude>
-    <ClInclude Include="src\main\Any\ButtonGrid.h">
-      <Filter>Header Files\Any</Filter>
-    </ClInclude>
     <ClInclude Include="src\test\ButtonGrid.test.h">
       <Filter>Test Header Files</Filter>
     </ClInclude>
@@ -218,14 +218,8 @@
     <ClInclude Include="src\main\View\TextGroup.h">
       <Filter>Header Files\View</Filter>
     </ClInclude>
-    <ClInclude Include="src\main\Any\constants.h">
-      <Filter>Header Files\Any</Filter>
-    </ClInclude>
     <ClInclude Include="src\main\ResourceView\RadialGradient.h">
       <Filter>Header Files\ResourceView</Filter>
-    </ClInclude>
-    <ClInclude Include="src\main\Any\RadialGradientModel.h">
-      <Filter>Header Files\Any</Filter>
     </ClInclude>
     <ClInclude Include="src\test\RadialGradientModel.test.h">
       <Filter>Test Header Files</Filter>
@@ -251,9 +245,6 @@
     <ClInclude Include="src\main\Struct\Pair.h">
       <Filter>Header Files\Struct</Filter>
     </ClInclude>
-    <ClInclude Include="src\main\Any\CalcResultModel.h">
-      <Filter>Header Files\Any</Filter>
-    </ClInclude>
     <ClInclude Include="src\test\CalcResultModel.test.h">
       <Filter>Test Header Files</Filter>
     </ClInclude>
@@ -263,22 +254,55 @@
     <ClInclude Include="src\test\string_ext.test.h">
       <Filter>Test Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\main\Any\CalcExprModel.h">
-      <Filter>Header Files\Any</Filter>
-    </ClInclude>
     <ClInclude Include="src\test\CalcExprModel.test.h">
       <Filter>Test Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\main\Any\TextModel.h">
-      <Filter>Header Files\Any</Filter>
     </ClInclude>
     <ClInclude Include="src\test\TextModel.test.h">
       <Filter>Test Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\main\Any\MainActivity.h">
+    <ClInclude Include="src\main\Activity\ContextMenu.h">
+      <Filter>Header Files\Activity</Filter>
+    </ClInclude>
+    <ClInclude Include="src\main\Activity\MainActivity.h">
+      <Filter>Header Files\Activity</Filter>
+    </ClInclude>
+    <ClInclude Include="src\main\Any\Activity.h">
+      <Filter>Header Files\Any</Filter>
+    </ClInclude>
+    <ClInclude Include="src\main\Any\App.h">
+      <Filter>Header Files\Any</Filter>
+    </ClInclude>
+    <ClInclude Include="src\main\Any\ButtonGrid.h">
+      <Filter>Header Files\Any</Filter>
+    </ClInclude>
+    <ClInclude Include="src\main\Any\ButtonModel.h">
+      <Filter>Header Files\Any</Filter>
+    </ClInclude>
+    <ClInclude Include="src\main\Any\CalcExprModel.h">
+      <Filter>Header Files\Any</Filter>
+    </ClInclude>
+    <ClInclude Include="src\main\Any\CalcResultModel.h">
+      <Filter>Header Files\Any</Filter>
+    </ClInclude>
+    <ClInclude Include="src\main\Any\constants.h">
+      <Filter>Header Files\Any</Filter>
+    </ClInclude>
+    <ClInclude Include="src\main\Any\Enums.h">
       <Filter>Header Files\Any</Filter>
     </ClInclude>
     <ClInclude Include="src\main\Any\MainScene.h">
+      <Filter>Header Files\Any</Filter>
+    </ClInclude>
+    <ClInclude Include="src\main\Any\RadialGradientModel.h">
+      <Filter>Header Files\Any</Filter>
+    </ClInclude>
+    <ClInclude Include="src\main\Any\Subsystems.h">
+      <Filter>Header Files\Any</Filter>
+    </ClInclude>
+    <ClInclude Include="src\main\Any\TextModel.h">
+      <Filter>Header Files\Any</Filter>
+    </ClInclude>
+    <ClInclude Include="src\main\Any\View.h">
       <Filter>Header Files\Any</Filter>
     </ClInclude>
   </ItemGroup>

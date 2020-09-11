@@ -27,6 +27,7 @@ namespace ii887522::Calculator
 		MainScene& operator=(MainScene&&) = delete;
 
 		View*const views[12u];
+		Ability viewAbilities[sizeof views / sizeof(View*)];
 		bool isAnimating;
 		unsigned int viewAnimationsCount;
 
@@ -40,7 +41,8 @@ namespace ii887522::Calculator
 		// Param renderer: it must not be assigned to integer
 		explicit MainScene(SDL_Renderer*const renderer, const Size& size, const int buttonSize = 41);
 
-		Action reactMouseMotion(const SDL_MouseMotionEvent&);
+		Action reactMouseMotionWithFocus(const SDL_MouseMotionEvent&);
+		Action reactMouseMotionWithoutFocus(const SDL_MouseMotionEvent&);
 		Action reactLeftMouseButtonDown(const SDL_MouseButtonEvent&);
 		Action reactLeftMouseButtonUp(const SDL_MouseButtonEvent&);
 		Action reactMouseLeaveWindow(const SDL_WindowEvent&);

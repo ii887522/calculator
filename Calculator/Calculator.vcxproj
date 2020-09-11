@@ -231,7 +231,10 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="src\main\Any\MainActivity.cpp" />
+    <ClCompile Include="src\main\Activity\ContextMenu.cpp" />
+    <ClCompile Include="src\main\Activity\MainActivity.cpp" />
+    <ClCompile Include="src\main\Any\Activity.cpp" />
+    <ClCompile Include="src\main\Any\App.cpp" />
     <ClCompile Include="src\main\Any\ButtonModel.cpp" />
     <ClCompile Include="src\main\Any\CalcExprModel.cpp" />
     <ClCompile Include="src\main\Any\CalcResultModel.cpp" />
@@ -265,15 +268,18 @@
     <ClCompile Include="src\test\TextModel.test.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="src\main\Any\MainActivity.h" />
+    <ClInclude Include="src\main\Activity\ContextMenu.h" />
+    <ClInclude Include="src\main\Activity\MainActivity.h" />
+    <ClInclude Include="src\main\Any\Activity.h" />
+    <ClInclude Include="src\main\Any\App.h" />
     <ClInclude Include="src\main\Any\ButtonGrid.h" />
     <ClInclude Include="src\main\Any\ButtonModel.h" />
     <ClInclude Include="src\main\Any\CalcExprModel.h" />
     <ClInclude Include="src\main\Any\CalcResultModel.h" />
     <ClInclude Include="src\main\Any\constants.h" />
     <ClInclude Include="src\main\Any\Enums.h" />
-    <ClInclude Include="src\main\Any\RadialGradientModel.h" />
     <ClInclude Include="src\main\Any\MainScene.h" />
+    <ClInclude Include="src\main\Any\RadialGradientModel.h" />
     <ClInclude Include="src\main\Any\Subsystems.h" />
     <ClInclude Include="src\main\Any\TextModel.h" />
     <ClInclude Include="src\main\Any\View.h" />

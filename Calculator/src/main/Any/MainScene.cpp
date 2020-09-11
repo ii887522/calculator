@@ -42,15 +42,33 @@ namespace ii887522::Calculator
 			new CalcResult{ renderer, calcScreenRect, maxSizeIgnoreDash },
 			new ButtonGroup{ renderer, buttonGrid },
 			new TextGroup{ renderer, font, buttonGrid }
+		}, viewAbilities{
+			Ability::ALWAYS_REACT, Ability::NONE, Ability::NONE, Ability::NONE, Ability::NONE, Ability::NONE, Ability::NONE, Ability::NONE,
+			Ability::NONE, Ability::NONE, Ability::NONE, Ability::NONE
 		}, isAnimating{ false }, viewAnimationsCount{ 0u }
 		{
 			TTF_CloseFont(font);
 		}
 
-	Action MainScene::reactMouseMotion(const SDL_MouseMotionEvent& motionEvent)
+	Action MainScene::reactMouseMotionWithFocus(const SDL_MouseMotionEvent& motionEvent)
 	{
 		auto result{ Action::NONE };
 		loop(sizeof views / sizeof(View*), [=, &result](const auto i) {
+			const auto action{ views[i]->reactMouseMotion(motionEvent) };
+			if (action != Action::START_ANIMATION) return;
+			++viewAnimationsCount;
+			if (isAnimating) return;
+			result = action;
+			isAnimating = true;
+		});
+		return result;
+	}
+
+	Action MainScene::reactMouseMotionWithoutFocus(const SDL_MouseMotionEvent& motionEvent)
+	{
+		auto result{ Action::NONE };
+		loop(sizeof views / sizeof(View*), [=, &result](const auto i) {
+			if (viewAbilities[i] != Ability::ALWAYS_REACT) return;
 			const auto action{ views[i]->reactMouseMotion(motionEvent) };
 			if (action != Action::START_ANIMATION) return;
 			++viewAnimationsCount;

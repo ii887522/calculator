@@ -2,7 +2,7 @@
 
 #include <SDL.h>
 #include "../Any/Subsystems.h"
-#include "../Any/MainActivity.h"
+#include "../Any/App.h"
 #include "../Any/Enums.h"
 
 namespace ii887522::Calculator
@@ -10,16 +10,16 @@ namespace ii887522::Calculator
 	static int main(int, char**)
 	{
 		const Subsystems subsystems;
-		MainActivity mainActivity;
+		App app;
 		SDL_Event event;
-		mainActivity.show();
+		app.show();
 		while (true)
 		{
 			auto isAnimating{ false };
 			auto lastTime{ SDL_GetTicks() };
 			while (SDL_WaitEvent(&event))
 			{
-				switch (mainActivity.react(event))
+				switch (app.react(event))
 				{
 				case Action::QUIT: return EXIT_SUCCESS;
 				case Action::START_ANIMATION: isAnimating = true;
@@ -28,17 +28,17 @@ namespace ii887522::Calculator
 				const auto now{ SDL_GetTicks() };
 				if (now - lastTime < 3u) continue;
 				lastTime = now;
-				mainActivity.show();
+				app.show();
 			}
 			lastTime = SDL_GetTicks();
 			while (true)
 			{
-				while (SDL_PollEvent(&event)) if (mainActivity.react(event) == Action::QUIT) return EXIT_SUCCESS;
+				while (SDL_PollEvent(&event)) if (app.react(event) == Action::QUIT) return EXIT_SUCCESS;
 				const auto now{ SDL_GetTicks() };
 				const auto dt{ now - lastTime };
 				lastTime = now;
-				if (mainActivity.step(dt) == Action::STOP_ANIMATION) isAnimating = false;
-				mainActivity.show();
+				if (app.step(dt) == Action::STOP_ANIMATION) isAnimating = false;
+				app.show();
 				if (!isAnimating) break;
 				SDL_Delay(1u);
 			}
