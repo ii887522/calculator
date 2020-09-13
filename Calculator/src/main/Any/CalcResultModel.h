@@ -60,9 +60,9 @@ namespace ii887522::Calculator
 		void reactUnaryOperator(const string& operatorStr);
 
 	public:
+		explicit CalcResultModel(const unsigned int maxSizeIgnoreDash);
 		const string& getValue() const;
 		const Message& getMessage() const;
-		explicit CalcResultModel(const unsigned int maxSizeIgnoreDash);
 		void reactMessage(const Message&);
 	};
 }

@@ -24,13 +24,13 @@ namespace ii887522::Calculator
 		SDL_Renderer*const renderer;
 
 	protected:
+		// Param renderer: it must not be assigned to integer
+		explicit View(SDL_Renderer* const renderer);
+
 		constexpr SDL_Renderer* getRenderer()
 		{
 			return renderer;
 		}
-
-		// Param renderer: it must not be assigned to integer
-		explicit View(SDL_Renderer*const renderer);
 
 	public:
 		virtual Action reactMouseMotion(const SDL_MouseMotionEvent&);

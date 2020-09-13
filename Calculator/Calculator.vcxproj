@@ -238,7 +238,7 @@
     <ClCompile Include="src\main\Any\ButtonModel.cpp" />
     <ClCompile Include="src\main\Any\CalcExprModel.cpp" />
     <ClCompile Include="src\main\Any\CalcResultModel.cpp" />
-    <ClCompile Include="src\main\Any\MainScene.cpp" />
+    <ClCompile Include="src\main\Any\Scene.cpp" />
     <ClCompile Include="src\main\Any\Subsystems.cpp" />
     <ClCompile Include="src\main\Any\TextModel.cpp" />
     <ClCompile Include="src\main\Any\View.cpp" />
@@ -247,6 +247,8 @@
     <ClCompile Include="src\main\Functions\string_ext.cpp" />
     <ClCompile Include="src\main\ResourceView\RadialGradient.cpp" />
     <ClCompile Include="src\main\ResourceView\Text.cpp" />
+    <ClCompile Include="src\main\Scene\ContextMenuScene.cpp" />
+    <ClCompile Include="src\main\Scene\MainScene.cpp" />
     <ClCompile Include="src\main\Struct\Message.cpp" />
     <ClCompile Include="src\main\Text\CalcExpr.cpp" />
     <ClCompile Include="src\main\Text\CalcResult.cpp" />
@@ -278,8 +280,8 @@
     <ClInclude Include="src\main\Any\CalcResultModel.h" />
     <ClInclude Include="src\main\Any\constants.h" />
     <ClInclude Include="src\main\Any\Enums.h" />
-    <ClInclude Include="src\main\Any\MainScene.h" />
     <ClInclude Include="src\main\Any\RadialGradientModel.h" />
+    <ClInclude Include="src\main\Any\Scene.h" />
     <ClInclude Include="src\main\Any\Subsystems.h" />
     <ClInclude Include="src\main\Any\TextModel.h" />
     <ClInclude Include="src\main\Any\View.h" />
@@ -288,6 +290,8 @@
     <ClInclude Include="src\main\Functions\string_ext.h" />
     <ClInclude Include="src\main\ResourceView\RadialGradient.h" />
     <ClInclude Include="src\main\ResourceView\Text.h" />
+    <ClInclude Include="src\main\Scene\ContextMenuScene.h" />
+    <ClInclude Include="src\main\Scene\MainScene.h" />
     <ClInclude Include="src\main\Struct\AnimatedFloat.h" />
     <ClInclude Include="src\main\Struct\Color.h" />
     <ClInclude Include="src\main\Struct\Flow.h" />
@@ -317,8 +321,10 @@
   </ItemGroup>
   <ItemGroup>
     <Image Include="res\main\calculator.png" />
+    <Image Include="res\main\copy.png" />
     <Image Include="res\main\drawer.png" />
     <Image Include="res\main\history.png" />
+    <Image Include="res\main\paste.png" />
     <Image Include="res\main\radial_gradient.png" />
   </ItemGroup>
   <ItemGroup>

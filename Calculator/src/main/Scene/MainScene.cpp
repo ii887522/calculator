@@ -19,8 +19,8 @@
 #include "../Struct/Point.h"
 #include "../Struct/Size.h"
 #include "../Struct/Color.h"
-#include "Enums.h"
-#include "ButtonGrid.h"
+#include "../Any/Enums.h"
+#include "../Any/ButtonGrid.h"
 
 namespace ii887522::Calculator
 {
@@ -29,7 +29,7 @@ namespace ii887522::Calculator
 			buttonSize, ButtonGrid{ Point{ 4, 134 } } } { }
 
 	MainScene::MainScene(SDL_Renderer*const renderer, const Size& size, const unsigned int maxSizeIgnoreDash, const Rect& calcScreenRect,
-		TTF_Font*const font, const int buttonSize, const ButtonGrid& buttonGrid) : views{
+		TTF_Font*const font, const int buttonSize, const ButtonGrid& buttonGrid) : Scene{ }, views{
 			new RadialGradient{ renderer, size },
 			new NavBar{ renderer, Size{ size.w, buttonSize } },
 			new Button{ renderer, Rect{ Point{ 0, 0 }, Size{ buttonSize, buttonSize } }, Color{ 192u, 192u, 192u } },
@@ -45,10 +45,25 @@ namespace ii887522::Calculator
 		}, viewAbilities{
 			Ability::ALWAYS_REACT, Ability::NONE, Ability::NONE, Ability::NONE, Ability::NONE, Ability::NONE, Ability::NONE, Ability::NONE,
 			Ability::NONE, Ability::NONE, Ability::NONE, Ability::NONE
-		}, isAnimating{ false }, viewAnimationsCount{ 0u }
+		}
 		{
 			TTF_CloseFont(font);
 		}
+
+	Action MainScene::reactMessage(const Message& p_message)
+	{
+		auto result{ Action::NONE };
+		loop(sizeof views / sizeof(View*), [=, &result](const auto i) {
+			const auto [action, message]{ views[i]->reactMessage(p_message) };
+			if (message.head != Message::Head::EMPTY) result = reactMessage(message);
+			if (action != Action::START_ANIMATION) return;
+			incrementViewAnimationsCount();
+			if (getIsAnimating()) return;
+			result = action;
+			setIsAnimating(true);
+		});
+		return result;
+	}
 
 	Action MainScene::reactMouseMotionWithFocus(const SDL_MouseMotionEvent& motionEvent)
 	{
@@ -56,10 +71,10 @@ namespace ii887522::Calculator
 		loop(sizeof views / sizeof(View*), [=, &result](const auto i) {
 			const auto action{ views[i]->reactMouseMotion(motionEvent) };
 			if (action != Action::START_ANIMATION) return;
-			++viewAnimationsCount;
-			if (isAnimating) return;
+			incrementViewAnimationsCount();
+			if (getIsAnimating()) return;
 			result = action;
-			isAnimating = true;
+			setIsAnimating(true);
 		});
 		return result;
 	}
@@ -71,10 +86,10 @@ namespace ii887522::Calculator
 			if (viewAbilities[i] != Ability::ALWAYS_REACT) return;
 			const auto action{ views[i]->reactMouseMotion(motionEvent) };
 			if (action != Action::START_ANIMATION) return;
-			++viewAnimationsCount;
-			if (isAnimating) return;
+			incrementViewAnimationsCount();
+			if (getIsAnimating()) return;
 			result = action;
-			isAnimating = true;
+			setIsAnimating(true);
 		});
 		return result;
 	}
@@ -85,10 +100,10 @@ namespace ii887522::Calculator
 		loop(sizeof views / sizeof(View*), [=, &result](const auto i) {
 			const auto action{ views[i]->reactLeftMouseButtonDown(buttonEvent) };
 			if (action != Action::START_ANIMATION) return;
-			++viewAnimationsCount;
-			if (isAnimating) return;
+			incrementViewAnimationsCount();
+			if (getIsAnimating()) return;
 			result = action;
-			isAnimating = true;
+			setIsAnimating(true);
 		});
 		return result;
 	}
@@ -100,10 +115,10 @@ namespace ii887522::Calculator
 			const auto [action, message]{ views[i]->reactLeftMouseButtonUp(buttonEvent) };
 			if (message.head != Message::Head::EMPTY) result = reactMessage(message);
 			if (action != Action::START_ANIMATION) return;
-			++viewAnimationsCount;
-			if (isAnimating) return;
+			incrementViewAnimationsCount();
+			if (getIsAnimating()) return;
 			result = action;
-			isAnimating = true;
+			setIsAnimating(true);
 		});
 		return result;
 	}
@@ -114,10 +129,10 @@ namespace ii887522::Calculator
 		loop(sizeof views / sizeof(View*), [=, &result](const auto i) {
 			const auto action{ views[i]->reactMouseLeaveWindow(windowEvent) };
 			if (action != Action::START_ANIMATION) return;
-			++viewAnimationsCount;
-			if (isAnimating) return;
+			incrementViewAnimationsCount();
+			if (getIsAnimating()) return;
 			result = action;
-			isAnimating = true;
+			setIsAnimating(true);
 		});
 		return result;
 	}
@@ -129,10 +144,10 @@ namespace ii887522::Calculator
 			const auto [action, message]{ views[i]->reactKeyDown(keyEvent) };
 			if (message.head != Message::Head::EMPTY) result = reactMessage(message);
 			if (action != Action::START_ANIMATION) return;
-			++viewAnimationsCount;
-			if (isAnimating) return;
+			incrementViewAnimationsCount();
+			if (getIsAnimating()) return;
 			result = action;
-			isAnimating = true;
+			setIsAnimating(true);
 		});
 		return result;
 	}
@@ -143,25 +158,10 @@ namespace ii887522::Calculator
 		loop(sizeof views / sizeof(View*), [=, &result](const auto i) {
 			const auto action{ views[i]->reactKeyUp(keyEvent) };
 			if (action != Action::START_ANIMATION) return;
-			++viewAnimationsCount;
-			if (isAnimating) return;
+			incrementViewAnimationsCount();
+			if (getIsAnimating()) return;
 			result = action;
-			isAnimating = true;
-		});
-		return result;
-	}
-
-	Action MainScene::reactMessage(const Message& p_message)
-	{
-		auto result{ Action::NONE };
-		loop(sizeof views / sizeof(View*), [=, &result](const auto i) {
-			const auto [action, message]{ views[i]->reactMessage(p_message) };
-			if (message.head != Message::Head::EMPTY) result = reactMessage(message);
-			if (action != Action::START_ANIMATION) return;
-			++viewAnimationsCount;
-			if (isAnimating) return;
-			result = action;
-			isAnimating = true;
+			setIsAnimating(true);
 		});
 		return result;
 	}
@@ -172,10 +172,10 @@ namespace ii887522::Calculator
 		loop(sizeof views / sizeof(View*), [=, &result](const auto i) {
 			const auto action{ views[i]->step(dt) };
 			if (action != Action::STOP_ANIMATION) return;
-			--viewAnimationsCount;
-			if (viewAnimationsCount != 0u) return;
+			decrementViewAnimationsCount();
+			if (getViewAnimationsCount() != 0u) return;
 			result = action;
-			isAnimating = false;
+			setIsAnimating(false);
 		});
 		return result;
 	}

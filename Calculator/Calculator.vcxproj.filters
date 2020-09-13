@@ -58,6 +58,12 @@
     <Filter Include="Source Files\Activity">
       <UniqueIdentifier>{83003136-e58b-464a-9b79-5200a83c73b1}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Scene">
+      <UniqueIdentifier>{b28ddc90-f76a-4d74-9cd2-ccc9998f99cc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Scene">
+      <UniqueIdentifier>{c1d7f308-2a09-46d0-bb24-2bfefd5c9f4c}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\test\test.cpp">
@@ -150,9 +156,6 @@
     <ClCompile Include="src\main\Any\TextModel.cpp">
       <Filter>Source Files\Any</Filter>
     </ClCompile>
-    <ClCompile Include="src\main\Any\MainScene.cpp">
-      <Filter>Source Files\Any</Filter>
-    </ClCompile>
     <ClCompile Include="src\main\Any\Activity.cpp">
       <Filter>Source Files\Any</Filter>
     </ClCompile>
@@ -164,6 +167,15 @@
     </ClCompile>
     <ClCompile Include="src\main\Any\App.cpp">
       <Filter>Source Files\Any</Filter>
+    </ClCompile>
+    <ClCompile Include="src\main\Scene\MainScene.cpp">
+      <Filter>Source Files\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="src\main\Any\Scene.cpp">
+      <Filter>Source Files\Any</Filter>
+    </ClCompile>
+    <ClCompile Include="src\main\Scene\ContextMenuScene.cpp">
+      <Filter>Source Files\Scene</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -290,9 +302,6 @@
     <ClInclude Include="src\main\Any\Enums.h">
       <Filter>Header Files\Any</Filter>
     </ClInclude>
-    <ClInclude Include="src\main\Any\MainScene.h">
-      <Filter>Header Files\Any</Filter>
-    </ClInclude>
     <ClInclude Include="src\main\Any\RadialGradientModel.h">
       <Filter>Header Files\Any</Filter>
     </ClInclude>
@@ -304,6 +313,15 @@
     </ClInclude>
     <ClInclude Include="src\main\Any\View.h">
       <Filter>Header Files\Any</Filter>
+    </ClInclude>
+    <ClInclude Include="src\main\Scene\MainScene.h">
+      <Filter>Header Files\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="src\main\Any\Scene.h">
+      <Filter>Header Files\Any</Filter>
+    </ClInclude>
+    <ClInclude Include="src\main\Scene\ContextMenuScene.h">
+      <Filter>Header Files\Scene</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -317,6 +335,12 @@
       <Filter>Resource Files</Filter>
     </Image>
     <Image Include="res\main\radial_gradient.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\main\copy.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\main\paste.png">
       <Filter>Resource Files</Filter>
     </Image>
   </ItemGroup>

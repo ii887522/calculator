@@ -5,7 +5,7 @@
 
 #include "../Any/Activity.h"
 #include <SDL.h>
-#include "../Any/MainScene.h"
+#include "../Scene/MainScene.h"
 #include "../Any/Enums.h"
 #include "../Struct/Size.h"
 
@@ -56,7 +56,7 @@ namespace ii887522::Calculator
 		virtual Action react(const SDL_Event& event) override;
 		virtual Action step(const unsigned int dt) override;
 		virtual void show() override;
-		virtual ~MainActivity();
+		~MainActivity();
 	};
 }
 
