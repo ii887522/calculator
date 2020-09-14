@@ -5,6 +5,8 @@
 
 #include "../Any/Enums.h"
 #include <SDL.h>
+#include "../Struct/Pair.h"
+#include "../Struct/Message.h"
 
 namespace ii887522::Calculator
 {
@@ -51,10 +53,13 @@ namespace ii887522::Calculator
 		}
 
 	public:
+		virtual Action reactMessage(const Message&) = 0;
 		virtual Action reactMouseMotionWithFocus(const SDL_MouseMotionEvent&) = 0;
 		virtual Action reactMouseMotionWithoutFocus(const SDL_MouseMotionEvent&);
 		virtual Action reactLeftMouseButtonDown(const SDL_MouseButtonEvent&) = 0;
 		virtual Action reactLeftMouseButtonUp(const SDL_MouseButtonEvent&) = 0;
+		virtual Action reactRightMouseButtonDown(const SDL_MouseButtonEvent&);
+		virtual Pair<Action, Message> reactRightMouseButtonUp(const SDL_MouseButtonEvent&);
 		virtual Action reactMouseLeaveWindow(const SDL_WindowEvent&) = 0;
 		virtual Action reactKeyDown(const SDL_KeyboardEvent&);
 		virtual Action reactKeyUp(const SDL_KeyboardEvent&);

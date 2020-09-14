@@ -9,6 +9,7 @@
 #include "string_ext.test.h"
 #include "CalcExprModel.test.h"
 #include "TextModel.test.h"
+#include "CalcScreenModel.test.h"
 
 namespace ii887522::Calculator
 {
@@ -43,6 +44,7 @@ namespace ii887522::Calculator
 		testCalcResultModel();
 		testCalcExprModel();
 		testTextModel();
+		testCalcScreenModel();
 		return 0;
 	}
 }

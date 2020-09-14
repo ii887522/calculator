@@ -177,6 +177,12 @@
     <ClCompile Include="src\main\Scene\ContextMenuScene.cpp">
       <Filter>Source Files\Scene</Filter>
     </ClCompile>
+    <ClCompile Include="src\main\Any\CalcScreenModel.cpp">
+      <Filter>Source Files\Any</Filter>
+    </ClCompile>
+    <ClCompile Include="src\test\CalcScreenModel.test.cpp">
+      <Filter>Test Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\test\ButtonModel.test.h">
@@ -322,6 +328,12 @@
     </ClInclude>
     <ClInclude Include="src\main\Scene\ContextMenuScene.h">
       <Filter>Header Files\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="src\main\Any\CalcScreenModel.h">
+      <Filter>Header Files\Any</Filter>
+    </ClInclude>
+    <ClInclude Include="src\test\CalcScreenModel.test.h">
+      <Filter>Test Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

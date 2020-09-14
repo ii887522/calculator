@@ -33,13 +33,15 @@ namespace ii887522::Calculator
 		}
 
 	public:
+		virtual Pair<Action, Message> reactMessage(const Message&);
 		virtual Action reactMouseMotion(const SDL_MouseMotionEvent&);
 		virtual Action reactLeftMouseButtonDown(const SDL_MouseButtonEvent&);
 		virtual Pair<Action, Message> reactLeftMouseButtonUp(const SDL_MouseButtonEvent&);
+		virtual Action reactRightMouseButtonDown(const SDL_MouseButtonEvent&);
+		virtual Pair<Action, Message> reactRightMouseButtonUp(const SDL_MouseButtonEvent&);
 		virtual Action reactMouseLeaveWindow(const SDL_WindowEvent&);
 		virtual Pair<Action, Message> reactKeyDown(const SDL_KeyboardEvent&);
 		virtual Action reactKeyUp(const SDL_KeyboardEvent&);
-		virtual Pair<Action, Message> reactMessage(const Message&);
 		virtual Action step(const unsigned int dt);
 		virtual void render() = 0;
 		virtual ~View();

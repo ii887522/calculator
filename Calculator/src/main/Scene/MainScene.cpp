@@ -19,6 +19,8 @@
 #include "../Struct/Point.h"
 #include "../Struct/Size.h"
 #include "../Struct/Color.h"
+#include "../Struct/Pair.h"
+#include "../Struct/Message.h"
 #include "../Any/Enums.h"
 #include "../Any/ButtonGrid.h"
 
@@ -121,6 +123,40 @@ namespace ii887522::Calculator
 			setIsAnimating(true);
 		});
 		return result;
+	}
+
+	Action MainScene::reactRightMouseButtonDown(const SDL_MouseButtonEvent& buttonEvent)
+	{
+		auto result{ Action::NONE };
+		loop(sizeof views / sizeof(View*), [=, &result](const auto i) {
+			const auto action{ views[i]->reactRightMouseButtonDown(buttonEvent) };
+			if (action != Action::START_ANIMATION) return;
+			incrementViewAnimationsCount();
+			if (getIsAnimating()) return;
+			result = action;
+			setIsAnimating(true);
+		});
+		return result;
+	}
+
+	Pair<Action, Message> MainScene::reactRightMouseButtonUp(const SDL_MouseButtonEvent& buttonEvent)
+	{
+		auto resultAction{ Action::NONE };
+		auto resultMessage{ Message{ } };
+		loop(sizeof views / sizeof(View*), [=, &resultAction, &resultMessage](const auto i) {
+			const auto [action, message]{ views[i]->reactRightMouseButtonUp(buttonEvent) };
+			if (message.head != Message::Head::EMPTY)
+			{
+				resultMessage = message;
+				resultAction = reactMessage(message);
+			}
+			if (action != Action::START_ANIMATION) return;
+			incrementViewAnimationsCount();
+			if (getIsAnimating()) return;
+			resultAction = action;
+			setIsAnimating(true);
+		});
+		return Pair{ resultAction, resultMessage };
 	}
 
 	Action MainScene::reactMouseLeaveWindow(const SDL_WindowEvent& windowEvent)

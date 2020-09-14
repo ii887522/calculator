@@ -7,6 +7,7 @@
 #include <SDL.h>
 #include "../Any/Enums.h"
 #include "../Functions/control_flow.h"
+#include "../Struct/Message.h"
 
 namespace ii887522::Calculator
 {
@@ -25,6 +26,8 @@ namespace ii887522::Calculator
 		Activity*const activities[2u];
 		bool isAnimating;
 		unsigned int activityAnimationsCount;
+
+		Action reactMessage(const Message&);
 
 	public:
 		explicit App();

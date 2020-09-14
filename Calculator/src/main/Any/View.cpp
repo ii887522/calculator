@@ -25,6 +25,16 @@ namespace ii887522::Calculator
 		return Pair{ Action::NONE, Message{ } };
 	}
 
+	Action View::reactRightMouseButtonDown(const SDL_MouseButtonEvent&)
+	{
+		return Action::NONE;
+	}
+
+	Pair<Action, Message> View::reactRightMouseButtonUp(const SDL_MouseButtonEvent&)
+	{
+		return Pair{ Action::NONE, Message{ } };
+	}
+
 	Action View::reactMouseLeaveWindow(const SDL_WindowEvent&)
 	{
 		return Action::NONE;

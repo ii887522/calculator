@@ -7,6 +7,8 @@
 #include <SDL.h>
 #include "../Any/Enums.h"
 #include "../Scene/ContextMenuScene.h"
+#include "../Struct/Pair.h"
+#include "../Struct/Message.h"
 
 namespace ii887522::Calculator
 {
@@ -46,7 +48,8 @@ namespace ii887522::Calculator
 
 	public:
 		explicit ContextMenu();
-		virtual Action react(const SDL_Event&) override;
+		virtual Action reactMessage(const Message&) override;
+		virtual Pair<Action, Message> react(const SDL_Event&) override;
 		virtual Action step(const unsigned int dt) override;
 		virtual void show() override;
 	};

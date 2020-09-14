@@ -8,6 +8,8 @@
 #include "../Scene/MainScene.h"
 #include "../Any/Enums.h"
 #include "../Struct/Size.h"
+#include "../Struct/Pair.h"
+#include "../Struct/Message.h"
 
 namespace ii887522::Calculator
 {
@@ -30,15 +32,15 @@ namespace ii887522::Calculator
 
 		constexpr Action reactMouseButtonDown(const SDL_MouseButtonEvent& buttonEvent)
 		{
-			if (buttonEvent.button == SDL_BUTTON_LEFT) return scene.reactLeftMouseButtonDown(buttonEvent);
+			switch (buttonEvent.button)
+			{
+			case SDL_BUTTON_LEFT: return scene.reactLeftMouseButtonDown(buttonEvent);
+			case SDL_BUTTON_RIGHT: return scene.reactRightMouseButtonDown(buttonEvent);
+			}
 			return Action::NONE;
 		}
 
-		constexpr Action reactMouseButtonUp(const SDL_MouseButtonEvent& buttonEvent)
-		{
-			if (buttonEvent.button == SDL_BUTTON_LEFT) return scene.reactLeftMouseButtonUp(buttonEvent);
-			return Action::NONE;
-		}
+		Pair<Action, Message> reactMouseButtonUp(const SDL_MouseButtonEvent& buttonEvent);
 
 		constexpr Action reactWindowEvent(const SDL_WindowEvent& windowEvent)
 		{
@@ -53,7 +55,7 @@ namespace ii887522::Calculator
 
 	public:
 		explicit MainActivity(const Size& = Size{ 318, 437 });
-		virtual Action react(const SDL_Event& event) override;
+		virtual Pair<Action, Message> react(const SDL_Event& event) override;
 		virtual Action step(const unsigned int dt) override;
 		virtual void show() override;
 		~MainActivity();

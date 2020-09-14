@@ -5,6 +5,8 @@
 
 #include <SDL.h>
 #include "../Any/Enums.h"
+#include "../Struct/Pair.h"
+#include "../Struct/Message.h"
 
 namespace ii887522::Calculator
 {
@@ -37,7 +39,8 @@ namespace ii887522::Calculator
 		}
 
 	public:
-		virtual Action react(const SDL_Event&) = 0;
+		virtual Action reactMessage(const Message&);
+		virtual Pair<Action, Message> react(const SDL_Event&) = 0;
 		virtual Action step(const unsigned int dt) = 0;
 		virtual void show() = 0;
 		virtual ~Activity();

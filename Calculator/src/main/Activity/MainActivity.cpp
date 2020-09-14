@@ -7,6 +7,8 @@
 #include "../Struct/Rect.h"
 #include "../Struct/Point.h"
 #include "../Struct/Size.h"
+#include "../Struct/Pair.h"
+#include "../Struct/Message.h"
 #include "../Any/Enums.h"
 
 namespace ii887522::Calculator
@@ -18,23 +20,34 @@ namespace ii887522::Calculator
 		SDL_SetRenderDrawBlendMode(getRenderer(), SDL_BLENDMODE_BLEND);
 	}
 
-	Action MainActivity::react(const SDL_Event& event)
+	Pair<Action, Message> MainActivity::reactMouseButtonUp(const SDL_MouseButtonEvent& buttonEvent)
+	{
+		switch (buttonEvent.button)
+		{
+		case SDL_BUTTON_LEFT: return Pair{ scene.reactLeftMouseButtonUp(buttonEvent), Message{ } };
+		case SDL_BUTTON_RIGHT: return scene.reactRightMouseButtonUp(buttonEvent);
+		}
+		return Pair{ Action::NONE, Message{ } };
+	}
+
+	Pair<Action, Message> MainActivity::react(const SDL_Event& event)
 	{
 		switch (event.type)
 		{
 		case SDL_MOUSEMOTION:
-			return SDL_GetWindowFlags(getWindow()) & SDL_WINDOW_INPUT_FOCUS ?
-				scene.reactMouseMotionWithFocus(event.motion) : scene.reactMouseMotionWithoutFocus(event.motion);
-		case SDL_MOUSEBUTTONDOWN: if (event.button.windowID == SDL_GetWindowID(getWindow())) return reactMouseButtonDown(event.button);
+			return Pair{ SDL_GetWindowFlags(getWindow()) & SDL_WINDOW_INPUT_FOCUS ?
+				scene.reactMouseMotionWithFocus(event.motion) : scene.reactMouseMotionWithoutFocus(event.motion), Message{ } };
+		case SDL_MOUSEBUTTONDOWN:
+			if (event.button.windowID == SDL_GetWindowID(getWindow())) return Pair{ reactMouseButtonDown(event.button), Message{ } };
 			break;
 		case SDL_MOUSEBUTTONUP: if (event.button.windowID == SDL_GetWindowID(getWindow())) return reactMouseButtonUp(event.button);
 			break;
-		case SDL_WINDOWEVENT: return reactWindowEvent(event.window);
-		case SDL_KEYDOWN: if (event.key.windowID == SDL_GetWindowID(getWindow())) return scene.reactKeyDown(event.key);
+		case SDL_WINDOWEVENT: return Pair{ reactWindowEvent(event.window), Message{ } };
+		case SDL_KEYDOWN: if (event.key.windowID == SDL_GetWindowID(getWindow())) return Pair{ scene.reactKeyDown(event.key), Message{ } };
 			break;
-		case SDL_KEYUP: if (event.key.windowID == SDL_GetWindowID(getWindow())) return scene.reactKeyUp(event.key);
+		case SDL_KEYUP: if (event.key.windowID == SDL_GetWindowID(getWindow())) return Pair{ scene.reactKeyUp(event.key), Message{ } };
 		}
-		return Action::NONE;
+		return Pair{ Action::NONE, Message{ } };
 	}
 
 	Action MainActivity::step(const unsigned int dt)

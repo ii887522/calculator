@@ -13,6 +13,7 @@
 #include "../Struct/Point.h"
 #include "../Struct/Rect.h"
 #include "../Struct/Message.h"
+#include "../Struct/Pair.h"
 
 namespace ii887522::Calculator
 {
@@ -32,19 +33,20 @@ namespace ii887522::Calculator
 
 		// Param renderer: it must not be assigned to integer
 		// Param font: it must not be assigned to integer
-		explicit MainScene(SDL_Renderer* const renderer, const Size& size, const unsigned int maxSizeIgnoreDash, const Rect& calcScreenRect,
-			TTF_Font* const font, const int buttonSize, const ButtonGrid&);
-
-		Action reactMessage(const Message&);
+		explicit MainScene(SDL_Renderer*const renderer, const Size& size, const unsigned int maxSizeIgnoreDash, const Rect& calcScreenRect,
+			TTF_Font*const font, const int buttonSize, const ButtonGrid&);
 
 	public:
 		// Param renderer: it must not be assigned to integer
 		explicit MainScene(SDL_Renderer*const renderer, const Size& size, const int buttonSize = 41);
 
+		virtual Action reactMessage(const Message&) override;
 		virtual Action reactMouseMotionWithFocus(const SDL_MouseMotionEvent&) override;
 		virtual Action reactMouseMotionWithoutFocus(const SDL_MouseMotionEvent&) override;
 		virtual Action reactLeftMouseButtonDown(const SDL_MouseButtonEvent&) override;
 		virtual Action reactLeftMouseButtonUp(const SDL_MouseButtonEvent&) override;
+		virtual Action reactRightMouseButtonDown(const SDL_MouseButtonEvent&) override;
+		virtual Pair<Action, Message> reactRightMouseButtonUp(const SDL_MouseButtonEvent&) override;
 		virtual Action reactMouseLeaveWindow(const SDL_WindowEvent&) override;
 		virtual Action reactKeyDown(const SDL_KeyboardEvent&) override;
 		virtual Action reactKeyUp(const SDL_KeyboardEvent&) override;

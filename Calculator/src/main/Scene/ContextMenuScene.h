@@ -29,12 +29,11 @@ namespace ii887522::Calculator
 		// Param font: it must not be assigned to integer
 		explicit ContextMenuScene(SDL_Renderer*const renderer, TTF_Font*const font, const Size& iconSize, const int paddingTop);
 
-		Action reactMessage(const Message&);
-
 	public:
 		// Param renderer: it must not be assigned to integer
 		explicit ContextMenuScene(SDL_Renderer*const renderer);
 
+		virtual Action reactMessage(const Message&) override;
 		virtual Action reactMouseMotionWithFocus(const SDL_MouseMotionEvent&) override;
 		virtual Action reactLeftMouseButtonDown(const SDL_MouseButtonEvent&) override;
 		virtual Action reactLeftMouseButtonUp(const SDL_MouseButtonEvent&) override;
