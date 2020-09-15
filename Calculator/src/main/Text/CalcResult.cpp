@@ -24,6 +24,11 @@ namespace ii887522::Calculator
 
 	Pair<Action, Message> CalcResult::reactMessage(const Message& message)
 	{
+		if (message.head == Message::Head::COPY_FROM_CALC_RESULT)
+		{
+			SDL_SetClipboardText(viewModel.getValue().c_str());
+			return Pair{ Action::NONE, Message{ } };
+		}
 		viewModel.reactMessage(message);
 		set(viewModel.getValue());
 		return Pair{ Action::NONE, viewModel.getMessage() };

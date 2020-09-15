@@ -39,7 +39,7 @@ namespace ii887522::Calculator
 		}
 
 	public:
-		virtual Action reactMessage(const Message&);
+		virtual Action reactMessage(const Message&) = 0;
 		virtual Pair<Action, Message> react(const SDL_Event&) = 0;
 		virtual Action step(const unsigned int dt) = 0;
 		virtual void show() = 0;

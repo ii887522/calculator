@@ -25,10 +25,15 @@ namespace ii887522::Calculator
 	{
 		switch (buttonEvent.button)
 		{
-		case SDL_BUTTON_LEFT: return Pair{ scene.reactLeftMouseButtonUp(buttonEvent), Message{ } };
+		case SDL_BUTTON_LEFT: return scene.reactLeftMouseButtonUp(buttonEvent);
 		case SDL_BUTTON_RIGHT: return scene.reactRightMouseButtonUp(buttonEvent);
 		}
 		return Pair{ Action::NONE, Message{ } };
+	}
+
+	Action MainActivity::reactMessage(const Message& message)
+	{
+		return scene.reactMessage(message);
 	}
 
 	Pair<Action, Message> MainActivity::react(const SDL_Event& event)

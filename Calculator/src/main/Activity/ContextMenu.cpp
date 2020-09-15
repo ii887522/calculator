@@ -32,19 +32,25 @@ namespace ii887522::Calculator
 		return scene.reactMessage(message);
 	}
 
+	Pair<Action, Message> ContextMenu::reactMouseButtonUp(const SDL_MouseButtonEvent& buttonEvent)
+	{
+		if (buttonEvent.button == SDL_BUTTON_LEFT) return scene.reactLeftMouseButtonUp(buttonEvent);
+		return Pair{ Action::NONE, Message{ } };
+	}
+
 	Pair<Action, Message> ContextMenu::react(const SDL_Event& event)
 	{
 		switch (event.type)
 		{
 		case SDL_MOUSEMOTION:
-			if (SDL_GetWindowFlags(getWindow()) & SDL_WINDOW_INPUT_FOCUS)
+			if (SDL_GetWindowFlags(getWindow()) & SDL_WINDOW_MOUSE_FOCUS)
 				return Pair{ scene.reactMouseMotionWithFocus(event.motion), Message{ } };
 			break;
 		case SDL_MOUSEBUTTONDOWN:
 			if (event.button.windowID == SDL_GetWindowID(getWindow())) return Pair{ reactMouseButtonDown(event.button), Message{ } };
 			break;
 		case SDL_MOUSEBUTTONUP:
-			if (event.button.windowID == SDL_GetWindowID(getWindow())) return Pair{ reactMouseButtonUp(event.button), Message{ } };
+			if (event.button.windowID == SDL_GetWindowID(getWindow())) return reactMouseButtonUp(event.button);
 			break;
 		case SDL_WINDOWEVENT: return Pair{ reactWindowEvent(event.window), Message{ } };
 		}

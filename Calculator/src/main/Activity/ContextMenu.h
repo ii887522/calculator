@@ -36,11 +36,7 @@ namespace ii887522::Calculator
 			return Action::NONE;
 		}
 
-		constexpr Action reactMouseButtonUp(const SDL_MouseButtonEvent& buttonEvent)
-		{
-			if (buttonEvent.button == SDL_BUTTON_LEFT) return scene.reactLeftMouseButtonUp(buttonEvent);
-			return Action::NONE;
-		}
+		Pair<Action, Message> reactMouseButtonUp(const SDL_MouseButtonEvent& buttonEvent);
 
 		constexpr Action reactWindowEvent(const SDL_WindowEvent& windowEvent)
 		{

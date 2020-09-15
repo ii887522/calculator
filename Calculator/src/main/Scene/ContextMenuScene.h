@@ -9,6 +9,8 @@
 #include <SDL.h>
 #include <SDL_ttf.h>
 #include "../Struct/Size.h"
+#include "../Struct/Pair.h"
+#include "../Struct/Message.h"
 
 namespace ii887522::Calculator
 {
@@ -36,7 +38,7 @@ namespace ii887522::Calculator
 		virtual Action reactMessage(const Message&) override;
 		virtual Action reactMouseMotionWithFocus(const SDL_MouseMotionEvent&) override;
 		virtual Action reactLeftMouseButtonDown(const SDL_MouseButtonEvent&) override;
-		virtual Action reactLeftMouseButtonUp(const SDL_MouseButtonEvent&) override;
+		virtual Pair<Action, Message> reactLeftMouseButtonUp(const SDL_MouseButtonEvent&) override;
 		virtual Action reactMouseLeaveWindow(const SDL_WindowEvent&) override;
 		virtual Action step(const unsigned int dt) override;
 		virtual void render() override;

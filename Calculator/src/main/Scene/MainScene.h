@@ -44,7 +44,7 @@ namespace ii887522::Calculator
 		virtual Action reactMouseMotionWithFocus(const SDL_MouseMotionEvent&) override;
 		virtual Action reactMouseMotionWithoutFocus(const SDL_MouseMotionEvent&) override;
 		virtual Action reactLeftMouseButtonDown(const SDL_MouseButtonEvent&) override;
-		virtual Action reactLeftMouseButtonUp(const SDL_MouseButtonEvent&) override;
+		virtual Pair<Action, Message> reactLeftMouseButtonUp(const SDL_MouseButtonEvent&) override;
 		virtual Action reactRightMouseButtonDown(const SDL_MouseButtonEvent&) override;
 		virtual Pair<Action, Message> reactRightMouseButtonUp(const SDL_MouseButtonEvent&) override;
 		virtual Action reactMouseLeaveWindow(const SDL_WindowEvent&) override;

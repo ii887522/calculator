@@ -57,6 +57,7 @@ namespace ii887522::Calculator
 		// Param window: it must not be assigned to integer
 		explicit MainActivity(SDL_Window*const window);
 
+		virtual Action reactMessage(const Message&) override;
 		virtual Pair<Action, Message> react(const SDL_Event& event) override;
 		virtual Action step(const unsigned int dt) override;
 		virtual void show() override;
