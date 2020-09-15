@@ -113,21 +113,16 @@ namespace ii887522::Calculator
 	Pair<Action, Message> MainScene::reactLeftMouseButtonUp(const SDL_MouseButtonEvent& buttonEvent)
 	{
 		auto resultAction{ Action::NONE };
-		auto resultMessage{ Message{ } };
-		loop(sizeof views / sizeof(View*), [=, &resultAction, &resultMessage](const auto i) {
+		loop(sizeof views / sizeof(View*), [=, &resultAction](const auto i) {
 			const auto [action, message]{ views[i]->reactLeftMouseButtonUp(buttonEvent) };
-			if (message.head != Message::Head::EMPTY)
-			{
-				resultMessage = message;
-				resultAction = reactMessage(message);
-			}
+			if (message.head != Message::Head::EMPTY) resultAction = reactMessage(message);
 			if (action != Action::START_ANIMATION) return;
 			incrementViewAnimationsCount();
 			if (getIsAnimating()) return;
 			resultAction = action;
 			setIsAnimating(true);
 		});
-		return Pair{ resultAction, resultMessage };
+		return Pair{ resultAction, Message{ } };
 	}
 
 	Action MainScene::reactRightMouseButtonDown(const SDL_MouseButtonEvent& buttonEvent)

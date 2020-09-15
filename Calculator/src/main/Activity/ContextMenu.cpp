@@ -26,16 +26,17 @@ namespace ii887522::Calculator
 		SDL_ShowWindow(getWindow());
 	}
 
-	Action ContextMenu::reactMessage(const Message& message)
-	{
-		if (message.head == Message::Head::SHOW_CONTEXT_MENU) reactShowMessage();
-		return scene.reactMessage(message);
-	}
-
 	Pair<Action, Message> ContextMenu::reactMouseButtonUp(const SDL_MouseButtonEvent& buttonEvent)
 	{
 		if (buttonEvent.button == SDL_BUTTON_LEFT) return scene.reactLeftMouseButtonUp(buttonEvent);
 		return Pair{ Action::NONE, Message{ } };
+	}
+
+	Action ContextMenu::reactMessage(const Message& message)
+	{
+		if (message.head != Message::Head::SHOW_CONTEXT_MENU) return scene.reactMessage(message);
+		reactShowMessage();
+		return Action::NONE;
 	}
 
 	Pair<Action, Message> ContextMenu::react(const SDL_Event& event)

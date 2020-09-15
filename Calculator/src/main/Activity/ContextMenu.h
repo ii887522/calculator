@@ -36,7 +36,7 @@ namespace ii887522::Calculator
 			return Action::NONE;
 		}
 
-		Pair<Action, Message> reactMouseButtonUp(const SDL_MouseButtonEvent& buttonEvent);
+		Pair<Action, Message> reactMouseButtonUp(const SDL_MouseButtonEvent&);
 
 		constexpr Action reactWindowEvent(const SDL_WindowEvent& windowEvent)
 		{
