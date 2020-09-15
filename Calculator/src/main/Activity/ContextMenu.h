@@ -43,7 +43,11 @@ namespace ii887522::Calculator
 
 		constexpr Action reactWindowEvent(const SDL_WindowEvent& windowEvent)
 		{
-			if (windowEvent.event == SDL_WINDOWEVENT_LEAVE) return scene.reactMouseLeaveWindow(windowEvent);
+			switch (windowEvent.event)
+			{
+			case SDL_WINDOWEVENT_LEAVE: return scene.reactMouseLeaveWindow(windowEvent);
+			case SDL_WINDOWEVENT_FOCUS_LOST: if (windowEvent.windowID == SDL_GetWindowID(getWindow())) SDL_HideWindow(getWindow());
+			}
 			return Action::NONE;
 		}
 
