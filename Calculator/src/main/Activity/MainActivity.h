@@ -54,7 +54,9 @@ namespace ii887522::Calculator
 		}
 
 	public:
-		explicit MainActivity(const Size& = Size{ 318, 437 });
+		// Param window: it must not be assigned to integer
+		explicit MainActivity(SDL_Window*const window);
+
 		virtual Pair<Action, Message> react(const SDL_Event& event) override;
 		virtual Action step(const unsigned int dt) override;
 		virtual void show() override;

@@ -9,6 +9,7 @@
 #include "../Scene/ContextMenuScene.h"
 #include "../Struct/Pair.h"
 #include "../Struct/Message.h"
+#include "../Functions/sdl_ext.h"
 
 namespace ii887522::Calculator
 {
@@ -23,7 +24,10 @@ namespace ii887522::Calculator
 		ContextMenu(ContextMenu&&) = delete;
 		ContextMenu& operator=(ContextMenu&&) = delete;
 
+		SDL_Window*const parentWindow;
 		ContextMenuScene scene;
+
+		void reactShowMessage();
 
 		constexpr Action reactMouseButtonDown(const SDL_MouseButtonEvent& buttonEvent)
 		{
@@ -44,10 +48,13 @@ namespace ii887522::Calculator
 		}
 
 		void renderBackground();
+		void renderBorder();
 		void render();
 
 	public:
-		explicit ContextMenu();
+		// Param parentWindow: it must not be assigned to integer
+		explicit ContextMenu(SDL_Window*const parentWindow);
+
 		virtual Action reactMessage(const Message&) override;
 		virtual Pair<Action, Message> react(const SDL_Event&) override;
 		virtual Action step(const unsigned int dt) override;

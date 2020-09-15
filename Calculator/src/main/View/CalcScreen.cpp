@@ -8,10 +8,12 @@
 #include "../Struct/Message.h"
 #include "../Struct/Rect.h"
 #include "../Struct/Point.h"
+#include "../Struct/Size.h"
 
 namespace ii887522::Calculator
 {
-	CalcScreen::CalcScreen(SDL_Renderer*const renderer, const Rect& rect) : View{ renderer }, viewModel{ rect }, rect{ rect } { }
+	CalcScreen::CalcScreen(SDL_Renderer*const renderer, const Rect& rect) : View{ renderer },
+		viewModel{ Rect{ Point{ rect.position.x, rect.position.y + 26 }, Size{ rect.size.w, rect.size.h - 26 } } }, rect{ rect } { }
 
 	Action CalcScreen::reactMouseMotion(const SDL_MouseMotionEvent& motionEvent)
 	{

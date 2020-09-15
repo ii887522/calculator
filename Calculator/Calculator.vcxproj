@@ -245,6 +245,7 @@
     <ClCompile Include="src\main\Any\View.cpp" />
     <ClCompile Include="src\main\Functions\calculator.cpp" />
     <ClCompile Include="src\main\Functions\control_flow.cpp" />
+    <ClCompile Include="src\main\Functions\sdl_ext.cpp" />
     <ClCompile Include="src\main\Functions\string_ext.cpp" />
     <ClCompile Include="src\main\ResourceView\RadialGradient.cpp" />
     <ClCompile Include="src\main\ResourceView\Text.cpp" />
@@ -290,6 +291,7 @@
     <ClInclude Include="src\main\Any\View.h" />
     <ClInclude Include="src\main\Functions\control_flow.h" />
     <ClInclude Include="src\main\Functions\math_ext.h" />
+    <ClInclude Include="src\main\Functions\sdl_ext.h" />
     <ClInclude Include="src\main\Functions\string_ext.h" />
     <ClInclude Include="src\main\ResourceView\RadialGradient.h" />
     <ClInclude Include="src\main\ResourceView\Text.h" />

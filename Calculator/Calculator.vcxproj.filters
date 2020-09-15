@@ -183,6 +183,9 @@
     <ClCompile Include="src\test\CalcScreenModel.test.cpp">
       <Filter>Test Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="src\main\Functions\sdl_ext.cpp">
+      <Filter>Source Files\Functions</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\test\ButtonModel.test.h">
@@ -334,6 +337,9 @@
     </ClInclude>
     <ClInclude Include="src\test\CalcScreenModel.test.h">
       <Filter>Test Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\main\Functions\sdl_ext.h">
+      <Filter>Header Files\Functions</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -10,11 +10,12 @@
 #include "../Struct/Pair.h"
 #include "../Struct/Message.h"
 #include "../Any/Enums.h"
+#include "../Functions/sdl_ext.h"
 
 namespace ii887522::Calculator
 {
-	MainActivity::MainActivity(const Size& size) : Activity{ SDL_CreateWindow("Calcuator", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED,
-		size.w, size.h, 0u) }, ico{ IMG_Load("res/main/calculator.png") }, scene{ getRenderer(), size }
+	MainActivity::MainActivity(SDL_Window*const window) : Activity{ window }, ico{ IMG_Load("res/main/calculator.png") },
+		scene{ getRenderer(), getWindowSize(window) }
 	{
 		SDL_SetWindowIcon(getWindow(), ico);
 		SDL_SetRenderDrawBlendMode(getRenderer(), SDL_BLENDMODE_BLEND);

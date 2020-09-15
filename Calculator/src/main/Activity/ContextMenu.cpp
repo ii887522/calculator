@@ -6,16 +6,25 @@
 #include <SDL.h>
 #include "../Struct/Pair.h"
 #include "../Struct/Message.h"
+#include "../Struct/Point.h"
 
 namespace ii887522::Calculator
 {
-	ContextMenu::ContextMenu() : Activity{ SDL_CreateWindow("", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, 88, 68,
-		SDL_WINDOW_HIDDEN | SDL_WINDOW_BORDERLESS | SDL_WINDOW_ALWAYS_ON_TOP | SDL_WINDOW_SKIP_TASKBAR | SDL_WINDOW_POPUP_MENU) },
-		scene{ getRenderer() } { }
+	ContextMenu::ContextMenu(SDL_Window*const parentWindow) : Activity{ SDL_CreateWindow("", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED
+		, 88, 68, SDL_WINDOW_HIDDEN | SDL_WINDOW_BORDERLESS | SDL_WINDOW_ALWAYS_ON_TOP | SDL_WINDOW_SKIP_TASKBAR | SDL_WINDOW_POPUP_MENU) },
+		parentWindow{ parentWindow }, scene{ getRenderer() } { }
+
+	void ContextMenu::reactShowMessage()
+	{
+		const auto parentPosition{ getWindowPosition(parentWindow) };
+		const auto mousePosition{ getMousePosition() };
+		SDL_SetWindowPosition(getWindow(), parentPosition.x + mousePosition.x, parentPosition.y + mousePosition.y);
+		SDL_ShowWindow(getWindow());
+	}
 
 	Action ContextMenu::reactMessage(const Message& message)
 	{
-		if (message.head == Message::Head::SHOW_CONTEXT_MENU) SDL_ShowWindow(getWindow());
+		if (message.head == Message::Head::SHOW_CONTEXT_MENU) reactShowMessage();
 		return scene.reactMessage(message);
 	}
 
@@ -49,9 +58,18 @@ namespace ii887522::Calculator
 		SDL_RenderClear(getRenderer());
 	}
 
+	void ContextMenu::renderBorder()
+	{
+		SDL_SetRenderDrawColor(getRenderer(), 128u, 128u, 128u, 255u);
+		const auto size{ getWindowSize(getWindow()) };
+		const SDL_Rect rect{ 0, 0, size.w, size.h };
+		SDL_RenderDrawRect(getRenderer(), &rect);
+	}
+
 	void ContextMenu::render()
 	{
 		renderBackground();
+		renderBorder();
 		scene.render();
 	}
 
