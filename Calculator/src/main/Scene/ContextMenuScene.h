@@ -23,15 +23,15 @@ namespace ii887522::Calculator
 		ContextMenuScene(ContextMenuScene&&) = delete;
 		ContextMenuScene& operator=(ContextMenuScene&&) = delete;
 
-		View*const views[4u];
+		View*const views[6u];
 
 		// Param renderer: it must not be assigned to integer
 		// Param font: it must not be assigned to integer
-		explicit ContextMenuScene(SDL_Renderer*const renderer, TTF_Font*const font, const Size& iconSize, const int paddingTop);
+		explicit ContextMenuScene(SDL_Renderer*const renderer, const Size&, TTF_Font*const font, const Size& iconSize);
 
 	public:
 		// Param renderer: it must not be assigned to integer
-		explicit ContextMenuScene(SDL_Renderer*const renderer);
+		explicit ContextMenuScene(SDL_Renderer*const renderer, const Size&);
 
 		virtual Action reactMessage(const Message&) override;
 		virtual Action reactMouseMotionWithFocus(const SDL_MouseMotionEvent&) override;

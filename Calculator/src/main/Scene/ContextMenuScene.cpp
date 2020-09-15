@@ -3,8 +3,11 @@
 #include "ContextMenuScene.h"
 #include "../View/ResourceView.h"
 #include "../ResourceView/Text.h"
+#include "../View/Button.h"
 #include "../Struct/Point.h"
 #include "../Struct/Size.h"
+#include "../Struct/Rect.h"
+#include "../Struct/Color.h"
 #include "../Any/Enums.h"
 #include <SDL.h>
 #include <SDL_image.h>
@@ -13,15 +16,16 @@
 
 namespace ii887522::Calculator
 {
-	ContextMenuScene::ContextMenuScene(SDL_Renderer*const renderer) : ContextMenuScene(renderer, TTF_OpenFont("res/main/arial.ttf", 16),
-		Size{ 31, 31 }, 4) { }
+	ContextMenuScene::ContextMenuScene(SDL_Renderer*const renderer, const Size& size) :
+		ContextMenuScene(renderer, size, TTF_OpenFont("res/main/arial.ttf", 16), Size{ 31, 31 }) { }
 
-	ContextMenuScene::ContextMenuScene(SDL_Renderer*const renderer, TTF_Font*const font, const Size& iconSize, const int paddingTop)
-		: views{
-			new ResourceView{ renderer, IMG_Load("res/main/copy.png"), Point{ 0, paddingTop } },
-			new Text{ renderer, font, Point{ iconSize.w, 10 }, "Copy" },
-			new ResourceView{ renderer, IMG_Load("res/main/paste.png"), Point{ 0, iconSize.h + paddingTop } },
-			new Text{ renderer, font, Point{ iconSize.w, iconSize.h + 10 }, "Paste" }
+	ContextMenuScene::ContextMenuScene(SDL_Renderer*const renderer, const Size& size, TTF_Font*const font, const Size& iconSize) : views{
+			new Button{ renderer, Rect{ Point{ 0, 0 }, Size{ size.w, (size.h >> 1u) } }, Color{ 224u, 224u, 224u } },
+			new ResourceView{ renderer, IMG_Load("res/main/copy.png") },
+			new Text{ renderer, font, Point{ iconSize.w, 6 }, "Copy" },
+			new Button{ renderer, Rect{ Point{ 0, size.h >> 1u }, Size{ size.w, (size.h >> 1u) } }, Color{ 224u, 224u, 224u } },
+			new ResourceView{ renderer, IMG_Load("res/main/paste.png"), Point{ 0, iconSize.h } },
+			new Text{ renderer, font, Point{ iconSize.w, iconSize.h + 6 }, "Paste" }
 		}
 		{
 			TTF_CloseFont(font);

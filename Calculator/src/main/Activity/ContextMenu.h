@@ -9,6 +9,7 @@
 #include "../Scene/ContextMenuScene.h"
 #include "../Struct/Pair.h"
 #include "../Struct/Message.h"
+#include "../Struct/Size.h"
 #include "../Functions/sdl_ext.h"
 
 namespace ii887522::Calculator
@@ -51,13 +52,11 @@ namespace ii887522::Calculator
 			return Action::NONE;
 		}
 
-		void renderBackground();
-		void renderBorder();
 		void render();
 
 	public:
 		// Param parentWindow: it must not be assigned to integer
-		explicit ContextMenu(SDL_Window*const parentWindow);
+		explicit ContextMenu(SDL_Window*const parentWindow, const Size& = Size{ 88, 62 });
 
 		virtual Action reactMessage(const Message&) override;
 		virtual Pair<Action, Message> react(const SDL_Event&) override;
