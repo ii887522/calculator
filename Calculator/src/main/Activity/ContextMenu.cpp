@@ -34,8 +34,10 @@ namespace ii887522::Calculator
 
 	Pair<Action, Message> ContextMenu::reactMouseButtonUp(const SDL_MouseButtonEvent& buttonEvent)
 	{
-		if (buttonEvent.button == SDL_BUTTON_LEFT) return scene.reactLeftMouseButtonUp(buttonEvent);
-		return Pair{ Action::NONE, Message{ } };
+		if (buttonEvent.button != SDL_BUTTON_LEFT) return Pair{ Action::NONE, Message{ } };
+		const auto [action, message]{ scene.reactLeftMouseButtonUp(buttonEvent) };
+		if (message.head != Message::Head::EMPTY) SDL_HideWindow(getWindow());
+		return Pair{ action, message };
 	}
 
 	Pair<Action, Message> ContextMenu::react(const SDL_Event& event)
