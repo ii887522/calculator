@@ -67,9 +67,18 @@ namespace ii887522::Calculator
 		return scene.step(dt);
 	}
 
+	void ContextMenu::renderBorder()
+	{
+		SDL_SetRenderDrawColor(getRenderer(), 128u, 128u, 128u, 255u);
+		const auto size{ getWindowSize(getWindow()) };
+		const SDL_Rect rect{ 0, 0, size.w, size.h };
+		SDL_RenderDrawRect(getRenderer(), &rect);
+	}
+
 	void ContextMenu::render()
 	{
 		scene.render();
+		renderBorder();
 	}
 
 	void ContextMenu::show()

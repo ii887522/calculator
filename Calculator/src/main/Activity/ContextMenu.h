@@ -48,6 +48,7 @@ namespace ii887522::Calculator
 			return Action::NONE;
 		}
 
+		void renderBorder();
 		void render();
 
 	public:
