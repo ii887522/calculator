@@ -45,7 +45,7 @@ namespace ii887522::Calculator
 		virtual Pair<Action, Message> reactKeyDown(const SDL_KeyboardEvent&);
 		virtual Action reactKeyUp(const SDL_KeyboardEvent&);
 		virtual Action step(const unsigned int dt);
-		virtual void render() = 0;
+		virtual void render();
 		virtual ~View();
 	};
 }

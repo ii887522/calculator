@@ -5,7 +5,7 @@
 
 #include "../Any/View.h"
 #include <SDL.h>
-#include "../Any/ButtonModel.h"
+#include "../Model/ButtonModel.h"
 #include "../Struct/Rect.h"
 #include "../Struct/Point.h"
 #include "../Any/Enums.h"

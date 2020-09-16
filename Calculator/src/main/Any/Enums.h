@@ -12,6 +12,11 @@ namespace ii887522::Calculator
 	{
 		NONE, CAN_DISABLE, ALWAYS_REACT
 	};
+
+	enum class Token : unsigned int
+	{
+		NUMBER, BINARY_OPERATOR, UNARY_OPERATOR, LEFT_BRACKET, RIGHT_BRACKET, EQUAL
+	};
 }
 
 #endif

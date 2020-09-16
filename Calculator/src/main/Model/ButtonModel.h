@@ -4,7 +4,7 @@
 #include "../Struct/Point.h"
 #include "../Struct/Rect.h"
 #include "../Functions/math_ext.h"
-#include "Enums.h"
+#include "../Any/Enums.h"
 #include "../Struct/AnimatedFloat.h"
 #include "../Struct/Range.h"
 #include <SDL.h>

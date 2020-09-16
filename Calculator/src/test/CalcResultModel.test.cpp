@@ -2,7 +2,7 @@
 
 #include "CalcResultModel.test.h"
 #include <cassert>
-#include "../main/Any/CalcResultModel.h"
+#include "../main/Model/CalcResultModel.h"
 #include "../main/Struct/Message.h"
 
 namespace ii887522::Calculator

@@ -4,7 +4,7 @@
 #define II887522_CALCULATOR_RESOURCE_VIEW_H
 
 #include "../Any/View.h"
-#include "../Any/ResourceViewModel.h"
+#include "../Model/ResourceViewModel.h"
 #include <SDL.h>
 #include <string>
 #include "../Struct/Point.h"

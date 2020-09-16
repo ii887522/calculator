@@ -2,7 +2,7 @@
 
 #include "CalcScreenModel.test.h"
 #include <cassert>
-#include "../main/Any/CalcScreenModel.h"
+#include "../main/Model/CalcScreenModel.h"
 #include "../main/Struct/Rect.h"
 #include "../main/Struct/Point.h"
 #include "../main/Struct/Size.h"

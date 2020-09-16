@@ -63,6 +63,7 @@ namespace ii887522::Calculator
 		return Action::NONE;
 	}
 
+	void View::render() { }
 	View::~View() { }
 }
 

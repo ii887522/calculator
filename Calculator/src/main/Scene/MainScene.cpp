@@ -14,6 +14,7 @@
 #include "../Text/CalcResult.h"
 #include "../View/ButtonGroup.h"
 #include "../View/TextGroup.h"
+#include "../View/CalcExprPaster.h"
 #include "../Functions/control_flow.h"
 #include "../Struct/Rect.h"
 #include "../Struct/Point.h"
@@ -43,10 +44,11 @@ namespace ii887522::Calculator
 			new CalcExpr{ renderer, calcScreenRect, maxSizeIgnoreDash },
 			new CalcResult{ renderer, calcScreenRect, maxSizeIgnoreDash },
 			new ButtonGroup{ renderer, buttonGrid },
-			new TextGroup{ renderer, font, buttonGrid }
+			new TextGroup{ renderer, font, buttonGrid },
+			new CalcExprPaster{ }
 		}, viewAbilities{
 			Ability::ALWAYS_REACT, Ability::NONE, Ability::NONE, Ability::NONE, Ability::NONE, Ability::NONE, Ability::NONE, Ability::NONE,
-			Ability::NONE, Ability::NONE, Ability::NONE, Ability::NONE
+			Ability::NONE, Ability::NONE, Ability::NONE, Ability::NONE, Ability::NONE
 		}
 		{
 			TTF_CloseFont(font);

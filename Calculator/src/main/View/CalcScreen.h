@@ -9,7 +9,7 @@
 #include "../Struct/Pair.h"
 #include "../Struct/Message.h"
 #include "../Any/Enums.h"
-#include "../Any/CalcScreenModel.h"
+#include "../Model/CalcScreenModel.h"
 
 namespace ii887522::Calculator
 {

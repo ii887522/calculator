@@ -11,7 +11,7 @@
 #include "../Any/Enums.h"
 #include "../Struct/Message.h"
 #include "../Struct/Pair.h"
-#include "../Any/TextModel.h"
+#include "../Model/TextModel.h"
 
 using std::string;
 

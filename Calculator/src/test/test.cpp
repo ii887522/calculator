@@ -11,6 +11,7 @@
 #include "TextModel.test.h"
 #include "CalcScreenModel.test.h"
 #include "ResourceViewModel.test.h"
+#include "CalcExprLexer.test.h"
 
 namespace ii887522::Calculator
 {
@@ -51,6 +52,7 @@ namespace ii887522::Calculator
 		testTextModel();
 		testCalcScreenModel();
 		testResourceViewModel();
+		testCalcExprLexer();
 		return 0;
 	}
 }

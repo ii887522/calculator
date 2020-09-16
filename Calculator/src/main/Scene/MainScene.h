@@ -28,7 +28,7 @@ namespace ii887522::Calculator
 		MainScene(MainScene&&) = delete;
 		MainScene& operator=(MainScene&&) = delete;
 
-		View*const views[12u];
+		View*const views[13u];
 		Ability viewAbilities[sizeof views / sizeof(View*)];
 
 		// Param renderer: it must not be assigned to integer

@@ -2,7 +2,7 @@
 
 #include "RadialGradientModel.test.h"
 #include <cassert>
-#include "../main/Any/RadialGradientModel.h"
+#include "../main/Model/RadialGradientModel.h"
 #include "../main/Struct/Size.h"
 #include "../main/Struct/Point.h"
 

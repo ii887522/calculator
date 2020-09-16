@@ -2,7 +2,7 @@
 
 #include "TextModel.test.h"
 #include <cassert>
-#include "../main/Any/TextModel.h"
+#include "../main/Model/TextModel.h"
 #include "../main/Struct/Message.h"
 #include "../main/Any/Enums.h"
 #include "../main/Functions/math_ext.h"

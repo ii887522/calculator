@@ -4,7 +4,7 @@
 #define II887522_CALCULATOR_RADIAL_GRADIENT_H
 
 #include "../View/ResourceView.h"
-#include "../Any/RadialGradientModel.h"
+#include "../Model/RadialGradientModel.h"
 #include <SDL.h>
 #include "../Any/Enums.h"
 #include "../Struct/Size.h"
