@@ -37,6 +37,8 @@ namespace ii887522::Calculator
 		explicit Text(SDL_Renderer*const renderer, TTF_Font*const font, const Point& position = Point{ }, const string& value = " ",
 			const Ability = Ability::NONE); // " " because TTF_RenderText_* requires text with at least 1 character to render
 
+		virtual void enable() override;
+		virtual void tryDisable() override;
 		virtual Pair<Action, Message> reactMessage(const Message&) override;
 		virtual Action step(const unsigned int dt) override;
 		virtual void render() override;

@@ -35,6 +35,8 @@ namespace ii887522::Calculator
 		// Param renderer: it must not be assigned to integer
 		explicit ContextMenuScene(SDL_Renderer*const renderer, const Size&);
 
+		virtual void enable() override;
+		virtual void tryDisable() override;
 		virtual Action reactMessage(const Message&) override;
 		virtual Action reactMouseMotionWithFocus(const SDL_MouseMotionEvent&) override;
 		virtual Action reactLeftMouseButtonDown(const SDL_MouseButtonEvent&) override;

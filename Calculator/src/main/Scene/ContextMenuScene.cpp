@@ -30,14 +30,28 @@ namespace ii887522::Calculator
 			new Text{ renderer, font, Point{ iconSize.w, 6 }, "Copy" },
 			new Button{
 				renderer, Rect{ Point{ 0, size.h >> 1u }, Size{ size.w, (size.h >> 1u) } }, Color{ 224u, 224u, 224u },
-				Message{ Message::Head::PASTE_TO_CALC_RESULT }
+				Message{ Message::Head::PASTE_TO_CALC_RESULT }, Ability::CAN_DISABLE
 			},
-			new ResourceView{ renderer, IMG_Load("res/main/paste.png"), Point{ 0, iconSize.h } },
-			new Text{ renderer, font, Point{ iconSize.w, iconSize.h + 6 }, "Paste" }
+			new ResourceView{ renderer, IMG_Load("res/main/paste.png"), Point{ 0, iconSize.h }, Ability::CAN_DISABLE },
+			new Text{ renderer, font, Point{ iconSize.w, iconSize.h + 6 }, "Paste", Ability::CAN_DISABLE }
 		}
 		{
 			TTF_CloseFont(font);
 		}
+
+	void ContextMenuScene::enable()
+	{
+		loop(sizeof views / sizeof(View*), [=](const auto i) {
+			views[i]->enable();
+		});
+	}
+
+	void ContextMenuScene::tryDisable()
+	{
+		loop(sizeof views / sizeof(View*), [=](const auto i) {
+			views[i]->tryDisable();
+		});
+	}
 
 	Action ContextMenuScene::reactMessage(const Message& p_message)
 	{

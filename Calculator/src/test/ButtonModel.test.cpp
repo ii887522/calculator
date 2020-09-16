@@ -11,6 +11,114 @@
 
 namespace ii887522::Calculator
 {
+	void ButtonModelTest::testEnable() const
+	{
+		{
+			ButtonModel buttonModel{ Rect{ Point{ 1, 1 }, Size{ 3, 3 } } };
+			buttonModel.enable();
+			assert(buttonModel.getLightness().start == initialLightness);
+			assert(buttonModel.getLightness().now == initialLightness);
+			assert(buttonModel.getLightness().end == initialLightness);
+			assert(buttonModel.getBorderA().start == initialBorderA);
+			assert(buttonModel.getBorderA().now == initialBorderA);
+			assert(buttonModel.getBorderA().end == initialBorderA);
+			assert(!buttonModel.getIsAnimating());
+			assert(buttonModel.getMessage().head == Message::Head::EMPTY);
+		}
+		{
+			ButtonModel buttonModel{ Rect{ Point{ 2, 2 }, Size{ 5, 5 } } };
+			buttonModel.enable();
+			assert(buttonModel.getLightness().start == initialLightness);
+			assert(buttonModel.getLightness().now == initialLightness);
+			assert(buttonModel.getLightness().end == initialLightness);
+			assert(buttonModel.getBorderA().start == initialBorderA);
+			assert(buttonModel.getBorderA().now == initialBorderA);
+			assert(buttonModel.getBorderA().end == initialBorderA);
+			assert(!buttonModel.getIsAnimating());
+			assert(buttonModel.getMessage().head == Message::Head::EMPTY);
+		}
+		{
+			ButtonModel buttonModel{ Rect{ Point{ 2, 2 }, Size{ 5, 5 } }, Message{ Message::Head::INPUT_0 }, Ability::NONE, SDLK_KP_0 };
+			buttonModel.enable();
+			assert(buttonModel.getLightness().start == initialLightness);
+			assert(buttonModel.getLightness().now == initialLightness);
+			assert(buttonModel.getLightness().end == initialLightness);
+			assert(buttonModel.getBorderA().start == initialBorderA);
+			assert(buttonModel.getBorderA().now == initialBorderA);
+			assert(buttonModel.getBorderA().end == initialBorderA);
+			assert(!buttonModel.getIsAnimating());
+			assert(buttonModel.getMessage().head == Message::Head::EMPTY);
+		}
+		{
+			ButtonModel buttonModel{
+				Rect{ Point{ 2, 2 }, Size{ 5, 5 } }, Message{ Message::Head::INPUT_0 }, Ability::CAN_DISABLE, SDLK_KP_0
+			};
+			buttonModel.enable();
+			assert(buttonModel.getLightness().start == initialLightness);
+			assert(buttonModel.getLightness().now == initialLightness);
+			assert(buttonModel.getLightness().end == initialLightness);
+			assert(buttonModel.getBorderA().start == initialBorderA);
+			assert(buttonModel.getBorderA().now == initialBorderA);
+			assert(buttonModel.getBorderA().end == initialBorderA);
+			assert(!buttonModel.getIsAnimating());
+			assert(buttonModel.getMessage().head == Message::Head::EMPTY);
+		}
+	}
+
+	void ButtonModelTest::testTryDisable() const
+	{
+		{
+			ButtonModel buttonModel{ Rect{ Point{ 1, 1 }, Size{ 3, 3 } } };
+			buttonModel.tryDisable();
+			assert(buttonModel.getLightness().start == initialLightness);
+			assert(buttonModel.getLightness().now == initialLightness);
+			assert(buttonModel.getLightness().end == initialLightness);
+			assert(buttonModel.getBorderA().start == initialBorderA);
+			assert(buttonModel.getBorderA().now == initialBorderA);
+			assert(buttonModel.getBorderA().end == initialBorderA);
+			assert(!buttonModel.getIsAnimating());
+			assert(buttonModel.getMessage().head == Message::Head::EMPTY);
+		}
+		{
+			ButtonModel buttonModel{ Rect{ Point{ 2, 2 }, Size{ 5, 5 } } };
+			buttonModel.tryDisable();
+			assert(buttonModel.getLightness().start == initialLightness);
+			assert(buttonModel.getLightness().now == initialLightness);
+			assert(buttonModel.getLightness().end == initialLightness);
+			assert(buttonModel.getBorderA().start == initialBorderA);
+			assert(buttonModel.getBorderA().now == initialBorderA);
+			assert(buttonModel.getBorderA().end == initialBorderA);
+			assert(!buttonModel.getIsAnimating());
+			assert(buttonModel.getMessage().head == Message::Head::EMPTY);
+		}
+		{
+			ButtonModel buttonModel{ Rect{ Point{ 2, 2 }, Size{ 5, 5 } }, Message{ Message::Head::INPUT_0 }, Ability::NONE, SDLK_KP_0 };
+			buttonModel.tryDisable();
+			assert(buttonModel.getLightness().start == initialLightness);
+			assert(buttonModel.getLightness().now == initialLightness);
+			assert(buttonModel.getLightness().end == initialLightness);
+			assert(buttonModel.getBorderA().start == initialBorderA);
+			assert(buttonModel.getBorderA().now == initialBorderA);
+			assert(buttonModel.getBorderA().end == initialBorderA);
+			assert(!buttonModel.getIsAnimating());
+			assert(buttonModel.getMessage().head == Message::Head::EMPTY);
+		}
+		{
+			ButtonModel buttonModel{
+				Rect{ Point{ 2, 2 }, Size{ 5, 5 } }, Message{ Message::Head::INPUT_0 }, Ability::CAN_DISABLE, SDLK_KP_0
+			};
+			buttonModel.tryDisable();
+			assert(buttonModel.getLightness().start == initialLightness);
+			assert(buttonModel.getLightness().now == initialLightness);
+			assert(buttonModel.getLightness().end == initialLightness);
+			assert(buttonModel.getBorderA().start == initialBorderA);
+			assert(buttonModel.getBorderA().now == initialBorderA);
+			assert(buttonModel.getBorderA().end == initialBorderA);
+			assert(!buttonModel.getIsAnimating());
+			assert(buttonModel.getMessage().head == Message::Head::EMPTY);
+		}
+	}
+
 	void ButtonModelTest::testReactMessage() const
 	{
 		{

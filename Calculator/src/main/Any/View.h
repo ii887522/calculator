@@ -25,7 +25,7 @@ namespace ii887522::Calculator
 
 	protected:
 		// Param renderer: it must not be assigned to integer
-		explicit View(SDL_Renderer* const renderer);
+		explicit View(SDL_Renderer*const renderer);
 
 		constexpr SDL_Renderer* getRenderer()
 		{
@@ -33,6 +33,8 @@ namespace ii887522::Calculator
 		}
 
 	public:
+		virtual void enable();
+		virtual void tryDisable();
 		virtual Pair<Action, Message> reactMessage(const Message&);
 		virtual Action reactMouseMotion(const SDL_MouseMotionEvent&);
 		virtual Action reactLeftMouseButtonDown(const SDL_MouseButtonEvent&);

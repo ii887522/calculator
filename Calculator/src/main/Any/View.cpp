@@ -8,7 +8,10 @@
 
 namespace ii887522::Calculator
 {
-	View::View(SDL_Renderer* const renderer) : renderer{ renderer } { }
+	View::View(SDL_Renderer*const renderer) : renderer{ renderer } { }
+
+	void View::enable() { }
+	void View::tryDisable() { }
 
 	Action View::reactMouseMotion(const SDL_MouseMotionEvent&)
 	{

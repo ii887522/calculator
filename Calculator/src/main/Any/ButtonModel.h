@@ -115,6 +115,33 @@ namespace ii887522::Calculator
 			return message;
 		}
 
+		constexpr void enable()
+		{
+			state = State::INITIAL;
+			elaspedTime = 0u;
+			lightness.start = lightness.now;
+			lightness.end = 1.f;
+			lightness.now = lightness.end;
+			borderA.start = borderA.now;
+			borderA.end = 0.f;
+			borderA.now = borderA.end;
+			isAnimating = false;
+		}
+
+		constexpr void tryDisable()
+		{
+			if (ability != Ability::CAN_DISABLE) return;
+			state = State::DISABLED;
+			elaspedTime = 0u;
+			lightness.start = lightness.now;
+			lightness.end = 1.f;
+			lightness.now = lightness.end;
+			borderA.start = borderA.now;
+			borderA.end = 0.f;
+			borderA.now = borderA.end;
+			isAnimating = false;
+		}
+
 		void reactMessage(const Message&);
 
 		constexpr void reactMouseMotion(const Point& mousePosition)

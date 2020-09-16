@@ -53,6 +53,8 @@ namespace ii887522::Calculator
 		}
 
 	public:
+		virtual void enable();
+		virtual void tryDisable();
 		virtual Action reactMessage(const Message&) = 0;
 		virtual Action reactMouseMotionWithFocus(const SDL_MouseMotionEvent&) = 0;
 		virtual Action reactMouseMotionWithoutFocus(const SDL_MouseMotionEvent&);

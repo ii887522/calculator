@@ -10,6 +10,7 @@
 #include "CalcExprModel.test.h"
 #include "TextModel.test.h"
 #include "CalcScreenModel.test.h"
+#include "ResourceViewModel.test.h"
 
 namespace ii887522::Calculator
 {
@@ -24,11 +25,15 @@ namespace ii887522::Calculator
 		buttonModelTest.testReactKeyUp();
 		buttonModelTest.testStep();
 		buttonModelTest.testReactMessage();
+		buttonModelTest.testEnable();
+		buttonModelTest.testTryDisable();
 	}
 
 	static void testTextModel()
 	{
 		const TextModelTest textModelTest;
+		textModelTest.testEnable();
+		textModelTest.testTryDisable();
 		textModelTest.testReactMessage();
 		textModelTest.testStep();
 	}
@@ -45,6 +50,7 @@ namespace ii887522::Calculator
 		testCalcExprModel();
 		testTextModel();
 		testCalcScreenModel();
+		testResourceViewModel();
 		return 0;
 	}
 }

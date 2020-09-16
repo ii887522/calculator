@@ -8,6 +8,9 @@
 
 namespace ii887522::Calculator
 {
+	void Scene::enable() { }
+	void Scene::tryDisable() { }
+
 	Action Scene::reactMouseMotionWithoutFocus(const SDL_MouseMotionEvent&)
 	{
 		return Action::NONE;

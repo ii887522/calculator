@@ -16,10 +16,12 @@ namespace ii887522::Calculator
 		TextModelTest& operator=(TextModelTest&&) = delete;
 
 		const float initialA;
-		const float errorA;
+		const float disabledA;
 
 	public:
-		explicit constexpr TextModelTest() : initialA{ 255.f }, errorA{ 32.f } { }
+		explicit constexpr TextModelTest() : initialA{ 255.f }, disabledA{ 32.f } { }
+		void testEnable() const;
+		void testTryDisable() const;
 		void testReactMessage() const;
 		void testStep() const;
 	};

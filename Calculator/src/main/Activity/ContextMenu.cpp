@@ -23,6 +23,8 @@ namespace ii887522::Calculator
 		const auto parentPosition{ getWindowPosition(parentWindow) };
 		const auto mousePosition{ getMousePosition() };
 		SDL_SetWindowPosition(getWindow(), parentPosition.x + mousePosition.x, parentPosition.y + mousePosition.y);
+		if (SDL_HasClipboardText()) scene.enable();
+		else scene.tryDisable();
 		SDL_ShowWindow(getWindow());
 	}
 

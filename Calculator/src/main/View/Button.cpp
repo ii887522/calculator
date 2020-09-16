@@ -13,6 +13,16 @@ namespace ii887522::Calculator
 		const SDL_Keycode keyCode) : View{ renderer }, viewModel{ rect, message, ability, keyCode }, color{ color }, isAnimating{ false }
 	{ }
 
+	void Button::enable()
+	{
+		viewModel.enable();
+	}
+
+	void Button::tryDisable()
+	{
+		viewModel.tryDisable();
+	}
+
 	Pair<Action, Message> Button::reactMessage(const Message& message)
 	{
 		viewModel.reactMessage(message);

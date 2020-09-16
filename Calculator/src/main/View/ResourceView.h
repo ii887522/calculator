@@ -4,9 +4,11 @@
 #define II887522_CALCULATOR_RESOURCE_VIEW_H
 
 #include "../Any/View.h"
+#include "../Any/ResourceViewModel.h"
 #include <SDL.h>
 #include <string>
 #include "../Struct/Point.h"
+#include "../Any/Enums.h"
 
 using std::string;
 
@@ -23,6 +25,7 @@ namespace ii887522::Calculator
 		ResourceView(ResourceView&&) = delete;
 		ResourceView& operator=(ResourceView&&) = delete;
 
+		ResourceViewModel viewModel;
 		Point position;
 		SDL_Surface* surface;
 		SDL_Texture* texture;
@@ -51,8 +54,11 @@ namespace ii887522::Calculator
 	public:
 		// Param renderer: it must not be assigned to integer
 		// Param surface: it must not be assigned to integer
-		explicit ResourceView(SDL_Renderer*const renderer, SDL_Surface*const surface, const Point& position = Point{ });
+		explicit ResourceView(SDL_Renderer*const renderer, SDL_Surface*const surface, const Point& position = Point{ },
+			const Ability = Ability::NONE);
 
+		virtual void enable() override;
+		virtual void tryDisable() override;
 		virtual void render() override;
 		~ResourceView();
 	};

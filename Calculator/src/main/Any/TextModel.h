@@ -62,6 +62,25 @@ namespace ii887522::Calculator
 			return message;
 		}
 
+		constexpr void enable()
+		{
+			elaspedTime = 0u;
+			a.start = a.now;
+			a.end = 255.f;
+			a.now = a.end;
+			isAnimating = false;
+		}
+
+		constexpr void tryDisable()
+		{
+			if (ability != Ability::CAN_DISABLE) return;
+			elaspedTime = 0u;
+			a.start = a.now;
+			a.end = 32.f;
+			a.now = a.end;
+			isAnimating = false;
+		}
+
 		void reactMessage(const Message&);
 
 		constexpr void step(const unsigned int dt)

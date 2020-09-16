@@ -38,6 +38,8 @@ namespace ii887522::Calculator
 		explicit Button(SDL_Renderer*const renderer, const Rect&, const Color&, const Message& = Message{ }, const Ability = Ability::NONE
 			, const SDL_Keycode = SDLK_UNKNOWN);
 
+		virtual void enable() override;
+		virtual void tryDisable() override;
 		virtual Pair<Action, Message> reactMessage(const Message&) override;
 		virtual Action reactMouseMotion(const SDL_MouseMotionEvent&) override;
 		virtual Action reactLeftMouseButtonDown(const SDL_MouseButtonEvent&) override;
