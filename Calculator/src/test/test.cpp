@@ -12,6 +12,7 @@
 #include "CalcScreenModel.test.h"
 #include "ResourceViewModel.test.h"
 #include "CalcExprLexer.test.h"
+#include "CalcExprValidator.test.h"
 
 namespace ii887522::Calculator
 {
@@ -53,6 +54,7 @@ namespace ii887522::Calculator
 		testCalcScreenModel();
 		testResourceViewModel();
 		testCalcExprLexer();
+		testCalcExprValidator();
 		return 0;
 	}
 }

@@ -204,6 +204,12 @@
     <ClCompile Include="src\main\Model\TextModel.cpp">
       <Filter>Source Files\Model</Filter>
     </ClCompile>
+    <ClCompile Include="src\main\Any\CalcExprValidator.cpp">
+      <Filter>Source Files\Any</Filter>
+    </ClCompile>
+    <ClCompile Include="src\test\CalcExprValidator.test.cpp">
+      <Filter>Test Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\test\ButtonModel.test.h">
@@ -373,6 +379,12 @@
     </ClInclude>
     <ClInclude Include="src\main\Model\TextModel.h">
       <Filter>Header Files\Model</Filter>
+    </ClInclude>
+    <ClInclude Include="src\main\Any\CalcExprValidator.h">
+      <Filter>Header Files\Any</Filter>
+    </ClInclude>
+    <ClInclude Include="src\test\CalcExprValidator.test.h">
+      <Filter>Test Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

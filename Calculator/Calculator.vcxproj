@@ -236,6 +236,7 @@
     <ClCompile Include="src\main\Any\Activity.cpp" />
     <ClCompile Include="src\main\Any\App.cpp" />
     <ClCompile Include="src\main\Any\CalcExprLexer.cpp" />
+    <ClCompile Include="src\main\Any\CalcExprValidator.cpp" />
     <ClCompile Include="src\main\Any\Scene.cpp" />
     <ClCompile Include="src\main\Any\Subsystems.cpp" />
     <ClCompile Include="src\main\Any\View.cpp" />
@@ -266,6 +267,7 @@
     <ClCompile Include="src\test\ButtonModel.test.cpp" />
     <ClCompile Include="src\test\CalcExprLexer.test.cpp" />
     <ClCompile Include="src\test\CalcExprModel.test.cpp" />
+    <ClCompile Include="src\test\CalcExprValidator.test.cpp" />
     <ClCompile Include="src\test\CalcResultModel.test.cpp" />
     <ClCompile Include="src\test\CalcScreenModel.test.cpp" />
     <ClCompile Include="src\test\control_flow.test.cpp" />
@@ -283,6 +285,7 @@
     <ClInclude Include="src\main\Any\App.h" />
     <ClInclude Include="src\main\Any\ButtonGrid.h" />
     <ClInclude Include="src\main\Any\CalcExprLexer.h" />
+    <ClInclude Include="src\main\Any\CalcExprValidator.h" />
     <ClInclude Include="src\main\Any\constants.h" />
     <ClInclude Include="src\main\Any\Enums.h" />
     <ClInclude Include="src\main\Any\Scene.h" />
@@ -325,6 +328,7 @@
     <ClInclude Include="src\test\ButtonModel.test.h" />
     <ClInclude Include="src\test\CalcExprLexer.test.h" />
     <ClInclude Include="src\test\CalcExprModel.test.h" />
+    <ClInclude Include="src\test\CalcExprValidator.test.h" />
     <ClInclude Include="src\test\CalcResultModel.test.h" />
     <ClInclude Include="src\test\CalcScreenModel.test.h" />
     <ClInclude Include="src\test\control_flow.test.h" />

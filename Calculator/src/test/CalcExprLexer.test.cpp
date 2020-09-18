@@ -79,124 +79,89 @@ namespace ii887522::Calculator
 							{
 								try
 								{
-									CalcExprLexer{ }.run("sqr(0");
+									CalcExprLexer{ }.run(".");
 								}
 								catch (const invalid_argument&)
 								{
 									try
 									{
-										CalcExprLexer{ }.run("sqr(1");
+										CalcExprLexer{ }.run("0-");
 									}
 									catch (const invalid_argument&)
 									{
 										try
 										{
-											CalcExprLexer{ }.run(".");
+											CalcExprLexer{ }.run("0+");
 										}
 										catch (const invalid_argument&)
 										{
 											try
 											{
-												CalcExprLexer{ }.run("0-");
+												CalcExprLexer{ }.run("s");
 											}
 											catch (const invalid_argument&)
 											{
 												try
 												{
-													CalcExprLexer{ }.run("0+");
+													CalcExprLexer{ }.run("0s");
 												}
 												catch (const invalid_argument&)
 												{
 													try
 													{
-														CalcExprLexer{ }.run("s");
+														CalcExprLexer{ }.run("sq");
 													}
 													catch (const invalid_argument&)
 													{
 														try
 														{
-															CalcExprLexer{ }.run("0s");
+															CalcExprLexer{ }.run("0q");
 														}
 														catch (const invalid_argument&)
 														{
 															try
 															{
-																CalcExprLexer{ }.run("sq");
+																CalcExprLexer{ }.run("sqr");
 															}
 															catch (const invalid_argument&)
 															{
 																try
 																{
-																	CalcExprLexer{ }.run("0q");
+																	CalcExprLexer{ }.run("0r");
 																}
 																catch (const invalid_argument&)
 																{
 																	try
 																	{
-																		CalcExprLexer{ }.run("sqr");
+																		CalcExprLexer{ }.run("sqrt");
 																	}
 																	catch (const invalid_argument&)
 																	{
 																		try
 																		{
-																			CalcExprLexer{ }.run("0r");
+																			CalcExprLexer{ }.run("0t");
 																		}
 																		catch (const invalid_argument&)
 																		{
 																			try
 																			{
-																				CalcExprLexer{ }.run("sqrt");
+																				CalcExprLexer{ }.run("0(");
 																			}
 																			catch (const invalid_argument&)
 																			{
 																				try
 																				{
-																					CalcExprLexer{ }.run("0t");
+																					CalcExprLexer{ }.run(")");
 																				}
 																				catch (const invalid_argument&)
 																				{
 																					try
 																					{
-																						CalcExprLexer{ }.run("sqr(");
+																						CalcExprLexer{ }.run("a");
 																					}
 																					catch (const invalid_argument&)
 																					{
-																						try
-																						{
-																							CalcExprLexer{ }.run("0(");
-																						}
-																						catch (const invalid_argument&)
-																						{
-																							try
-																							{
-																								CalcExprLexer{ }.run("0)");
-																							}
-																							catch (const invalid_argument&)
-																							{
-																								try
-																								{
-																									CalcExprLexer{ }.run("sqr(0))");
-																								}
-																								catch (const invalid_argument&)
-																								{
-																									try
-																									{
-																										CalcExprLexer{ }.run(")");
-																									}
-																									catch (const invalid_argument&)
-																									{
-																										try
-																										{
-																											CalcExprLexer{ }.run("a");
-																										}
-																										catch (const invalid_argument&)
-																										{
-																											return;
-																										}
-																									}
-																								}
-																							}
-																						}
+																						return;
 																					}
 																				}
 																			}

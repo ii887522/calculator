@@ -13,7 +13,6 @@ using std::invalid_argument;
 namespace ii887522::Calculator
 {
 	// Not Thread Safe: it must only be used in main thread
-	// 
 	class CalcExprLexer final
 	{
 		enum class State : unsigned int
@@ -30,7 +29,6 @@ namespace ii887522::Calculator
 		CalcExprLexer& operator=(CalcExprLexer&&) = delete;
 
 		State state;
-		unsigned int openLeftBracketCount;
 		vector<Token> result;
 
 		void runSpaceWhenNumber();
@@ -173,7 +171,6 @@ namespace ii887522::Calculator
 		}
 
 		void runRightBracketWhenNumber();
-		void runRightBracketWhenRightBracket();
 
 		constexpr void runRightBracket()
 		{
@@ -181,7 +178,7 @@ namespace ii887522::Calculator
 			{
 			case State::ZERO: case State::INT: case State::FLOAT: runRightBracketWhenNumber();
 				break;
-			case State::RIGHT_BRACKET: runRightBracketWhenRightBracket();
+			case State::RIGHT_BRACKET: result.push_back(Token::RIGHT_BRACKET);
 				break;
 			default: throw invalid_argument{ "Invalid calculator expression! Please try again." };
 			}
@@ -219,7 +216,6 @@ namespace ii887522::Calculator
 
 		constexpr void runEnd()
 		{
-			if (openLeftBracketCount != 0u) throw invalid_argument{ "Invalid calculator expression! Please try again." };
 			switch (state)
 			{
 			case State::ZERO: case State::INT: case State::FLOAT: result.push_back(Token::NUMBER);

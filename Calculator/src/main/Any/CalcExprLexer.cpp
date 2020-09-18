@@ -7,7 +7,7 @@ using std::string;
 
 namespace ii887522::Calculator
 {
-	CalcExprLexer::CalcExprLexer() : state{ State::EMPTY }, openLeftBracketCount{ 0u } { }
+	CalcExprLexer::CalcExprLexer() : state{ State::EMPTY } { }
 
 	void CalcExprLexer::runSpaceWhenNumber()
 	{
@@ -24,24 +24,14 @@ namespace ii887522::Calculator
 	void CalcExprLexer::runLeftBracketWhenEndOfUnaryOperator()
 	{
 		state = State::LEFT_BRACKET;
-		++openLeftBracketCount;
 		result.push_back(Token::UNARY_OPERATOR);
 		result.push_back(Token::LEFT_BRACKET);
 	}
 
 	void CalcExprLexer::runRightBracketWhenNumber()
 	{
-		if (openLeftBracketCount == 0u) throw invalid_argument{ "Invalid calculator expression! Please try again." };
 		state = State::RIGHT_BRACKET;
-		--openLeftBracketCount;
 		result.push_back(Token::NUMBER);
-		result.push_back(Token::RIGHT_BRACKET);
-	}
-
-	void CalcExprLexer::runRightBracketWhenRightBracket()
-	{
-		if (openLeftBracketCount == 0u) throw invalid_argument{ "Invalid calculator expression! Please try again." };
-		--openLeftBracketCount;
 		result.push_back(Token::RIGHT_BRACKET);
 	}
 
