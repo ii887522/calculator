@@ -2,7 +2,7 @@
 #define II887522_CALCULATOR_CALC_EXPR_LEXER_H
 
 #include <vector>
-#include "../Any/Enums.h"
+#include "../Struct/Token.h"
 #include <string>
 #include <stdexcept>
 
@@ -29,6 +29,7 @@ namespace ii887522::Calculator
 		CalcExprLexer& operator=(CalcExprLexer&&) = delete;
 
 		State state;
+		string value;
 		vector<Token> result;
 
 		void runSpaceWhenNumber();
@@ -43,32 +44,16 @@ namespace ii887522::Calculator
 				break;
 			case State::SIGN:
 				state = State::SPACE;
-				result.push_back(Token::BINARY_OPERATOR);
+				result.push_back(Token{ Token::Type::BINARY_OPERATOR, "-" });
 				break;
 			default: throw invalid_argument{ "Invalid calculator expression! Please try again." };
 			}
 		}
 
-		constexpr void runDigitWhenEmpty(const char digitCh)
-		{
-			state = digitCh == '0' ? State::ZERO : State::INT;
-		}
-
-		constexpr void runDigitWhenSpace(const char digitCh)
-		{
-			runDigitWhenEmpty(digitCh);
-		}
-
-		constexpr void runDigitWhenSign(const char digitCh)
-		{
-			if (digitCh == '0') throw invalid_argument{ "Invalid calculator expression! Please try again." };
-			state = State::INT;
-		}
-
-		constexpr void runDigitWhenLeftBracket(const char digitCh)
-		{
-			state = digitCh == '0' ? State::ZERO : State::INT;
-		}
+		void runDigitWhenEmpty(const char digitCh);
+		void runDigitWhenSpace(const char digitCh);
+		void runDigitWhenSign(const char digitCh);
+		void runDigitWhenLeftBracket(const char digitCh);
 
 		constexpr void runDigit(const char digitCh)
 		{
@@ -90,7 +75,9 @@ namespace ii887522::Calculator
 		{
 			switch (state)
 			{
-			case State::ZERO: case State::INT: state = State::FLOAT;
+			case State::ZERO: case State::INT:
+				state = State::FLOAT;
+				value += '.';
 				break;
 			default: throw invalid_argument{ "Invalid calculator expression! Please try again." };
 			}
@@ -122,7 +109,9 @@ namespace ii887522::Calculator
 		{
 			switch (state)
 			{
-			case State::EMPTY: case State::SPACE: case State::LEFT_BRACKET: state = State::S;
+			case State::EMPTY: case State::SPACE: case State::LEFT_BRACKET:
+				state = State::S;
+				value += 's';
 				break;
 			default: throw invalid_argument{ "Invalid calculator expression! Please try again." };
 			}
@@ -132,7 +121,9 @@ namespace ii887522::Calculator
 		{
 			switch (state)
 			{
-			case State::S: state = State::Q;
+			case State::S:
+				state = State::Q;
+				value += 'q';
 				break;
 			default: throw invalid_argument{ "Invalid calculator expression! Please try again." };
 			}
@@ -142,7 +133,9 @@ namespace ii887522::Calculator
 		{
 			switch (state)
 			{
-			case State::Q: state = State::R;
+			case State::Q:
+				state = State::R;
+				value += 'r';
 				break;
 			default: throw invalid_argument{ "Invalid calculator expression! Please try again." };
 			}
@@ -152,7 +145,9 @@ namespace ii887522::Calculator
 		{
 			switch (state)
 			{
-			case State::R: state = State::T;
+			case State::R:
+				state = State::T;
+				value += 't';
 				break;
 			default: throw invalid_argument{ "Invalid calculator expression! Please try again." };
 			}
@@ -178,7 +173,7 @@ namespace ii887522::Calculator
 			{
 			case State::ZERO: case State::INT: case State::FLOAT: runRightBracketWhenNumber();
 				break;
-			case State::RIGHT_BRACKET: result.push_back(Token::RIGHT_BRACKET);
+			case State::RIGHT_BRACKET: result.push_back(Token{ Token::Type::RIGHT_BRACKET });
 				break;
 			default: throw invalid_argument{ "Invalid calculator expression! Please try again." };
 			}
@@ -218,9 +213,11 @@ namespace ii887522::Calculator
 		{
 			switch (state)
 			{
-			case State::ZERO: case State::INT: case State::FLOAT: result.push_back(Token::NUMBER);
+			case State::ZERO: case State::INT: case State::FLOAT:
+				result.push_back(Token{ Token::Type::NUMBER, value });
+				value = "";
 				break;
-			case State::SIGN: result.push_back(Token::BINARY_OPERATOR);
+			case State::SIGN: result.push_back(Token{ Token::Type::BINARY_OPERATOR, "-" });
 				break;
 			case State::RIGHT_BRACKET: case State::BINARY_OPERATOR: break;
 			default: throw invalid_argument{ "Invalid calculator expression! Please try again." };

@@ -59,37 +59,37 @@ namespace ii887522::Calculator
 	{
 		auto resultAction{ Action::NONE };
 		auto resultMessage{ Message{ } };
-		loop(sizeof texts / sizeof Text, [=, &resultAction, &resultMessage](const auto i) {
+		for (auto i{ 0u }; i != sizeof texts / sizeof Text; ++i)
+		{
 			const auto [action, message]{ texts[i].reactMessage(p_message) };
 			if (message.head != Message::Head::EMPTY) resultMessage = message;
-			if (action != Action::START_ANIMATION) return;
+			if (action != Action::START_ANIMATION) continue;
 			++textAnimationCount;
-			if (isAnimating) return;
+			if (isAnimating) continue;
 			resultAction = action;
 			isAnimating = true;
-		});
+		}
 		return Pair{ resultAction, resultMessage };
 	}
 
 	Action TextGroup::step(const unsigned int dt)
 	{
 		auto result{ Action::NONE };
-		loop(sizeof texts / sizeof Text, [=, &result](const auto i) {
+		for (auto i{ 0u }; i != sizeof texts / sizeof Text; ++i)
+		{
 			const auto action{ texts[i].step(dt) };
-			if (action != Action::STOP_ANIMATION) return;
+			if (action != Action::STOP_ANIMATION) continue;
 			--textAnimationCount;
-			if (textAnimationCount != 0u) return;
+			if (textAnimationCount != 0u) continue;
 			result = action;
 			isAnimating = false;
-		});
+		}
 		return result;
 	}
 
 	void TextGroup::render()
 	{
-		loop(sizeof texts / sizeof Text, [=](const auto i) {
-			texts[i].render();
-		});
+		for (auto i{ 0u }; i != sizeof texts / sizeof Text; ++i) texts[i].render();
 	}
 }
 

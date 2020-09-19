@@ -1,8 +1,9 @@
 #ifdef TEST
 
+#include "Point.test.h"
+#include "Token.test.h"
 #include "ButtonModel.test.h"
 #include "math_ext.test.h"
-#include "control_flow.test.h"
 #include "ButtonGrid.test.h"
 #include "RadialGradientModel.test.h"
 #include "CalcResultModel.test.h"
@@ -11,6 +12,7 @@
 #include "TextModel.test.h"
 #include "CalcScreenModel.test.h"
 #include "ResourceViewModel.test.h"
+#include "comparison.test.h"
 #include "CalcExprLexer.test.h"
 #include "CalcExprValidator.test.h"
 
@@ -42,9 +44,10 @@ namespace ii887522::Calculator
 
 	static int main()
 	{
+		testPoint();
+		testToken();
 		testMathExt();
 		testButtonModel();
-		testControlFlow();
 		testButtonGrid();
 		testRadialGradientModel();
 		testStringExt();
@@ -53,6 +56,7 @@ namespace ii887522::Calculator
 		testTextModel();
 		testCalcScreenModel();
 		testResourceViewModel();
+		testComparison();
 		testCalcExprLexer();
 		testCalcExprValidator();
 		return 0;

@@ -81,9 +81,6 @@
     <ClCompile Include="src\test\math_ext.test.cpp">
       <Filter>Test Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\test\control_flow.test.cpp">
-      <Filter>Test Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="src\main\Any\Subsystems.cpp">
       <Filter>Source Files\Any</Filter>
     </ClCompile>
@@ -107,9 +104,6 @@
     </ClCompile>
     <ClCompile Include="src\test\ButtonGrid.test.cpp">
       <Filter>Test Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\main\Functions\control_flow.cpp">
-      <Filter>Source Files\Functions</Filter>
     </ClCompile>
     <ClCompile Include="src\main\View\TextGroup.cpp">
       <Filter>Source Files\View</Filter>
@@ -210,15 +204,24 @@
     <ClCompile Include="src\test\CalcExprValidator.test.cpp">
       <Filter>Test Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="src\main\Struct\Token.cpp">
+      <Filter>Source Files\Struct</Filter>
+    </ClCompile>
+    <ClCompile Include="src\test\Point.test.cpp">
+      <Filter>Test Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\test\Token.test.cpp">
+      <Filter>Test Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\test\comparison.test.cpp">
+      <Filter>Test Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\test\ButtonModel.test.h">
       <Filter>Test Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\test\math_ext.test.h">
-      <Filter>Test Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\test\control_flow.test.h">
       <Filter>Test Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\main\Struct\AnimatedFloat.h">
@@ -241,9 +244,6 @@
     </ClInclude>
     <ClInclude Include="src\main\View\ResourceView.h">
       <Filter>Header Files\View</Filter>
-    </ClInclude>
-    <ClInclude Include="src\main\Functions\control_flow.h">
-      <Filter>Header Files\Functions</Filter>
     </ClInclude>
     <ClInclude Include="src\main\Functions\math_ext.h">
       <Filter>Header Files\Functions</Filter>
@@ -384,6 +384,21 @@
       <Filter>Header Files\Any</Filter>
     </ClInclude>
     <ClInclude Include="src\test\CalcExprValidator.test.h">
+      <Filter>Test Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\main\Struct\Token.h">
+      <Filter>Header Files\Struct</Filter>
+    </ClInclude>
+    <ClInclude Include="src\test\Point.test.h">
+      <Filter>Test Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\test\Token.test.h">
+      <Filter>Test Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\main\Functions\comparison.h">
+      <Filter>Header Files\Functions</Filter>
+    </ClInclude>
+    <ClInclude Include="src\test\comparison.test.h">
       <Filter>Test Header Files</Filter>
     </ClInclude>
   </ItemGroup>

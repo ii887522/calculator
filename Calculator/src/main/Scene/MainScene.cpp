@@ -15,7 +15,6 @@
 #include "../View/ButtonGroup.h"
 #include "../View/TextGroup.h"
 #include "../View/CalcExprPaster.h"
-#include "../Functions/control_flow.h"
 #include "../Struct/Rect.h"
 #include "../Struct/Point.h"
 #include "../Struct/Size.h"
@@ -45,7 +44,7 @@ namespace ii887522::Calculator
 			new CalcResult{ renderer, calcScreenRect, maxSizeIgnoreDash },
 			new ButtonGroup{ renderer, buttonGrid },
 			new TextGroup{ renderer, font, buttonGrid },
-			new CalcExprPaster{ }
+			new CalcExprPaster{ *this }
 		}, viewAbilities{
 			Ability::ALWAYS_REACT, Ability::NONE, Ability::NONE, Ability::NONE, Ability::NONE, Ability::NONE, Ability::NONE, Ability::NONE,
 			Ability::NONE, Ability::NONE, Ability::NONE, Ability::NONE, Ability::NONE
@@ -57,87 +56,93 @@ namespace ii887522::Calculator
 	Action MainScene::reactMessage(const Message& p_message)
 	{
 		auto result{ Action::NONE };
-		loop(sizeof views / sizeof(View*), [=, &result](const auto i) {
+		for (auto i{ 0u }; i != sizeof views / sizeof(View*); ++i)
+		{
 			const auto [action, message]{ views[i]->reactMessage(p_message) };
 			if (message.head != Message::Head::EMPTY) result = reactMessage(message);
-			if (action != Action::START_ANIMATION) return;
+			if (action != Action::START_ANIMATION) continue;
 			incrementViewAnimationsCount();
-			if (getIsAnimating()) return;
+			if (getIsAnimating()) continue;
 			result = action;
 			setIsAnimating(true);
-		});
+		}
 		return result;
 	}
 
 	Action MainScene::reactMouseMotionWithFocus(const SDL_MouseMotionEvent& motionEvent)
 	{
 		auto result{ Action::NONE };
-		loop(sizeof views / sizeof(View*), [=, &result](const auto i) {
+		for (auto i{ 0u }; i != sizeof views / sizeof(View*); ++i)
+		{
 			const auto action{ views[i]->reactMouseMotion(motionEvent) };
 			if (action != Action::START_ANIMATION) return;
 			incrementViewAnimationsCount();
 			if (getIsAnimating()) return;
 			result = action;
 			setIsAnimating(true);
-		});
+		}
 		return result;
 	}
 
 	Action MainScene::reactMouseMotionWithoutFocus(const SDL_MouseMotionEvent& motionEvent)
 	{
 		auto result{ Action::NONE };
-		loop(sizeof views / sizeof(View*), [=, &result](const auto i) {
-			if (viewAbilities[i] != Ability::ALWAYS_REACT) return;
+		for (auto i{ 0u }; i != sizeof views / sizeof(View*); ++i)
+		{
+			if (viewAbilities[i] != Ability::ALWAYS_REACT) continue;
 			const auto action{ views[i]->reactMouseMotion(motionEvent) };
-			if (action != Action::START_ANIMATION) return;
+			if (action != Action::START_ANIMATION) continue;
 			incrementViewAnimationsCount();
-			if (getIsAnimating()) return;
+			if (getIsAnimating()) continue;
 			result = action;
 			setIsAnimating(true);
-		});
+		}
 		return result;
 	}
 
 	Action MainScene::reactLeftMouseButtonDown(const SDL_MouseButtonEvent& buttonEvent)
 	{
 		auto result{ Action::NONE };
-		loop(sizeof views / sizeof(View*), [=, &result](const auto i) {
+		for (auto i{ 0u }; i != sizeof views / sizeof(View*); ++i)
+		{
 			const auto action{ views[i]->reactLeftMouseButtonDown(buttonEvent) };
-			if (action != Action::START_ANIMATION) return;
+			if (action != Action::START_ANIMATION) continue;
 			incrementViewAnimationsCount();
-			if (getIsAnimating()) return;
+			if (getIsAnimating()) continue;
 			result = action;
 			setIsAnimating(true);
-		});
+		}
 		return result;
 	}
 
 	Pair<Action, Message> MainScene::reactLeftMouseButtonUp(const SDL_MouseButtonEvent& buttonEvent)
 	{
 		auto resultAction{ Action::NONE };
-		loop(sizeof views / sizeof(View*), [=, &resultAction](const auto i) {
+		for (auto i{ 0u }; i != sizeof views / sizeof(View*); ++i)
+		{
 			const auto [action, message]{ views[i]->reactLeftMouseButtonUp(buttonEvent) };
 			if (message.head != Message::Head::EMPTY) resultAction = reactMessage(message);
-			if (action != Action::START_ANIMATION) return;
+			if (action != Action::START_ANIMATION) continue;
 			incrementViewAnimationsCount();
-			if (getIsAnimating()) return;
+			if (getIsAnimating()) continue;
 			resultAction = action;
 			setIsAnimating(true);
-		});
+		}
 		return Pair{ resultAction, Message{ } };
 	}
 
 	Action MainScene::reactRightMouseButtonDown(const SDL_MouseButtonEvent& buttonEvent)
 	{
 		auto result{ Action::NONE };
-		loop(sizeof views / sizeof(View*), [=, &result](const auto i) {
+		for (auto i{ 0u }; i != sizeof views / sizeof(View*); ++i)
+		{
 			const auto action{ views[i]->reactRightMouseButtonDown(buttonEvent) };
-			if (action != Action::START_ANIMATION) return;
+			if (action != Action::START_ANIMATION) continue;
 			incrementViewAnimationsCount();
-			if (getIsAnimating()) return;
+			if (getIsAnimating()) continue;
 			result = action;
 			setIsAnimating(true);
-		});
+		}
 		return result;
 	}
 
@@ -145,91 +150,92 @@ namespace ii887522::Calculator
 	{
 		auto resultAction{ Action::NONE };
 		auto resultMessage{ Message{ } };
-		loop(sizeof views / sizeof(View*), [=, &resultAction, &resultMessage](const auto i) {
+		for (auto i{ 0u }; i != sizeof views / sizeof(View*); ++i)
+		{
 			const auto [action, message]{ views[i]->reactRightMouseButtonUp(buttonEvent) };
 			if (message.head != Message::Head::EMPTY)
 			{
 				resultMessage = message;
 				resultAction = reactMessage(message);
 			}
-			if (action != Action::START_ANIMATION) return;
+			if (action != Action::START_ANIMATION) continue;
 			incrementViewAnimationsCount();
-			if (getIsAnimating()) return;
+			if (getIsAnimating()) continue;
 			resultAction = action;
 			setIsAnimating(true);
-		});
+		}
 		return Pair{ resultAction, resultMessage };
 	}
 
 	Action MainScene::reactMouseLeaveWindow(const SDL_WindowEvent& windowEvent)
 	{
 		auto result{ Action::NONE };
-		loop(sizeof views / sizeof(View*), [=, &result](const auto i) {
+		for (auto i{ 0u }; i != sizeof views / sizeof(View*); ++i)
+		{
 			const auto action{ views[i]->reactMouseLeaveWindow(windowEvent) };
-			if (action != Action::START_ANIMATION) return;
+			if (action != Action::START_ANIMATION) continue;
 			incrementViewAnimationsCount();
-			if (getIsAnimating()) return;
+			if (getIsAnimating()) continue;
 			result = action;
 			setIsAnimating(true);
-		});
+		}
 		return result;
 	}
 
 	Action MainScene::reactKeyDown(const SDL_KeyboardEvent& keyEvent)
 	{
 		auto result{ Action::NONE };
-		loop(sizeof views / sizeof(View*), [=, &result](const auto i) {
-			const auto [action, message]{ views[i]->reactKeyDown(keyEvent) };
+		for (auto i{ 0u }; i != sizeof views / sizeof(View*); ++i)
+		{
+			const auto [action, message] { views[i]->reactKeyDown(keyEvent) };
 			if (message.head != Message::Head::EMPTY) result = reactMessage(message);
-			if (action != Action::START_ANIMATION) return;
+			if (action != Action::START_ANIMATION) continue;
 			incrementViewAnimationsCount();
-			if (getIsAnimating()) return;
+			if (getIsAnimating()) continue;
 			result = action;
 			setIsAnimating(true);
-		});
+		}
 		return result;
 	}
 
 	Action MainScene::reactKeyUp(const SDL_KeyboardEvent& keyEvent)
 	{
 		auto result{ Action::NONE };
-		loop(sizeof views / sizeof(View*), [=, &result](const auto i) {
+		for (auto i{ 0u }; i != sizeof views / sizeof(View*); ++i)
+		{
 			const auto action{ views[i]->reactKeyUp(keyEvent) };
-			if (action != Action::START_ANIMATION) return;
+			if (action != Action::START_ANIMATION) continue;
 			incrementViewAnimationsCount();
-			if (getIsAnimating()) return;
+			if (getIsAnimating()) continue;
 			result = action;
 			setIsAnimating(true);
-		});
+		}
 		return result;
 	}
 
 	Action MainScene::step(const unsigned int dt)
 	{
 		auto result{ Action::NONE };
-		loop(sizeof views / sizeof(View*), [=, &result](const auto i) {
+		for (auto i{ 0u }; i != sizeof views / sizeof(View*); ++i)
+		{
 			const auto action{ views[i]->step(dt) };
-			if (action != Action::STOP_ANIMATION) return;
+			if (action != Action::STOP_ANIMATION) continue;
 			decrementViewAnimationsCount();
-			if (getViewAnimationsCount() != 0u) return;
+			if (getViewAnimationsCount() != 0u) continue;
 			result = action;
 			setIsAnimating(false);
-		});
+		}
 		return result;
 	}
 
 	void MainScene::render()
 	{
-		loop(sizeof views / sizeof(View*), [=](const auto i) {
-			views[i]->render();
-		});
+		for (auto i{ 0u }; i != sizeof views / sizeof(View*); ++i) views[i]->render();
 	}
 
 	MainScene::~MainScene()
 	{
-		loop(sizeof views / sizeof(View*), [=](const auto i) {
-			delete views[i];
-		});
+		for (auto i{ 0u }; i != sizeof views / sizeof(View*); ++i) delete views[i];
 	}
 }
 

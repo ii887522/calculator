@@ -9,7 +9,6 @@
 #include "../Struct/Size.h"
 #include "../Struct/Color.h"
 #include "../Any/Enums.h"
-#include "../Functions/control_flow.h"
 #include "../Any/ButtonGrid.h"
 #include "../Struct/Pair.h"
 #include "../Struct/Message.h"
@@ -71,43 +70,46 @@ namespace ii887522::Calculator
 	{
 		auto resultAction{ Action::NONE };
 		auto resultMessage{ Message{ } };
-		loop(sizeof buttons / sizeof Button, [=, &resultAction, &resultMessage](const auto i) {
+		for (auto i{ 0u }; i != sizeof buttons / sizeof Button; ++i)
+		{
 			const auto [action, message]{ buttons[i].reactMessage(p_message) };
 			if (message.head != Message::Head::EMPTY) resultMessage = message;
-			if (action != Action::START_ANIMATION) return;
+			if (action != Action::START_ANIMATION) continue;
 			++buttonAnimationsCount;
-			if (isAnimating) return;
+			if (isAnimating) continue;
 			resultAction = action;
 			isAnimating = true;
-		});
+		}
 		return Pair{ resultAction, resultMessage };
 	}
 
 	Action ButtonGroup::reactMouseMotion(const SDL_MouseMotionEvent& motionEvent)
 	{
 		auto result{ Action::NONE };
-		loop(sizeof buttons / sizeof Button, [=, &result](const auto i) {
+		for (auto i{ 0u }; i != sizeof buttons / sizeof Button; ++i)
+		{
 			const auto action{ buttons[i].reactMouseMotion(motionEvent) };
-			if (action != Action::START_ANIMATION) return;
+			if (action != Action::START_ANIMATION) continue;
 			++buttonAnimationsCount;
-			if (isAnimating) return;
+			if (isAnimating) continue;
 			result = action;
 			isAnimating = true;
-		});
+		}
 		return result;
 	}
 
 	Action ButtonGroup::reactLeftMouseButtonDown(const SDL_MouseButtonEvent& buttonEvent)
 	{
 		auto result{ Action::NONE };
-		loop(sizeof buttons / sizeof Button, [=, &result](const auto i) {
+		for (auto i{ 0u }; i != sizeof buttons / sizeof Button; ++i)
+		{
 			const auto action{ buttons[i].reactLeftMouseButtonDown(buttonEvent) };
-			if (action != Action::START_ANIMATION) return;
+			if (action != Action::START_ANIMATION) continue;
 			++buttonAnimationsCount;
-			if (isAnimating) return;
+			if (isAnimating) continue;
 			result = action;
 			isAnimating = true;
-		});
+		}
 		return result;
 	}
 
@@ -115,29 +117,31 @@ namespace ii887522::Calculator
 	{
 		auto resultAction{ Action::NONE };
 		auto resultMessage{ Message{ } };
-		loop(sizeof buttons / sizeof Button, [=, &resultAction, &resultMessage](const auto i) {
+		for (auto i{ 0u }; i != sizeof buttons / sizeof Button; ++i)
+		{
 			const auto [action, message]{ buttons[i].reactLeftMouseButtonUp(buttonEvent) };
 			if (message.head != Message::Head::EMPTY) resultMessage = message;
-			if (action != Action::START_ANIMATION) return;
+			if (action != Action::START_ANIMATION) continue;
 			++buttonAnimationsCount;
-			if (isAnimating) return;
+			if (isAnimating) continue;
 			resultAction = action;
 			isAnimating = true;
-		});
+		}
 		return Pair{ resultAction, resultMessage };
 	}
 
 	Action ButtonGroup::reactMouseLeaveWindow(const SDL_WindowEvent& windowEvent)
 	{
 		auto result{ Action::NONE };
-		loop(sizeof buttons / sizeof Button, [=, &result](const auto i) {
+		for (auto i{ 0u }; i != sizeof buttons / sizeof Button; ++i)
+		{
 			const auto action{ buttons[i].reactMouseLeaveWindow(windowEvent) };
-			if (action != Action::START_ANIMATION) return;
+			if (action != Action::START_ANIMATION) continue;
 			++buttonAnimationsCount;
-			if (isAnimating) return;
+			if (isAnimating) continue;
 			result = action;
 			isAnimating = true;
-		});
+		}
 		return result;
 	}
 
@@ -145,51 +149,52 @@ namespace ii887522::Calculator
 	{
 		auto resultAction{ Action::NONE };
 		auto resultMessage{ Message{ } };
-		loop(sizeof buttons / sizeof Button, [=, &resultAction, &resultMessage](const auto i) {
+		for (auto i{ 0u }; i != sizeof buttons / sizeof Button; ++i)
+		{
 			const auto [action, message]{ buttons[i].reactKeyDown(keyEvent) };
 			if (message.head != Message::Head::EMPTY) resultMessage = message;
-			if (action != Action::START_ANIMATION) return;
+			if (action != Action::START_ANIMATION) continue;
 			++buttonAnimationsCount;
-			if (isAnimating) return;
+			if (isAnimating) continue;
 			resultAction = action;
 			isAnimating = true;
-		});
+		}
 		return Pair{ resultAction, resultMessage };
 	}
 
 	Action ButtonGroup::reactKeyUp(const SDL_KeyboardEvent& keyEvent)
 	{
 		auto result{ Action::NONE };
-		loop(sizeof buttons / sizeof Button, [=, &result](const auto i) {
+		for (auto i{ 0u }; i != sizeof buttons / sizeof Button; ++i)
+		{
 			const auto action{ buttons[i].reactKeyUp(keyEvent) };
-			if (action != Action::START_ANIMATION) return;
+			if (action != Action::START_ANIMATION) continue;
 			++buttonAnimationsCount;
-			if (isAnimating) return;
+			if (isAnimating) continue;
 			result = action;
 			isAnimating = true;
-		});
+		}
 		return result;
 	}
 
 	Action ButtonGroup::step(const unsigned int dt)
 	{
 		auto result{ Action::NONE };
-		loop(sizeof buttons / sizeof Button, [=, &result](const auto i) {
+		for (auto i{ 0u }; i != sizeof buttons / sizeof Button; ++i)
+		{
 			const auto action{ buttons[i].step(dt) };
-			if (action != Action::STOP_ANIMATION) return;
+			if (action != Action::STOP_ANIMATION) continue;
 			--buttonAnimationsCount;
-			if (buttonAnimationsCount != 0u) return;
+			if (buttonAnimationsCount != 0u) continue;
 			result = action;
 			isAnimating = false;
-		});
+		}
 		return result;
 	}
 
 	void ButtonGroup::render()
 	{
-		loop(sizeof buttons / sizeof Button, [=](const auto i) {
-			buttons[i].render();
-		});
+		for (auto i{ 0u }; i != sizeof buttons / sizeof Button; ++i) buttons[i].render();
 	}
 }
 

@@ -241,7 +241,6 @@
     <ClCompile Include="src\main\Any\Subsystems.cpp" />
     <ClCompile Include="src\main\Any\View.cpp" />
     <ClCompile Include="src\main\Functions\calculator.cpp" />
-    <ClCompile Include="src\main\Functions\control_flow.cpp" />
     <ClCompile Include="src\main\Functions\sdl_ext.cpp" />
     <ClCompile Include="src\main\Functions\string_ext.cpp" />
     <ClCompile Include="src\main\Model\ButtonModel.cpp" />
@@ -254,6 +253,7 @@
     <ClCompile Include="src\main\Scene\ContextMenuScene.cpp" />
     <ClCompile Include="src\main\Scene\MainScene.cpp" />
     <ClCompile Include="src\main\Struct\Message.cpp" />
+    <ClCompile Include="src\main\Struct\Token.cpp" />
     <ClCompile Include="src\main\Text\CalcExpr.cpp" />
     <ClCompile Include="src\main\Text\CalcResult.cpp" />
     <ClCompile Include="src\main\View\Button.cpp" />
@@ -270,13 +270,15 @@
     <ClCompile Include="src\test\CalcExprValidator.test.cpp" />
     <ClCompile Include="src\test\CalcResultModel.test.cpp" />
     <ClCompile Include="src\test\CalcScreenModel.test.cpp" />
-    <ClCompile Include="src\test\control_flow.test.cpp" />
+    <ClCompile Include="src\test\comparison.test.cpp" />
     <ClCompile Include="src\test\math_ext.test.cpp" />
+    <ClCompile Include="src\test\Point.test.cpp" />
     <ClCompile Include="src\test\RadialGradientModel.test.cpp" />
     <ClCompile Include="src\test\ResourceViewModel.test.cpp" />
     <ClCompile Include="src\test\string_ext.test.cpp" />
     <ClCompile Include="src\test\test.cpp" />
     <ClCompile Include="src\test\TextModel.test.cpp" />
+    <ClCompile Include="src\test\Token.test.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\main\Activity\ContextMenu.h" />
@@ -291,7 +293,7 @@
     <ClInclude Include="src\main\Any\Scene.h" />
     <ClInclude Include="src\main\Any\Subsystems.h" />
     <ClInclude Include="src\main\Any\View.h" />
-    <ClInclude Include="src\main\Functions\control_flow.h" />
+    <ClInclude Include="src\main\Functions\comparison.h" />
     <ClInclude Include="src\main\Functions\math_ext.h" />
     <ClInclude Include="src\main\Functions\sdl_ext.h" />
     <ClInclude Include="src\main\Functions\string_ext.h" />
@@ -315,6 +317,7 @@
     <ClInclude Include="src\main\Struct\Range.h" />
     <ClInclude Include="src\main\Struct\Rect.h" />
     <ClInclude Include="src\main\Struct\Size.h" />
+    <ClInclude Include="src\main\Struct\Token.h" />
     <ClInclude Include="src\main\Text\CalcExpr.h" />
     <ClInclude Include="src\main\Text\CalcResult.h" />
     <ClInclude Include="src\main\View\Button.h" />
@@ -331,12 +334,14 @@
     <ClInclude Include="src\test\CalcExprValidator.test.h" />
     <ClInclude Include="src\test\CalcResultModel.test.h" />
     <ClInclude Include="src\test\CalcScreenModel.test.h" />
-    <ClInclude Include="src\test\control_flow.test.h" />
+    <ClInclude Include="src\test\comparison.test.h" />
     <ClInclude Include="src\test\math_ext.test.h" />
+    <ClInclude Include="src\test\Point.test.h" />
     <ClInclude Include="src\test\RadialGradientModel.test.h" />
     <ClInclude Include="src\test\ResourceViewModel.test.h" />
     <ClInclude Include="src\test\string_ext.test.h" />
     <ClInclude Include="src\test\TextModel.test.h" />
+    <ClInclude Include="src\test\Token.test.h" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="res\main\calculator.png" />

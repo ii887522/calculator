@@ -2,7 +2,7 @@
 #define II887522_CALCULATOR_CALC_EXPR_VALIDATOR_H
 
 #include <vector>
-#include "../Any/Enums.h"
+#include "../Struct/Token.h"
 
 using std::vector;
 
@@ -143,19 +143,7 @@ namespace ii887522::Calculator
 			}
 		}
 
-		constexpr bool runToken(const Token token)
-		{
-			switch (token)
-			{
-			case Token::NUMBER: return runNumber();
-			case Token::BINARY_OPERATOR: return runBinaryOperator();
-			case Token::EQUAL: return runEqual();
-			case Token::UNARY_OPERATOR: return runUnaryOperator();
-			case Token::LEFT_BRACKET: return runLeftBracket();
-			case Token::RIGHT_BRACKET: return runRightBracket();
-			}
-			return false;
-		}
+		bool runToken(const Token&);
 
 		constexpr bool runEnd()
 		{

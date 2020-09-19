@@ -4,9 +4,7 @@
 #include "Activity.h"
 #include "../Activity/MainActivity.h"
 #include "../Activity/ContextMenu.h"
-#include "../Functions/control_flow.h"
 #include "../Struct/Message.h"
-#include "../Functions/control_flow.h"
 
 namespace ii887522::Calculator
 {
@@ -16,21 +14,23 @@ namespace ii887522::Calculator
 	Action App::reactMessage(const Message& message)
 	{
 		auto result{ Action::NONE };
-		loop(sizeof activities / sizeof(Activity*), [=, &result](const auto i) {
+		for (auto i{ 0u }; i != sizeof activities / sizeof(Activity*); ++i)
+		{
 			const auto action{ activities[i]->reactMessage(message) };
-			if (action != Action::START_ANIMATION) return;
+			if (action != Action::START_ANIMATION) continue;
 			++activityAnimationsCount;
-			if (isAnimating) return;
+			if (isAnimating) continue;
 			result = action;
 			isAnimating = true;
-		});
+		}
 		return result;
 	}
 
 	Action App::react(const SDL_Event& event)
 	{
 		auto result{ Action::NONE };
-		loop(sizeof activities / sizeof(Activity*), [=, &result](const auto i) {
+		for (auto i{ 0u }; i != sizeof activities / sizeof(Activity*); ++i)
+		{
 			const auto [action, message]{ activities[i]->react(event) };
 			if (message.head != Message::Head::EMPTY) result = reactMessage(message);
 			if (result == Action::QUIT) return;
@@ -39,42 +39,39 @@ namespace ii887522::Calculator
 			case Action::QUIT: result = action;
 				return;
 			case Action::START_ANIMATION: break;
-			default: return;
+			default: continue;
 			}
 			++activityAnimationsCount;
-			if (isAnimating) return;
+			if (isAnimating) continue;
 			result = action;
 			isAnimating = true;
-		});
+		}
 		return result;
 	}
 
 	Action App::step(const unsigned int dt)
 	{
 		auto result{ Action::NONE };
-		loop(sizeof activities / sizeof(Activity*), [=, &result](const auto i) {
+		for (auto i{ 0u }; i != sizeof activities / sizeof(Activity*); ++i)
+		{
 			const auto action{ activities[i]->step(dt) };
-			if (action != Action::STOP_ANIMATION) return;
+			if (action != Action::STOP_ANIMATION) continue;
 			--activityAnimationsCount;
-			if (activityAnimationsCount != 0u) return;
+			if (activityAnimationsCount != 0u) continue;
 			result = action;
 			isAnimating = false;
-		});
+		}
 		return result;
 	}
 
 	void App::show()
 	{
-		loop(sizeof activities / sizeof(Activity*), [=](const auto i) {
-			activities[i]->show();
-		});
+		for (auto i{ 0u }; i != sizeof activities / sizeof(Activity*); ++i) activities[i]->show();
 	}
 
 	App::~App()
 	{
-		loop(sizeof activities / sizeof(Activity*), [=](const auto i) {
-			delete activities[i];
-		});
+		for (auto i{ 0u }; i != sizeof activities / sizeof(Activity*); ++i) delete activities[i];
 	}
 }
 
