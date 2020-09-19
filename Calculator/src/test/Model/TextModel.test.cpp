@@ -2,11 +2,11 @@
 
 #include "TextModel.test.h"
 #include <cassert>
-#include "../main/Model/TextModel.h"
-#include "../main/Struct/Message.h"
-#include "../main/Any/Enums.h"
-#include "../main/Functions/math_ext.h"
-#include "../main/Struct/Range.h"
+#include "../../main/Model/TextModel.h"
+#include "../../main/Struct/Message.h"
+#include "../../main/Any/Enums.h"
+#include "../../main/Functions/math_ext.h"
+#include "../../main/Struct/Range.h"
 
 namespace ii887522::Calculator
 {

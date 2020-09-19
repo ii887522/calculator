@@ -70,15 +70,33 @@
     <Filter Include="Source Files\Model">
       <UniqueIdentifier>{e2ad5612-131b-436a-93a3-235a5a3e9972}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Test Header Files\Any">
+      <UniqueIdentifier>{15cf2774-2325-41d1-8f77-c96217211ce5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Test Header Files\Functions">
+      <UniqueIdentifier>{08399173-f392-47cd-8212-eb16322d1c5f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Test Header Files\Model">
+      <UniqueIdentifier>{602c6c1a-003b-4068-b1de-6cf9cb3f1337}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Test Header Files\Struct">
+      <UniqueIdentifier>{3e62625a-a2da-4476-b8bc-7b0adbc12aba}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Test Source Files\Any">
+      <UniqueIdentifier>{e4bee158-936f-4cdf-b1c9-ec51da2a582d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Test Source Files\Functions">
+      <UniqueIdentifier>{d8d60b57-fcb4-43fa-8fe5-097a991d0e8d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Test Source Files\Model">
+      <UniqueIdentifier>{92a46541-b34d-4b2f-adcd-f0d7347c0f94}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Test Source Files\Struct">
+      <UniqueIdentifier>{fc127829-083c-4937-962a-360c1a734575}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\test\test.cpp">
-      <Filter>Test Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\test\ButtonModel.test.cpp">
-      <Filter>Test Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\test\math_ext.test.cpp">
       <Filter>Test Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\main\Any\Subsystems.cpp">
@@ -102,17 +120,11 @@
     <ClCompile Include="src\main\View\ButtonGroup.cpp">
       <Filter>Source Files\View</Filter>
     </ClCompile>
-    <ClCompile Include="src\test\ButtonGrid.test.cpp">
-      <Filter>Test Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="src\main\View\TextGroup.cpp">
       <Filter>Source Files\View</Filter>
     </ClCompile>
     <ClCompile Include="src\main\ResourceView\RadialGradient.cpp">
       <Filter>Source Files\ResourceView</Filter>
-    </ClCompile>
-    <ClCompile Include="src\test\RadialGradientModel.test.cpp">
-      <Filter>Test Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\main\View\NavBar.cpp">
       <Filter>Source Files\View</Filter>
@@ -129,20 +141,8 @@
     <ClCompile Include="src\main\Struct\Message.cpp">
       <Filter>Source Files\Struct</Filter>
     </ClCompile>
-    <ClCompile Include="src\test\CalcResultModel.test.cpp">
-      <Filter>Test Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\test\string_ext.test.cpp">
-      <Filter>Test Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="src\main\Functions\string_ext.cpp">
       <Filter>Source Files\Functions</Filter>
-    </ClCompile>
-    <ClCompile Include="src\test\CalcExprModel.test.cpp">
-      <Filter>Test Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\test\TextModel.test.cpp">
-      <Filter>Test Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\main\Any\Activity.cpp">
       <Filter>Source Files\Any</Filter>
@@ -165,23 +165,14 @@
     <ClCompile Include="src\main\Scene\ContextMenuScene.cpp">
       <Filter>Source Files\Scene</Filter>
     </ClCompile>
-    <ClCompile Include="src\test\CalcScreenModel.test.cpp">
-      <Filter>Test Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="src\main\Functions\sdl_ext.cpp">
       <Filter>Source Files\Functions</Filter>
-    </ClCompile>
-    <ClCompile Include="src\test\ResourceViewModel.test.cpp">
-      <Filter>Test Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\main\View\CalcExprPaster.cpp">
       <Filter>Source Files\View</Filter>
     </ClCompile>
     <ClCompile Include="src\main\Any\CalcExprLexer.cpp">
       <Filter>Source Files\Any</Filter>
-    </ClCompile>
-    <ClCompile Include="src\test\CalcExprLexer.test.cpp">
-      <Filter>Test Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\main\Model\ButtonModel.cpp">
       <Filter>Source Files\Model</Filter>
@@ -201,29 +192,56 @@
     <ClCompile Include="src\main\Any\CalcExprValidator.cpp">
       <Filter>Source Files\Any</Filter>
     </ClCompile>
-    <ClCompile Include="src\test\CalcExprValidator.test.cpp">
-      <Filter>Test Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="src\main\Struct\Token.cpp">
       <Filter>Source Files\Struct</Filter>
     </ClCompile>
-    <ClCompile Include="src\test\Point.test.cpp">
-      <Filter>Test Source Files</Filter>
+    <ClCompile Include="src\test\Any\ButtonGrid.test.cpp">
+      <Filter>Test Source Files\Any</Filter>
     </ClCompile>
-    <ClCompile Include="src\test\Token.test.cpp">
-      <Filter>Test Source Files</Filter>
+    <ClCompile Include="src\test\Any\CalcExprLexer.test.cpp">
+      <Filter>Test Source Files\Any</Filter>
     </ClCompile>
-    <ClCompile Include="src\test\comparison.test.cpp">
-      <Filter>Test Source Files</Filter>
+    <ClCompile Include="src\test\Any\CalcExprValidator.test.cpp">
+      <Filter>Test Source Files\Any</Filter>
+    </ClCompile>
+    <ClCompile Include="src\test\Functions\comparison.test.cpp">
+      <Filter>Test Source Files\Functions</Filter>
+    </ClCompile>
+    <ClCompile Include="src\test\Functions\math_ext.test.cpp">
+      <Filter>Test Source Files\Functions</Filter>
+    </ClCompile>
+    <ClCompile Include="src\test\Functions\string_ext.test.cpp">
+      <Filter>Test Source Files\Functions</Filter>
+    </ClCompile>
+    <ClCompile Include="src\test\Model\ButtonModel.test.cpp">
+      <Filter>Test Source Files\Model</Filter>
+    </ClCompile>
+    <ClCompile Include="src\test\Model\CalcExprModel.test.cpp">
+      <Filter>Test Source Files\Model</Filter>
+    </ClCompile>
+    <ClCompile Include="src\test\Model\CalcResultModel.test.cpp">
+      <Filter>Test Source Files\Model</Filter>
+    </ClCompile>
+    <ClCompile Include="src\test\Model\CalcScreenModel.test.cpp">
+      <Filter>Test Source Files\Model</Filter>
+    </ClCompile>
+    <ClCompile Include="src\test\Model\RadialGradientModel.test.cpp">
+      <Filter>Test Source Files\Model</Filter>
+    </ClCompile>
+    <ClCompile Include="src\test\Model\ResourceViewModel.test.cpp">
+      <Filter>Test Source Files\Model</Filter>
+    </ClCompile>
+    <ClCompile Include="src\test\Model\TextModel.test.cpp">
+      <Filter>Test Source Files\Model</Filter>
+    </ClCompile>
+    <ClCompile Include="src\test\Struct\Point.test.cpp">
+      <Filter>Test Source Files\Struct</Filter>
+    </ClCompile>
+    <ClCompile Include="src\test\Struct\Token.test.cpp">
+      <Filter>Test Source Files\Struct</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="src\test\ButtonModel.test.h">
-      <Filter>Test Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\test\math_ext.test.h">
-      <Filter>Test Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="src\main\Struct\AnimatedFloat.h">
       <Filter>Header Files\Struct</Filter>
     </ClInclude>
@@ -254,9 +272,6 @@
     <ClInclude Include="src\main\View\ButtonGroup.h">
       <Filter>Header Files\View</Filter>
     </ClInclude>
-    <ClInclude Include="src\test\ButtonGrid.test.h">
-      <Filter>Test Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="src\main\Struct\Color.h">
       <Filter>Header Files\Struct</Filter>
     </ClInclude>
@@ -265,9 +280,6 @@
     </ClInclude>
     <ClInclude Include="src\main\ResourceView\RadialGradient.h">
       <Filter>Header Files\ResourceView</Filter>
-    </ClInclude>
-    <ClInclude Include="src\test\RadialGradientModel.test.h">
-      <Filter>Test Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\main\Struct\Flow.h">
       <Filter>Header Files\Struct</Filter>
@@ -290,20 +302,8 @@
     <ClInclude Include="src\main\Struct\Pair.h">
       <Filter>Header Files\Struct</Filter>
     </ClInclude>
-    <ClInclude Include="src\test\CalcResultModel.test.h">
-      <Filter>Test Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="src\main\Functions\string_ext.h">
       <Filter>Header Files\Functions</Filter>
-    </ClInclude>
-    <ClInclude Include="src\test\string_ext.test.h">
-      <Filter>Test Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\test\CalcExprModel.test.h">
-      <Filter>Test Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\test\TextModel.test.h">
-      <Filter>Test Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\main\Activity\ContextMenu.h">
       <Filter>Header Files\Activity</Filter>
@@ -341,23 +341,14 @@
     <ClInclude Include="src\main\Scene\ContextMenuScene.h">
       <Filter>Header Files\Scene</Filter>
     </ClInclude>
-    <ClInclude Include="src\test\CalcScreenModel.test.h">
-      <Filter>Test Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="src\main\Functions\sdl_ext.h">
       <Filter>Header Files\Functions</Filter>
-    </ClInclude>
-    <ClInclude Include="src\test\ResourceViewModel.test.h">
-      <Filter>Test Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\main\View\CalcExprPaster.h">
       <Filter>Header Files\View</Filter>
     </ClInclude>
     <ClInclude Include="src\main\Any\CalcExprLexer.h">
       <Filter>Header Files\Any</Filter>
-    </ClInclude>
-    <ClInclude Include="src\test\CalcExprLexer.test.h">
-      <Filter>Test Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\main\Model\ButtonModel.h">
       <Filter>Header Files\Model</Filter>
@@ -383,23 +374,56 @@
     <ClInclude Include="src\main\Any\CalcExprValidator.h">
       <Filter>Header Files\Any</Filter>
     </ClInclude>
-    <ClInclude Include="src\test\CalcExprValidator.test.h">
-      <Filter>Test Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="src\main\Struct\Token.h">
       <Filter>Header Files\Struct</Filter>
-    </ClInclude>
-    <ClInclude Include="src\test\Point.test.h">
-      <Filter>Test Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\test\Token.test.h">
-      <Filter>Test Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\main\Functions\comparison.h">
       <Filter>Header Files\Functions</Filter>
     </ClInclude>
-    <ClInclude Include="src\test\comparison.test.h">
-      <Filter>Test Header Files</Filter>
+    <ClInclude Include="src\test\Any\ButtonGrid.test.h">
+      <Filter>Test Header Files\Any</Filter>
+    </ClInclude>
+    <ClInclude Include="src\test\Any\CalcExprLexer.test.h">
+      <Filter>Test Header Files\Any</Filter>
+    </ClInclude>
+    <ClInclude Include="src\test\Any\CalcExprValidator.test.h">
+      <Filter>Test Header Files\Any</Filter>
+    </ClInclude>
+    <ClInclude Include="src\test\Functions\comparison.test.h">
+      <Filter>Test Header Files\Functions</Filter>
+    </ClInclude>
+    <ClInclude Include="src\test\Functions\math_ext.test.h">
+      <Filter>Test Header Files\Functions</Filter>
+    </ClInclude>
+    <ClInclude Include="src\test\Functions\string_ext.test.h">
+      <Filter>Test Header Files\Functions</Filter>
+    </ClInclude>
+    <ClInclude Include="src\test\Model\ButtonModel.test.h">
+      <Filter>Test Header Files\Model</Filter>
+    </ClInclude>
+    <ClInclude Include="src\test\Model\CalcExprModel.test.h">
+      <Filter>Test Header Files\Model</Filter>
+    </ClInclude>
+    <ClInclude Include="src\test\Model\CalcResultModel.test.h">
+      <Filter>Test Header Files\Model</Filter>
+    </ClInclude>
+    <ClInclude Include="src\test\Model\CalcScreenModel.test.h">
+      <Filter>Test Header Files\Model</Filter>
+    </ClInclude>
+    <ClInclude Include="src\test\Model\RadialGradientModel.test.h">
+      <Filter>Test Header Files\Model</Filter>
+    </ClInclude>
+    <ClInclude Include="src\test\Model\ResourceViewModel.test.h">
+      <Filter>Test Header Files\Model</Filter>
+    </ClInclude>
+    <ClInclude Include="src\test\Model\TextModel.test.h">
+      <Filter>Test Header Files\Model</Filter>
+    </ClInclude>
+    <ClInclude Include="src\test\Struct\Point.test.h">
+      <Filter>Test Header Files\Struct</Filter>
+    </ClInclude>
+    <ClInclude Include="src\test\Struct\Token.test.h">
+      <Filter>Test Header Files\Struct</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

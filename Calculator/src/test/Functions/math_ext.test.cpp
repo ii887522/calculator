@@ -2,9 +2,9 @@
 
 #include "math_ext.test.h"
 #include <cassert>
-#include "../main/Functions/math_ext.h"
-#include "../main/Struct/Range.h"
-#include "../main/Struct/Flow.h"
+#include "../../main/Functions/math_ext.h"
+#include "../../main/Struct/Range.h"
+#include "../../main/Struct/Flow.h"
 
 namespace ii887522::Calculator
 {

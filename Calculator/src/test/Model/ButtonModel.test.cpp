@@ -2,12 +2,12 @@
 
 #include "ButtonModel.test.h"
 #include <cassert>
-#include "../main/Model/ButtonModel.h"
-#include "../main/Struct/Rect.h"
-#include "../main/Struct/Point.h"
+#include "../../main/Model/ButtonModel.h"
+#include "../../main/Struct/Rect.h"
+#include "../../main/Struct/Point.h"
 #include <SDL.h>
-#include "../main/Struct/Message.h"
-#include "../main/Any/Enums.h"
+#include "../../main/Struct/Message.h"
+#include "../../main/Any/Enums.h"
 
 namespace ii887522::Calculator
 {

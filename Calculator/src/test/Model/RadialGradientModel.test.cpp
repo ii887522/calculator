@@ -2,9 +2,9 @@
 
 #include "RadialGradientModel.test.h"
 #include <cassert>
-#include "../main/Model/RadialGradientModel.h"
-#include "../main/Struct/Size.h"
-#include "../main/Struct/Point.h"
+#include "../../main/Model/RadialGradientModel.h"
+#include "../../main/Struct/Size.h"
+#include "../../main/Struct/Point.h"
 
 namespace ii887522::Calculator
 {

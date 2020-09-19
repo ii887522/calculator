@@ -1,8 +1,8 @@
 #ifdef TEST
 
 #include "ButtonGrid.test.h"
-#include "../main/Any/ButtonGrid.h"
-#include "../main/Struct/Point.h"
+#include "../../main/Any/ButtonGrid.h"
+#include "../../main/Struct/Point.h"
 
 namespace ii887522::Calculator
 {

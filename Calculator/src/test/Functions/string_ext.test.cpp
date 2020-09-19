@@ -2,7 +2,7 @@
 
 #include "string_ext.test.h"
 #include <cassert>
-#include "../main/Functions/string_ext.h"
+#include "../../main/Functions/string_ext.h"
 
 namespace ii887522::Calculator
 {

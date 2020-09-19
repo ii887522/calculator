@@ -2,7 +2,7 @@
 
 #include "comparison.test.h"
 #include <cassert>
-#include "../main/Functions/comparison.h"
+#include "../../main/Functions/comparison.h"
 #include <vector>
 
 using std::vector;

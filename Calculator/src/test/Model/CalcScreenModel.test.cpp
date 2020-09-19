@@ -2,10 +2,10 @@
 
 #include "CalcScreenModel.test.h"
 #include <cassert>
-#include "../main/Model/CalcScreenModel.h"
-#include "../main/Struct/Rect.h"
-#include "../main/Struct/Point.h"
-#include "../main/Struct/Size.h"
+#include "../../main/Model/CalcScreenModel.h"
+#include "../../main/Struct/Rect.h"
+#include "../../main/Struct/Point.h"
+#include "../../main/Struct/Size.h"
 
 namespace ii887522::Calculator
 {

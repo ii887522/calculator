@@ -2,9 +2,9 @@
 
 #include "CalcExprValidator.test.h"
 #include <cassert>
-#include "../main/Any/CalcExprValidator.h"
+#include "../../main/Any/CalcExprValidator.h"
 #include <vector>
-#include "../main/Struct/Token.h"
+#include "../../main/Struct/Token.h"
 
 using std::vector;
 

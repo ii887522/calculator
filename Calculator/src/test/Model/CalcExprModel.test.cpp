@@ -2,8 +2,8 @@
 
 #include "CalcExprModel.test.h"
 #include <cassert>
-#include "../main/Model/CalcExprModel.h"
-#include "../main/Struct/Message.h"
+#include "../../main/Model/CalcExprModel.h"
+#include "../../main/Struct/Message.h"
 
 #include <iostream>
 

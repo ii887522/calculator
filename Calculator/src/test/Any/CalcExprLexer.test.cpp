@@ -2,12 +2,12 @@
 
 #include "CalcExprLexer.test.h"
 #include <cassert>
-#include "../main/Any/CalcExprLexer.h"
+#include "../../main/Any/CalcExprLexer.h"
 #include <vector>
-#include "../main/Struct/Token.h"
+#include "../../main/Struct/Token.h"
 #include <stdexcept>
 #include <exception>
-#include "../main/Functions/comparison.h"
+#include "../../main/Functions/comparison.h"
 
 using std::vector;
 using std::invalid_argument;

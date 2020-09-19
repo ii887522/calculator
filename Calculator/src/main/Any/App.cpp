@@ -33,11 +33,10 @@ namespace ii887522::Calculator
 		{
 			const auto [action, message]{ activities[i]->react(event) };
 			if (message.head != Message::Head::EMPTY) result = reactMessage(message);
-			if (result == Action::QUIT) return;
+			if (result == Action::QUIT) return result;
 			switch (action)
 			{
-			case Action::QUIT: result = action;
-				return;
+			case Action::QUIT: return Action::QUIT;
 			case Action::START_ANIMATION: break;
 			default: continue;
 			}

@@ -2,8 +2,8 @@
 
 #include "ResourceViewModel.test.h"
 #include <cassert>
-#include "../main/Model/ResourceViewModel.h"
-#include "../main/Any/Enums.h"
+#include "../../main/Model/ResourceViewModel.h"
+#include "../../main/Any/Enums.h"
 
 namespace ii887522::Calculator
 {

@@ -75,9 +75,9 @@ namespace ii887522::Calculator
 		for (auto i{ 0u }; i != sizeof views / sizeof(View*); ++i)
 		{
 			const auto action{ views[i]->reactMouseMotion(motionEvent) };
-			if (action != Action::START_ANIMATION) return;
+			if (action != Action::START_ANIMATION) continue;
 			incrementViewAnimationsCount();
-			if (getIsAnimating()) return;
+			if (getIsAnimating()) continue;
 			result = action;
 			setIsAnimating(true);
 		}

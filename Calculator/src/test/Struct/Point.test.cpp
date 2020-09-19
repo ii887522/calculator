@@ -1,7 +1,7 @@
 #ifdef TEST
 
 #include "Point.test.h"
-#include "../main/Struct/Point.h"
+#include "../../main/Struct/Point.h"
 
 namespace ii887522::Calculator
 {

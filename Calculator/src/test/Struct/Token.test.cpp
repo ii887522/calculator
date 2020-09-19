@@ -2,7 +2,7 @@
 
 #include "Token.test.h"
 #include <cassert>
-#include "../main/Struct/Token.h"
+#include "../../main/Struct/Token.h"
 
 namespace ii887522::Calculator
 {
