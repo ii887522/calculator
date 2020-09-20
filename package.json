@@ -18,7 +18,10 @@
     "url": "https://github.com/ii887522/calculator/issues"
   },
   "homepage": "https://github.com/ii887522/calculator#readme",
-  "keywords": ["cpp", "sdl2"],
+  "keywords": [
+    "cpp",
+    "sdl2"
+  ],
   "type": "module",
   "dependencies": {
     "create-desktop-shortcuts": "^1.0.2",

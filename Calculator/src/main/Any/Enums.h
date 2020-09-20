@@ -10,7 +10,7 @@ namespace ii887522::Calculator
 
 	enum class Ability : unsigned int
 	{
-		NONE, CAN_DISABLE
+		NONE, CAN_DISABLE, ALWAYS_REACT
 	};
 }
 

@@ -3,10 +3,10 @@
 #ifndef II887522_CALCULATOR_APP_H
 #define II887522_CALCULATOR_APP_H
 
+#include "Activity.h"
 #include <SDL.h>
-#include "Scene.h"
-#include "Enums.h"
-#include "../Struct/Size.h"
+#include "../Any/Enums.h"
+#include "../Struct/Message.h"
 
 namespace ii887522::Calculator
 {
@@ -22,50 +22,16 @@ namespace ii887522::Calculator
 		App(App&&) = delete;
 		App& operator=(App&&) = delete;
 
-		SDL_Window*const window;
-		SDL_Surface*const ico;
-		SDL_Renderer*const renderer;
-		Scene scene;
-
-		void renderBackground();
-		void render();
-
-		constexpr Action reactMouseButtonDown(const SDL_MouseButtonEvent& buttonEvent)
-		{
-			if (buttonEvent.button == SDL_BUTTON_LEFT) return scene.reactLeftMouseButtonDown(buttonEvent);
-			return Action::NONE;
-		}
-
-		constexpr Action reactMouseButtonUp(const SDL_MouseButtonEvent& buttonEvent)
-		{
-			if (buttonEvent.button == SDL_BUTTON_LEFT) return scene.reactLeftMouseButtonUp(buttonEvent);
-			return Action::NONE;
-		}
-
-		constexpr Action reactWindowEvent(const SDL_WindowEvent& windowEvent)
-		{
-			if (windowEvent.event == SDL_WINDOWEVENT_LEAVE) return scene.reactMouseLeaveWindow(windowEvent);
-			return Action::NONE;
-		}
+		Activity*const activities[2u];
+		bool isAnimating;
+		unsigned int activityAnimationsCount;
 
 	public:
-		explicit App(const Size& = Size{ 318, 437 });
+		// Param window: it must not be assigned to integer
+		explicit App(SDL_Window*const = SDL_CreateWindow("Calcuator", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, 318, 437, 0u));
 
-		constexpr Action react(const SDL_Event& event)
-		{
-			switch (event.type)
-			{
-			case SDL_QUIT: return Action::QUIT;
-			case SDL_MOUSEMOTION: return scene.reactMouseMotion(event.motion);
-			case SDL_MOUSEBUTTONDOWN: return reactMouseButtonDown(event.button);
-			case SDL_MOUSEBUTTONUP: return reactMouseButtonUp(event.button);
-			case SDL_WINDOWEVENT: return reactWindowEvent(event.window);
-			case SDL_KEYDOWN: return scene.reactKeyDown(event.key);
-			case SDL_KEYUP: return scene.reactKeyUp(event.key);
-			}
-			return Action::NONE;
-		}
-
+		Action reactMessage(const Message&);
+		Action react(const SDL_Event& event);
 		Action step(const unsigned int dt);
 		void show();
 		~App();

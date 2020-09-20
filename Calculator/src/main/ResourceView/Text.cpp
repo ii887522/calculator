@@ -18,6 +18,16 @@ namespace ii887522::Calculator
 		ResourceView{ renderer, TTF_RenderText_Blended(font, value.c_str(), SDL_Color{ 0u, 0u, 0u, 255u }), position },
 		viewModel{ ability }, isAnimating{ false } { }
 
+	void Text::enable()
+	{
+		viewModel.enable();
+	}
+
+	void Text::tryDisable()
+	{
+		viewModel.tryDisable();
+	}
+
 	Pair<Action, Message> Text::reactMessage(const Message& message)
 	{
 		viewModel.reactMessage(message);

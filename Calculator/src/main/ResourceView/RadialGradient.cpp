@@ -2,7 +2,7 @@
 
 #include "RadialGradient.h"
 #include "../View/ResourceView.h"
-#include "../Any/RadialGradientModel.h"
+#include "../Model/RadialGradientModel.h"
 #include <SDL.h>
 #include <SDL_image.h>
 #include "../Struct/Point.h"

@@ -8,7 +8,7 @@
 #include <SDL_ttf.h>
 #include "../Struct/Rect.h"
 #include "../Struct/Message.h"
-#include "../Any/CalcResultModel.h"
+#include "../Model/CalcResultModel.h"
 #include "../Struct/Pair.h"
 #include "../Any/Enums.h"
 

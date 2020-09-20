@@ -5,7 +5,7 @@
 
 #include "../Any/View.h"
 #include <SDL.h>
-#include "../Any/ButtonModel.h"
+#include "../Model/ButtonModel.h"
 #include "../Struct/Rect.h"
 #include "../Struct/Point.h"
 #include "../Any/Enums.h"
@@ -38,6 +38,8 @@ namespace ii887522::Calculator
 		explicit Button(SDL_Renderer*const renderer, const Rect&, const Color&, const Message& = Message{ }, const Ability = Ability::NONE
 			, const SDL_Keycode = SDLK_UNKNOWN);
 
+		virtual void enable() override;
+		virtual void tryDisable() override;
 		virtual Pair<Action, Message> reactMessage(const Message&) override;
 		virtual Action reactMouseMotion(const SDL_MouseMotionEvent&) override;
 		virtual Action reactLeftMouseButtonDown(const SDL_MouseButtonEvent&) override;

@@ -10,8 +10,17 @@
 namespace ii887522::Calculator
 {
 	Button::Button(SDL_Renderer*const renderer, const Rect& rect, const Color& color, const Message& message, const Ability ability,
-		const SDL_Keycode keyCode) : View{ renderer }, viewModel{ rect, message, ability, keyCode }, color{ color }, isAnimating{ false }
-	{ }
+		const SDL_Keycode keyCode) : View{ renderer }, viewModel{ rect, message, ability, keyCode }, color{ color }, isAnimating{ false } { }
+
+	void Button::enable()
+	{
+		viewModel.enable();
+	}
+
+	void Button::tryDisable()
+	{
+		viewModel.tryDisable();
+	}
 
 	Pair<Action, Message> Button::reactMessage(const Message& message)
 	{
@@ -40,7 +49,7 @@ namespace ii887522::Calculator
 	Pair<Action, Message> Button::reactLeftMouseButtonUp(const SDL_MouseButtonEvent&)
 	{
 		viewModel.reactLeftMouseButtonUp();
-		if (!viewModel.getIsAnimating() || isAnimating) return Pair{ Action::NONE, viewModel.getMessage() };
+		if (isAnimating || !viewModel.getIsAnimating()) return Pair{ Action::NONE, viewModel.getMessage() };
 		isAnimating = true;
 		return Pair{ Action::START_ANIMATION, viewModel.getMessage() };
 	}
@@ -56,7 +65,7 @@ namespace ii887522::Calculator
 	Pair<Action, Message> Button::reactKeyDown(const SDL_KeyboardEvent& keyEvent)
 	{
 		viewModel.reactKeyDown(keyEvent.keysym.sym);
-		if (!viewModel.getIsAnimating() || isAnimating) return Pair{ Action::NONE, viewModel.getMessage() };
+		if (isAnimating || !viewModel.getIsAnimating()) return Pair{ Action::NONE, viewModel.getMessage() };
 		isAnimating = true;
 		return Pair{ Action::START_ANIMATION, viewModel.getMessage() };
 	}

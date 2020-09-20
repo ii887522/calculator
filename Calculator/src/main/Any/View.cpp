@@ -8,7 +8,10 @@
 
 namespace ii887522::Calculator
 {
-	View::View(SDL_Renderer* const renderer) : renderer{ renderer } { }
+	View::View(SDL_Renderer*const renderer) : renderer{ renderer } { }
+
+	void View::enable() { }
+	void View::tryDisable() { }
 
 	Action View::reactMouseMotion(const SDL_MouseMotionEvent&)
 	{
@@ -21,6 +24,16 @@ namespace ii887522::Calculator
 	}
 
 	Pair<Action, Message> View::reactLeftMouseButtonUp(const SDL_MouseButtonEvent&)
+	{
+		return Pair{ Action::NONE, Message{ } };
+	}
+
+	Action View::reactRightMouseButtonDown(const SDL_MouseButtonEvent&)
+	{
+		return Action::NONE;
+	}
+
+	Pair<Action, Message> View::reactRightMouseButtonUp(const SDL_MouseButtonEvent&)
 	{
 		return Pair{ Action::NONE, Message{ } };
 	}
@@ -50,6 +63,7 @@ namespace ii887522::Calculator
 		return Action::NONE;
 	}
 
+	void View::render() { }
 	View::~View() { }
 }
 

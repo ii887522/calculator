@@ -1,6 +1,5 @@
 #include "string_ext.h"
 #include <string>
-#include "control_flow.h"
 #include <sstream>
 
 using std::string;
@@ -57,7 +56,7 @@ namespace ii887522::Calculator
 		auto resultStr{ resultStream.str() };
 		const auto maxSize{ maxSizeIgnoreDash + (sizeIgnoreDash(resultStr) == resultStr.size() ? 0u : 1u) };
 		const auto dotI{ resultStr.find('.') };
-		if (maxSize < dotI) return "NO SPACE";
+		if (maxSize < dotI) return "MATH ERROR";
 		resultStr = resultStr.substr(0u, maxSize);
 		noTrailingZeros(resultStr);
 		noTrailingDot(resultStr);

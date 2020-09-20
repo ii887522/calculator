@@ -11,7 +11,7 @@
 namespace ii887522::Calculator
 {
 	// Not Thread Safe: it must only be used in main thread
-	struct View
+	class View
 	{
 		// remove copy semantics
 		View(const View&) = delete;
@@ -21,27 +21,32 @@ namespace ii887522::Calculator
 		View(View&&) = delete;
 		View& operator=(View&&) = delete;
 
-		virtual Action reactMouseMotion(const SDL_MouseMotionEvent&);
-		virtual Action reactLeftMouseButtonDown(const SDL_MouseButtonEvent&);
-		virtual Pair<Action, Message> reactLeftMouseButtonUp(const SDL_MouseButtonEvent&);
-		virtual Action reactMouseLeaveWindow(const SDL_WindowEvent&);
-		virtual Pair<Action, Message> reactKeyDown(const SDL_KeyboardEvent&);
-		virtual Action reactKeyUp(const SDL_KeyboardEvent&);
-		virtual Pair<Action, Message> reactMessage(const Message&);
-		virtual Action step(const unsigned int dt);
-		virtual void render() = 0;
-		virtual ~View();
-
-	private: SDL_Renderer*const renderer;
+		SDL_Renderer*const renderer;
 
 	protected:
-		constexpr SDL_Renderer*const getRenderer()
+		// Param renderer: it must not be assigned to integer
+		explicit View(SDL_Renderer*const renderer);
+
+		constexpr SDL_Renderer* getRenderer()
 		{
 			return renderer;
 		}
 
-		// Param renderer: it must not be assigned to integer
-		explicit View(SDL_Renderer* const renderer);
+	public:
+		virtual void enable();
+		virtual void tryDisable();
+		virtual Pair<Action, Message> reactMessage(const Message&);
+		virtual Action reactMouseMotion(const SDL_MouseMotionEvent&);
+		virtual Action reactLeftMouseButtonDown(const SDL_MouseButtonEvent&);
+		virtual Pair<Action, Message> reactLeftMouseButtonUp(const SDL_MouseButtonEvent&);
+		virtual Action reactRightMouseButtonDown(const SDL_MouseButtonEvent&);
+		virtual Pair<Action, Message> reactRightMouseButtonUp(const SDL_MouseButtonEvent&);
+		virtual Action reactMouseLeaveWindow(const SDL_WindowEvent&);
+		virtual Pair<Action, Message> reactKeyDown(const SDL_KeyboardEvent&);
+		virtual Action reactKeyUp(const SDL_KeyboardEvent&);
+		virtual Action step(const unsigned int dt);
+		virtual void render();
+		virtual ~View();
 	};
 }
 
