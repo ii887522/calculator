@@ -57,7 +57,8 @@ namespace ii887522::Calculator
 		case SDL_MOUSEBUTTONUP:
 			if (event.button.windowID == SDL_GetWindowID(getWindow())) return reactMouseButtonUp(event.button);
 			break;
-		case SDL_WINDOWEVENT: return Pair{ reactWindowEvent(event.window), Message{ } };
+		case SDL_WINDOWEVENT:
+			if (event.window.windowID == SDL_GetWindowID(getWindow())) return Pair{ reactWindowEvent(event.window), Message{ } };
 		}
 		return Pair{ Action::NONE, Message{ } };
 	}

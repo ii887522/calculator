@@ -33,18 +33,17 @@ namespace ii887522::Calculator
 		vector<Token> result;
 
 		void runSpaceWhenNumber();
+		void runSpaceWhenSign();
 
 		constexpr void runSpace()
 		{
 			switch (state)
 			{
-			case State::BINARY_OPERATOR: state = State::SPACE;
+			case State::BINARY_OPERATOR: case State::RIGHT_BRACKET: state = State::SPACE;
 				break;
 			case State::ZERO: case State::INT: case State::FLOAT: runSpaceWhenNumber();
 				break;
-			case State::SIGN:
-				state = State::SPACE;
-				result.push_back(Token{ Token::Type::BINARY_OPERATOR, "-" });
+			case State::SIGN: runSpaceWhenSign();
 				break;
 			default: throw invalid_argument{ "Invalid calculator expression! Please try again." };
 			}
@@ -61,13 +60,15 @@ namespace ii887522::Calculator
 			{
 			case State::EMPTY: runDigitWhenEmpty(digitCh);
 				break;
-			case State::ZERO: case State::BINARY_OPERATOR: case State::S: case State::Q: case State::R: case State::T:
-				throw invalid_argument{ "Invalid calculator expression! Please try again." };
+			case State::INT: case State::FLOAT: value += digitCh;
+				break;
 			case State::SPACE: runDigitWhenSpace(digitCh);
 				break;
 			case State::SIGN: runDigitWhenSign(digitCh);
 				break;
 			case State::LEFT_BRACKET: runDigitWhenLeftBracket(digitCh);
+				break;
+			default: throw invalid_argument{ "Invalid calculator expression! Please try again." };
 			}
 		}
 

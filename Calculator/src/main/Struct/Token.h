@@ -11,13 +11,13 @@ namespace ii887522::Calculator
 	{
 		enum class Type : unsigned int
 		{
-			NUMBER, BINARY_OPERATOR, UNARY_OPERATOR, LEFT_BRACKET, RIGHT_BRACKET, EQUAL
+			EMPTY, NUMBER, BINARY_OPERATOR, UNARY_OPERATOR, LEFT_BRACKET, RIGHT_BRACKET, EQUAL
 		};
 
 		const Type type;
 		const string value;
 
-		explicit Token(const Type type, const string& value = "");
+		explicit Token(const Type type = Type::EMPTY, const string& value = "");
 		bool operator==(const Token&) const;
 	};
 }

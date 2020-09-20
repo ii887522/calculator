@@ -16,6 +16,12 @@ namespace ii887522::Calculator
 		value = "";
 	}
 
+	void CalcExprLexer::runSpaceWhenSign()
+	{
+		state = State::SPACE;
+		result.push_back(Token{ Token::Type::BINARY_OPERATOR, "-" });
+	}
+
 	void CalcExprLexer::runDigitWhenEmpty(const char digitCh)
 	{
 		state = digitCh == '0' ? State::ZERO : State::INT;

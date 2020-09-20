@@ -44,6 +44,7 @@ namespace ii887522::Calculator
 		void reactUnaryExprWhenBinaryOperatorPressed(const string& exprStr);
 		void reactUnaryExprWhenEqualPressed(const string& exprStr);
 		void reactUnaryExprWhenUnaryOperatorPressed(const string& exprStr);
+		void reactUnaryExprWhenBinaryOperatorPressedThenUnaryOperatorPressed(const string& exprStr);
 		void reactUnaryExpr(const string& exprStr);
 
 	public:

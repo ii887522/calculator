@@ -26,12 +26,11 @@ namespace ii887522::Calculator
 		bool isAnimating;
 		unsigned int activityAnimationsCount;
 
-		Action reactMessage(const Message&);
-
 	public:
 		// Param window: it must not be assigned to integer
 		explicit App(SDL_Window*const = SDL_CreateWindow("Calcuator", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, 318, 437, 0u));
 
+		Action reactMessage(const Message&);
 		Action react(const SDL_Event& event);
 		Action step(const unsigned int dt);
 		void show();

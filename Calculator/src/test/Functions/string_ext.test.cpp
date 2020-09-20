@@ -157,13 +157,13 @@ namespace ii887522::Calculator
 		assert(toString(-210.101, 5u) == "-210.1");
 		assert(toString(-210.101, 4u) == "-210");
 		assert(toString(-210.101, 3u) == "-210");
-		assert(toString(-210.101, 2u) == "NO SPACE");
-		assert(toString(-210.101, 1u) == "NO SPACE");
+		assert(toString(-210.101, 2u) == "MATH ERROR");
+		assert(toString(-210.101, 1u) == "MATH ERROR");
 		assert(toString(210.01, 6u) == "210.01");
 		assert(toString(210.01, 5u) == "210");
 		assert(toString(210.01, 3u) == "210");
-		assert(toString(210.01, 2u) == "NO SPACE");
-		assert(toString(210.01, 1u) == "NO SPACE");
+		assert(toString(210.01, 2u) == "MATH ERROR");
+		assert(toString(210.01, 1u) == "MATH ERROR");
 	}
 
 	void testStringExt()

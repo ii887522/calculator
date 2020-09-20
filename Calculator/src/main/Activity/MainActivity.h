@@ -4,6 +4,7 @@
 #define II887522_CALCULATOR_MAIN_ACTIVITY_H
 
 #include "../Any/Activity.h"
+#include "../Any/App.h"
 #include <SDL.h>
 #include "../Scene/MainScene.h"
 #include "../Any/Enums.h"
@@ -46,8 +47,7 @@ namespace ii887522::Calculator
 		{
 			switch (windowEvent.event)
 			{
-			case SDL_WINDOWEVENT_CLOSE: if (windowEvent.windowID == SDL_GetWindowID(getWindow())) return Action::QUIT;
-				break;
+			case SDL_WINDOWEVENT_CLOSE: return Action::QUIT;
 			case SDL_WINDOWEVENT_LEAVE: return scene.reactMouseLeaveWindow(windowEvent);
 			}
 			return Action::NONE;
@@ -55,7 +55,7 @@ namespace ii887522::Calculator
 
 	public:
 		// Param window: it must not be assigned to integer
-		explicit MainActivity(SDL_Window*const window);
+		explicit MainActivity(App&, SDL_Window*const window);
 
 		virtual Action reactMessage(const Message&) override;
 		virtual Pair<Action, Message> react(const SDL_Event& event) override;

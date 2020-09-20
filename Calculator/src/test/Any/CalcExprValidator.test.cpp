@@ -65,6 +65,11 @@ namespace ii887522::Calculator
 			Token{ Token::Type::RIGHT_BRACKET }
 		}));
 		assert(!CalcExprValidator{ }.run(vector{ Token{ Token::Type::RIGHT_BRACKET } }));
+		assert(CalcExprValidator{ }.run(vector{
+			Token{ Token::Type::UNARY_OPERATOR }, Token{ Token::Type::LEFT_BRACKET }, Token{ Token::Type::UNARY_OPERATOR },
+			Token{ Token::Type::LEFT_BRACKET }, Token{ Token::Type::NUMBER }, Token{ Token::Type::RIGHT_BRACKET },
+			Token{ Token::Type::RIGHT_BRACKET }, Token{ Token::Type::BINARY_OPERATOR }
+		}));
 	}
 
 	void testCalcExprValidator()

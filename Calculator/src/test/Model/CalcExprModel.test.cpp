@@ -5,8 +5,6 @@
 #include "../../main/Model/CalcExprModel.h"
 #include "../../main/Struct/Message.h"
 
-#include <iostream>
-
 namespace ii887522::Calculator
 {
 	static void testReactMessage()
@@ -175,6 +173,24 @@ namespace ii887522::Calculator
 			assert(calcExprModel.getMessage().head == Message::Head::EXPR_RESULT);
 			assert(calcExprModel.getMessage().body == "-75");
 			assert(calcExprModel.getValue() == " 4 + sqr(3) - sqr(4) x sqr(5) /");
+			calcExprModel.reactMessage(Message{ Message::Head::INPUT_C });
+			assert(calcExprModel.getMessage().head == Message::Head::EMPTY);
+			assert(calcExprModel.getValue() == " ");
+			calcExprModel.reactMessage(Message{ Message::Head::BINARY_EXPR, "0 +" });
+			assert(calcExprModel.getMessage().head == Message::Head::EMPTY);
+			assert(calcExprModel.getValue() == " 0 +");
+			calcExprModel.reactMessage(Message{ Message::Head::UNARY_EXPR, "sqr(3)" });
+			assert(calcExprModel.getMessage().head == Message::Head::EXPR_RESULT);
+			assert(calcExprModel.getMessage().body == "9");
+			assert(calcExprModel.getValue() == " 0 + sqr(3)");
+			calcExprModel.reactMessage(Message{ Message::Head::UNARY_EXPR, "sqr(9)" });
+			assert(calcExprModel.getMessage().head == Message::Head::EXPR_RESULT);
+			assert(calcExprModel.getMessage().body == "81");
+			assert(calcExprModel.getValue() == " 0 + sqr(sqr(3))");
+			calcExprModel.reactMessage(Message{ Message::Head::BINARY_EXPR, "81 -" });
+			assert(calcExprModel.getMessage().head == Message::Head::EXPR_RESULT);
+			assert(calcExprModel.getMessage().body == "81");
+			assert(calcExprModel.getValue() == " 0 + sqr(sqr(3)) -");
 		}
 		{
 			CalcExprModel calcExprModel{ 3u };
@@ -340,6 +356,24 @@ namespace ii887522::Calculator
 			assert(calcExprModel.getMessage().head == Message::Head::EXPR_RESULT);
 			assert(calcExprModel.getMessage().body == "-75");
 			assert(calcExprModel.getValue() == " 4 + sqr(3) - sqr(4) x sqr(5) /");
+			calcExprModel.reactMessage(Message{ Message::Head::INPUT_C });
+			assert(calcExprModel.getMessage().head == Message::Head::EMPTY);
+			assert(calcExprModel.getValue() == " ");
+			calcExprModel.reactMessage(Message{ Message::Head::BINARY_EXPR, "0 +" });
+			assert(calcExprModel.getMessage().head == Message::Head::EMPTY);
+			assert(calcExprModel.getValue() == " 0 +");
+			calcExprModel.reactMessage(Message{ Message::Head::UNARY_EXPR, "sqr(3)" });
+			assert(calcExprModel.getMessage().head == Message::Head::EXPR_RESULT);
+			assert(calcExprModel.getMessage().body == "9");
+			assert(calcExprModel.getValue() == " 0 + sqr(3)");
+			calcExprModel.reactMessage(Message{ Message::Head::UNARY_EXPR, "sqr(9)" });
+			assert(calcExprModel.getMessage().head == Message::Head::EXPR_RESULT);
+			assert(calcExprModel.getMessage().body == "81");
+			assert(calcExprModel.getValue() == " 0 + sqr(sqr(3))");
+			calcExprModel.reactMessage(Message{ Message::Head::BINARY_EXPR, "81 -" });
+			assert(calcExprModel.getMessage().head == Message::Head::EXPR_RESULT);
+			assert(calcExprModel.getMessage().body == "81");
+			assert(calcExprModel.getValue() == " 0 + sqr(sqr(3)) -");
 		}
 	}
 

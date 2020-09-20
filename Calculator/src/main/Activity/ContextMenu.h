@@ -43,7 +43,7 @@ namespace ii887522::Calculator
 			switch (windowEvent.event)
 			{
 			case SDL_WINDOWEVENT_LEAVE: return scene.reactMouseLeaveWindow(windowEvent);
-			case SDL_WINDOWEVENT_FOCUS_LOST: if (windowEvent.windowID == SDL_GetWindowID(getWindow())) SDL_HideWindow(getWindow());
+			case SDL_WINDOWEVENT_FOCUS_LOST: SDL_HideWindow(getWindow());
 			}
 			return Action::NONE;
 		}

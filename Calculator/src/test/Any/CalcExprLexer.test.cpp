@@ -27,6 +27,7 @@ namespace ii887522::Calculator
 		assert(equal(CalcExprLexer{ }.run("7"), vector{ Token{ Token::Type::NUMBER, "7" } }));
 		assert(equal(CalcExprLexer{ }.run("8"), vector{ Token{ Token::Type::NUMBER, "8" } }));
 		assert(equal(CalcExprLexer{ }.run("9"), vector{ Token{ Token::Type::NUMBER, "9" } }));
+		assert(equal(CalcExprLexer{ }.run("19"), vector{ Token{ Token::Type::NUMBER, "19" } }));
 		assert(equal(CalcExprLexer{ }.run("0 0"), vector{ Token{ Token::Type::NUMBER, "0" }, Token{ Token::Type::NUMBER, "0" } }));
 		assert(equal(CalcExprLexer{ }.run("0 1"), vector{ Token{ Token::Type::NUMBER, "0" }, Token{ Token::Type::NUMBER, "1" } }));
 		assert(equal(CalcExprLexer{ }.run("-1"), vector{ Token{ Token::Type::NUMBER, "-1" } }));
@@ -45,6 +46,11 @@ namespace ii887522::Calculator
 			Token{ Token::Type::UNARY_OPERATOR, "sqr"}, Token{ Token::Type::LEFT_BRACKET }, Token{ Token::Type::UNARY_OPERATOR, "sqrt" },
 			Token{ Token::Type::LEFT_BRACKET }, Token{ Token::Type::NUMBER, "0" }, Token{ Token::Type::RIGHT_BRACKET },
 			Token{ Token::Type::RIGHT_BRACKET }
+		}));
+		assert(equal(CalcExprLexer{ }.run("sqr(sqrt(0)) +"), vector{
+			Token{ Token::Type::UNARY_OPERATOR, "sqr"}, Token{ Token::Type::LEFT_BRACKET }, Token{ Token::Type::UNARY_OPERATOR, "sqrt" },
+			Token{ Token::Type::LEFT_BRACKET }, Token{ Token::Type::NUMBER, "0" }, Token{ Token::Type::RIGHT_BRACKET },
+			Token{ Token::Type::RIGHT_BRACKET }, Token{ Token::Type::BINARY_OPERATOR, "+" }
 		}));
 		try
 		{

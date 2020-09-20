@@ -1,6 +1,7 @@
 #ifndef TEST
 
 #include "MainScene.h"
+#include "../Any/App.h"
 #include <SDL.h>
 #include <SDL_image.h>
 #include <SDL_ttf.h>
@@ -26,12 +27,12 @@
 
 namespace ii887522::Calculator
 {
-	MainScene::MainScene(SDL_Renderer*const renderer, const Size& size, const int buttonSize) :
-		MainScene{ renderer, size, 9u, Rect{ Point{ 0, buttonSize }, Size{ size.w, 89 } }, TTF_OpenFont("res/main/arial.ttf", 20),
+	MainScene::MainScene(App& app, SDL_Renderer*const renderer, const Size& size, const int buttonSize) :
+		MainScene{ app, renderer, size, 9u, Rect{ Point{ 0, buttonSize }, Size{ size.w, 89 } }, TTF_OpenFont("res/main/arial.ttf", 20),
 			buttonSize, ButtonGrid{ Point{ 4, 134 } } } { }
 
-	MainScene::MainScene(SDL_Renderer*const renderer, const Size& size, const unsigned int maxSizeIgnoreDash, const Rect& calcScreenRect,
-		TTF_Font*const font, const int buttonSize, const ButtonGrid& buttonGrid) : Scene{ }, views{
+	MainScene::MainScene(App& app, SDL_Renderer*const renderer, const Size& size, const unsigned int maxSizeIgnoreDash,
+		const Rect& calcScreenRect, TTF_Font*const font, const int buttonSize, const ButtonGrid& buttonGrid) : Scene{ }, views{
 			new RadialGradient{ renderer, size },
 			new NavBar{ renderer, Size{ size.w, buttonSize } },
 			new Button{ renderer, Rect{ Point{ 0, 0 }, Size{ buttonSize, buttonSize } }, Color{ 192u, 192u, 192u } },
@@ -44,7 +45,7 @@ namespace ii887522::Calculator
 			new CalcResult{ renderer, calcScreenRect, maxSizeIgnoreDash },
 			new ButtonGroup{ renderer, buttonGrid },
 			new TextGroup{ renderer, font, buttonGrid },
-			new CalcExprPaster{ *this }
+			new CalcExprPaster{ app, *this }
 		}, viewAbilities{
 			Ability::ALWAYS_REACT, Ability::NONE, Ability::NONE, Ability::NONE, Ability::NONE, Ability::NONE, Ability::NONE, Ability::NONE,
 			Ability::NONE, Ability::NONE, Ability::NONE, Ability::NONE, Ability::NONE
@@ -187,7 +188,7 @@ namespace ii887522::Calculator
 		auto result{ Action::NONE };
 		for (auto i{ 0u }; i != sizeof views / sizeof(View*); ++i)
 		{
-			const auto [action, message] { views[i]->reactKeyDown(keyEvent) };
+			const auto [action, message]{ views[i]->reactKeyDown(keyEvent) };
 			if (message.head != Message::Head::EMPTY) result = reactMessage(message);
 			if (action != Action::START_ANIMATION) continue;
 			incrementViewAnimationsCount();

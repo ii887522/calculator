@@ -177,6 +177,18 @@ namespace ii887522::Calculator
 		message = Message{ Message::Head::EXPR_RESULT, toString(result, maxSizeIgnoreDash) };
 	}
 
+	void CalcExprModel::reactUnaryExprWhenBinaryOperatorPressedThenUnaryOperatorPressed(const string& exprStr)
+	{
+		const auto unaryOperator{ getUnaryOperator(exprStr) };
+		const auto operand{ getNumberFromUnaryExpr(exprStr) };
+		auto unaryOperatorResult{ 0. };
+		if (unaryOperator == "sqr") unaryOperatorResult = operand * operand;
+		else if (unaryOperator == "sqrt") unaryOperatorResult = sqrt(operand);
+		value.insert(value.rfind(' ') + 1u, unaryOperator + '(');
+		value += ')';
+		message = Message{ Message::Head::EXPR_RESULT, toString(unaryOperatorResult, maxSizeIgnoreDash) };
+	}
+
 	void CalcExprModel::reactUnaryExpr(const string& exprStr)
 	{
 		switch (state)
@@ -187,9 +199,10 @@ namespace ii887522::Calculator
 			break;
 		case State::EQUAL_PRESSED: reactUnaryExprWhenEqualPressed(exprStr);
 			break;
-		case State::UNARY_OPERATOR_PRESSED:
+		case State::UNARY_OPERATOR_PRESSED: reactUnaryExprWhenUnaryOperatorPressed(exprStr);
+			break;
 		case State::BINARY_OPERATOR_PRESSED_THEN_UNARY_OPERATOR_PRESSED:
-			reactUnaryExprWhenUnaryOperatorPressed(exprStr);
+			reactUnaryExprWhenBinaryOperatorPressedThenUnaryOperatorPressed(exprStr);
 		}
 	}
 

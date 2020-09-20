@@ -4,6 +4,7 @@
 #define II887522_CALCULATOR_MAIN_SCENE_H
 
 #include "../Any/Scene.h"
+#include "../Any/App.h"
 #include <SDL.h>
 #include <SDL_ttf.h>
 #include "../Any/View.h"
@@ -33,12 +34,12 @@ namespace ii887522::Calculator
 
 		// Param renderer: it must not be assigned to integer
 		// Param font: it must not be assigned to integer
-		explicit MainScene(SDL_Renderer*const renderer, const Size& size, const unsigned int maxSizeIgnoreDash, const Rect& calcScreenRect,
-			TTF_Font*const font, const int buttonSize, const ButtonGrid&);
+		explicit MainScene(App&, SDL_Renderer*const renderer, const Size& size, const unsigned int maxSizeIgnoreDash,
+			const Rect& calcScreenRect, TTF_Font*const font, const int buttonSize, const ButtonGrid&);
 
 	public:
 		// Param renderer: it must not be assigned to integer
-		explicit MainScene(SDL_Renderer*const renderer, const Size& size, const int buttonSize = 41);
+		explicit MainScene(App&, SDL_Renderer*const renderer, const Size& size, const int buttonSize = 41);
 
 		virtual Action reactMessage(const Message&) override;
 		virtual Action reactMouseMotionWithFocus(const SDL_MouseMotionEvent&) override;

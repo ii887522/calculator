@@ -27,11 +27,6 @@ namespace ii887522::Calculator
 	protected:
 		explicit constexpr Scene() : isAnimating{ false }, viewAnimationsCount{ 0u } { }
 
-		constexpr bool getIsAnimating() const
-		{
-			return isAnimating;
-		}
-
 		constexpr void setIsAnimating(const bool p_isAnimating)
 		{
 			isAnimating = p_isAnimating;
@@ -53,6 +48,11 @@ namespace ii887522::Calculator
 		}
 
 	public:
+		constexpr bool getIsAnimating() const
+		{
+			return isAnimating;
+		}
+
 		virtual void enable();
 		virtual void tryDisable();
 		virtual Action reactMessage(const Message&) = 0;

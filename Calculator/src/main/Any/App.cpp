@@ -8,7 +8,7 @@
 
 namespace ii887522::Calculator
 {
-	App::App(SDL_Window*const window) : activities{ new MainActivity{ window }, new ContextMenu{ window } }, isAnimating{ false },
+	App::App(SDL_Window*const window) : activities{ new MainActivity{ *this, window }, new ContextMenu{ window } }, isAnimating{ false },
 		activityAnimationsCount{ 0u } { }
 
 	Action App::reactMessage(const Message& message)

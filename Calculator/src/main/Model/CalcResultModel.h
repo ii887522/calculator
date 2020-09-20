@@ -30,6 +30,7 @@ namespace ii887522::Calculator
 		string value;
 		Message message;
 
+		void reactError();
 		void reactExprResult(const string& resultStr);
 		void reactDigitWhenNumber(const char digitCh);
 		void reactDigitWhenBinaryOperatorPressed(const char digitCh);

@@ -20,10 +20,16 @@ namespace ii887522::Calculator
 		return message;
 	}
 
+	void CalcResultModel::reactError()
+	{
+		value = "MATH ERROR";
+		state = State::ERROR;
+	}
+
 	void CalcResultModel::reactExprResult(const string& resultStr)
 	{
 		value = resultStr;
-		if (resultStr != "NO SPACE") return;
+		if (resultStr != "MATH ERROR") return;
 		state = State::ERROR;
 		message = Message{ Message::Head::ERROR };
 	}
@@ -311,6 +317,8 @@ namespace ii887522::Calculator
 		message = Message{ };
 		switch (p_message.head)
 		{
+		case Message::Head::ERROR: reactError();
+			break;
 		case Message::Head::EXPR_RESULT: reactExprResult(p_message.body);
 			break;
 		case Message::Head::INPUT_0: reactDigit('0');

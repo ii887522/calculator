@@ -5,7 +5,6 @@
 #include "../Struct/Message.h"
 #include "../Struct/Rect.h"
 #include "../Functions/math_ext.h"
-#include <iostream>
 
 namespace ii887522::Calculator
 {
