@@ -8,6 +8,8 @@
 #include "../Struct/Message.h"
 #include "../Struct/Point.h"
 #include "../Struct/Size.h"
+#include "../Struct/Range.h"
+#include "../Functions/math_ext.h"
 
 namespace ii887522::Calculator
 {
@@ -20,9 +22,21 @@ namespace ii887522::Calculator
 
 	void ContextMenu::reactShowMessage()
 	{
-		const auto parentPosition{ getWindowPosition(parentWindow) };
+		SDL_Rect usableScreenRect;
+		SDL_GetDisplayUsableBounds(0, &usableScreenRect);
+		const auto size{ getWindowSize(getWindow()) };
 		const auto mousePosition{ getMousePosition() };
-		SDL_SetWindowPosition(getWindow(), parentPosition.x + mousePosition.x, parentPosition.y + mousePosition.y);
+		const auto parentPosition{ getWindowPosition(parentWindow) };
+		if (isOverlapX(parentPosition.x + mousePosition.x, Range<const int>{ usableScreenRect.x, usableScreenRect.x + usableScreenRect.w -
+			size.w }))
+		{
+			if (isOverlapY(parentPosition.y + mousePosition.y, Range<const int>{ usableScreenRect.y, usableScreenRect.y + usableScreenRect.h
+				- size.h })) SDL_SetWindowPosition(getWindow(), parentPosition.x + mousePosition.x, parentPosition.y + mousePosition.y);
+			else SDL_SetWindowPosition(getWindow(), parentPosition.x + mousePosition.x, parentPosition.y + mousePosition.y - size.h);
+		}
+		else if (isOverlapY(parentPosition.y + mousePosition.y, Range<const int>{ usableScreenRect.y, usableScreenRect.y + usableScreenRect.h
+			- size.h })) SDL_SetWindowPosition(getWindow(), parentPosition.x + mousePosition.x - size.w, parentPosition.y + mousePosition.y);
+		else SDL_SetWindowPosition(getWindow(), parentPosition.x + mousePosition.x - size.w, parentPosition.y + mousePosition.y - size.h);
 		if (SDL_HasClipboardText()) scene.enable();
 		else scene.tryDisable();
 		SDL_ShowWindow(getWindow());
