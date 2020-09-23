@@ -44,4 +44,4 @@ and wait for it to finish.
 See also the list of [contributors](https://github.com/ii887522/calculator/graphs/contributors) who participated in this project.
 
 ## License
-This project is licensed under the MIT License - see the [LICENSE](https://github.com/ii887522/calculator/blob/main/LICENSE) file for details
+This project is licensed under the MIT License - see the [LICENSE](https://github.com/ii887522/calculator/blob/master/LICENSE) file for details
